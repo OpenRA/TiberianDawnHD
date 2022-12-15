@@ -27,6 +27,7 @@ RemasterModContent:
 		data|TEXTURES_TD_SRGB.MEG
 		data|TEXTURES_COMMON_SRGB.MEG
 		data|SFX2D_EN-US.MEG
+		data|SFX3D.MEG
 		data|MUSIC.MEG
 		base|bits/snow.mix
 		base|bits
