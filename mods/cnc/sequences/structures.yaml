@@ -198,13 +198,16 @@ pyle:
 	idle:
 		Length: 10
 		Tick: 100
+		ZOffset: -511
 	damaged-idle:
 		Start: 10
 		Length: 10
 		Tick: 100
+		ZOffset: -511
 	dead:
 		Start: 20
 		Tick: 800
+		ZOffset: -511
 	make: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\STRUCTURES\PYLEMAKE.ZIP
 		Length: *
 		Tick: 80

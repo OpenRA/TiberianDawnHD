@@ -622,6 +622,7 @@ pips:
 	groups: pdigits.shp
 		Length: *
 		Offset: 9, 5
+		Frames: 1, 2, 3, 4, 5, 6, 7, 8, 9, 0
 	pip-hazmat: pip-hazmat.shp
 		Offset: -3, 0
 
@@ -830,37 +831,25 @@ airstrikedirection:
 	Defaults: mouse2.shp
 	arrow-t:
 		Start: 1
-		Y: -12
 		Offset: 0, -15, 0
 	arrow-tr:
 		Start: 2
-		X: 14
-		Y: -12
 		Offset: 7, -7, 0
 	arrow-r:
 		Start: 3
-		X: 14
 		Offset: 12, 0, 0
 	arrow-br:
 		Start: 4
-		X: 14
-		Y: 11
 		Offset: 7, 7, 0
 	arrow-b:
 		Start: 5
-		Y: 11
 		Offset: 0, 15, 0
 	arrow-bl:
 		Start: 6
-		X: -15
-		Y: 11
 		Offset: -7, 7, 0
 	arrow-l:
 		Start: 7
-		X: -15
 		Offset: -12, 0, 0
 	arrow-tl:
 		Start: 8
-		X: -15
-		Y: -12
 		Offset: -7, -7, 0
