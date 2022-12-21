@@ -234,6 +234,9 @@ MapGrid:
 	Type: Rectangular
 	EnableFrameBufferDownscale: true
 
+WorldViewportSizes:
+	DefaultScale: 0.1875
+
 DefaultOrderGenerator: UnitOrderGenerator
 
 SupportsMapsFrom: cnc

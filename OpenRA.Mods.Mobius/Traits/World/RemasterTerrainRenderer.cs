@@ -139,10 +139,7 @@ namespace OpenRA.Mods.Mobius.Traits
 				for (var x = 0; x < template.Size.X; x++)
 				{
 					var tile = new TerrainTile(template.Id, (byte)(i++));
-					var tileInfo = terrainInfo.GetTileInfo(tile);
-
-					// Empty tile
-					if (tileInfo == null)
+					if (!terrainInfo.TryGetTileInfo(tile, out var tileInfo))
 						continue;
 
 					var sprite = tileCache.TileSprite(tile, 0);
@@ -163,8 +160,7 @@ namespace OpenRA.Mods.Mobius.Traits
 
 		IEnumerable<IRenderable> ITiledTerrainRenderer.RenderUIPreview(WorldRenderer wr, TerrainTemplateInfo t, int2 origin, float scale)
 		{
-			var template = t as RemasterTerrainTemplateInfo;
-			if (template == null)
+			if (!(t is RemasterTerrainTemplateInfo template))
 				yield break;
 
 			var ts = map.Grid.TileSize;
@@ -176,10 +172,7 @@ namespace OpenRA.Mods.Mobius.Traits
 				for (var x = 0; x < template.Size.X; x++)
 				{
 					var tile = new TerrainTile(template.Id, (byte)i++);
-					var tileInfo = terrainInfo.GetTileInfo(tile);
-
-					// Empty tile
-					if (tileInfo == null)
+					if (!terrainInfo.TryGetTileInfo(tile, out var tileInfo))
 						continue;
 
 					var sprite = tileCache.TileSprite(tile, 0);
@@ -188,7 +181,7 @@ namespace OpenRA.Mods.Mobius.Traits
 
 					var u = gridType == MapGridType.Rectangular ? x : (x - y) / 2f;
 					var v = gridType == MapGridType.Rectangular ? y : (x + y) / 2f;
-					var offset = (scale * new float2(u * ts.Width, (v - 0.5f * tileInfo.Height) * ts.Height) - 0.5f * sprite.Size.XY).ToInt2();
+					var offset = (scale * new float2(u * ts.Width, (v - 0.5f * tileInfo.Height) * ts.Height) - 0.5f * scale * sprite.Size.XY).ToInt2();
 
 					yield return new UISpriteRenderable(sprite, WPos.Zero, origin + offset, 0, null, scale);
 				}
@@ -207,10 +200,7 @@ namespace OpenRA.Mods.Mobius.Traits
 				for (var x = 0; x < template.Size.X; x++)
 				{
 					var tile = new TerrainTile(template.Id, (byte)i++);
-					var tileInfo = terrainInfo.GetTileInfo(tile);
-
-					// Empty tile
-					if (tileInfo == null)
+					if (!terrainInfo.TryGetTileInfo(tile, out var tileInfo))
 						continue;
 
 					var sprite = tileCache.TileSprite(tile, 0);
