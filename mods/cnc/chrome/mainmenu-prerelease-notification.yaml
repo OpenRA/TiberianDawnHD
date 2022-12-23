@@ -44,7 +44,7 @@ Container@MAINMENU_PRERELEASE_NOTIFICATION:
 			X: (WINDOW_RIGHT - WIDTH) / 2
 			Y: (WINDOW_BOTTOM - HEIGHT) / 2
 			Width: 550
-			Height: 155
+			Height: 120
 			Children:
 				Label@TITLE:
 					Width: PARENT_RIGHT
