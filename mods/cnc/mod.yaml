@@ -15,6 +15,15 @@ Packages:
 
 RemasterModContent:
 	RemasterDataMount: data
+	Sources:
+		steam:
+			Type: Steam
+				AppId: 1213210
+		origin:
+			Type: RegistryDirectory
+			RegistryPrefixes: HKEY_LOCAL_MACHINE\Software\, HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\
+			RegistryKey: Petroglyph\CnCRemastered
+			RegistryValue: Install Dir
 	Packages:
 		data|CNCDATA/TIBERIAN_DAWN/CD1/CONQUER.MIX
 		data|CNCDATA/TIBERIAN_DAWN/CD1/SOUNDS.MIX

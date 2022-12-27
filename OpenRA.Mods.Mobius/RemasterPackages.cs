@@ -11,7 +11,8 @@
 
 using System.Collections.Generic;
 using System.IO;
-using OpenRA.FileSystem;
+using System.Linq;
+using OpenRA.Mods.Common.Installer;
 
 namespace OpenRA.Mods.Mobius
 {
@@ -21,44 +22,42 @@ namespace OpenRA.Mods.Mobius
 		public readonly string RemasterDataMount = null;
 		public readonly string InstallPromptMod = "cnccontent";
 		public readonly Dictionary<string, string> Packages;
-		public readonly int SteamAppID = 1213210;
-		public readonly string OriginRegistryKey = @"HKEY_LOCAL_MACHINE\SOFTWARE\Petroglyph\CnCRemastered";
-		public readonly string OriginRegistryValue = "Install Dir";
+
+		[FieldLoader.Ignore]
+		readonly Dictionary<string, ModContent.ModSource> sources = new Dictionary<string, ModContent.ModSource>();
 
 		public RemasterModContent(MiniYaml yaml)
 		{
 			FieldLoader.Load(this, yaml);
-		}
 
-		string FindOriginInstallation()
-		{
-			if (Platform.CurrentPlatform == PlatformType.Windows)
-			{
-				var path = Microsoft.Win32.Registry.GetValue(OriginRegistryKey, OriginRegistryValue, null) as string;
-				if (Directory.Exists(path))
-					return path;
-			}
-
-			return null;
+			var sourcesNode = yaml.Nodes.Single(n => n.Key == "Sources");
+			foreach (var s in sourcesNode.Value.Nodes)
+				sources.Add(s.Key, new ModContent.ModSource(s.Value, null));
 		}
 
 		public bool TryMountPackagesInner(ModData modData)
 		{
-			var remasterDataPath = InstallUtils.FindSteamInstallation(SteamAppID) ?? FindOriginInstallation();
-			if (remasterDataPath == null)
-				return false;
-
-			modData.ModFiles.Mount(Path.Combine(remasterDataPath, "Data"), RemasterDataMount);
-			foreach (var kv in Packages)
+			foreach (var kv in sources)
 			{
-				var package = modData.ModFiles.OpenPackage(kv.Key);
-				if (package == null)
-					return false;
+				var sourceResolver = modData.ObjectCreator.CreateObject<ISourceResolver>($"{kv.Value.Type.Value}SourceResolver");
+				var path = sourceResolver.FindSourcePath(kv.Value);
+				if (path != null)
+				{
+					modData.ModFiles.Mount(Path.Combine(path, "Data"), RemasterDataMount);
+					foreach (var p in Packages)
+					{
+						var package = modData.ModFiles.OpenPackage(p.Key);
+						if (package == null)
+							return false;
 
-				modData.ModFiles.Mount(package, kv.Value);
+						modData.ModFiles.Mount(package, p.Value);
+					}
+
+					return true;
+				}
 			}
 
-			return true;
+			return false;
 		}
 
 		public bool TryMountPackages(ModData modData)
