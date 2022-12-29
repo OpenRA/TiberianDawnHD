@@ -9,10 +9,6 @@
  */
 #endregion
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using OpenRA.FileSystem;
 using OpenRA.Widgets;
 using FS = OpenRA.FileSystem.FileSystem;
 

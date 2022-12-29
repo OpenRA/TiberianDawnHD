@@ -11,19 +11,17 @@
 
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using OpenRA.Graphics;
 using OpenRA.Mods.Common.Terrain;
 using OpenRA.Primitives;
-using OpenRA.Support;
 
 namespace OpenRA.Mods.Mobius.Terrain
 {
 	public sealed class RemasterTileCache : IDisposable
 	{
 		readonly Dictionary<ushort, Dictionary<int, Sprite[]>> templates = new Dictionary<ushort, Dictionary<int, Sprite[]>>();
-		SheetBuilder sheetBuilder;
+		readonly SheetBuilder sheetBuilder;
 		readonly Sprite missingTile;
 		readonly RemasterTerrain terrainInfo;
 

@@ -37,7 +37,7 @@ namespace OpenRA.Mods.Mobius.Traits
 		[Desc("Saturation reference for the color shift.")]
 		public readonly float ReferenceSaturation = 0.925f;
 
-		public override object Create(ActorInitializer init) { return new ColorPickerColorShift(init.World, this); }
+		public override object Create(ActorInitializer init) { return new ColorPickerColorShift(this); }
 	}
 
 	class ColorPickerColorShift : ILoadsPalettes, ITickRender
@@ -46,7 +46,7 @@ namespace OpenRA.Mods.Mobius.Traits
 		readonly ColorPickerManagerInfo colorManager;
 		Color color;
 
-		public ColorPickerColorShift(World world, ColorPickerColorShiftInfo info)
+		public ColorPickerColorShift(ColorPickerColorShiftInfo info)
 		{
 			// All users need to use the same TraitInfo instance, chosen as the default mod rules
 			colorManager = Game.ModData.DefaultRules.Actors[SystemActors.World].TraitInfo<ColorPickerManagerInfo>();

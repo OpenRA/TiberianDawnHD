@@ -21,6 +21,7 @@ namespace OpenRA.Mods.Mobius.Terrain
 {
 	public class RemasterTerrainLoader : ITerrainLoader
 	{
+		[System.Diagnostics.CodeAnalysis.SuppressMessage("Usage", "IDE0060:Remove unused parameter", Justification = "Load game API")]
 		public RemasterTerrainLoader(ModData modData) { }
 
 		public ITerrainInfo ParseTerrain(IReadOnlyFileSystem fileSystem, string path)
