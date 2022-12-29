@@ -52,4 +52,4 @@ else
 fi
 
 cd "${ENGINE_DIRECTORY}"
-${RUNTIME_LAUNCHER} bin/OpenRA.dll Engine.EngineDir=".." Engine.LaunchPath="${TEMPLATE_LAUNCHER}" "Engine.ModSearchPaths=${MOD_SEARCH_PATHS}" Game.Mod="${MOD_ID}" "$@"
+${RUNTIME_LAUNCHER} bin/OpenRA.dll Game.Mod="${MOD_ID}" Engine.EngineDir=".." Engine.LaunchPath="${TEMPLATE_LAUNCHER}" Engine.ModSearchPaths="${MOD_SEARCH_PATHS}" "$@"

@@ -1,18 +1,47 @@
 user.config
 engine
+
+# Visual Studio
+Release
 bin
 obj
-mods/*/*.dll
-mods/*/*.mdb
-mods/*/*.pdb
-/*.dll
-/*.dll.config
-/*.so
-/*.dylib
-/*.pdb
-/*.mdb
-/*.exe
-DOCUMENTATION.md
-Lua-API.md
-StyleCopViolations.xml
+*.ncb
+*.vcproj*
+*.suo
+*.user
+*.sln.cache
+*.manifest
+*.CodeAnalysisLog.xml
+*.lastcodeanalysissucceeded
+_ReSharper.*/
+/.vs
+
+# Visual Studio Code
+/.vscode/settings.json
+
+# backup files by various editors
+*~
+*.orig
+\#*
+.*.sw?
+
+# Monodevelop
+*.pidb
+*.userprefs
+
+# Mac OS X
 .DS_Store
+
+# SublimeText
+*.sublime-project
+*.sublime-workspace
+
+# NUnit
+/TestResult.xml
+/lib/
+
+# Support directory
+/Support
+
+# IntelliJ files
+.idea

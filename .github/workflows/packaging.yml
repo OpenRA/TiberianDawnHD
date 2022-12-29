@@ -9,12 +9,11 @@ jobs:
   linux:
     name: Linux AppImages
     runs-on: ubuntu-20.04
-
     steps:
       - name: Clone Repository
         uses: actions/checkout@v2
 
-      - name: Install .NET 6
+      - name: Install .NET 6.0
         uses: actions/setup-dotnet@v1
         with:
           dotnet-version: '6.0.x'
@@ -76,12 +75,11 @@ jobs:
   windows:
     name: Windows Installers
     runs-on: ubuntu-20.04
-
     steps:
       - name: Clone Repository
         uses: actions/checkout@v2
 
-      - name: Install .NET 6
+      - name: Install .NET 6.0
         uses: actions/setup-dotnet@v1
         with:
           dotnet-version: '6.0.x'
