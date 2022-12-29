@@ -72,17 +72,24 @@ Rules:
 	cnc|rules/overrides.yaml
 
 Sequences:
-	cnc|sequences/structures.yaml
-	cnc|sequences/vehicles.yaml
-	cnc|sequences/infantry.yaml
-	cnc|sequences/aircraft.yaml
-	cnc|sequences/decorations.yaml
-	cnc|sequences/civilian.yaml
-	cnc|sequences/campaign.yaml
-	cnc|sequences/misc.yaml
-	# Replace morevram with lessvram to save ~512MB VRAM
-	cnc|sequences/morevram.yaml
-	#cnc|sequences/lessvram.yaml
+	base|sequences/structures.yaml
+	cnc|sequences/structures-overrides.yaml
+	base|sequences/vehicles.yaml
+	cnc|sequences/vehicles-overrides.yaml
+	base|sequences/infantry.yaml
+	cnc|sequences/infantry-overrides.yaml
+	base|sequences/aircraft.yaml
+	cnc|sequences/aircraft-overrides.yaml
+	base|sequences/decorations.yaml
+	cnc|sequences/decorations-overrides.yaml
+	base|sequences/misc.yaml
+	cnc|sequences/misc-overrides.yaml
+	base|sequences/funpark.yaml
+	cnc|sequences/funpark-overrides.yaml
+	base|sequences/civilian.yaml
+	cnc|sequences/civilian-overrides.yaml
+	base|sequences/campaign.yaml
+	cnc|sequences/campaign-overrides.yaml
 
 TileSets:
 	cnc|tilesets/desert.yaml
@@ -98,7 +105,6 @@ Weapons:
 	base|weapons/other.yaml
 	base|weapons/smallcaliber.yaml
 	base|weapons/superweapons.yaml
-	cnc|weapons/overrides.yaml
 
 Cursors:
 	base|cursors.yaml
@@ -258,12 +264,18 @@ VideoFormats: Vqa
 
 TerrainFormat: RemasterTerrain
 
-SpriteSequenceFormat: ClassicSpriteSequence
+SpriteSequenceFormat: RemasterSpriteSequence
+	TilesetExtensions:
+		TEMPERAT: .tem
+		WINTER: .win
+		SNOW: .sno
+		DESERT: .des
+		JUNGLE: .jun
 
 ModelSequenceFormat: PlaceholderModelSequence
 
 AssetBrowser:
-	SpriteExtensions: .shp, .tem, .win, .sno, .des, .jun .ZIP
+	SpriteExtensions: .shp, .tem, .win, .sno, .des, .jun, .ZIP, .DDS, .TGA
 	AudioExtensions: .aud, .wav, .v00, .v01, .v02, .v03, .var
 	VideoExtensions: .vqa, .wsa
 

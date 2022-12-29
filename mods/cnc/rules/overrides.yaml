@@ -2,9 +2,9 @@
 	-TerrainRenderer:
 	RemasterTerrainRenderer:
 	ShroudRenderer:
-		ShroudVariants: shroud
+		ShroudVariants: shroud-typea, shroud-typeb, shroud-typec, shroud-typed
 		OverrideFullShroud: shroud-full
-		FogVariants: fog
+		FogVariants: fog-typea, fog-typeb, fog-typec, fog-typed
 		OverrideFullFog: fog-full
 
 World:
