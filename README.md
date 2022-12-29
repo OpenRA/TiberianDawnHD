@@ -4,3 +4,34 @@ This repo is made available as a proof of concept demonstrating the capabilities
 Performance, memory usage, and loading times have not been optimized, and do not reflect the expected final requirements.
 
 A dedicated GPU is recommended. Use at your own risk.
+
+## Asset Installation
+
+Tiberian Dawn HD loads assets directly from an existing digital installation of the C&C Remastered Collection.
+
+#### Windows
+
+Install the C&C Remastered Collection through Steam or Origin.
+
+#### Linux
+
+Install the C&C Remastered Collection through Steam using Proton.
+
+#### macOS
+
+Install the C&C Remastered Collection through Steam using the following procedure:
+
+1. Make sure that Steam is installed.
+2. Create a file `~/Library/Application Support/Steam/steamapps/appmanifest_1213210.acf` with contents
+   ```
+   "AppState"
+   {
+   	"appid"		"1213210"
+   	"Universe"		"1"
+   	"installdir"		"CnCRemastered"
+   	"StateFlags"		"1026"
+   }
+   ```
+3. Restart steam and log into an account that owns the C&C Remastered Collection.
+
+The game files will automatically download.
