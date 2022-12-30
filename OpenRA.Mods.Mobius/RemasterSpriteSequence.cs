@@ -9,7 +9,6 @@
  */
 #endregion
 
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using OpenRA.Graphics;
@@ -143,7 +142,7 @@ namespace OpenRA.Mods.Cnc.Graphics
 					var subFlipY = LoadField(FlipY, subData, NoData);
 					var subFrames = LoadField(Frames, data);
 
-					foreach ((var subFilename, var subLoadFrames, var subUseFrames, var subLocation) in ParseRemasterCombineFilenames(modData, tileset, subFrames, combineNode.Value.Nodes[i].Key, subData))
+					foreach ((var subFilename, var subLoadFrames, var subUseFrames, var subLocation) in ParseRemasterCombineFilenames(tileset, subFrames, combineNode.Value.Nodes[i].Key, subData))
 					{
 						spritesToLoad.Add(new SpriteReservation
 						{
@@ -160,7 +159,7 @@ namespace OpenRA.Mods.Cnc.Graphics
 			}
 			else
 			{
-				foreach ((var filename, var loadFrames, var useFrames, var location) in ParseRemasterFilenames(modData, tileset, frames, data, defaults))
+				foreach ((var filename, var loadFrames, var useFrames, var location) in ParseRemasterFilenames(tileset, frames, data, defaults))
 				{
 					spritesToLoad.Add(new SpriteReservation
 					{
@@ -176,7 +175,7 @@ namespace OpenRA.Mods.Cnc.Graphics
 			}
 		}
 
-		IEnumerable<(string Filename, int[] loadFrames, int[] useFrames, MiniYamlNode.SourceLocation location)> ParseRemasterFilenames(ModData modData, string tileset, int[] frames, MiniYaml data, MiniYaml defaults)
+		IEnumerable<(string Filename, int[] loadFrames, int[] useFrames, MiniYamlNode.SourceLocation location)> ParseRemasterFilenames(string tileset, int[] frames, MiniYaml data, MiniYaml defaults)
 		{
 			string filename = null;
 			MiniYamlNode.SourceLocation location = default;
@@ -250,7 +249,7 @@ namespace OpenRA.Mods.Cnc.Graphics
 			}
 		}
 
-		IEnumerable<(string Filename, int[] loadFrames, int[] useFrames, MiniYamlNode.SourceLocation location)> ParseRemasterCombineFilenames(ModData modData, string tileset, int[] frames, string key, MiniYaml data)
+		IEnumerable<(string Filename, int[] loadFrames, int[] useFrames, MiniYamlNode.SourceLocation location)> ParseRemasterCombineFilenames(string tileset, int[] frames, string key, MiniYaml data)
 		{
 			string filename = null;
 			MiniYamlNode.SourceLocation location = default;
