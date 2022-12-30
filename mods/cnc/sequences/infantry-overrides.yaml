@@ -38,24 +38,30 @@ pvice:
 e1:
 	Defaults:
 		RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\UNITS\E1.ZIP
-	die-crushed:
+	die-crushed: # FIXME
 		Start: 389
+		Length: 1
+		Tick: 6400
 	icon:
 		RemasteredFilename:
 
 e2:
 	Defaults:
 		RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\UNITS\E2.ZIP
-	die-crushed:
-		Start: 389
+	die-crushed: # FIXME
+		Start: 532
+		Length: 1
+		Tick: 6400
 	icon:
 		RemasteredFilename:
 
 e3:
 	Defaults:
 		RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\UNITS\E3.ZIP
-	die-crushed:
-		Start: 389
+	die-crushed: # FIXME
+		Start: 404
+		Length: 1
+		Tick: 6400
 	icon:
 		RemasteredFilename:
 
@@ -88,8 +94,10 @@ e4:
 			flame-ne:
 				RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\VFX\FLAME-NE.ZIP
 				Offset: -37, 43
-	die-crushed:
-		Start: 389
+	die-crushed: # FIXME
+		Start: 515
+		Length: 1
+		Tick: 6400
 	icon:
 		RemasteredFilename:
 
@@ -122,28 +130,31 @@ e5:
 			chem-ne:
 				RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\VFX\CHEM-NE.ZIP
 				Offset: -16, 11
-	die-crushed:
-		Start: 389
+	die-crushed: # FIXME
+		Start: 515
+		Length: 1
+		Tick: 6400
 	icon:
 		RemasteredFilename:
 
 e6:
 	Defaults:
 		RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\UNITS\E6.ZIP
-	die6:
-		Start: 130
-		Length: 4
 	die-crushed:
 		RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\UNITS\E1.ZIP
-		Start: 389
+		Start: 389 # FIXME
+		Length: 1
+		Tick: 6400
 	icon:
 		RemasteredFilename:
 
 rmbo:
 	Defaults:
 		RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\UNITS\RMBO.ZIP
-	die-crushed:
+	die-crushed: # FIXME
 		RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\UNITS\E1.ZIP
 		Start: 389
+		Length: 1
+		Tick: 6400
 	icon:
 		RemasteredFilename:

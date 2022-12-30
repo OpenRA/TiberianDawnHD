@@ -258,7 +258,7 @@ SupportsMapsFrom: cnc
 
 SoundFormats: Aud, Wav
 
-SpriteFormats: Tga, ShpTD, TmpTD, ShpTS, TmpRA, ShpRemastered, Dds
+SpriteFormats: Tga, ShpTD, TmpTD, ShpTS, TmpRA, ShpRemastered, Dds, PngSheet
 
 VideoFormats: Vqa
 

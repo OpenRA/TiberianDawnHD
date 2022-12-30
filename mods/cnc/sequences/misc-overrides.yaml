@@ -182,6 +182,10 @@ editor-overlay:
 		RemasteredFilenamePattern: DATA\ART\TEXTURES\SRGB\COMMON\MISC\PLACEMENT_BAD.TGA
 			Count: 3
 
+moveflsh:
+	idle:
+		RemasteredFilename: moveflsh.shp
+
 resources:
 	Defaults:
 		Length: *

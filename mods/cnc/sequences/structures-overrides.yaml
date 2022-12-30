@@ -37,10 +37,10 @@ proc:
 	make:
 		RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\STRUCTURES\PROCMAKE.ZIP
 	resources:
-		RemasteredFilenamePattern: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\STRUCTURES\GUNMAKE.ZIP # empty frame
+		RemasteredFilenamePattern: blank.png
 			Count: 12
 	damaged-resources:
-		RemasteredFilenamePattern: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\STRUCTURES\GUNMAKE.ZIP # empty frame
+		RemasteredFilenamePattern: blank.png
 			Count: 12
 	bib:
 		RemasteredOffset: 0, 0
@@ -61,7 +61,7 @@ silo:
 	make:
 		RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\STRUCTURES\SILOMAKE.ZIP
 	bib:
-		RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\STRUCTURES\GUNMAKE.ZIP # empty frame
+		RemasteredFilename: blank.png
 	icon:
 		RemasteredFilename:
 
@@ -127,7 +127,7 @@ afld:
 	Defaults:
 		RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\STRUCTURES\AFLD.ZIP
 	idle-dish:
-		RemasteredFilenamePattern: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\STRUCTURES\GUNMAKE.ZIP # empty frame
+		RemasteredFilenamePattern: blank.png
 			Count: 16
 	make:
 		RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\STRUCTURES\AFLDMAKE.ZIP
@@ -188,7 +188,7 @@ fix:
 	make:
 		RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\STRUCTURES\FIXMAKE.ZIP
 	bib:
-		RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\STRUCTURES\GUNMAKE.ZIP # empty frame
+		RemasteredFilename: blank.png
 	icon:
 		RemasteredFilename:
 
@@ -236,7 +236,7 @@ obli:
 	make:
 		RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\STRUCTURES\OBLIMAKE.ZIP
 	bib:
-		RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\STRUCTURES\GUNMAKE.ZIP # empty frame
+		RemasteredFilename: blank.png
 	icon:
 		RemasteredFilename:
 
@@ -274,7 +274,7 @@ gun:
 	make:
 		RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\STRUCTURES\GUNMAKE.ZIP
 	bib:
-		RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\STRUCTURES\GUNMAKE.ZIP # empty frame
+		RemasteredFilename: blank.png
 	muzzle:
 		RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\VFX\GUNFIRE.ZIP
 	icon:
@@ -298,7 +298,7 @@ gtwr:
 	muzzle:
 		RemasteredFilename: DATA\ART\TEXTURES\SRGB\COMMON\VFX\MINIGUN.ZIP
 	bib:
-		RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\STRUCTURES\GUNMAKE.ZIP # empty frame
+		RemasteredFilename: blank.png
 	icon:
 		RemasteredFilename:
 
@@ -311,7 +311,7 @@ atwr:
 	muzzle:
 		RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\VFX\GUNFIRE.ZIP
 	bib:
-		RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\STRUCTURES\GUNMAKE.ZIP # empty frame
+		RemasteredFilename: blank.png
 	icon:
 		RemasteredFilename:
 
@@ -322,14 +322,14 @@ hosp:
 	make:
 		RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\STRUCTURES\HOSPMAKE.ZIP
 	bib:
-		RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\STRUCTURES\GUNMAKE.ZIP # empty frame
+		RemasteredFilename: blank.png
 
 hosp.husk:
 	idle:
 		RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\STRUCTURES\HOSP.ZIP
 		RemasteredOffset: 0, -11
 	bib:
-		RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\STRUCTURES\GUNMAKE.ZIP # empty frame
+		RemasteredFilename: blank.png
 
 bio:
 	Defaults:
@@ -348,7 +348,7 @@ miss:
 	make:
 		RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\STRUCTURES\MISS.ZIP
 	bib:
-		RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\STRUCTURES\GUNMAKE.ZIP # empty frame
+		RemasteredFilename: blank.png
 	icon:
 		RemasteredFilename:
 
@@ -356,4 +356,4 @@ miss.husk:
 	idle:
 		RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\STRUCTURES\MISS.ZIP
 	bib:
-		RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\STRUCTURES\GUNMAKE.ZIP # empty frame
+		RemasteredFilename: blank.png
