@@ -1,6 +1,6 @@
 #region Copyright & License Information
 /*
- * Copyright 2007-2020 The OpenRA Developers (see AUTHORS)
+ * Copyright 2007-2023 The OpenRA Developers (see AUTHORS)
  * This file is part of OpenRA, which is free software. It is made
  * available to you under the terms of the GNU General Public License
  * as published by the Free Software Foundation, either version 3 of
@@ -32,7 +32,9 @@ namespace OpenRA.Mods.Mobius.Terrain
 
 	public class RemasterTerrainTemplateInfo : TerrainTemplateInfo
 	{
-		public readonly Dictionary<int, string[]> Images;
+		public readonly string Filename;
+		public readonly Dictionary<int, string[]> RemasteredFilenames;
+		public readonly string Palette;
 
 		public RemasterTerrainTemplateInfo(ITerrainInfo terrainInfo, MiniYaml my)
 			: base(terrainInfo, my) { }
@@ -42,9 +44,13 @@ namespace OpenRA.Mods.Mobius.Terrain
 	{
 		public readonly string Name;
 		public readonly string Id;
-		public readonly int SheetSize = 4096;
+		public readonly int BgraSheetSize = 4096;
+		public readonly int IndexedSheetSize = 128;
 		public readonly Color[] HeightDebugColors = { Color.Red };
 		public readonly string[] EditorTemplateOrder;
+		public readonly string BlankTile = "blank.png";
+		public readonly string Palette = TileSet.TerrainPaletteInternalName;
+		public readonly float ClassicUpscaleFactor = 5.333333f;
 
 		[FieldLoader.Ignore]
 		public readonly IReadOnlyDictionary<ushort, TerrainTemplateInfo> Templates;
@@ -133,19 +139,18 @@ namespace OpenRA.Mods.Mobius.Terrain
 			return info != null;
 		}
 
-		string ITerrainInfo.Id { get { return Id; } }
-		TerrainTypeInfo[] ITerrainInfo.TerrainTypes { get { return TerrainInfo; } }
+		string ITerrainInfo.Id => Id;
+		TerrainTypeInfo[] ITerrainInfo.TerrainTypes => TerrainInfo;
 		TerrainTileInfo ITerrainInfo.GetTerrainInfo(TerrainTile r) { return GetTileInfo(r); }
 		bool ITerrainInfo.TryGetTerrainInfo(TerrainTile r, out TerrainTileInfo info) { return TryGetTileInfo(r, out info); }
-		Color[] ITerrainInfo.HeightDebugColors { get { return HeightDebugColors; } }
+		Color[] ITerrainInfo.HeightDebugColors => HeightDebugColors;
 		IEnumerable<Color> ITerrainInfo.RestrictedPlayerColors { get { return TerrainInfo.Where(ti => ti.RestrictPlayerColor).Select(ti => ti.Color); } }
-		float ITerrainInfo.MinHeightColorBrightness { get { return 1.0f; } }
-		float ITerrainInfo.MaxHeightColorBrightness { get { return 1.0f; } }
-		TerrainTile ITerrainInfo.DefaultTerrainTile { get { return new TerrainTile(Templates.First().Key, 0); } }
+		float ITerrainInfo.MinHeightColorBrightness => 1.0f;
+		float ITerrainInfo.MaxHeightColorBrightness => 1.0f;
+		TerrainTile ITerrainInfo.DefaultTerrainTile => new TerrainTile(Templates.First().Key, 0);
 
-		string[] ITemplatedTerrainInfo.EditorTemplateOrder { get { return EditorTemplateOrder; } }
-		IReadOnlyDictionary<ushort, TerrainTemplateInfo> ITemplatedTerrainInfo.Templates { get { return Templates; } }
-
+		string[] ITemplatedTerrainInfo.EditorTemplateOrder => EditorTemplateOrder;
+		IReadOnlyDictionary<ushort, TerrainTemplateInfo> ITemplatedTerrainInfo.Templates => Templates;
 		void ITerrainInfoNotifyMapCreated.MapCreated(Map map)
 		{
 			// Randomize PickAny tile variants

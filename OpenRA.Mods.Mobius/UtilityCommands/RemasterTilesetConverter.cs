@@ -60,12 +60,9 @@ namespace OpenRA.Mods.Mobius.UtilityCommands
 					continue;
 				}
 
-				template.RemoveNodes("Images");
 				template.RemoveNodes("Frames");
-
-				var imageNode = new MiniYamlNode("Images", "");
-				template.AddNode(imageNode);
-
+				template.RenameChildrenMatching("Images", "Filename");
+				var imageNode = new MiniYamlNode("RemasteredFilenames", "");
 				foreach (var t in tileNodes)
 				{
 					var tileNode = (XmlNode)t;
@@ -76,6 +73,9 @@ namespace OpenRA.Mods.Mobius.UtilityCommands
 
 					imageNode.AddNode(index, FieldSaver.FormatValue(frames));
 				}
+
+				if (imageNode.Value.Nodes.Any())
+					template.AddNode(imageNode);
 			}
 
 			tileset.WriteToFile(args[1]);

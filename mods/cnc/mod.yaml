@@ -265,6 +265,8 @@ VideoFormats: Vqa
 TerrainFormat: RemasterTerrain
 
 SpriteSequenceFormat: RemasterSpriteSequence
+	BgraSheetSize: 8192
+	IndexedSheetSize: 512
 	TilesetExtensions:
 		TEMPERAT: .tem
 		WINTER: .win

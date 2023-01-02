@@ -13,110 +13,98 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using OpenRA.Graphics;
-using OpenRA.Mods.Common.Terrain;
-using OpenRA.Primitives;
 
 namespace OpenRA.Mods.Mobius.Terrain
 {
 	public sealed class RemasterTileCache : IDisposable
 	{
-		readonly Dictionary<ushort, Dictionary<int, Sprite[]>> templates = new Dictionary<ushort, Dictionary<int, Sprite[]>>();
-		readonly SheetBuilder sheetBuilder;
-		readonly Sprite missingTile;
-		readonly RemasterTerrain terrainInfo;
+		static readonly int[] FirstFrame = { 0 };
+
+		readonly Dictionary<ushort, Dictionary<int, Sprite[]>> sprites = new Dictionary<ushort, Dictionary<int, Sprite[]>>();
+		readonly Dictionary<ushort, float> scale = new Dictionary<ushort, float>();
+		readonly SpriteCache spriteCache;
+		readonly Sprite blankSprite;
+
+		public SpriteCache SpriteCache => spriteCache;
 
 		public RemasterTileCache(RemasterTerrain terrainInfo)
 		{
-			this.terrainInfo = terrainInfo;
+			spriteCache = new SpriteCache(Game.ModData.DefaultFileSystem, Game.ModData.SpriteLoaders, terrainInfo.BgraSheetSize, terrainInfo.IndexedSheetSize, 0);
 
-			// HACK: Reduce the margin so we can fit DESERT into 4 sheets until we can find more memory savings somewhere else!
-			sheetBuilder = new SheetBuilder(SheetType.BGRA, terrainInfo.SheetSize, margin: 0);
-			var frameCache = new FrameCache(Game.ModData.DefaultFileSystem, Game.ModData.SpriteLoaders);
-			missingTile = sheetBuilder.Add(new byte[4], SpriteFrameType.Bgra32, new Size(1, 1));
+			var blankToken = spriteCache.ReserveSprites(terrainInfo.BlankTile, FirstFrame, default);
 
+			var remasteredSpriteReservations = new Dictionary<ushort, Dictionary<int, int[]>>();
 			foreach (var t in terrainInfo.Templates)
 			{
 				var templateInfo = (RemasterTerrainTemplateInfo)t.Value;
-				var sprites = new Dictionary<int, Sprite[]>();
-				templates.Add(t.Value.Id, sprites);
+				var templateTokens = new Dictionary<int, int[]>();
 
-				foreach (var kv in templateInfo.Images)
+				if (templateInfo.RemasteredFilenames?.Any() ?? false)
 				{
-					var tileSprites = new List<Sprite>();
-					foreach (var f in kv.Value)
+					foreach (var kv in templateInfo.RemasteredFilenames)
+						templateTokens[kv.Key] = kv.Value
+							.Select(f => spriteCache.ReserveSprites(f, FirstFrame, default))
+							.ToArray();
+					scale[t.Key] = 1f;
+				}
+				else
+				{
+					for (var i = 0; i < t.Value.TilesCount; i++)
 					{
-						var frame = frameCache[f][0];
-						var s = sheetBuilder.Allocate(frame.Size, 1f, frame.Offset);
-
-						if (frame.Type == SpriteFrameType.Indexed8)
-						{
-							tileSprites.Add(missingTile);
+						if (t.Value[i] == null)
 							continue;
-						}
 
-						OpenRA.Graphics.Util.FastCopyIntoChannel(s, frame.Data, frame.Type);
-						tileSprites.Add(s);
+						templateTokens[i] = new[] { spriteCache.ReserveSprites(templateInfo.Filename, new[] { i }, default) };
 					}
 
-					sprites[kv.Key] = tileSprites.ToArray();
+					scale[t.Key] = terrainInfo.ClassicUpscaleFactor;
 				}
+
+				remasteredSpriteReservations[t.Key] = templateTokens;
 			}
 
-			sheetBuilder.Current.ReleaseBuffer();
+			spriteCache.LoadReservations(Game.ModData);
 
-			Console.WriteLine("Terrain has {0} sheets", sheetBuilder.AllSheets.Count());
+			blankSprite = spriteCache.ResolveSprites(blankToken).First(s => s != null);
+			foreach (var kv in remasteredSpriteReservations)
+			{
+				sprites[kv.Key] = new Dictionary<int, Sprite[]>();
+				foreach (var tokens in kv.Value)
+					sprites[kv.Key][tokens.Key] = tokens.Value
+						.Select(t => spriteCache.ResolveSprites(t).FirstOrDefault(s => s != null))
+						.ToArray();
+			}
 		}
 
 		public bool HasTileSprite(TerrainTile r, int frame)
 		{
-			return TileSprite(r, frame) != missingTile;
+			return TileSprite(r, frame) != blankSprite;
 		}
 
 		public Sprite TileSprite(TerrainTile r, int frame)
 		{
-			if (!templates.TryGetValue(r.Type, out var template))
-				return missingTile;
+			if (!sprites.TryGetValue(r.Type, out var templateSprites))
+				return blankSprite;
 
-			if (!template.TryGetValue(r.Index, out var sprites))
-				return missingTile;
+			if (!templateSprites.TryGetValue(r.Index, out var tileSprites))
+				return blankSprite;
 
-			return sprites[frame % sprites.Length];
+			return tileSprites[frame % tileSprites.Length];
 		}
 
-		public Rectangle TemplateBounds(TerrainTemplateInfo template, Size tileSize, MapGridType mapGrid)
+		public float TileScale(TerrainTile r)
 		{
-			Rectangle? templateRect = null;
+			if (!scale.TryGetValue(r.Type, out var templateScale))
+				return 1f;
 
-			var i = 0;
-			for (var y = 0; y < template.Size.Y; y++)
-			{
-				for (var x = 0; x < template.Size.X; x++)
-				{
-					var tile = new TerrainTile(template.Id, (byte)(i++));
-					var tileInfo = terrainInfo.GetTileInfo(tile);
-
-					// Empty tile
-					if (tileInfo == null)
-						continue;
-
-					var sprite = TileSprite(tile, 0);
-					var u = mapGrid == MapGridType.Rectangular ? x : (x - y) / 2f;
-					var v = mapGrid == MapGridType.Rectangular ? y : (x + y) / 2f;
-
-					var tl = new float2(u * tileSize.Width, (v - 0.5f * tileInfo.Height) * tileSize.Height) - 0.5f * sprite.Size;
-					var rect = new Rectangle((int)(tl.X + sprite.Offset.X), (int)(tl.Y + sprite.Offset.Y), (int)sprite.Size.X, (int)sprite.Size.Y);
-					templateRect = templateRect.HasValue ? Rectangle.Union(templateRect.Value, rect) : rect;
-				}
-			}
-
-			return templateRect.HasValue ? templateRect.Value : Rectangle.Empty;
+			return templateScale;
 		}
 
-		public Sprite MissingTile { get { return missingTile; } }
+		public Sprite MissingTile => blankSprite;
 
 		public void Dispose()
 		{
-			sheetBuilder.Dispose();
+			spriteCache.Dispose();
 		}
 	}
 }

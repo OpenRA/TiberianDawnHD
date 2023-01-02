@@ -32,13 +32,13 @@ namespace OpenRA.Mods.Mobius.Traits
 			foreach (var t in terrainInfo.Templates)
 			{
 				var templateInfo = (RemasterTerrainTemplateInfo)t.Value;
-				foreach (var kv in templateInfo.Images)
+				foreach (var kv in templateInfo.RemasteredFilenames)
 				{
 					for (var i = 0; i < kv.Value.Length; i++)
 					{
 						if (!tileCache.HasTileSprite(new TerrainTile(t.Key, (byte)kv.Key), i))
 						{
-							onError("\tTemplate `{0}` tile {1} references sprite `{2}` that does not exist.".F(t.Key, kv.Key, templateInfo.Images[i]));
+							onError("\tTemplate `{0}` tile {1} references sprite `{2}` that does not exist.".F(t.Key, kv.Key, templateInfo.RemasteredFilenames[i]));
 							failed = true;
 						}
 					}
@@ -55,6 +55,7 @@ namespace OpenRA.Mods.Mobius.Traits
 		readonly RemasterTerrain terrainInfo;
 		readonly RemasterTileCache tileCache;
 		TerrainSpriteLayer[] spriteLayers;
+		WorldRenderer worldRenderer;
 		int frame;
 		bool disposed;
 
@@ -71,6 +72,7 @@ namespace OpenRA.Mods.Mobius.Traits
 
 		void IWorldLoaded.WorldLoaded(World world, WorldRenderer wr)
 		{
+			worldRenderer = wr;
 			spriteLayers = new TerrainSpriteLayer[8];
 			for (var i = 0; i < 8; i++)
 				spriteLayers[i] = new TerrainSpriteLayer(world, wr, tileCache.MissingTile, BlendMode.Alpha, world.Type != WorldType.Editor);
@@ -84,8 +86,15 @@ namespace OpenRA.Mods.Mobius.Traits
 
 		public void UpdateCell(CPos cell)
 		{
+			var tile = map.Tiles[cell];
+			var palette = terrainInfo.Palette;
+			if (terrainInfo.Templates.TryGetValue(tile.Type, out var template))
+				palette = ((RemasterTerrainTemplateInfo)template).Palette ?? palette;
+
+			var paletteReference = worldRenderer.Palette(palette);
+			var scale = tileCache.TileScale(tile);
 			for (var i = 0; i < 8; i++)
-				spriteLayers[i].Update(cell, tileCache.TileSprite(map.Tiles[cell], i), null);
+				spriteLayers[i].Update(cell, tileCache.TileSprite(tile, i), paletteReference, scale);
 		}
 
 		int t;
@@ -146,11 +155,12 @@ namespace OpenRA.Mods.Mobius.Traits
 					if (sprite == null)
 						continue;
 
+					var scale = tileCache.TileScale(tile);
 					var u = map.Grid.Type == MapGridType.Rectangular ? x : (x - y) / 2f;
 					var v = map.Grid.Type == MapGridType.Rectangular ? y : (x + y) / 2f;
 
-					var tl = new float2(u * tileSize.Width, (v - 0.5f * tileInfo.Height) * tileSize.Height) - 0.5f * sprite.Size;
-					var rect = new Rectangle((int)(tl.X + sprite.Offset.X), (int)(tl.Y + sprite.Offset.Y), (int)sprite.Size.X, (int)sprite.Size.Y);
+					var tl = new float2(u * tileSize.Width, (v - 0.5f * tileInfo.Height) * tileSize.Height) - 0.5f * scale * sprite.Size;
+					var rect = new Rectangle((int)(tl.X + scale * sprite.Offset.X), (int)(tl.Y + scale * sprite.Offset.Y), (int)(scale * sprite.Size.X), (int)(scale * sprite.Size.Y));
 					templateRect = templateRect.HasValue ? Rectangle.Union(templateRect.Value, rect) : rect;
 				}
 			}
@@ -165,6 +175,7 @@ namespace OpenRA.Mods.Mobius.Traits
 
 			var ts = map.Grid.TileSize;
 			var gridType = map.Grid.Type;
+			var palette = wr.Palette(template.Palette ?? terrainInfo.Palette);
 
 			var i = 0;
 			for (var y = 0; y < template.Size.Y; y++)
@@ -179,11 +190,12 @@ namespace OpenRA.Mods.Mobius.Traits
 					if (sprite == null)
 						continue;
 
+					var tileScale = tileCache.TileScale(tile);
 					var u = gridType == MapGridType.Rectangular ? x : (x - y) / 2f;
 					var v = gridType == MapGridType.Rectangular ? y : (x + y) / 2f;
-					var offset = (scale * new float2(u * ts.Width, (v - 0.5f * tileInfo.Height) * ts.Height) - 0.5f * scale * sprite.Size.XY).ToInt2();
+					var offset = (scale * new float2(u * ts.Width, (v - 0.5f * tileInfo.Height) * ts.Height) - 0.5f * scale * tileScale * sprite.Size.XY).ToInt2();
 
-					yield return new UISpriteRenderable(sprite, WPos.Zero, origin + offset, 0, null, scale);
+					yield return new UISpriteRenderable(sprite, WPos.Zero, origin + offset, 0, palette, scale * tileScale);
 				}
 			}
 		}
@@ -195,6 +207,7 @@ namespace OpenRA.Mods.Mobius.Traits
 				yield break;
 
 			var i = 0;
+			var palette = wr.Palette(template.Palette ?? terrainInfo.Palette);
 			for (var y = 0; y < template.Size.Y; y++)
 			{
 				for (var x = 0; x < template.Size.X; x++)
@@ -208,8 +221,9 @@ namespace OpenRA.Mods.Mobius.Traits
 						continue;
 
 					var offset = map.Offset(new CVec(x, y), tileInfo.Height);
+					var scale = tileCache.TileScale(tile);
 
-					yield return new SpriteRenderable(sprite, origin, offset, 0, null, 1f, 1f, float3.Ones, TintModifiers.None, false);
+					yield return new SpriteRenderable(sprite, origin, offset, 0, palette, scale, 1f, float3.Ones, TintModifiers.None, false);
 				}
 			}
 		}
