@@ -37,11 +37,13 @@ proc:
 	make:
 		RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\STRUCTURES\PROCMAKE.ZIP
 	resources:
-		RemasteredFilenamePattern: blank.png
-			Count: 12
+		RemasteredMaskFilename: proctwr_mask.png
+		RemasteredOffset: 11, 21
+		Start: 18 # FIXME
 	damaged-resources:
-		RemasteredFilenamePattern: blank.png
-			Count: 12
+		RemasteredMaskFilename: proctwr_damaged_mask.png
+		RemasteredOffset: 11, 21
+		Start: 48 # FIXME
 	bib:
 		RemasteredOffset: 0, 0
 		RemasteredFilenamePattern: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\TEMPERATE\BIB2\BIB2.TEM-{0:D4}.DDS
@@ -126,9 +128,18 @@ weap:
 afld:
 	Defaults:
 		RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\STRUCTURES\AFLD.ZIP
+	idle:
+		RemasteredMaskFilename: afld_mask.png
+	damaged-idle:
+		RemasteredMaskFilename: afld_damaged_mask.png
+	active:
+		RemasteredMaskFilename: afld_active_mask.png
+	damaged-active:
+		RemasteredMaskFilename: afld_active_damaged_mask.png
 	idle-dish:
-		RemasteredFilenamePattern: blank.png
-			Count: 16
+		RemasteredMaskFilename: afld_dish_mask.png
+	damaged-idle-dish:
+		RemasteredMaskFilename: afld_dish_damaged_mask.png
 	make:
 		RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\STRUCTURES\AFLDMAKE.ZIP
 	bib:
