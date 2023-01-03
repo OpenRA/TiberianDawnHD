@@ -39,11 +39,11 @@ proc:
 	resources:
 		RemasteredMaskFilename: proctwr_mask.png
 		RemasteredOffset: 11, 21
-		Start: 18 # FIXME
+		RemasteredStart: 18
 	damaged-resources:
 		RemasteredMaskFilename: proctwr_damaged_mask.png
 		RemasteredOffset: 11, 21
-		Start: 48 # FIXME
+		RemasteredStart: 48
 	bib:
 		RemasteredOffset: 0, 0
 		RemasteredFilenamePattern: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\TEMPERATE\BIB2\BIB2.TEM-{0:D4}.DDS
@@ -225,7 +225,7 @@ tmpl:
 		RemasteredOffset: 0,-64
 	smoke:
 		RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\VFX\ATOMDOOR.ZIP
-		Offset: 0, -224
+		RemasteredOffset: 3, -275
 	make:
 		RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\STRUCTURES\TMPLMAKE.ZIP
 	bib:
@@ -281,7 +281,7 @@ gun:
 	Defaults:
 		RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\STRUCTURES\GUN.ZIP
 	idle:
-		RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\STRUCTURES\GUNMAKE.ZIP # Empty first frame. We need WithSpriteBody for the make anim, and WSB needs at least a placeholder default sequence to work
+		RemasteredFilename: blank.png
 	make:
 		RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\STRUCTURES\GUNMAKE.ZIP
 	bib:
@@ -355,7 +355,7 @@ bio.husk:
 miss:
 	Defaults:
 		RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\STRUCTURES\MISS.ZIP
-		RemasteredOffset: 0,-5
+		RemasteredOffset: 0, -5
 	make:
 		RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\STRUCTURES\MISS.ZIP
 	bib:

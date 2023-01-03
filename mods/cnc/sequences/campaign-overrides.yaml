@@ -12,6 +12,6 @@ boat:
 		RemasteredOffset: 5, 11
 	wake-right:
 		RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\VFX\WAKE.ZIP
-		Offset: -5,11
+		RemasteredOffset: -5,11
 	icon:
 		RemasteredFilename:

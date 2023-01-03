@@ -13,14 +13,14 @@ harv:
 		RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\UNITS\HARV.ZIP
 	dock:
 		RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\STRUCTURES\PROC.ZIP
-		Start: 12 # FIXME
-		Length: 7
+		RemasteredStart: 12
+		RemasteredLength: 7
 		RemasteredMaskFilename: harvdock_dock_mask.png
 		RemasteredOffset: 80, -43
 	dock-loop:
 		RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\STRUCTURES\PROC.ZIP
-		Start: 19 # FIXME
-		Length: 1
+		RemasteredStart: 19
+		RemasteredLength: 1
 		RemasteredMaskFilename: harvdock_loop_mask.png
 		RemasteredOffset: 80, -43
 	icon:

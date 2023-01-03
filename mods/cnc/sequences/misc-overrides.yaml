@@ -155,6 +155,7 @@ atomic:
 ionsfx:
 	idle:
 		RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\VFX\IONSFX.ZIP
+		RemasteredOffset: 0, -920
 
 bomblet:
 	idle:
@@ -188,7 +189,7 @@ moveflsh:
 
 resources:
 	Defaults:
-		Length: *
+		RemasteredLength: *
 	ti1:
 		RemasteredFilenamePattern: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\TEMPERATE\TI1\TI1.TEM-{0:D4}.DDS
 			Count: 12
@@ -273,30 +274,30 @@ shroud:
 	-full:
 	shroud-typea: shadow
 	shroud-typeb: shadow
-		Start: 0 # FIXME
+		RemasteredStart: 0
 	shroud-typec: shadow
-		Start: 0 # FIXME
+		RemasteredStart: 0
 	shroud-typed: shadow
-		Start: 0 # FIXME
+		RemasteredStart: 0
 	shroud-full:
 		RemasteredFilenamePattern:
 		RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\SHROUD\SHADOW-ALL.DDS
-		Length: 1
+		RemasteredLength: 1
 	fog-typea: shadow
 		Alpha: 0.5
 	fog-typeb: shadow
-		Start: 0 # FIXME
+		RemasteredStart: 0
 		Alpha: 0.5
 	fog-typec: shadow
-		Start: 0 # FIXME
+		RemasteredStart: 0
 		Alpha: 0.5
 	fog-typed: shadow
-		Start: 0 # FIXME
+		RemasteredStart: 0
 		Alpha: 0.5
 	fog-full:
 		RemasteredFilenamePattern:
 		RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\SHROUD\SHADOW-ALL.DDS
-		Length: 1
+		RemasteredLength: 1
 		Alpha: 0.5
 
 # Note: The order of smudges and craters determines
@@ -306,32 +307,32 @@ scorches:
 		RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\TEMPERATE\SC1\SC1.TEM-0000.DDS
 		RemasteredTilesetFilenamesPattern:
 			DESERT: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SC1.DES\SC1.DES-0000.DDS
-		Scale: 0.5
+		RemasteredScale: 0.5
 	sc2:
 		RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\TEMPERATE\SC2\SC2.TEM-0000.DDS
 		RemasteredTilesetFilenamesPattern:
 			DESERT: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SC2.DES\SC2.DES-0000.DDS
-		Scale: 0.5
+		RemasteredScale: 0.5
 	sc3:
 		RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\TEMPERATE\SC3\SC3.TEM-0000.DDS
 		RemasteredTilesetFilenamesPattern:
 			DESERT: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SC3.DES\SC3.DES-0000.DDS
-		Scale: 0.5
+		RemasteredScale: 0.5
 	sc4:
 		RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\TEMPERATE\SC4\SC4.TEM-0000.DDS
 		RemasteredTilesetFilenamesPattern:
 			DESERT: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SC4.DES\SC4.DES-0000.DDS
-		Scale: 0.5
+		RemasteredScale: 0.5
 	sc5:
 		RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\TEMPERATE\SC5\SC5.TEM-0000.DDS
 		RemasteredTilesetFilenamesPattern:
 			DESERT: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SC5.DES\SC5.DES-0000.DDS
-		Scale: 0.5
+		RemasteredScale: 0.5
 	sc6:
 		RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\TEMPERATE\SC6\SC6.TEM-0000.DDS
 		RemasteredTilesetFilenamesPattern:
 			DESERT: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SC6.DES\SC6.DES-0000.DDS
-		Scale: 0.5
+		RemasteredScale: 0.5
 
 craters:
 	cr1:
@@ -340,7 +341,7 @@ craters:
 		RemasteredTilesetFilenamesPattern:
 			DESERT: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\CR1.DES\CR1.DES-{0:D4}.DDS
 				Count: 5
-		Scale: 0.5
+		RemasteredScale: 0.5
 	cr2:
 		RemasteredFilenamePattern: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\TEMPERATE\CR2\CR2.TEM-{0:D4}.DDS
 			Count: 5

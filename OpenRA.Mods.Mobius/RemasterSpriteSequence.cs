@@ -81,12 +81,29 @@ namespace OpenRA.Mods.Cnc.Graphics
 		[Desc("Change the position in-game on X, Y, Z.")]
 		protected static readonly SpriteSequenceField<float3> RemasteredOffset = new SpriteSequenceField<float3>(nameof(RemasteredOffset), float3.Zero);
 
+		[Desc("Frame index to start from.")]
+		protected static readonly SpriteSequenceField<int?> RemasteredStart = new SpriteSequenceField<int?>(nameof(RemasteredStart), null);
+
+		[Desc("Number of frames to use. Does not have to be the total amount the sprite sheet has.")]
+		protected static readonly SpriteSequenceField<int?> RemasteredLength = new SpriteSequenceField<int?>(nameof(RemasteredLength), null);
+
+		[Desc("Time (in milliseconds at default game speed) to wait until playing the next frame in the animation.")]
+		protected static readonly SpriteSequenceField<int?> RemasteredTick = new SpriteSequenceField<int?>(nameof(RemasteredTick), null);
+
 		static readonly int[] FirstFrame = { 0 };
 
 		bool hasRemasteredSprite = true;
 
 		public RemasterSpriteSequence(SpriteCache cache, ISpriteSequenceLoader loader, string image, string sequence, MiniYaml data, MiniYaml defaults)
-			: base(cache, loader, image, sequence, data, defaults) { }
+			: base(cache, loader, image, sequence, data, defaults)
+		{
+			start = LoadField(RemasteredStart, data, defaults) ?? start;
+			tick = LoadField(RemasteredTick, data, defaults) ?? tick;
+			if (LoadField<string>(RemasteredLength.Key, null, data, defaults) != "*")
+				length = LoadField(RemasteredLength, data, defaults) ?? length;
+			else
+				length = null;
+		}
 
 		string ResolveTilesetId(string tileset, MiniYaml data, MiniYaml defaults)
 		{
