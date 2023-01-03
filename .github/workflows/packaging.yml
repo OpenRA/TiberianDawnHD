@@ -19,7 +19,7 @@ jobs:
           dotnet-version: '6.0.x'
 
       - name: Prepare Environment
-        run: echo "GIT_TAG=${GITHUB_REF#refs/tags/}" >> ${GITHUB_ENV}
+        run: echo "GIT_TAG=playtest-20221224" >> ${GITHUB_ENV}
 
       - name: Package AppImage
         run: |
@@ -49,7 +49,7 @@ jobs:
           dotnet-version: '6.0.x'
 
       - name: Prepare Environment
-        run: echo "GIT_TAG=${GITHUB_REF#refs/tags/}" >> ${GITHUB_ENV}
+        run: echo "GIT_TAG=playtest-20221224" >> ${GITHUB_ENV}
 
       - name: Package Disk Image
         env:
@@ -86,7 +86,7 @@ jobs:
 
       - name: Prepare Environment
         run: |
-          echo "GIT_TAG=${GITHUB_REF#refs/tags/}" >> ${GITHUB_ENV}
+          echo "GIT_TAG=playtest-20221224" >> ${GITHUB_ENV}
           sudo apt-get update
           sudo apt-get install nsis wine64
 
