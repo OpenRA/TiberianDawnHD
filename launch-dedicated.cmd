@@ -3,7 +3,6 @@
 @echo on
 
 set Name="Dedicated Server"
-set Mod=cnc
 set ListenPort=1234
 set AdvertiseOnline=True
 set Password=""
