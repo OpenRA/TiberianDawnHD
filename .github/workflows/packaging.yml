@@ -8,7 +8,7 @@ on:
 jobs:
   linux:
     name: Linux AppImages
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:
       - name: Clone Repository
         uses: actions/checkout@v3
@@ -25,6 +25,7 @@ jobs:
         run: |
           make engine
           mkdir -p build/linux
+          sudo apt install libfuse2
           ./packaging/linux/buildpackage.sh "${GIT_TAG}" "${PWD}/build/linux"
 
       - name: Upload Packages
@@ -74,7 +75,7 @@ jobs:
 
   windows:
     name: Windows Installers
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:
       - name: Clone Repository
         uses: actions/checkout@v3
