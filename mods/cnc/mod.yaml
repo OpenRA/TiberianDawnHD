@@ -50,7 +50,7 @@ RemasterModContent:
 
 MapFolders:
 	base|maps: System
-	~^SupportDir|maps/base/{DEV_VERSION}: User
+	~^SupportDir|maps/cnc/{DEV_VERSION}: User
 
 Rules:
 	base|rules/misc.yaml
