@@ -5,7 +5,7 @@ Metadata:
 	WebIcon32: https://www.openra.net/images/icons/cnc_32x32.png
 	WindowTitle: OpenRA - Tiberian Dawn
 
-PackageFormats: Mix, MegV3
+PackageFormats: Mix, MegV3, ZipFile
 
 Packages:
 	^EngineDir
@@ -47,6 +47,7 @@ RemasterModContent:
 		base|uibits
 		cnc|bits
 		common|scripts
+		cnc|bits/harvlost.zip
 
 MapFolders:
 	base|maps: System
