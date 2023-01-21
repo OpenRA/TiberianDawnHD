@@ -90,6 +90,9 @@ namespace OpenRA.Mods.Cnc.Graphics
 		[Desc("Time (in milliseconds at default game speed) to wait until playing the next frame in the animation.")]
 		protected static readonly SpriteSequenceField<int?> RemasteredTick = new SpriteSequenceField<int?>(nameof(RemasteredTick), null);
 
+		[Desc("Adjusts the rendered size of the sprite")]
+		protected static readonly SpriteSequenceField<float?> RemasteredScale = new SpriteSequenceField<float?>(nameof(RemasteredScale), null);
+
 		static readonly int[] FirstFrame = { 0 };
 
 		bool hasRemasteredSprite = true;
@@ -99,6 +102,8 @@ namespace OpenRA.Mods.Cnc.Graphics
 		{
 			start = LoadField(RemasteredStart, data, defaults) ?? start;
 			tick = LoadField(RemasteredTick, data, defaults) ?? tick;
+			scale = LoadField(RemasteredScale, data, defaults) ?? scale;
+
 			if (LoadField<string>(RemasteredLength.Key, null, data, defaults) != "*")
 				length = LoadField(RemasteredLength, data, defaults) ?? length;
 			else
