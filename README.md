@@ -15,7 +15,11 @@ Install the C&C Remastered Collection through Steam or Origin.
 
 #### Linux
 
-Install the C&C Remastered Collection through Steam using Proton.
+Install the C&C Remastered Collection through Steam using the following procedure:
+
+1. Install Steam through your distro package manager or [Flathub](https://flathub.org/apps/details/com.valvesoftware.Steam).
+2. Launch Steam and enable "Enable Steam Play for all other titles" from the Settings &rarr; Steam Play menu.
+3. Install C&C Remastered Collection from the Library tab.
 
 #### macOS
 
