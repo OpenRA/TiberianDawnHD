@@ -354,7 +354,7 @@ namespace OpenRA.Mods.Cnc.Graphics
 			string filename = null;
 			MiniYamlNode.SourceLocation location = default;
 			var remasteredTilesetFilenamesPatternNode = data.Nodes.FirstOrDefault(n => n.Key == RemasteredTilesetFilenamesPattern.Key) ?? defaults.Nodes.FirstOrDefault(n => n.Key == RemasteredTilesetFilenamesPattern.Key);
-			if (!string.IsNullOrEmpty(remasteredTilesetFilenamesPatternNode?.Value.Value))
+			if (remasteredTilesetFilenamesPatternNode != null)
 			{
 				var tilesetNode = remasteredTilesetFilenamesPatternNode.Value.Nodes.FirstOrDefault(n => n.Key == tileset);
 				if (tilesetNode != null)

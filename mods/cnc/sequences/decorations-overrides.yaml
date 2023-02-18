@@ -572,33 +572,21 @@ v12:
 	Defaults:
 		RemasteredFilenamePattern: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\TEMPERATE\V12\V12.TEM-{0:D4}.DDS
 			Count: 3
-		RemasteredTilesetFilenamesPattern:
-			WINTER: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\WINTER\V12.WIN\V12.WIN-{0:D4}.DDS
-				Count: 3
 
 v12.husk:
 	Defaults:
 		RemasteredFilenamePattern: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\TEMPERATE\V12\V12.TEM-{0:D4}.DDS
 			Count: 3
-		RemasteredTilesetFilenamesPattern:
-			WINTER: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\WINTER\V12.WIN\V12.WIN-{0:D4}.DDS
-				Count: 3
 
 v13:
 	Defaults:
 		RemasteredFilenamePattern: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\TEMPERATE\V13\V13.TEM-{0:D4}.DDS
 			Count: 3
-		RemasteredTilesetFilenamesPattern:
-			WINTER: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\WINTER\V13.WIN\V13.WIN-{0:D4}.DDS
-				Count: 3
 
 v13.husk:
 	Defaults:
 		RemasteredFilenamePattern: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\TEMPERATE\V13\V13.TEM-{0:D4}.DDS
 			Count: 3
-		RemasteredTilesetFilenamesPattern:
-			WINTER: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\WINTER\V13.WIN\V13.WIN-{0:D4}.DDS
-				Count: 3
 
 v14:
 	Defaults:
