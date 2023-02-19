@@ -182,7 +182,7 @@ arty:
 
 arty.destroyed:
 	idle:
-		RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\UNITS\BIKE.ZIP
+		RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\UNITS\ARTY.ZIP
 
 apc:
 	Defaults:
