@@ -1,0 +1,615 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="600"
+   height="450"
+   viewBox="0 0 600 450"
+   id="svg2"
+   version="1.1"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <defs
+     id="defs4">
+    <pattern
+       xlink:href="#pattern4256"
+       id="pattern12372"
+       patternTransform="translate(58,234.36218)" />
+    <marker
+       style="overflow:visible"
+       id="Arrow1Lend"
+       orient="auto"
+       refY="0"
+       refX="0">
+      <path
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;marker-start:none"
+         id="path4339"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="TriangleOutL"
+       orient="auto"
+       refY="0"
+       refX="0">
+      <path
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;marker-start:none"
+         id="path4479"
+         transform="scale(0.8)"
+         d="M 5.77,0 -2.88,5 V -5 Z" />
+    </marker>
+    <filter
+       id="filter3186"
+       height="1"
+       width="1"
+       y="0"
+       x="0"
+       style="color-interpolation-filters:sRGB">
+      <feTurbulence
+         id="feTurbulence3188"
+         type="fractalNoise"
+         baseFrequency="0.40000000000000002"
+         numOctaves="10"
+         seed="406"
+         result="fbSourceGraphic" />
+      <feColorMatrix
+         result="fbSourceGraphicAlpha"
+         in="fbSourceGraphic"
+         values="0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 1 0"
+         id="feColorMatrix3980" />
+      <feColorMatrix
+         id="feColorMatrix3982"
+         type="saturate"
+         values="0"
+         in="fbSourceGraphic" />
+    </filter>
+    <filter
+       id="filter4024"
+       style="color-interpolation-filters:sRGB">
+      <feBlend
+         id="feBlend4026"
+         mode="multiply"
+         in2="BackgroundImage" />
+    </filter>
+    <marker
+       style="overflow:visible"
+       id="Arrow1Lend-1"
+       orient="auto"
+       refY="0"
+       refX="0">
+      <path
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;marker-start:none"
+         id="path4339-7"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="TriangleOutL-6"
+       orient="auto"
+       refY="0"
+       refX="0">
+      <path
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;marker-start:none"
+         id="path4479-0"
+         transform="scale(0.8)"
+         d="M 5.77,0 -2.88,5 V -5 Z" />
+    </marker>
+    <filter
+       id="filter3186-3"
+       height="1"
+       width="1"
+       y="0"
+       x="0"
+       style="color-interpolation-filters:sRGB">
+      <feTurbulence
+         id="feTurbulence3188-1"
+         type="fractalNoise"
+         baseFrequency="0.40000000000000002"
+         numOctaves="10"
+         seed="406"
+         result="fbSourceGraphic" />
+      <feColorMatrix
+         result="fbSourceGraphicAlpha"
+         in="fbSourceGraphic"
+         values="0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 1 0"
+         id="feColorMatrix3980-0" />
+      <feColorMatrix
+         id="feColorMatrix3982-3"
+         type="saturate"
+         values="0"
+         in="fbSourceGraphic" />
+    </filter>
+    <filter
+       id="filter4024-7"
+       style="color-interpolation-filters:sRGB">
+      <feBlend
+         id="feBlend4026-2"
+         mode="multiply"
+         in2="BackgroundImage" />
+    </filter>
+    <linearGradient
+       x1="118.38983"
+       y1="128.49998"
+       x2="173.77965"
+       y2="236.97458"
+       id="linearGradient3932"
+       xlink:href="#linearGradient3799"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       x1="65.91964"
+       y1="69.056839"
+       x2="89.046608"
+       y2="92.378876"
+       id="linearGradient3924"
+       xlink:href="#linearGradient3777"
+       gradientUnits="userSpaceOnUse"
+       spreadMethod="pad" />
+    <linearGradient
+       x1="-21"
+       y1="128.5"
+       x2="279"
+       y2="128.5"
+       id="linearGradient3887"
+       xlink:href="#linearGradient3799"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       x1="16"
+       y1="126"
+       x2="225"
+       y2="126"
+       id="linearGradient3864"
+       xlink:href="#linearGradient3777"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       id="linearGradient3761">
+      <stop
+         id="stop3763"
+         style="stop-color:#ffd300;stop-opacity:1"
+         offset="0" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3767">
+      <stop
+         id="stop3769"
+         style="stop-color:#000000;stop-opacity:1"
+         offset="0" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3777">
+      <stop
+         id="stop3779"
+         style="stop-color:#ffd300;stop-opacity:1"
+         offset="0" />
+      <stop
+         id="stop3781"
+         style="stop-color:#a07100;stop-opacity:1"
+         offset="1" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3799">
+      <stop
+         id="stop3801"
+         style="stop-color:#ff0000;stop-opacity:1"
+         offset="0" />
+      <stop
+         id="stop3803"
+         style="stop-color:#440000;stop-opacity:1"
+         offset="1" />
+    </linearGradient>
+    <marker
+       style="overflow:visible"
+       id="Arrow1Lend-7"
+       orient="auto"
+       refY="0"
+       refX="0">
+      <path
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;marker-start:none"
+         id="path4339-9"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="TriangleOutL-7"
+       orient="auto"
+       refY="0"
+       refX="0">
+      <path
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;marker-start:none"
+         id="path4479-2"
+         transform="scale(0.8)"
+         d="M 5.77,0 -2.88,5 V -5 Z" />
+    </marker>
+    <filter
+       id="filter3186-5"
+       height="1"
+       width="1"
+       y="0"
+       x="0"
+       style="color-interpolation-filters:sRGB">
+      <feTurbulence
+         id="feTurbulence3188-13"
+         type="fractalNoise"
+         baseFrequency="0.40000000000000002"
+         numOctaves="10"
+         seed="406"
+         result="fbSourceGraphic" />
+      <feColorMatrix
+         result="fbSourceGraphicAlpha"
+         in="fbSourceGraphic"
+         values="0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 1 0"
+         id="feColorMatrix3980-6" />
+      <feColorMatrix
+         id="feColorMatrix3982-0"
+         type="saturate"
+         values="0"
+         in="fbSourceGraphic" />
+    </filter>
+    <filter
+       id="filter4024-6"
+       style="color-interpolation-filters:sRGB">
+      <feBlend
+         id="feBlend4026-8"
+         mode="multiply"
+         in2="BackgroundImage" />
+    </filter>
+    <linearGradient
+       x1="118.38983"
+       y1="128.49998"
+       x2="173.77965"
+       y2="236.97458"
+       id="linearGradient3932-0"
+       xlink:href="#linearGradient3799"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(-2958.019,501.64153)" />
+    <linearGradient
+       x1="65.91964"
+       y1="69.056839"
+       x2="89.046608"
+       y2="92.378876"
+       id="linearGradient3924-2"
+       xlink:href="#linearGradient3777"
+       gradientUnits="userSpaceOnUse"
+       spreadMethod="pad"
+       gradientTransform="translate(-1479.0095,250.82076)" />
+    <marker
+       refX="0"
+       refY="0"
+       orient="auto"
+       id="Arrow1Lend-6"
+       style="overflow:visible">
+      <path
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         id="path4339-0"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;marker-start:none" />
+    </marker>
+    <marker
+       refX="0"
+       refY="0"
+       orient="auto"
+       id="TriangleOutL-2"
+       style="overflow:visible">
+      <path
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         transform="scale(0.8)"
+         id="path4479-27"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;marker-start:none" />
+    </marker>
+    <filter
+       style="color-interpolation-filters:sRGB"
+       x="0"
+       y="0"
+       width="1"
+       height="1"
+       id="filter3186-0">
+      <feTurbulence
+         result="fbSourceGraphic"
+         seed="406"
+         numOctaves="10"
+         baseFrequency="0.40000000000000002"
+         type="fractalNoise"
+         id="feTurbulence3188-7" />
+      <feColorMatrix
+         id="feColorMatrix3980-9"
+         values="0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 1 0"
+         in="fbSourceGraphic"
+         result="fbSourceGraphicAlpha" />
+      <feColorMatrix
+         in="fbSourceGraphic"
+         values="0"
+         type="saturate"
+         id="feColorMatrix3982-6" />
+    </filter>
+    <filter
+       style="color-interpolation-filters:sRGB"
+       id="filter4024-4">
+      <feBlend
+         in2="BackgroundImage"
+         mode="multiply"
+         id="feBlend4026-24" />
+    </filter>
+    <marker
+       refX="0"
+       refY="0"
+       orient="auto"
+       id="Arrow1Lend-1-9"
+       style="overflow:visible">
+      <path
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         id="path4339-7-3"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;marker-start:none" />
+    </marker>
+    <marker
+       refX="0"
+       refY="0"
+       orient="auto"
+       id="TriangleOutL-6-8"
+       style="overflow:visible">
+      <path
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         transform="scale(0.8)"
+         id="path4479-0-2"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;marker-start:none" />
+    </marker>
+    <filter
+       style="color-interpolation-filters:sRGB"
+       x="0"
+       y="0"
+       width="1"
+       height="1"
+       id="filter3186-3-3">
+      <feTurbulence
+         result="fbSourceGraphic"
+         seed="406"
+         numOctaves="10"
+         baseFrequency="0.40000000000000002"
+         type="fractalNoise"
+         id="feTurbulence3188-1-8" />
+      <feColorMatrix
+         id="feColorMatrix3980-0-3"
+         values="0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 1 0"
+         in="fbSourceGraphic"
+         result="fbSourceGraphicAlpha" />
+      <feColorMatrix
+         in="fbSourceGraphic"
+         values="0"
+         type="saturate"
+         id="feColorMatrix3982-3-3" />
+    </filter>
+    <filter
+       style="color-interpolation-filters:sRGB"
+       id="filter4024-7-9">
+      <feBlend
+         in2="BackgroundImage"
+         mode="multiply"
+         id="feBlend4026-2-0" />
+    </filter>
+    <marker
+       refX="0"
+       refY="0"
+       orient="auto"
+       id="Arrow1Lend-7-2"
+       style="overflow:visible">
+      <path
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         id="path4339-9-8"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;marker-start:none" />
+    </marker>
+    <marker
+       refX="0"
+       refY="0"
+       orient="auto"
+       id="TriangleOutL-7-1"
+       style="overflow:visible">
+      <path
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         transform="scale(0.8)"
+         id="path4479-2-7"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt;marker-start:none" />
+    </marker>
+    <filter
+       x="0"
+       y="0"
+       width="1"
+       height="1"
+       id="filter3186-5-8"
+       style="color-interpolation-filters:sRGB">
+      <feTurbulence
+         result="fbSourceGraphic"
+         seed="406"
+         numOctaves="10"
+         baseFrequency="0.40000000000000002"
+         type="fractalNoise"
+         id="feTurbulence3188-13-0" />
+      <feColorMatrix
+         id="feColorMatrix3980-6-2"
+         values="0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 1 0"
+         in="fbSourceGraphic"
+         result="fbSourceGraphicAlpha" />
+      <feColorMatrix
+         in="fbSourceGraphic"
+         values="0"
+         type="saturate"
+         id="feColorMatrix3982-0-2" />
+    </filter>
+    <filter
+       id="filter4024-6-0"
+       style="color-interpolation-filters:sRGB">
+      <feBlend
+         in2="BackgroundImage"
+         mode="multiply"
+         id="feBlend4026-8-3" />
+    </filter>
+    <linearGradient
+       gradientTransform="translate(-2958.019,501.64153)"
+       gradientUnits="userSpaceOnUse"
+       xlink:href="#linearGradient3799"
+       id="linearGradient4523"
+       y2="236.97458"
+       x2="173.77965"
+       y1="128.49998"
+       x1="118.38983" />
+    <linearGradient
+       gradientTransform="translate(-1479.0095,250.82076)"
+       spreadMethod="pad"
+       gradientUnits="userSpaceOnUse"
+       xlink:href="#linearGradient3777"
+       id="linearGradient4525"
+       y2="92.378876"
+       x2="89.046608"
+       y1="69.056839"
+       x1="65.91964" />
+    <pattern
+       patternUnits="userSpaceOnUse"
+       width="46"
+       height="46"
+       patternTransform="translate(0)"
+       id="pattern4256">
+      <rect
+         fill="#287ec2"
+         width="46"
+         height="46"
+         id="rect1995"
+         x="0"
+         y="0" />
+      <line
+         stroke="#3691cf"
+         stroke-miterlimit="10"
+         x1="0"
+         y1="0.5"
+         x2="46"
+         y2="0.5"
+         id="line1997" />
+      <line
+         stroke="#3691cf"
+         stroke-miterlimit="10"
+         x1="0"
+         y1="9.5"
+         x2="46"
+         y2="9.5"
+         id="line1999" />
+      <line
+         stroke="#3691cf"
+         stroke-miterlimit="10"
+         x1="0"
+         y1="18.5"
+         x2="46"
+         y2="18.5"
+         id="line2001" />
+      <line
+         stroke="#3691cf"
+         stroke-miterlimit="10"
+         x1="0"
+         y1="27.5"
+         x2="46"
+         y2="27.5"
+         id="line2003" />
+      <line
+         stroke="#3691cf"
+         stroke-miterlimit="10"
+         x1="0"
+         y1="36.5"
+         x2="46"
+         y2="36.5"
+         id="line2005" />
+      <line
+         stroke="#3691cf"
+         stroke-miterlimit="10"
+         x1="0"
+         y1="45.5"
+         x2="46"
+         y2="45.5"
+         id="line2007" />
+      <line
+         stroke="#3591cf"
+         stroke-miterlimit="10"
+         x1="0.5"
+         y1="0"
+         x2="0.5"
+         y2="46"
+         id="line2009" />
+      <line
+         stroke="#3691cf"
+         stroke-miterlimit="10"
+         x1="9.5"
+         y1="0"
+         x2="9.5"
+         y2="46"
+         id="line2011" />
+      <line
+         stroke="#3691cf"
+         stroke-miterlimit="10"
+         x1="18.5"
+         y1="0"
+         x2="18.5"
+         y2="46"
+         id="line2013" />
+      <line
+         stroke="#3691cf"
+         stroke-miterlimit="10"
+         x1="27.5"
+         y1="0"
+         x2="27.5"
+         y2="46"
+         id="line2015" />
+      <line
+         stroke="#3691cf"
+         stroke-miterlimit="10"
+         x1="36.5"
+         y1="0"
+         x2="36.5"
+         y2="46"
+         id="line2017" />
+      <line
+         stroke="#3691cf"
+         stroke-miterlimit="10"
+         x1="45.5"
+         y1="0"
+         x2="45.5"
+         y2="46"
+         id="line2019" />
+    </pattern>
+  </defs>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer1"
+     transform="translate(-58,-234.36218)">
+    <rect
+       style="fill:url(#pattern12372);stroke:none;stroke-width:11.296"
+       width="600"
+       height="450"
+       x="58"
+       y="234.36218"
+       id="rect4271" />
+    <rect
+       ry="24.580532"
+       style="fill:none;fill-opacity:0.8;stroke:#ffffff;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:12, 12;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect4197"
+       width="395.9664"
+       height="155.98354"
+       x="160.02728"
+       y="381.36218"
+       rx="24.58054" />
+    <path
+       style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:7.74596pt;marker-start:none;stop-opacity:1"
+       id="path4995"
+       d="m 378.00001,459.36221 -40,37.5 v -75 z" />
+  </g>
+</svg>
