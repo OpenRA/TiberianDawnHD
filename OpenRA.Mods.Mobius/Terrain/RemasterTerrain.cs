@@ -57,7 +57,7 @@ namespace OpenRA.Mods.Mobius.Terrain
 
 		[FieldLoader.Ignore]
 		public readonly TerrainTypeInfo[] TerrainInfo;
-		readonly Dictionary<string, byte> terrainIndexByType = new Dictionary<string, byte>();
+		readonly Dictionary<string, byte> terrainIndexByType = new();
 		readonly byte defaultWalkableTerrainIndex;
 
 		public RemasterTerrain(IReadOnlyFileSystem fileSystem, string filepath)
@@ -82,7 +82,7 @@ namespace OpenRA.Mods.Mobius.Terrain
 				var tt = TerrainInfo[i].Type;
 
 				if (terrainIndexByType.ContainsKey(tt))
-					throw new YamlException("Duplicate terrain type '{0}' in '{1}'.".F(tt, filepath));
+					throw new YamlException($"Duplicate terrain type '{tt}' in '{filepath}'.");
 
 				terrainIndexByType.Add(tt, i);
 			}
@@ -104,7 +104,7 @@ namespace OpenRA.Mods.Mobius.Terrain
 			if (terrainIndexByType.TryGetValue(type, out var index))
 				return index;
 
-			throw new InvalidDataException("Tileset '{0}' lacks terrain type '{1}'".F(Id, type));
+			throw new InvalidDataException($"Tileset '{Id}' lacks terrain type '{type}'");
 		}
 
 		public byte GetTerrainIndex(TerrainTile r)
@@ -147,7 +147,7 @@ namespace OpenRA.Mods.Mobius.Terrain
 		IEnumerable<Color> ITerrainInfo.RestrictedPlayerColors { get { return TerrainInfo.Where(ti => ti.RestrictPlayerColor).Select(ti => ti.Color); } }
 		float ITerrainInfo.MinHeightColorBrightness => 1.0f;
 		float ITerrainInfo.MaxHeightColorBrightness => 1.0f;
-		TerrainTile ITerrainInfo.DefaultTerrainTile => new TerrainTile(Templates.First().Key, 0);
+		TerrainTile ITerrainInfo.DefaultTerrainTile => new(Templates.First().Key, 0);
 
 		string[] ITemplatedTerrainInfo.EditorTemplateOrder => EditorTemplateOrder;
 		IReadOnlyDictionary<ushort, TerrainTemplateInfo> ITemplatedTerrainInfo.Templates => Templates;

@@ -43,7 +43,7 @@ namespace OpenRA.Mods.Mobius.UtilityCommands
 				var config = new MegV3Loader.MegFile(ffs, args[2]);
 
 				// e.g. TD_TERRAIN_TEMPERATE.XML, TD_TERRAIN_DESERT.XML, TD_TERRAIN_WINTER.XML
-				mapping.Load(config.GetStream("DATA\\XML\\TILESETS\\{0}".F(args[3])));
+				mapping.Load(config.GetStream($"DATA\\XML\\TILESETS\\{args[3]}"));
 			}
 
 			var rootTexturePath = mapping.SelectSingleNode("//RootTexturePath").InnerText.ToUpperInvariant();
@@ -52,7 +52,7 @@ namespace OpenRA.Mods.Mobius.UtilityCommands
 				var legacy = template.LastChildMatching("Images").Value.Value;
 				var code = Path.GetFileNameWithoutExtension(legacy).ToUpperInvariant();
 
-				var tileNodes = mapping.DocumentElement.SelectNodes("//Tile[Key/Name = '{0}']".F(code));
+				var tileNodes = mapping.DocumentElement.SelectNodes($"//Tile[Key/Name = '{code}']");
 
 				if (tileNodes == null)
 				{
@@ -69,7 +69,10 @@ namespace OpenRA.Mods.Mobius.UtilityCommands
 					var index = tileNode.SelectSingleNode("Key/Shape").InnerText;
 					var frames = new List<string>();
 					foreach (var f in tileNode.SelectNodes("Value/Frames/Frame"))
-						frames.Add("DATA\\ART\\TEXTURES\\SRGB\\{0}\\{1}".F(rootTexturePath, Path.ChangeExtension(((XmlNode)f).InnerText, ".DDS").ToUpperInvariant()));
+					{
+						var path = Path.ChangeExtension(((XmlNode)f).InnerText, ".DDS").ToUpperInvariant();
+						frames.Add($"DATA\\ART\\TEXTURES\\SRGB\\{rootTexturePath}\\{path}");
+					}
 
 					imageNode.AddNode(index, FieldSaver.FormatValue(frames));
 				}

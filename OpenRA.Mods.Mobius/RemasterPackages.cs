@@ -24,7 +24,7 @@ namespace OpenRA.Mods.Mobius
 		public readonly Dictionary<string, string> Packages;
 
 		[FieldLoader.Ignore]
-		readonly Dictionary<string, ModContent.ModSource> sources = new Dictionary<string, ModContent.ModSource>();
+		readonly Dictionary<string, ModContent.ModSource> sources = new();
 
 		public RemasterModContent(MiniYaml yaml)
 		{

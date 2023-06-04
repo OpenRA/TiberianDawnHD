@@ -38,7 +38,7 @@ namespace OpenRA.Mods.Mobius.Traits
 					{
 						if (!tileCache.HasTileSprite(new TerrainTile(t.Key, (byte)kv.Key), i))
 						{
-							onError("\tTemplate `{0}` tile {1} references sprite `{2}` that does not exist.".F(t.Key, kv.Key, templateInfo.RemasteredFilenames[i]));
+							onError($"\tTemplate `{t.Key}` tile {kv.Key} references sprite `{templateInfo.RemasteredFilenames[i]}` that does not exist.");
 							failed = true;
 						}
 					}
@@ -147,7 +147,7 @@ namespace OpenRA.Mods.Mobius.Traits
 			{
 				for (var x = 0; x < template.Size.X; x++)
 				{
-					var tile = new TerrainTile(template.Id, (byte)(i++));
+					var tile = new TerrainTile(template.Id, (byte)i++);
 					if (!terrainInfo.TryGetTileInfo(tile, out var tileInfo))
 						continue;
 
@@ -165,12 +165,12 @@ namespace OpenRA.Mods.Mobius.Traits
 				}
 			}
 
-			return templateRect.HasValue ? templateRect.Value : Rectangle.Empty;
+			return templateRect ?? Rectangle.Empty;
 		}
 
 		IEnumerable<IRenderable> ITiledTerrainRenderer.RenderUIPreview(WorldRenderer wr, TerrainTemplateInfo t, int2 origin, float scale)
 		{
-			if (!(t is RemasterTerrainTemplateInfo template))
+			if (t is not RemasterTerrainTemplateInfo template)
 				yield break;
 
 			var ts = map.Grid.TileSize;
@@ -202,8 +202,7 @@ namespace OpenRA.Mods.Mobius.Traits
 
 		IEnumerable<IRenderable> ITiledTerrainRenderer.RenderPreview(WorldRenderer wr, TerrainTemplateInfo t, WPos origin)
 		{
-			var template = t as RemasterTerrainTemplateInfo;
-			if (template == null)
+			if (t is not RemasterTerrainTemplateInfo template)
 				yield break;
 
 			var i = 0;
