@@ -29,21 +29,21 @@
 	FixedPlayerColorShift:
 		BasePalette: player
 		PlayerIndex:
-			GDI: 0.777, -0.196, 0.29, 0.37
-			Nod: 0.667, 0.185, 0.2892156, 0.37
-			Neutral: 0.777, -0.196, 0.29, 0.37
+			GDI: 0.777, -0.196, 1, 0.29, 0.37
+			Nod: 0.667, 0.185, 1, 0.2892156, 0.37
+			Neutral: 0.777, -0.196, 1, 0.29, 0.37
 	FixedPlayerColorShift@units:
 		BasePalette: player-units
 		PlayerIndex:
-			GDI: 0.777, -0.196, 0.29, 0.37
-			Nod: 0.306, -0.655, 0.29, 0.37
-			Neutral: 0.777, -0.196, 0.29, 0.37
+			GDI: 0.777, -0.196, 1, 0.29, 0.37
+			Nod: 0.306, -0.655, 1, 0.29, 0.37
+			Neutral: 0.777, -0.196, 1, 0.29, 0.37
 	FixedPlayerColorShift@derricks:
 		BasePalette: derrick
 		PlayerIndex:
-			GDI: 0.777, -0.196, 0.05, 0.15
-			Nod: 0.667, 0.185, 0.05, 0.15
-			Neutral: 0.777, -0.196, 0.05, 0.15
+			GDI: 0.777, -0.196, 1, 0.05, 0.15
+			Nod: 0.667, 0.185, 1, 0.05, 0.15
+			Neutral: 0.777, -0.196, 1, 0.05, 0.15
 
 ^Vehicle:
 	RenderSprites:

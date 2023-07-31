@@ -20,18 +20,16 @@ namespace OpenRA.Mods.Mobius.Terrain
 	{
 		static readonly int[] FirstFrame = { 0 };
 
-		readonly Dictionary<ushort, Dictionary<int, Sprite[]>> sprites = new Dictionary<ushort, Dictionary<int, Sprite[]>>();
-		readonly Dictionary<ushort, float> scale = new Dictionary<ushort, float>();
-		readonly SpriteCache spriteCache;
-		readonly Sprite blankSprite;
-
-		public SpriteCache SpriteCache => spriteCache;
+		readonly Dictionary<ushort, Dictionary<int, Sprite[]>> sprites = new();
+		readonly Dictionary<ushort, float> scale = new();
+		public SpriteCache SpriteCache { get; }
+		Sprite BlankSprite { get; }
 
 		public RemasterTileCache(RemasterTerrain terrainInfo)
 		{
-			spriteCache = new SpriteCache(Game.ModData.DefaultFileSystem, Game.ModData.SpriteLoaders, terrainInfo.BgraSheetSize, terrainInfo.IndexedSheetSize, 0);
+			SpriteCache = new SpriteCache(Game.ModData.DefaultFileSystem, Game.ModData.SpriteLoaders, terrainInfo.BgraSheetSize, terrainInfo.IndexedSheetSize, 0);
 
-			var blankToken = spriteCache.ReserveSprites(terrainInfo.BlankTile, FirstFrame, default);
+			var blankToken = SpriteCache.ReserveSprites(terrainInfo.BlankTile, FirstFrame, default);
 
 			var remasteredSpriteReservations = new Dictionary<ushort, Dictionary<int, int[]>>();
 			foreach (var t in terrainInfo.Templates)
@@ -43,7 +41,7 @@ namespace OpenRA.Mods.Mobius.Terrain
 				{
 					foreach (var kv in templateInfo.RemasteredFilenames)
 						templateTokens[kv.Key] = kv.Value
-							.Select(f => spriteCache.ReserveSprites(f, FirstFrame, default))
+							.Select(f => SpriteCache.ReserveSprites(f, FirstFrame, default))
 							.ToArray();
 					scale[t.Key] = 1f;
 				}
@@ -54,7 +52,7 @@ namespace OpenRA.Mods.Mobius.Terrain
 						if (t.Value[i] == null)
 							continue;
 
-						templateTokens[i] = new[] { spriteCache.ReserveSprites(templateInfo.Filename, new[] { i }, default) };
+						templateTokens[i] = new[] { SpriteCache.ReserveSprites(templateInfo.Filename, new[] { i }, default) };
 					}
 
 					scale[t.Key] = terrainInfo.ClassicUpscaleFactor;
@@ -63,31 +61,31 @@ namespace OpenRA.Mods.Mobius.Terrain
 				remasteredSpriteReservations[t.Key] = templateTokens;
 			}
 
-			spriteCache.LoadReservations(Game.ModData);
+			SpriteCache.LoadReservations(Game.ModData);
 
-			blankSprite = spriteCache.ResolveSprites(blankToken).First(s => s != null);
+			BlankSprite = SpriteCache.ResolveSprites(blankToken).First(s => s != null);
 			foreach (var kv in remasteredSpriteReservations)
 			{
 				sprites[kv.Key] = new Dictionary<int, Sprite[]>();
 				foreach (var tokens in kv.Value)
 					sprites[kv.Key][tokens.Key] = tokens.Value
-						.Select(t => spriteCache.ResolveSprites(t).FirstOrDefault(s => s != null))
+						.Select(t => SpriteCache.ResolveSprites(t).FirstOrDefault(s => s != null))
 						.ToArray();
 			}
 		}
 
 		public bool HasTileSprite(TerrainTile r, int frame)
 		{
-			return TileSprite(r, frame) != blankSprite;
+			return TileSprite(r, frame) != BlankSprite;
 		}
 
 		public Sprite TileSprite(TerrainTile r, int frame)
 		{
 			if (!sprites.TryGetValue(r.Type, out var templateSprites))
-				return blankSprite;
+				return BlankSprite;
 
 			if (!templateSprites.TryGetValue(r.Index, out var tileSprites))
-				return blankSprite;
+				return BlankSprite;
 
 			return tileSprites[frame % tileSprites.Length];
 		}
@@ -100,11 +98,11 @@ namespace OpenRA.Mods.Mobius.Terrain
 			return templateScale;
 		}
 
-		public Sprite MissingTile => blankSprite;
+		public Sprite MissingTile => BlankSprite;
 
 		public void Dispose()
 		{
-			spriteCache.Dispose();
+			SpriteCache.Dispose();
 		}
 	}
 }

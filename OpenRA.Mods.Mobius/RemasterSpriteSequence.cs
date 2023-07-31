@@ -19,24 +19,10 @@ namespace OpenRA.Mods.Cnc.Graphics
 {
 	public class RemasterSpriteSequenceLoader : ClassicTilesetSpecificSpriteSequenceLoader
 	{
-		public readonly string DefaultSpriteExtension = ".shp";
-		public readonly Dictionary<string, string> TilesetExtensions = new Dictionary<string, string>();
-		public readonly Dictionary<string, string> TilesetCodes = new Dictionary<string, string>();
 		public readonly float ClassicUpscaleFactor = 5.333333f;
 
 		public RemasterSpriteSequenceLoader(ModData modData)
-			: base(modData)
-		{
-			var metadata = modData.Manifest.Get<SpriteSequenceFormat>().Metadata;
-			if (metadata.TryGetValue("DefaultSpriteExtension", out var yaml))
-				DefaultSpriteExtension = yaml.Value;
-
-			if (metadata.TryGetValue("TilesetExtensions", out yaml))
-				TilesetExtensions = yaml.ToDictionary(kv => kv.Value);
-
-			if (metadata.TryGetValue("TilesetCodes", out yaml))
-				TilesetCodes = yaml.ToDictionary(kv => kv.Value);
-		}
+			: base(modData) { }
 
 		public override ISpriteSequence CreateSequence(ModData modData, string tileset, SpriteCache cache, string image, string sequence, MiniYaml data, MiniYaml defaults)
 		{
@@ -48,54 +34,130 @@ namespace OpenRA.Mods.Cnc.Graphics
 	      "that come with first-generation Westwood titles.")]
 	public class RemasterSpriteSequence : ClassicTilesetSpecificSpriteSequence
 	{
-		[Desc("Dictionary of <string: string> with tileset name to override -> tileset name to use instead.")]
-		static readonly SpriteSequenceField<Dictionary<string, string>> TilesetOverrides = new SpriteSequenceField<Dictionary<string, string>>(nameof(TilesetOverrides), null);
-
-		[Desc("Use `TilesetCodes` as defined in `mod.yaml` to add a letter as a second character " +
-		      "into the sprite filename like the Westwood 2.5D titles did for tileset-specific variants.")]
-		static readonly SpriteSequenceField<bool> UseTilesetCode = new SpriteSequenceField<bool>(nameof(UseTilesetCode), false);
-
-		[Desc("Append a tileset-specific extension to the file name " +
-		      "- either as defined in `mod.yaml`'s `TilesetExtensions` (if `UseTilesetExtension` is used) " +
-		      "or the default hardcoded one for this sequence type (.shp).")]
-		static readonly SpriteSequenceField<bool> AddExtension = new SpriteSequenceField<bool>(nameof(AddExtension), true);
-
-		[Desc("Whether `mod.yaml`'s `TilesetExtensions` should be used with the sequence's file name.")]
-		static readonly SpriteSequenceField<bool> UseTilesetExtension = new SpriteSequenceField<bool>(nameof(UseTilesetExtension), false);
-
 		[Desc("File name of the remastered sprite to use for this sequence.")]
-		static readonly SpriteSequenceField<string> RemasteredFilename = new SpriteSequenceField<string>(nameof(RemasteredFilename), null);
+		static readonly SpriteSequenceField<string> RemasteredFilename = new(nameof(RemasteredFilename), null);
 
 		[Desc("Dictionary of <tileset name>: filename to override the RemasteredFilename key.")]
-		static readonly SpriteSequenceField<Dictionary<string, string>> RemasteredTilesetFilenames = new SpriteSequenceField<Dictionary<string, string>>(nameof(RemasteredTilesetFilenames), null);
+		static readonly SpriteSequenceField<Dictionary<string, string>> RemasteredTilesetFilenames = new(nameof(RemasteredTilesetFilenames), null);
 
 		[Desc("File name pattern to build the remastered sprite to use for this sequence.")]
-		static readonly SpriteSequenceField<string> RemasteredFilenamePattern = new SpriteSequenceField<string>(nameof(RemasteredFilenamePattern), null);
+		static readonly SpriteSequenceField<string> RemasteredFilenamePattern = new(nameof(RemasteredFilenamePattern), null);
 
 		[Desc("Dictionary of <tileset name>: <filename pattern> to override the RemasteredFilenamePattern key.")]
-		static readonly SpriteSequenceField<Dictionary<string, string>> RemasteredTilesetFilenamesPattern = new SpriteSequenceField<Dictionary<string, string>>(nameof(RemasteredTilesetFilenamesPattern), null);
+		static readonly SpriteSequenceField<Dictionary<string, string>> RemasteredTilesetFilenamesPattern = new(nameof(RemasteredTilesetFilenamesPattern), null);
 
 		[Desc("File name pattern of the sprite to mask the remastered sprite.")]
-		static readonly SpriteSequenceField<string> RemasteredMaskFilename = new SpriteSequenceField<string>(nameof(RemasteredMaskFilename), null);
+		static readonly SpriteSequenceField<string> RemasteredMaskFilename = new(nameof(RemasteredMaskFilename), null);
 
 		[Desc("Change the position in-game on X, Y, Z.")]
-		protected static readonly SpriteSequenceField<float3> RemasteredOffset = new SpriteSequenceField<float3>(nameof(RemasteredOffset), float3.Zero);
+		protected static readonly SpriteSequenceField<float3> RemasteredOffset = new(nameof(RemasteredOffset), float3.Zero);
 
 		[Desc("Frame index to start from.")]
-		protected static readonly SpriteSequenceField<int?> RemasteredStart = new SpriteSequenceField<int?>(nameof(RemasteredStart), null);
+		protected static readonly SpriteSequenceField<int?> RemasteredStart = new(nameof(RemasteredStart), null);
 
 		[Desc("Number of frames to use. Does not have to be the total amount the sprite sheet has.")]
-		protected static readonly SpriteSequenceField<int?> RemasteredLength = new SpriteSequenceField<int?>(nameof(RemasteredLength), null);
+		protected static readonly SpriteSequenceField<int?> RemasteredLength = new(nameof(RemasteredLength), null);
 
 		[Desc("Time (in milliseconds at default game speed) to wait until playing the next frame in the animation.")]
-		protected static readonly SpriteSequenceField<int?> RemasteredTick = new SpriteSequenceField<int?>(nameof(RemasteredTick), null);
+		protected static readonly SpriteSequenceField<int?> RemasteredTick = new(nameof(RemasteredTick), null);
 
 		[Desc("Adjusts the rendered size of the sprite")]
-		protected static readonly SpriteSequenceField<float?> RemasteredScale = new SpriteSequenceField<float?>(nameof(RemasteredScale), null);
+		protected static readonly SpriteSequenceField<float?> RemasteredScale = new(nameof(RemasteredScale), null);
 
 		static readonly int[] FirstFrame = { 0 };
 
 		bool hasRemasteredSprite = true;
+
+		IEnumerable<ReservationInfo> ParseRemasterFilenames(ModData modData, string tileset, int[] frames, MiniYaml data, MiniYaml defaults)
+		{
+			string filename = null;
+			MiniYamlNode.SourceLocation location = default;
+			var remasteredTilesetFilenamesPatternNode = data.Nodes.FirstOrDefault(n => n.Key == RemasteredTilesetFilenamesPattern.Key) ?? defaults.Nodes.FirstOrDefault(n => n.Key == RemasteredTilesetFilenamesPattern.Key);
+			if (remasteredTilesetFilenamesPatternNode != null)
+			{
+				var tilesetNode = remasteredTilesetFilenamesPatternNode.Value.Nodes.FirstOrDefault(n => n.Key == tileset);
+				if (tilesetNode != null)
+				{
+					var patternStart = LoadField("Start", 0, tilesetNode.Value);
+					var patternCount = LoadField("Count", 1, tilesetNode.Value);
+
+					return Enumerable.Range(patternStart, patternCount).Select(i =>
+						new ReservationInfo(string.Format(tilesetNode.Value.Value, i), FirstFrame, FirstFrame, tilesetNode.Location));
+				}
+			}
+
+			var remasteredTilesetFilenamesNode = data.Nodes.FirstOrDefault(n => n.Key == RemasteredTilesetFilenames.Key) ?? defaults.Nodes.FirstOrDefault(n => n.Key == RemasteredTilesetFilenames.Key);
+			if (!string.IsNullOrEmpty(remasteredTilesetFilenamesNode?.Value.Value))
+			{
+				var tilesetNode = remasteredTilesetFilenamesNode.Value.Nodes.FirstOrDefault(n => n.Key == tileset);
+				if (tilesetNode != null)
+				{
+					filename = tilesetNode.Value.Value;
+					location = tilesetNode.Location;
+				}
+			}
+			else
+			{
+				var remasteredFilenamePatternNode = data.Nodes.FirstOrDefault(n => n.Key == RemasteredFilenamePattern.Key) ?? defaults.Nodes.FirstOrDefault(n => n.Key == RemasteredFilenamePattern.Key);
+				if (!string.IsNullOrEmpty(remasteredFilenamePatternNode?.Value.Value))
+				{
+					var patternStart = LoadField("Start", 0, remasteredFilenamePatternNode.Value);
+					var patternCount = LoadField("Count", 1, remasteredFilenamePatternNode.Value);
+
+					return Enumerable.Range(patternStart, patternCount).Select(i =>
+						new ReservationInfo(string.Format(remasteredFilenamePatternNode.Value.Value, i),
+						FirstFrame, FirstFrame, remasteredFilenamePatternNode.Location));
+				}
+			}
+
+			filename ??= LoadField(RemasteredFilename, data, defaults, out location);
+			if (filename != null)
+			{
+				// Only request the subset of frames that we actually need
+				var loadFrames = CalculateFrameIndices(start, length, stride ?? length ?? 0, facings, frames, transpose, reverseFacings, shadowStart);
+				return new[] { new ReservationInfo(filename, loadFrames, frames, location) };
+			}
+			else
+			{
+				hasRemasteredSprite = false;
+				return ParseFilenames(modData, tileset, frames, data, defaults);
+			}
+		}
+
+		IEnumerable<ReservationInfo> ParseRemasterCombineFilenames(ModData modData, string tileset, int[] frames, MiniYaml data)
+		{
+			string filename = null;
+			MiniYamlNode.SourceLocation location = default;
+
+			var node = data.Nodes.FirstOrDefault(n => n.Key == RemasteredTilesetFilenames.Key);
+			if (node != null)
+			{
+				var tilesetNode = node.Value.Nodes.FirstOrDefault(n => n.Key == tileset);
+				if (tilesetNode != null)
+				{
+					filename = tilesetNode.Value.Value;
+					location = tilesetNode.Location;
+				}
+			}
+
+			filename ??= LoadField(RemasteredFilename, data, null, out location);
+			if (frames == null && LoadField<string>("Length", null, data) != "*")
+			{
+				var subStart = LoadField("Start", 0, data);
+				var subLength = LoadField("Length", 1, data);
+				frames = Exts.MakeArray(subLength, i => subStart + i);
+			}
+
+			if (filename != null)
+			{
+				return new[] { new ReservationInfo(filename, frames, frames, location) };
+			}
+			else
+			{
+				hasRemasteredSprite = false;
+				return ParseCombineFilenames(modData, tileset, frames, data);
+			}
+		}
 
 		public RemasterSpriteSequence(SpriteCache cache, ISpriteSequenceLoader loader, string image, string sequence, MiniYaml data, MiniYaml defaults)
 			: base(cache, loader, image, sequence, data, defaults)
@@ -108,42 +170,6 @@ namespace OpenRA.Mods.Cnc.Graphics
 				length = LoadField(RemasteredLength, data, defaults) ?? length;
 			else
 				length = null;
-		}
-
-		string ResolveTilesetId(string tileset, MiniYaml data, MiniYaml defaults)
-		{
-			var yaml = data.Nodes.FirstOrDefault(n => n.Key == TilesetOverrides.Key) ?? defaults?.Nodes.FirstOrDefault(n => n.Key == TilesetOverrides.Key);
-			if (yaml != null)
-			{
-				var tsNode = yaml.Value.Nodes.FirstOrDefault(n => n.Key == tileset);
-				if (tsNode != null)
-					return tsNode.Value.Value;
-			}
-
-			return tileset;
-		}
-
-		string GetSpriteSrc(string tileset, string spriteName, MiniYaml data, MiniYaml defaults)
-		{
-			var loader = (RemasterSpriteSequenceLoader)Loader;
-
-			if (LoadField(UseTilesetCode, data, defaults))
-			{
-				if (loader.TilesetCodes.TryGetValue(ResolveTilesetId(tileset, data, defaults), out var code))
-					spriteName = spriteName.Substring(0, 1) + code + spriteName.Substring(2, spriteName.Length - 2);
-			}
-
-			if (LoadField(AddExtension, data, defaults))
-			{
-				var useTilesetExtension = LoadField(UseTilesetExtension, data, defaults);
-
-				if (useTilesetExtension && loader.TilesetExtensions.TryGetValue(ResolveTilesetId(tileset, data, defaults), out var tilesetExtension))
-					return spriteName + tilesetExtension;
-
-				return spriteName + loader.DefaultSpriteExtension;
-			}
-
-			return spriteName;
 		}
 
 		int? remasteredMaskToken;
@@ -174,13 +200,13 @@ namespace OpenRA.Mods.Cnc.Graphics
 					var subFlipY = LoadField(FlipY, subData, NoData);
 					var subFrames = LoadField(Frames, data);
 
-					foreach ((var subFilename, var subLoadFrames, var subUseFrames, var subLocation) in ParseRemasterCombineFilenames(tileset, subFrames, combineNode.Value.Nodes[i].Key, subData))
+					foreach (var f in ParseRemasterCombineFilenames(modData, tileset, subFrames, subData))
 					{
 						int token;
 						if (remasteredMaskToken != null)
-							token = cache.ReserveFrames(subFilename, subLoadFrames, subLocation);
+							token = cache.ReserveFrames(f.Filename, f.LoadFrames, f.Location);
 						else
-							token = cache.ReserveSprites(subFilename, subLoadFrames, subLocation);
+							token = cache.ReserveSprites(f.Filename, f.LoadFrames, f.Location);
 
 						spritesToLoad.Add(new SpriteReservation
 						{
@@ -190,20 +216,20 @@ namespace OpenRA.Mods.Cnc.Graphics
 							FlipY = subFlipY ^ flipY,
 							BlendMode = blendMode,
 							ZRamp = zRamp,
-							Frames = subUseFrames
+							Frames = f.Frames
 						});
 					}
 				}
 			}
 			else
 			{
-				foreach ((var filename, var loadFrames, var useFrames, var location) in ParseRemasterFilenames(tileset, frames, data, defaults))
+				foreach (var f in ParseRemasterFilenames(modData, tileset, frames, data, defaults))
 				{
 					int token;
 					if (remasteredMaskToken != null)
-						token = cache.ReserveFrames(filename, loadFrames, location);
+						token = cache.ReserveFrames(f.Filename, f.LoadFrames, f.Location);
 					else
-						token = cache.ReserveSprites(filename, loadFrames, location);
+						token = cache.ReserveSprites(f.Filename, f.LoadFrames, f.Location);
 
 					spritesToLoad.Add(new SpriteReservation
 					{
@@ -213,7 +239,7 @@ namespace OpenRA.Mods.Cnc.Graphics
 						FlipY = flipY,
 						BlendMode = blendMode,
 						ZRamp = zRamp,
-						Frames = useFrames,
+						Frames = f.Frames,
 					});
 				}
 			}
@@ -314,7 +340,7 @@ namespace OpenRA.Mods.Cnc.Graphics
 				}).ToArray();
 			}
 
-			length = length ?? allSprites.Length - start;
+			length ??= allSprites.Length - start;
 
 			if (alpha != null)
 			{
@@ -327,14 +353,14 @@ namespace OpenRA.Mods.Cnc.Graphics
 				alpha = Exts.MakeArray(length.Value, i => float2.Lerp(1f, 0f, i / (length.Value - 1f)));
 
 			// Reindex sprites to order facings anti-clockwise and remove unused frames
-			var index = CalculateFrameIndices(start, length.Value, stride ?? length.Value, facings, null, transpose, reverseFacings).ToList();
+			var index = CalculateFrameIndices(start, length.Value, stride ?? length.Value, facings, null, transpose, reverseFacings, -1);
 			if (reverses)
 			{
 				index.AddRange(index.Skip(1).Take(length.Value - 2).Reverse());
 				length = 2 * length - 2;
 			}
 
-			if (!index.Any())
+			if (index.Count == 0)
 				throw new YamlException($"Sequence {image}.{Name} does not define any frames.");
 
 			var minIndex = index.Min();
@@ -347,130 +373,6 @@ namespace OpenRA.Mods.Cnc.Graphics
 				shadowSprites = index.Select(f => allSprites[f - start + shadowStart]).ToArray();
 
 			bounds = sprites.Concat(shadowSprites ?? Enumerable.Empty<Sprite>()).Select(OffsetSpriteBounds).Union();
-		}
-
-		IEnumerable<(string Filename, int[] loadFrames, int[] useFrames, MiniYamlNode.SourceLocation location)> ParseRemasterFilenames(string tileset, int[] frames, MiniYaml data, MiniYaml defaults)
-		{
-			string filename = null;
-			MiniYamlNode.SourceLocation location = default;
-			var remasteredTilesetFilenamesPatternNode = data.Nodes.FirstOrDefault(n => n.Key == RemasteredTilesetFilenamesPattern.Key) ?? defaults.Nodes.FirstOrDefault(n => n.Key == RemasteredTilesetFilenamesPattern.Key);
-			if (remasteredTilesetFilenamesPatternNode != null)
-			{
-				var tilesetNode = remasteredTilesetFilenamesPatternNode.Value.Nodes.FirstOrDefault(n => n.Key == tileset);
-				if (tilesetNode != null)
-				{
-					var patternStart = LoadField("Start", 0, tilesetNode.Value);
-					var patternCount = LoadField("Count", 1, tilesetNode.Value);
-
-					return Enumerable.Range(patternStart, patternCount)
-						.Select(i => (string.Format(tilesetNode.Value.Value, i), FirstFrame, FirstFrame, tilesetNode.Location));
-				}
-			}
-
-			var remasteredTilesetFilenamesNode = data.Nodes.FirstOrDefault(n => n.Key == RemasteredTilesetFilenames.Key) ?? defaults.Nodes.FirstOrDefault(n => n.Key == RemasteredTilesetFilenames.Key);
-			if (!string.IsNullOrEmpty(remasteredTilesetFilenamesNode?.Value.Value))
-			{
-				var tilesetNode = remasteredTilesetFilenamesNode.Value.Nodes.FirstOrDefault(n => n.Key == tileset);
-				if (tilesetNode != null)
-				{
-					filename = tilesetNode.Value.Value;
-					location = tilesetNode.Location;
-				}
-			}
-			else
-			{
-				var remasteredFilenamePatternNode = data.Nodes.FirstOrDefault(n => n.Key == RemasteredFilenamePattern.Key) ?? defaults.Nodes.FirstOrDefault(n => n.Key == RemasteredFilenamePattern.Key);
-				if (!string.IsNullOrEmpty(remasteredFilenamePatternNode?.Value.Value))
-				{
-					var patternStart = LoadField("Start", 0, remasteredFilenamePatternNode.Value);
-					var patternCount = LoadField("Count", 1, remasteredFilenamePatternNode.Value);
-
-					return Enumerable.Range(patternStart, patternCount)
-						.Select(i => (string.Format(remasteredFilenamePatternNode.Value.Value, i), FirstFrame, FirstFrame, remasteredFilenamePatternNode.Location));
-				}
-			}
-
-			filename = filename ?? LoadField(RemasteredFilename, data, defaults, out location);
-			if (filename != null)
-			{
-				// Only request the subset of frames that we actually need
-				int[] loadFrames = null;
-				if (length != null)
-				{
-					loadFrames = CalculateFrameIndices(start, length.Value, stride ?? length.Value, facings, frames, transpose, reverseFacings);
-					if (shadowStart >= 0)
-						loadFrames = loadFrames.Concat(loadFrames.Select(i => i + shadowStart - start)).ToArray();
-				}
-
-				return new[] { (filename, loadFrames, frames, location) };
-			}
-			else
-			{
-				hasRemasteredSprite = false;
-				filename = GetSpriteSrc(tileset, data?.Value ?? defaults?.Value ?? image, data, defaults);
-				location = (data.Nodes.FirstOrDefault() ?? defaults.Nodes.FirstOrDefault())?.Location ?? default;
-				int[] loadFrames = null;
-
-				// Only request the subset of frames that we actually need
-				if (length != null)
-				{
-					loadFrames = CalculateFrameIndices(start, length.Value, stride ?? length.Value, facings, frames, transpose, reverseFacings);
-					if (shadowStart >= 0)
-						loadFrames = loadFrames.Concat(loadFrames.Select(i => i + shadowStart - start)).ToArray();
-				}
-
-				return new[] { (filename, loadFrames, frames, location) };
-			}
-		}
-
-		IEnumerable<(string Filename, int[] loadFrames, int[] useFrames, MiniYamlNode.SourceLocation location)> ParseRemasterCombineFilenames(string tileset, int[] frames, string key, MiniYaml data)
-		{
-			string filename = null;
-			MiniYamlNode.SourceLocation location = default;
-
-			var node = data.Nodes.FirstOrDefault(n => n.Key == RemasteredTilesetFilenames.Key);
-			if (node != null)
-			{
-				var tilesetNode = node.Value.Nodes.FirstOrDefault(n => n.Key == tileset);
-				if (tilesetNode != null)
-				{
-					filename = tilesetNode.Value.Value;
-					location = tilesetNode.Location;
-				}
-			}
-
-			filename = filename ?? LoadField(RemasteredFilename, data, null, out location);
-			if (frames == null)
-			{
-				if (LoadField<string>("Length", null, data) != "*")
-				{
-					var subStart = LoadField("Start", 0, data);
-					var subLength = LoadField("Length", 1, data);
-					frames = Exts.MakeArray(subLength, i => subStart + i);
-				}
-			}
-
-			if (filename != null)
-			{
-				yield return (filename, frames, frames, location);
-				yield break;
-			}
-
-			hasRemasteredSprite = false;
-			filename = GetSpriteSrc(tileset, key, data, data);
-			location = data.Nodes.FirstOrDefault()?.Location ?? default;
-
-			if (frames == null)
-			{
-				if (LoadField<string>("Length", null, data) != "*")
-				{
-					var subStart = LoadField("Start", 0, data);
-					var subLength = LoadField("Length", 1, data);
-					frames = Exts.MakeArray(subLength, i => subStart + i);
-				}
-			}
-
-			yield return (filename, frames, frames, location);
 		}
 
 		protected override float GetScale()
