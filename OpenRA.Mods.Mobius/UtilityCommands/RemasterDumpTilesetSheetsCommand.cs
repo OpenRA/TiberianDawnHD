@@ -15,7 +15,7 @@ using OpenRA.Mods.Mobius.Terrain;
 
 namespace OpenRA.Mods.Mobius.UtilityCommands
 {
-	class DumpTilesetSheetsCommand : IUtilityCommand
+	sealed class DumpTilesetSheetsCommand : IUtilityCommand
 	{
 		static readonly int[] ChannelMasks = { 2, 1, 0, 3 };
 

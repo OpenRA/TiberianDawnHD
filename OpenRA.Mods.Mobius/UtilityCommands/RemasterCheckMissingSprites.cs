@@ -16,7 +16,7 @@ using OpenRA.Mods.Common.Traits;
 
 namespace OpenRA.Mods.Mobius.UtilityCommands
 {
-	class RemasterCheckMissingSprites : IUtilityCommand
+	sealed class RemasterCheckMissingSprites : IUtilityCommand
 	{
 		string IUtilityCommand.Name => "--remaster-check-missing-sprites";
 

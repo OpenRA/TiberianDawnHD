@@ -19,7 +19,7 @@ using OpenRA.Mods.Common.UpdateRules;
 
 namespace OpenRA.Mods.Mobius.UtilityCommands
 {
-	class RemasterTilesetConverter : IUtilityCommand
+	sealed class RemasterTilesetConverter : IUtilityCommand
 	{
 		string IUtilityCommand.Name { get { return "--convert-tileset"; } }
 

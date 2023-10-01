@@ -18,7 +18,7 @@ namespace OpenRA.Mods.Mobius.Traits
 {
 	[TraitLocation(SystemActors.World | SystemActors.EditorWorld)]
 	[Desc("Create a color picker palette from another palette.")]
-	class ColorPickerColorShiftInfo : TraitInfo
+	sealed class ColorPickerColorShiftInfo : TraitInfo
 	{
 		[PaletteReference]
 		[FieldLoader.Require]
@@ -43,7 +43,7 @@ namespace OpenRA.Mods.Mobius.Traits
 		public override object Create(ActorInitializer init) { return new ColorPickerColorShift(this); }
 	}
 
-	class ColorPickerColorShift : ILoadsPalettes, ITickRender
+	sealed class ColorPickerColorShift : ILoadsPalettes, ITickRender
 	{
 		readonly ColorPickerColorShiftInfo info;
 		Color color;
