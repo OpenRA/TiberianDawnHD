@@ -118,9 +118,9 @@ function Check-Command
 
 	Write-Host "Compiling $modID in Debug configuration..." -ForegroundColor Cyan
 
-	# Enabling EnforceCodeStyleInBuild and GenerateDocumentationFile as a workaround for some code style rules (in particular IDE0005) being bugged and not reporting warnings/errors otherwise.
 	dotnet clean -c Debug --nologo --verbosity minimal
-	dotnet build -c Debug --nologo -warnaserror -p:TargetPlatform=win-x64 -p:EnforceCodeStyleInBuild=true -p:GenerateDocumentationFile=true
+	dotnet build -c Debug --nologo -warnaserror -p:TargetPlatform=win-x64
+
 	if ($lastexitcode -ne 0)
 	{
 		Write-Host "Build failed." -ForegroundColor Red
@@ -293,8 +293,8 @@ if (Test-Path "user.config")
 
 $modID = $env:MOD_ID
 
-$env:MOD_SEARCH_PATHS = (Get-Item -Path ".\" -Verbose).FullName + "\mods,./mods"
-$env:ENGINE_DIR = ".."
+$env:MOD_SEARCH_PATHS = "./mods,$env:ENGINE_DIRECTORY/mods"
+$env:ENGINE_DIR = ".." # Set to potentially be used by the Utility and different than $env:ENGINE_DIRECTORY, which is for the script.
 
 # Fetch the engine if required
 if ($command -eq "all" -or $command -eq "clean" -or $command -eq "check")
