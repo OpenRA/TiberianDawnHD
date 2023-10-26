@@ -93,6 +93,8 @@ explosion:
 		RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\VFX\NAPALM2.ZIP
 
 rallypoint:
+	Defaults:
+		RemasteredPremultiplied: false
 	flag: 
 		RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\VFX\FLAGFLY.ZIP
 		RemasteredOffset: 50, -25
@@ -100,6 +102,8 @@ rallypoint:
 		RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\VFX\FPLS.ZIP
 
 beacon:
+	Defaults:
+		RemasteredPremultiplied: false
 	circles:
 		RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\VFX\FPLS.ZIP
 
@@ -162,6 +166,8 @@ bomblet:
 		RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\VFX\BOMBLET.ZIP
 
 overlay:
+	Defaults:
+		RemasteredPremultiplied: false
 	build-valid:
 		RemasteredFilename: DATA\ART\TEXTURES\SRGB\COMMON\MISC\PLACEMENT_GOOD.TGA
 	build-invalid:
@@ -177,6 +183,8 @@ overlay:
 			Count: 3
 
 editor-overlay:
+	Defaults:
+		RemasteredPremultiplied: false
 	copy:
 		RemasteredFilename: DATA\ART\TEXTURES\SRGB\COMMON\MISC\PLACEMENT_GOOD.TGA
 	paste:
@@ -190,6 +198,7 @@ moveflsh:
 resources:
 	Defaults:
 		RemasteredLength: *
+		RemasteredPremultiplied: false
 	ti1:
 		RemasteredFilenamePattern: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\TEMPERATE\TI1\TI1.TEM-{0:D4}.DDS
 			Count: 12

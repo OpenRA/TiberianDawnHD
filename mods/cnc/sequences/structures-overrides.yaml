@@ -11,6 +11,7 @@ fact:
 				Count: 6
 			DESERT: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\BIB2.DES\BIB2.DES-{0:D4}.DDS
 				Count: 6
+		RemasteredPremultiplied: false
 	icon:
 		RemasteredFilename:
 
@@ -27,6 +28,7 @@ nuke:
 				Count: 4
 			DESERT: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\BIB3.DES\BIB3.DES-{0:D4}.DDS
 				Count: 4
+		RemasteredPremultiplied: false
 	icon:
 		RemasteredFilename:
 
@@ -53,6 +55,7 @@ proc:
 				Count: 6
 			DESERT: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\BIB2.DES\BIB2.DES-{0:D4}.DDS
 				Count: 6
+		RemasteredPremultiplied: false
 	icon:
 		RemasteredFilename:
 
@@ -82,6 +85,7 @@ hand:
 				Count: 4
 			DESERT: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\BIB3.DES\BIB3.DES-{0:D4}.DDS
 				Count: 4
+		RemasteredPremultiplied: false
 	icon:
 		RemasteredFilename:
 
@@ -98,6 +102,7 @@ pyle:
 				Count: 4
 			DESERT: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\BIB3.DES\BIB3.DES-{0:D4}.DDS
 				Count: 4
+		RemasteredPremultiplied: false
 	icon:
 		RemasteredFilename:
 
@@ -122,6 +127,7 @@ weap:
 			DESERT: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\BIB2.DES\BIB2.DES-{0:D4}.DDS
 				Count: 6
 		RemasteredOffset: 0,0
+		RemasteredPremultiplied: false
 	icon:
 		RemasteredFilename:
 
@@ -150,6 +156,7 @@ afld:
 				Count: 8
 			DESERT: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\BIB1.DES\BIB1.DES-{0:D4}.DDS
 				Count: 8
+		RemasteredPremultiplied: false
 	icon:
 		RemasteredFilename:
 
@@ -166,6 +173,7 @@ hq:
 				Count: 4
 			DESERT: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\BIB3.DES\BIB3.DES-{0:D4}.DDS
 				Count: 4
+		RemasteredPremultiplied: false
 	icon:
 		RemasteredFilename:
 
@@ -182,6 +190,7 @@ nuk2:
 				Count: 4
 			DESERT: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\BIB3.DES\BIB3.DES-{0:D4}.DDS
 				Count: 4
+		RemasteredPremultiplied: false
 	icon:
 		RemasteredFilename:
 
@@ -216,6 +225,7 @@ eye:
 				Count: 4
 			DESERT: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\BIB3.DES\BIB3.DES-{0:D4}.DDS
 				Count: 4
+		RemasteredPremultiplied: false
 	icon:
 		RemasteredFilename:
 
@@ -237,6 +247,7 @@ tmpl:
 			DESERT: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\BIB2.DES\BIB2.DES-{0:D4}.DDS
 				Count: 6
 		RemasteredOffset: 0, 0
+		RemasteredPremultiplied: false
 	icon:
 		RemasteredFilename:
 

@@ -64,6 +64,9 @@ namespace OpenRA.Mods.Cnc.Graphics
 		[Desc("Adjusts the rendered size of the sprite")]
 		protected static readonly SpriteSequenceField<float?> RemasteredScale = new(nameof(RemasteredScale), null);
 
+		[Desc("Sprite data is already pre-multiplied by alpha channel.")]
+		protected static readonly SpriteSequenceField<bool> RemasteredPremultiplied = new(nameof(RemasteredPremultiplied), true);
+
 		static readonly int[] FirstFrame = { 0 };
 
 		bool hasRemasteredSprite = true;
@@ -184,6 +187,7 @@ namespace OpenRA.Mods.Cnc.Graphics
 			var remasteredOffset = LoadField(RemasteredOffset, data, defaults);
 			var remasteredMaskFilename = LoadField(RemasteredMaskFilename, data, defaults, out var remasteredMaskFilenameLocation);
 			var blendMode = LoadField(BlendMode, data, defaults);
+			var premultiplied = LoadField(RemasteredPremultiplied, data, defaults);
 
 			if (!string.IsNullOrEmpty(remasteredMaskFilename))
 				remasteredMaskToken = cache.ReserveFrames(remasteredMaskFilename, null, remasteredMaskFilenameLocation);
@@ -206,7 +210,7 @@ namespace OpenRA.Mods.Cnc.Graphics
 						if (remasteredMaskToken != null)
 							token = cache.ReserveFrames(f.Filename, f.LoadFrames, f.Location);
 						else
-							token = cache.ReserveSprites(f.Filename, f.LoadFrames, f.Location);
+							token = cache.ReserveSprites(f.Filename, f.LoadFrames, f.Location, hasRemasteredSprite && premultiplied);
 
 						spritesToLoad.Add(new SpriteReservation
 						{
@@ -229,7 +233,7 @@ namespace OpenRA.Mods.Cnc.Graphics
 					if (remasteredMaskToken != null)
 						token = cache.ReserveFrames(f.Filename, f.LoadFrames, f.Location);
 					else
-						token = cache.ReserveSprites(f.Filename, f.LoadFrames, f.Location);
+						token = cache.ReserveSprites(f.Filename, f.LoadFrames, f.Location, hasRemasteredSprite && premultiplied);
 
 					spritesToLoad.Add(new SpriteReservation
 					{

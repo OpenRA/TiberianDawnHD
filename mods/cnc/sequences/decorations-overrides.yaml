@@ -726,11 +726,13 @@ v22.husk:
 
 v23:
 	Defaults:
+		RemasteredPremultiplied: false
 		RemasteredFilenamePattern: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\V23.DES\V23.DES-{0:D4}.DDS
 			Count: 6
 
 v23.husk:
 	Defaults:
+		RemasteredPremultiplied: false
 		RemasteredFilenamePattern: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\V23.DES\V23.DES-{0:D4}.DDS
 			Count: 7
 
@@ -866,11 +868,13 @@ v36.husk:
 
 v37:
 	Defaults:
+		RemasteredPremultiplied: false
 		RemasteredFilenamePattern: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\V37.DES\V37.DES_{0:D4}.DDS
 			Count: 2
 
 v37.husk:
 	Defaults:
+		RemasteredPremultiplied: false
 		RemasteredFilenamePattern: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\V37.DES\V37.DES_{0:D4}.DDS
 			Count: 3
 
