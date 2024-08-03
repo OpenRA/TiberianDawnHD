@@ -37,7 +37,7 @@ namespace OpenRA.Mods.Mobius.Terrain
 				var templateInfo = (RemasterTerrainTemplateInfo)t.Value;
 				var templateTokens = new Dictionary<int, int[]>();
 
-				if (templateInfo.RemasteredFilenames?.Any() ?? false)
+				if ((templateInfo.RemasteredFilenames?.Count ?? 0) > 0)
 				{
 					foreach (var kv in templateInfo.RemasteredFilenames)
 						templateTokens[kv.Key] = kv.Value

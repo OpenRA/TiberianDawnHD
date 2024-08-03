@@ -52,7 +52,7 @@ Container@MAINMENU_PRERELEASE_NOTIFICATION:
 					Font: BigBold
 					Contrast: true
 					Align: Center
-					Text: Tiberian Dawn: Remastered preview
+					Text: prerelease-notification-title
 				Background@bg:
 					Width: PARENT_RIGHT
 					Height: PARENT_BOTTOM
@@ -64,33 +64,33 @@ Container@MAINMENU_PRERELEASE_NOTIFICATION:
 							Width: PARENT_RIGHT - 30
 							Height: 16
 							Align: Center
-							Text: This pre-release build is made available as a proof of concept demonstrating
+							Text: prerelease-notification-desca
 						Label@PROMPT_TEXT_B:
 							X: 15
 							Y: 15 + 18
 							Width: PARENT_RIGHT - 30
 							Height: 16
 							Align: Center
-							Text: the capabilities of OpenRA using the C&C Remastered Collection assets.
+							Text: prerelease-notification-descb
 						Label@PROMPT_TEXT_C:
 							X: 15
 							Y: 15 + 3 * 18
 							Width: PARENT_RIGHT - 30
 							Height: 16
 							Align: Center
-							Text: Performance, memory usage, and loading times have not been optimized, and do
+							Text: prerelease-notification-descc
 						Label@PROMPT_TEXT_D:
 							X: 15
 							Y: 15 + 4 * 18
 							Width: PARENT_RIGHT - 30
 							Height: 16
 							Align: Center
-							Text: not reflect the expected final requirements. A dedicated GPU is recommended.
+							Text: prerelease-notification-descd
 				Button@CONTINUE_BUTTON:
 					X: PARENT_RIGHT - WIDTH
 					Y: PARENT_BOTTOM - 1
 					Width: 140
 					Height: 35
-					Text: I Understand
+					Text: prerelease-notification-confirm
 					Font: Bold
 					Key: return

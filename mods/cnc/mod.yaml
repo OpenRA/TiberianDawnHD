@@ -125,6 +125,7 @@ ChromeLayout:
 	cnc|chrome/mainmenu-prerelease-notification.yaml
 	base|chrome/mainmenu-prompts.yaml
 	base|chrome/playerprofile.yaml
+	base|chrome/encyclopedia.yaml
 	base|chrome/multiplayer-browser.yaml
 	base|chrome/multiplayer-browserpanels.yaml
 	base|chrome/multiplayer-createserver.yaml
@@ -174,7 +175,11 @@ ChromeLayout:
 Translations:
 	common|languages/en.ftl
 	common|languages/rules/en.ftl
+	base|languages/chrome/en.ftl
 	base|languages/rules/en.ftl
+	cnc|languages/overrides/en.ftl
+
+AllowUnusedTranslationsInExternalPackages: false
 
 Voices:
 	cnc|audio/voices.yaml
@@ -205,6 +210,7 @@ LoadScreen: RemasterLoadScreen
 
 ServerTraits:
 	LobbyCommands
+	SkirmishLogic
 	PlayerPinger
 	MasterServerPinger
 	LobbySettingsNotification
@@ -273,8 +279,6 @@ TerrainFormat: RemasterTerrain
 SpriteSequenceFormat: RemasterSpriteSequence
 	BgraSheetSize: 8192
 	IndexedSheetSize: 512
-
-ModelSequenceFormat: PlaceholderModelSequence
 
 AssetBrowser:
 	SpriteExtensions: .shp, .tem, .win, .sno, .des, .jun, .ZIP, .DDS, .TGA

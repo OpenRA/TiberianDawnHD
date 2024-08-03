@@ -35,7 +35,7 @@ namespace OpenRA.Mods.Mobius.UtilityCommands
 			Game.ModData = utility.ModData;
 
 			var tileset = MiniYaml.FromFile(args[1], discardCommentsAndWhitespace: false);
-			var templates = tileset.First(n => n.Key == "Templates");
+			var templates = new MiniYamlBuilder(tileset.First(n => n.Key == "Templates").Value);
 
 			var mapping = new XmlDocument();
 			using (var ffs = new FileStream(args[2], FileMode.Open))
@@ -47,7 +47,7 @@ namespace OpenRA.Mods.Mobius.UtilityCommands
 			}
 
 			var rootTexturePath = mapping.SelectSingleNode("//RootTexturePath").InnerText.ToUpperInvariant();
-			foreach (var template in templates.Value.Nodes)
+			foreach (var template in templates.Nodes)
 			{
 				var legacy = template.LastChildMatching("Images").Value.Value;
 				var code = Path.GetFileNameWithoutExtension(legacy).ToUpperInvariant();
@@ -62,7 +62,7 @@ namespace OpenRA.Mods.Mobius.UtilityCommands
 
 				template.RemoveNodes("Frames");
 				template.RenameChildrenMatching("Images", "Filename");
-				var imageNode = new MiniYamlNode("RemasteredFilenames", "");
+				var imageNode = new MiniYamlNodeBuilder("RemasteredFilenames", "");
 				foreach (var t in tileNodes)
 				{
 					var tileNode = (XmlNode)t;
@@ -77,7 +77,7 @@ namespace OpenRA.Mods.Mobius.UtilityCommands
 					imageNode.AddNode(index, FieldSaver.FormatValue(frames));
 				}
 
-				if (imageNode.Value.Nodes.Any())
+				if (imageNode.Value.Nodes.Count > 0)
 					template.AddNode(imageNode);
 			}
 
