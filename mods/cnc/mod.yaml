@@ -7,15 +7,14 @@ Metadata:
 
 PackageFormats: Mix, MegV3, ZipFile
 
-Packages:
-	^EngineDir
-	$cnc: cnc
-	^EngineDir|mods/cnc: base
-	^EngineDir|mods/common: common
-	base|scripts
-	common|scripts
-
-RemasterModContent:
+FileSystem: RemasterFileSystem
+	Packages:
+		^EngineDir
+		$cnc: cnc
+		^EngineDir|mods/cnc: base
+		^EngineDir|mods/common: common
+		base|scripts
+		common|scripts
 	RemasterDataMount: data
 	Sources:
 		steam:
@@ -26,7 +25,7 @@ RemasterModContent:
 			RegistryPrefixes: HKEY_LOCAL_MACHINE\Software\, HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\
 			RegistryKey: Petroglyph\CnCRemastered
 			RegistryValue: Install Dir
-	Packages:
+	RemasterPackages:
 		data|CNCDATA/TIBERIAN_DAWN/CD1/CONQUER.MIX
 		data|CNCDATA/TIBERIAN_DAWN/CD1/SOUNDS.MIX
 		data|CNCDATA/TIBERIAN_DAWN/CD1/TEMPICNH.MIX
@@ -115,13 +114,10 @@ Cursors:
 Chrome:
 	base|chrome.yaml
 
-Assemblies:
-	^BinDir|OpenRA.Mods.Common.dll
-	^BinDir|OpenRA.Mods.Cnc.dll
-	^BinDir|OpenRA.Mods.Mobius.dll
+Assemblies: OpenRA.Mods.Common.dll, OpenRA.Mods.Cnc.dll, OpenRA.Mods.Mobius.dll
 
 ChromeLayout:
-	cnc|chrome/mainmenu.yaml
+	base|chrome/mainmenu.yaml
 	cnc|chrome/mainmenu-prerelease-notification.yaml
 	base|chrome/mainmenu-prompts.yaml
 	base|chrome/playerprofile.yaml
@@ -202,7 +198,7 @@ Hotkeys:
 	common|hotkeys/control-groups.yaml
 	base|hotkeys.yaml
 
-LoadScreen: RemasterLoadScreen
+LoadScreen: CncLoadScreen
 	Image: base|uibits/chrome.png
 	Image2x: base|uibits/chrome-2x.png
 	Image3x: base|uibits/chrome-3x.png
@@ -312,8 +308,6 @@ GameSpeeds:
 			Name: options-game-speed.fastest
 			Timestep: 20
 			OrderLatency: 6
-
-ModContent:
 
 DiscordService:
 	ApplicationId: 699223250181292033

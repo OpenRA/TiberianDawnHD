@@ -3,13 +3,14 @@ Metadata:
 	Version: {DEV_VERSION}
 	Hidden: true
 
-Packages:
-	^EngineDir
-	$cnccontent: cnccontent
-	^EngineDir|mods/cnc: cnc
-	^EngineDir|mods/modcontent: modcontent
-	^EngineDir|mods/common: common
-	cnc|uibits
+FileSystem: DefaultFileSystem
+	Packages:
+		^EngineDir
+		$cnccontent: cnccontent
+		^EngineDir|mods/cnc: cnc
+		^EngineDir|mods/modcontent: modcontent
+		^EngineDir|mods/common: common
+		cnc|uibits
 
 Rules:
 	modcontent|rules.yaml
@@ -20,10 +21,7 @@ Cursors:
 Chrome:
 	cnc|chrome.yaml
 
-Assemblies:
-	^BinDir|OpenRA.Mods.Common.dll
-	^BinDir|OpenRA.Mods.Cnc.dll
-	^BinDir|OpenRA.Mods.Mobius.dll
+Assemblies: OpenRA.Mods.Common.dll, OpenRA.Mods.Cnc.dll, OpenRA.Mods.Mobius.dll
 
 ChromeLayout:
 	cnccontent|prompt.yaml
@@ -74,5 +72,3 @@ SpriteFormats: PngSheet
 TerrainFormat: DefaultTerrain
 
 SpriteSequenceFormat: DefaultSpriteSequence
-
-ModelSequenceFormat: PlaceholderModelSequence
