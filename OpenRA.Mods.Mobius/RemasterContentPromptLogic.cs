@@ -18,7 +18,6 @@ namespace OpenRA.Mods.Common.Widgets.Logic
 		[ObjectCreator.UseCtor]
 		public RemasterContentPromptLogic(Widget widget, ModData modData)
 		{
-			widget.Get<LabelWidget>("VERSION_LABEL").Text = modData.Manifest.Metadata.Version;
 			widget.Get<ButtonWidget>("QUIT_BUTTON").OnClick = Game.Exit;
 		}
 	}

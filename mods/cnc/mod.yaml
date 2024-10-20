@@ -3,7 +3,7 @@ Metadata:
 	Version: {DEV_VERSION}
 	Website: https://www.openra.net
 	WebIcon32: https://www.openra.net/images/icons/cnc_32x32.png
-	WindowTitle: OpenRA - Tiberian Dawn
+	WindowTitle: OpenRA - Tiberian Dawn HD
 
 PackageFormats: Mix, MegV3, ZipFile
 
@@ -118,7 +118,6 @@ Assemblies: OpenRA.Mods.Common.dll, OpenRA.Mods.Cnc.dll, OpenRA.Mods.Mobius.dll
 
 ChromeLayout:
 	base|chrome/mainmenu.yaml
-	cnc|chrome/mainmenu-prerelease-notification.yaml
 	base|chrome/mainmenu-prompts.yaml
 	base|chrome/playerprofile.yaml
 	base|chrome/encyclopedia.yaml
@@ -168,14 +167,16 @@ ChromeLayout:
 	base|chrome/editor.yaml
 	common|chrome/text-notifications.yaml
 
-Translations:
-	common|languages/en.ftl
-	common|languages/rules/en.ftl
-	base|languages/chrome/en.ftl
-	base|languages/rules/en.ftl
-	cnc|languages/overrides/en.ftl
+FluentMessages:
+	common|fluent/common.ftl
+	common|fluent/hotkeys.ftl
+	common|fluent/rules.ftl
+	base|fluent/cnc.ftl
+	base|fluent/chrome.ftl
+	base|fluent/hotkeys.ftl
+	base|fluent/rules.ftl
 
-AllowUnusedTranslationsInExternalPackages: false
+AllowUnusedFluentMessagesInExternalPackages: false
 
 Voices:
 	cnc|audio/voices.yaml
@@ -190,7 +191,6 @@ Hotkeys:
 	common|hotkeys/game.yaml
 	common|hotkeys/observer.yaml
 	common|hotkeys/production-common.yaml
-	common|hotkeys/production-peractor.yaml
 	common|hotkeys/supportpowers.yaml
 	common|hotkeys/viewport.yaml
 	common|hotkeys/chat.yaml
@@ -202,7 +202,6 @@ LoadScreen: CncLoadScreen
 	Image: base|uibits/chrome.png
 	Image2x: base|uibits/chrome-2x.png
 	Image3x: base|uibits/chrome-3x.png
-	Text: Loading
 
 ServerTraits:
 	LobbyCommands
@@ -268,7 +267,7 @@ SoundFormats: Aud, Wav
 
 SpriteFormats: Tga, ShpTD, TmpTD, ShpTS, TmpRA, ShpRemastered, Dds, PngSheet
 
-VideoFormats: Vqa
+VideoFormats: Vqa, Wsa
 
 TerrainFormat: RemasterTerrain
 

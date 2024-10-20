@@ -6,20 +6,19 @@ Metadata:
 FileSystem: DefaultFileSystem
 	Packages:
 		^EngineDir
-		$cnccontent: cnccontent
-		^EngineDir|mods/cnc: cnc
-		^EngineDir|mods/modcontent: modcontent
+		^EngineDir|mods/common-content: content
 		^EngineDir|mods/common: common
-		cnc|uibits
+		$remaster-content: cnccontent
+
 
 Rules:
-	modcontent|rules.yaml
+	content|rules.yaml
 
 Cursors:
-	modcontent|cursors.yaml
+	content|cursors.yaml
 
 Chrome:
-	cnc|chrome.yaml
+	content|chrome.yaml
 
 Assemblies: OpenRA.Mods.Common.dll, OpenRA.Mods.Cnc.dll, OpenRA.Mods.Mobius.dll
 
@@ -27,17 +26,22 @@ ChromeLayout:
 	cnccontent|prompt.yaml
 
 Notifications:
-	modcontent|notifications.yaml
+	content|notifications.yaml
 
-LoadScreen: RemasterInstallPromptLoadScreen
-	Image: cnc|uibits/chrome.png
-	Image2x: cnc|uibits/chrome-2x.png
-	Image3x: cnc|uibits/chrome-3x.png
-	Text: Loading
+LoadScreen: ModContentLoadScreen
+	Image: ^EngineDir|mods/common-content/chrome.png
+	Image2x: ^EngineDir|mods/common-content/chrome-2x.png
+	Image3x: ^EngineDir|mods/common-content/chrome-3x.png
 
 ChromeMetrics:
 	common|metrics.yaml
-	modcontent|metrics.yaml
+	content|metrics.yaml
+
+FluentMessages:
+	common|fluent/common.ftl
+	content|fluent/content.ftl
+	content|fluent/chrome.ftl
+	cnccontent|prompt.ftl
 
 Fonts:
 	Tiny:

@@ -12,6 +12,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using OpenRA.Mods.Common;
 using OpenRA.Mods.Common.FileSystem;
 using OpenRA.Mods.Common.Installer;
 
@@ -21,7 +22,7 @@ namespace OpenRA.Mods.Mobius.FileSystem
 	{
 		[FieldLoader.Require]
 		public readonly string RemasterDataMount = null;
-		public readonly string InstallPromptMod = "cnccontent";
+		public readonly string InstallPromptMod = "remaster-content";
 		public readonly Dictionary<string, string> Packages = null;
 		public readonly Dictionary<string, string> RemasterPackages = null;
 
@@ -33,7 +34,7 @@ namespace OpenRA.Mods.Mobius.FileSystem
 			var ret = new Dictionary<string, ModContent.ModSource>();
 			var sourcesNode = yaml.Nodes.Single(n => n.Key == "Sources");
 			foreach (var s in sourcesNode.Value.Nodes)
-				ret.Add(s.Key, new ModContent.ModSource(s.Value, null));
+				ret.Add(s.Key, new ModContent.ModSource(s.Value));
 
 			return ret;
 		}

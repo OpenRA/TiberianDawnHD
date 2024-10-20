@@ -1,0 +1,44 @@
+Background@MODCONTENT_BACKGROUND:
+	Logic: RemasterContentPromptLogic
+	Background: background
+	Width: WINDOW_WIDTH
+	Height: WINDOW_HEIGHT
+	Children:
+		Background@CONTENT_PROMPT_PANEL:
+			X: (WINDOW_WIDTH - WIDTH) / 2
+			Y: (WINDOW_HEIGHT - HEIGHT) / 2
+			Width: 600
+			Height: 160
+			Background: panel-bg
+			Children:
+				Label@TITLE:
+					X: 0
+					Y: 12
+					Width: PARENT_WIDTH
+					Height: 25
+					Text: label-content-prompt-panel-title
+					Align: Center
+					Font: MediumBold
+				Background@RULE:
+					X: 30
+					Y: 50
+					Width: 540
+					Height: 150
+					Background: panel-rule
+				Label@HEADER_LABEL:
+					X: 30
+					Y: 65
+					Width: PARENT_WIDTH - 60
+					Height: 16
+					Text: modcontent-installprompt
+					Align: Center
+					WordWrap: true
+				Button@QUIT_BUTTON:
+					X: PARENT_WIDTH - WIDTH - 30
+					Y: PARENT_HEIGHT - 52
+					Background: button-highlighted
+					Width: 110
+					Height: 32
+					Text: button-quit
+					Font: Bold
+					Key: escape
