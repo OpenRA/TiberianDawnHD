@@ -10,6 +10,7 @@
 #endregion
 
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using OpenRA.Graphics;
 using OpenRA.Mods.Common.Graphics;
@@ -17,6 +18,44 @@ using OpenRA.Primitives;
 
 namespace OpenRA.Mods.Cnc.Graphics
 {
+	sealed class MaskedFrame : ISpriteFrame
+	{
+		readonly ISpriteFrame inner;
+		readonly ISpriteFrame mask;
+		byte[] data;
+
+		public MaskedFrame(ISpriteFrame inner, ISpriteFrame mask)
+		{
+			this.inner = inner;
+			this.mask = mask;
+		}
+
+		public SpriteFrameType Type => inner.Type;
+		public Size Size => inner.Size;
+		public Size FrameSize => inner.FrameSize;
+		public float2 Offset => inner.Offset;
+		public bool DisableExportPadding => inner.DisableExportPadding;
+
+		public byte[] Data
+		{
+			get
+			{
+				if (data == null)
+				{
+					data = new byte[inner.Data.Length];
+
+					var channels = inner.Data.Length / mask.Data.Length;
+					for (var j = 0; j < mask.Data.Length; j++)
+						if (mask.Data[j] != 0)
+							for (var k = 0; k < channels; k++)
+								data[j * channels + k] = inner.Data[j * channels + k];
+				}
+
+				return data;
+			}
+		}
+	}
+
 	public class RemasterSpriteSequenceLoader : ClassicTilesetSpecificSpriteSequenceLoader
 	{
 		public readonly float ClassicUpscaleFactor = 5.333333f;
@@ -66,8 +105,6 @@ namespace OpenRA.Mods.Cnc.Graphics
 
 		[Desc("Sprite data is already pre-multiplied by alpha channel.")]
 		protected static readonly SpriteSequenceField<bool> RemasteredPremultiplied = new(nameof(RemasteredPremultiplied), true);
-
-		static readonly int[] FirstFrame = { 0 };
 
 		bool hasRemasteredSprite = true;
 
@@ -175,8 +212,6 @@ namespace OpenRA.Mods.Cnc.Graphics
 				length = null;
 		}
 
-		int? remasteredMaskToken;
-
 		public override void ReserveSprites(ModData modData, string tileset, SpriteCache cache, MiniYaml data, MiniYaml defaults)
 		{
 			var frames = LoadField(Frames, data, defaults);
@@ -189,13 +224,37 @@ namespace OpenRA.Mods.Cnc.Graphics
 			var blendMode = LoadField(BlendMode, data, defaults);
 			var premultiplied = LoadField(RemasteredPremultiplied, data, defaults);
 
+			ISpriteFrame[] maskFrames = null;
+			AdjustFrame adjustFrame = null;
 			if (!string.IsNullOrEmpty(remasteredMaskFilename))
-				remasteredMaskToken = cache.ReserveFrames(remasteredMaskFilename, null, remasteredMaskFilenameLocation);
+				adjustFrame = MaskFrame;
+
+			ISpriteFrame MaskFrame(ISpriteFrame f, int index, int total)
+			{
+				if (maskFrames == null)
+				{
+					maskFrames = cache.LoadFramesUncached(remasteredMaskFilename);
+					if (maskFrames == null)
+						throw new FileNotFoundException($"{remasteredMaskFilenameLocation}: {remasteredMaskFilename} not found", remasteredMaskFilename);
+
+					if (maskFrames.Length != total)
+						throw new YamlException($"Sequence {image}.{Name} with {total} frames cannot use mask with {maskFrames.Length} frames.");
+				}
+
+				var m = maskFrames[index];
+				if (f.Size != m.Size)
+					throw new YamlException($"Sequence {image}.{Name} frame {index} with size {f.Size} frames cannot use mask with size {m.Size}.");
+
+				if (m.Type != SpriteFrameType.Indexed8)
+					throw new YamlException($"Sequence {image}.{Name} mask frame {index} must be an indexed image.");
+
+				return new MaskedFrame(f, maskFrames[index]);
+			}
 
 			var combineNode = data.Nodes.FirstOrDefault(n => n.Key == Combine.Key);
 			if (combineNode != null)
 			{
-				for (var i = 0; i < combineNode.Value.Nodes.Count; i++)
+				for (var i = 0; i < combineNode.Value.Nodes.Length; i++)
 				{
 					var subData = combineNode.Value.Nodes[i].Value;
 					var subOffset = LoadField(Offset, subData, NoData);
@@ -206,11 +265,7 @@ namespace OpenRA.Mods.Cnc.Graphics
 
 					foreach (var f in ParseRemasterCombineFilenames(modData, tileset, subFrames, subData))
 					{
-						int token;
-						if (remasteredMaskToken != null)
-							token = cache.ReserveFrames(f.Filename, f.LoadFrames, f.Location);
-						else
-							token = cache.ReserveSprites(f.Filename, f.LoadFrames, f.Location, hasRemasteredSprite && premultiplied);
+						var token = cache.ReserveSprites(f.Filename, f.LoadFrames, f.Location, adjustFrame, hasRemasteredSprite && premultiplied);
 
 						spritesToLoad.Add(new SpriteReservation
 						{
@@ -229,11 +284,7 @@ namespace OpenRA.Mods.Cnc.Graphics
 			{
 				foreach (var f in ParseRemasterFilenames(modData, tileset, frames, data, defaults))
 				{
-					int token;
-					if (remasteredMaskToken != null)
-						token = cache.ReserveFrames(f.Filename, f.LoadFrames, f.Location);
-					else
-						token = cache.ReserveSprites(f.Filename, f.LoadFrames, f.Location, hasRemasteredSprite && premultiplied);
+					var token = cache.ReserveSprites(f.Filename, f.LoadFrames, f.Location, adjustFrame, hasRemasteredSprite && premultiplied);
 
 					spritesToLoad.Add(new SpriteReservation
 					{
@@ -247,136 +298,6 @@ namespace OpenRA.Mods.Cnc.Graphics
 					});
 				}
 			}
-		}
-
-		public override void ResolveSprites(SpriteCache cache)
-		{
-			if (bounds != null)
-				return;
-
-			Sprite depthSprite = null;
-			if (depthSpriteReservation != null)
-				depthSprite = cache.ResolveSprites(depthSpriteReservation.Value).First(s => s != null);
-
-			Sprite[] allSprites;
-			if (remasteredMaskToken != null)
-			{
-				var maskFrames = cache.ResolveFrames(remasteredMaskToken.Value);
-				var allFrames = spritesToLoad.SelectMany<SpriteReservation, (SpriteReservation, ISpriteFrame)>(r =>
-				{
-					var resolved = cache.ResolveFrames(r.Token);
-					if (r.Frames != null)
-						return r.Frames.Select(f => (r, resolved[f]));
-
-					return resolved.Select(f => (r, f));
-				}).ToArray();
-
-				var frameLength = length ?? allFrames.Length - start;
-				if (maskFrames.Length != frameLength)
-					throw new YamlException($"Sequence {image}.{Name} with {frameLength} frames cannot use mask with {maskFrames.Length} frames.");
-
-				allSprites = new Sprite[allFrames.Length];
-				for (var i = 0; i < frameLength; i++)
-				{
-					(var r, var frame) = allFrames[start + i];
-					var mask = maskFrames[i];
-					if (frame.Size != mask.Size)
-						throw new YamlException($"Sequence {image}.{Name} frame {i} with size {frame.Size} frames cannot use mask with size {mask.Size}.");
-
-					if (mask.Type != SpriteFrameType.Indexed8)
-						throw new YamlException($"Sequence {image}.{Name} mask frame {i} must be an indexed image.");
-
-					var data = new byte[frame.Data.Length];
-					var channels = frame.Data.Length / mask.Data.Length;
-					for (var j = 0; j < mask.Data.Length; j++)
-						if (mask.Data[j] != 0)
-							for (var k = 0; k < channels; k++)
-								data[j * channels + k] = frame.Data[j * channels + k];
-
-					var s = cache.SheetBuilders[SheetBuilder.FrameTypeToSheetType(frame.Type)]
-						.Add(data, frame.Type, frame.Size, 0, frame.Offset);
-
-					var dx = r.Offset.X + (r.FlipX ? -s.Offset.X : s.Offset.X);
-					var dy = r.Offset.Y + (r.FlipY ? -s.Offset.Y : s.Offset.Y);
-					var dz = r.Offset.Z + s.Offset.Z + r.ZRamp * dy;
-					s = new Sprite(s.Sheet, FlipRectangle(s.Bounds, r.FlipX, r.FlipY), r.ZRamp, new float3(dx, dy, dz), s.Channel, r.BlendMode);
-
-					if (depthSprite != null)
-					{
-						var cw = (depthSprite.Bounds.Left + depthSprite.Bounds.Right) / 2 + (int)(s.Offset.X + depthSpriteOffset.X);
-						var ch = (depthSprite.Bounds.Top + depthSprite.Bounds.Bottom) / 2 + (int)(s.Offset.Y + depthSpriteOffset.Y);
-						var w = s.Bounds.Width / 2;
-						var h = s.Bounds.Height / 2;
-
-						s = new SpriteWithSecondaryData(s, depthSprite.Sheet, Rectangle.FromLTRB(cw - w, ch - h, cw + w, ch + h), depthSprite.Channel);
-					}
-
-					allSprites[start + i] = s;
-				}
-			}
-			else
-			{
-				allSprites = spritesToLoad.SelectMany(r =>
-				{
-					var resolved = cache.ResolveSprites(r.Token);
-					if (r.Frames != null)
-						resolved = r.Frames.Select(f => resolved[f]).ToArray();
-
-					return resolved.Select(s =>
-					{
-						if (s == null)
-							return null;
-
-						var dx = r.Offset.X + (r.FlipX ? -s.Offset.X : s.Offset.X);
-						var dy = r.Offset.Y + (r.FlipY ? -s.Offset.Y : s.Offset.Y);
-						var dz = r.Offset.Z + s.Offset.Z + r.ZRamp * dy;
-						var sprite = new Sprite(s.Sheet, FlipRectangle(s.Bounds, r.FlipX, r.FlipY), r.ZRamp, new float3(dx, dy, dz), s.Channel, r.BlendMode);
-						if (depthSprite == null)
-							return sprite;
-
-						var cw = (depthSprite.Bounds.Left + depthSprite.Bounds.Right) / 2 + (int)(s.Offset.X + depthSpriteOffset.X);
-						var ch = (depthSprite.Bounds.Top + depthSprite.Bounds.Bottom) / 2 + (int)(s.Offset.Y + depthSpriteOffset.Y);
-						var w = s.Bounds.Width / 2;
-						var h = s.Bounds.Height / 2;
-
-						return new SpriteWithSecondaryData(sprite, depthSprite.Sheet, Rectangle.FromLTRB(cw - w, ch - h, cw + w, ch + h), depthSprite.Channel);
-					});
-				}).ToArray();
-			}
-
-			length ??= allSprites.Length - start;
-
-			if (alpha != null)
-			{
-				if (alpha.Length == 1)
-					alpha = Exts.MakeArray(length.Value, _ => alpha[0]);
-				else if (alpha.Length != length.Value)
-					throw new YamlException($"Sequence {image}.{Name} must define either 1 or {length.Value} Alpha values.");
-			}
-			else if (alphaFade)
-				alpha = Exts.MakeArray(length.Value, i => float2.Lerp(1f, 0f, i / (length.Value - 1f)));
-
-			// Reindex sprites to order facings anti-clockwise and remove unused frames
-			var index = CalculateFrameIndices(start, length.Value, stride ?? length.Value, facings, null, transpose, reverseFacings, -1);
-			if (reverses)
-			{
-				index.AddRange(index.Skip(1).Take(length.Value - 2).Reverse());
-				length = 2 * length - 2;
-			}
-
-			if (index.Count == 0)
-				throw new YamlException($"Sequence {image}.{Name} does not define any frames.");
-
-			var minIndex = index.Min();
-			var maxIndex = index.Max();
-			if (minIndex < 0 || maxIndex >= allSprites.Length)
-				throw new YamlException($"Sequence {image}.{Name} uses frames between {minIndex}..{maxIndex}, but only 0..{allSprites.Length - 1} exist.");
-
-			sprites = index.Select(f => allSprites[f]).ToArray();
-			if (shadowStart >= 0)
-				shadowSprites = index.Select(f => allSprites[f - start + shadowStart]).ToArray();
-
-			bounds = sprites.Concat(shadowSprites ?? Enumerable.Empty<Sprite>()).Select(OffsetSpriteBounds).Union();
 		}
 
 		protected override float GetScale()

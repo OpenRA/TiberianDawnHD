@@ -51,7 +51,7 @@ Player:
 	DeveloperMode:
 		CheckboxVisible: False
 	ModularBot@CampaignAI:
-		Name: Campaign Player AI
+		Name: bot-campaign-ai.name
 		Type: campaign
 
 airstrike.proxy:
@@ -62,12 +62,16 @@ airstrike.proxy:
 		ChargeInterval: 3000
 		SquadSize: 3
 		QuantizedFacings: 8
-		Name: Air Strike
-		Description: Deploy an aerial napalm strike.\nBurns buildings and infantry along a line.
+		Name: actor-hq.airstrikepower-name
+		Description: actor-hq.airstrikepower-description
 		EndChargeSpeechNotification: AirstrikeReady
 		SelectTargetSpeechNotification: SelectTarget
 		InsufficientPowerSpeechNotification: InsufficientPower
 		IncomingSpeechNotification: EnemyPlanesApproaching
+		EndChargeTextNotification: notification-airstrike-ready
+		SelectTargetTextNotification: notification-select-target
+		InsufficientPowerTextNotification: notification-insufficient-power
+		IncomingTextNotification: notification-enemy-planes-approaching
 		UnitType: a10
 		DisplayBeacon: True
 		BeaconPoster: airstrike
@@ -81,7 +85,7 @@ airstrike.proxy:
 MoneyCrate:
 	Inherits: ^Crate
 	Tooltip:
-		Name: Money Crate
+		Name: actor-moneycrate-name
 	GiveCashCrateAction:
 		Amount: 2000
 		Sequence: dollar

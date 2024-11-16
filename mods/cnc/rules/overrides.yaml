@@ -7,10 +7,6 @@
 		FogVariants: fog-typea, fog-typeb, fog-typec, fog-typed
 		OverrideFullFog: fog-full
 
-World:
-	LoadWidgetAtGameStart:
-		ShellmapRoot: MAINMENU_PRERELEASE_NOTIFICATION
-
 V19:
 	RenderSprites:
 		PlayerPalette: derrick

@@ -36,6 +36,143 @@ smoke_m:
 	end:
 		RemasteredOffset: 11, -27
 
+scorch_flames:
+	large_flame:
+		Combine:
+			0:
+				RemasteredFilename: DATA\ART\TEXTURES\SRGB\COMMON\VFX\FIRE1.ZIP
+				RemasteredOffset: 0, -16
+			1:
+				RemasteredFilename: DATA\ART\TEXTURES\SRGB\COMMON\VFX\FIRE1.ZIP
+				RemasteredOffset: 0, -16
+			2:
+				RemasteredFilename: DATA\ART\TEXTURES\SRGB\COMMON\VFX\FIRE1.ZIP
+				RemasteredOffset: 0, -16
+			3:
+				RemasteredFilename: DATA\ART\TEXTURES\SRGB\COMMON\VFX\FIRE1.ZIP
+				RemasteredOffset: 0, -16
+			4:
+				RemasteredFilename: DATA\ART\TEXTURES\SRGB\COMMON\VFX\FIRE2.ZIP
+				RemasteredOffset: 0, -16
+			5:
+				RemasteredFilename: DATA\ART\TEXTURES\SRGB\COMMON\VFX\FIRE2.ZIP
+				RemasteredOffset: 0, -16
+			6:
+				RemasteredFilename: DATA\ART\TEXTURES\SRGB\COMMON\VFX\FIRE2.ZIP
+				RemasteredOffset: 0, -16
+			7:
+				RemasteredFilename: DATA\ART\TEXTURES\SRGB\COMMON\VFX\SMOKE_M.ZIP
+				RemasteredOffset: 11, -27
+			8:
+				RemasteredFilename: DATA\ART\TEXTURES\SRGB\COMMON\VFX\SMOKE_M.ZIP
+				RemasteredOffset: 11, -27
+			9:
+				RemasteredFilename: DATA\ART\TEXTURES\SRGB\COMMON\VFX\SMOKE_M.ZIP
+				RemasteredOffset: 11, -27
+			10:
+				RemasteredFilename: DATA\ART\TEXTURES\SRGB\COMMON\VFX\SMOKE_M.ZIP
+				RemasteredOffset: 11, -27
+			11:
+				RemasteredFilename: DATA\ART\TEXTURES\SRGB\COMMON\VFX\SMOKE_M.ZIP
+				RemasteredOffset: 11, -27
+	medium_flame:
+		Combine:
+			0:
+				RemasteredFilename: DATA\ART\TEXTURES\SRGB\COMMON\VFX\FIRE2.ZIP
+				RemasteredOffset: 0, -16
+			1:
+				RemasteredFilename: DATA\ART\TEXTURES\SRGB\COMMON\VFX\FIRE2.ZIP
+				RemasteredOffset: 0, -16
+			2:
+				RemasteredFilename: DATA\ART\TEXTURES\SRGB\COMMON\VFX\FIRE2.ZIP
+				RemasteredOffset: 0, -16
+			3:
+				RemasteredFilename: DATA\ART\TEXTURES\SRGB\COMMON\VFX\FIRE2.ZIP
+				RemasteredOffset: 0, -16
+			4:
+				RemasteredFilename: DATA\ART\TEXTURES\SRGB\COMMON\VFX\FIRE2.ZIP
+				RemasteredOffset: 0, -16
+			5:
+				RemasteredFilename: DATA\ART\TEXTURES\SRGB\COMMON\VFX\SMOKE_M.ZIP
+				RemasteredOffset: 11, -27
+			6:
+				RemasteredFilename: DATA\ART\TEXTURES\SRGB\COMMON\VFX\SMOKE_M.ZIP
+				RemasteredOffset: 11, -27
+			7:
+				RemasteredFilename: DATA\ART\TEXTURES\SRGB\COMMON\VFX\SMOKE_M.ZIP
+				RemasteredOffset: 11, -27
+			8:
+				RemasteredFilename: DATA\ART\TEXTURES\SRGB\COMMON\VFX\SMOKE_M.ZIP
+				RemasteredOffset: 11, -27
+	small_flame:
+		Combine:
+			0:
+				RemasteredFilename: DATA\ART\TEXTURES\SRGB\COMMON\VFX\FIRE3.ZIP
+				RemasteredOffset: 0, -16
+			1:
+				RemasteredFilename: DATA\ART\TEXTURES\SRGB\COMMON\VFX\FIRE3.ZIP
+				RemasteredOffset: 0, -16
+			2:
+				RemasteredFilename: DATA\ART\TEXTURES\SRGB\COMMON\VFX\FIRE3.ZIP
+				RemasteredOffset: 0, -16
+			3:
+				RemasteredFilename: DATA\ART\TEXTURES\SRGB\COMMON\VFX\FIRE3.ZIP
+				RemasteredOffset: 0, -16
+			4:
+				RemasteredFilename: DATA\ART\TEXTURES\SRGB\COMMON\VFX\FIRE3.ZIP
+				RemasteredOffset: 0, -16
+			5:
+				RemasteredFilename: DATA\ART\TEXTURES\SRGB\COMMON\VFX\SMOKE_M.ZIP
+				RemasteredOffset: 11, -27
+			6:
+				RemasteredFilename: DATA\ART\TEXTURES\SRGB\COMMON\VFX\SMOKE_M.ZIP
+				RemasteredOffset: 11, -27
+			7:
+				RemasteredFilename: DATA\ART\TEXTURES\SRGB\COMMON\VFX\SMOKE_M.ZIP
+				RemasteredOffset: 11, -27
+		RemasteredOffset: 0, -16
+	tiny_flame:
+		Combine:
+			0:
+				RemasteredFilename: DATA\ART\TEXTURES\SRGB\COMMON\VFX\FIRE4.ZIP
+				RemasteredOffset: 0, -16
+			1:
+				RemasteredFilename: DATA\ART\TEXTURES\SRGB\COMMON\VFX\FIRE4.ZIP
+				RemasteredOffset: 0, -16
+			2:
+				RemasteredFilename: DATA\ART\TEXTURES\SRGB\COMMON\VFX\FIRE4.ZIP
+				RemasteredOffset: 0, -16
+			3:
+				RemasteredFilename: DATA\ART\TEXTURES\SRGB\COMMON\VFX\FIRE4.ZIP
+				RemasteredOffset: 0, -16
+			4:
+				RemasteredFilename: DATA\ART\TEXTURES\SRGB\COMMON\VFX\SMOKE_M.ZIP
+				RemasteredOffset: 11, -27
+			5:
+				RemasteredFilename: DATA\ART\TEXTURES\SRGB\COMMON\VFX\SMOKE_M.ZIP
+				RemasteredOffset: 11, -27
+		RemasteredOffset: 0, -16
+	smoke:
+		Combine:
+			0:
+				RemasteredFilename: DATA\ART\TEXTURES\SRGB\COMMON\VFX\SMOKE_M.ZIP
+				RemasteredOffset: 11, -27
+			1:
+				RemasteredFilename: DATA\ART\TEXTURES\SRGB\COMMON\VFX\SMOKE_M.ZIP
+				RemasteredOffset: 11, -27
+			2:
+				RemasteredFilename: DATA\ART\TEXTURES\SRGB\COMMON\VFX\SMOKE_M.ZIP
+				RemasteredOffset: 11, -27
+			3:
+				RemasteredFilename: DATA\ART\TEXTURES\SRGB\COMMON\VFX\SMOKE_M.ZIP
+				RemasteredOffset: 11, -27
+			4:
+				RemasteredFilename: DATA\ART\TEXTURES\SRGB\COMMON\VFX\SMOKE_M.ZIP
+				RemasteredOffset: 11, -27
+			5:
+				RemasteredFilename: DATA\ART\TEXTURES\SRGB\COMMON\VFX\SMOKE_M.ZIP
+				RemasteredOffset: 11, -27
+
 laserfire:
 	idle:
 		RemasteredFilename: DATA\ART\TEXTURES\SRGB\COMMON\VFX\VEH-HIT3.ZIP
