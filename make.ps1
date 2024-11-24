@@ -293,7 +293,7 @@ if (Test-Path "user.config")
 
 $modID = $env:MOD_ID
 
-$env:MOD_SEARCH_PATHS = "./mods,$env:ENGINE_DIRECTORY/mods"
+$env:MOD_SEARCH_PATHS = "./mods"
 $env:ENGINE_DIR = ".." # Set to potentially be used by the Utility and different than $env:ENGINE_DIRECTORY, which is for the script.
 
 # Fetch the engine if required
