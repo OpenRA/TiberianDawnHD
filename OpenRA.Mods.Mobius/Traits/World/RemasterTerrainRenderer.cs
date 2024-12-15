@@ -100,8 +100,7 @@ namespace OpenRA.Mods.Mobius.Traits
 		int t;
 		void ITick.Tick(Actor self)
 		{
-			t += 1;
-			if (t > 2)
+			if (++t > 2)
 			{
 				t = 0;
 				frame = (frame + 1) % 8;
@@ -160,7 +159,12 @@ namespace OpenRA.Mods.Mobius.Traits
 					var v = map.Grid.Type == MapGridType.Rectangular ? y : (x + y) / 2f;
 
 					var tl = new float2(u * tileSize.Width, (v - 0.5f * tileInfo.Height) * tileSize.Height) - 0.5f * scale * sprite.Size;
-					var rect = new Rectangle((int)(tl.X + scale * sprite.Offset.X), (int)(tl.Y + scale * sprite.Offset.Y), (int)(scale * sprite.Size.X), (int)(scale * sprite.Size.Y));
+					var rect = new Rectangle(
+						(int)(tl.X + scale * sprite.Offset.X),
+						(int)(tl.Y + scale * sprite.Offset.Y),
+						(int)(scale * sprite.Size.X),
+						(int)(scale * sprite.Size.Y));
+
 					templateRect = templateRect.HasValue ? Rectangle.Union(templateRect.Value, rect) : rect;
 				}
 			}
