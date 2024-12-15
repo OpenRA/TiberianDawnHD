@@ -10,6 +10,7 @@
 #endregion
 
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using OpenRA.Graphics;
@@ -63,14 +64,15 @@ namespace OpenRA.Mods.Cnc.Graphics
 		public RemasterSpriteSequenceLoader(ModData modData)
 			: base(modData) { }
 
-		public override ISpriteSequence CreateSequence(ModData modData, string tileset, SpriteCache cache, string image, string sequence, MiniYaml data, MiniYaml defaults)
+		public override ISpriteSequence CreateSequence(ModData modData, string tileset, SpriteCache cache,
+			string image, string sequence, MiniYaml data, MiniYaml defaults)
 		{
 			return new RemasterSpriteSequence(cache, this, image, sequence, data, defaults);
 		}
 	}
 
 	[Desc("A sprite sequence that can have tileset-specific variants and has the oddities " +
-	      "that come with first-generation Westwood titles.")]
+			"that come with first-generation Westwood titles.")]
 	public class RemasterSpriteSequence : ClassicTilesetSpecificSpriteSequence
 	{
 		[Desc("File name of the remastered sprite to use for this sequence.")]
@@ -112,7 +114,9 @@ namespace OpenRA.Mods.Cnc.Graphics
 		{
 			string filename = null;
 			MiniYamlNode.SourceLocation location = default;
-			var remasteredTilesetFilenamesPatternNode = data.Nodes.FirstOrDefault(n => n.Key == RemasteredTilesetFilenamesPattern.Key) ?? defaults.Nodes.FirstOrDefault(n => n.Key == RemasteredTilesetFilenamesPattern.Key);
+			var remasteredTilesetFilenamesPatternNode = data.Nodes.FirstOrDefault(n => n.Key == RemasteredTilesetFilenamesPattern.Key)
+				?? defaults.Nodes.FirstOrDefault(n => n.Key == RemasteredTilesetFilenamesPattern.Key);
+
 			if (remasteredTilesetFilenamesPatternNode != null)
 			{
 				var tilesetNode = remasteredTilesetFilenamesPatternNode.Value.Nodes.FirstOrDefault(n => n.Key == tileset);
@@ -122,11 +126,13 @@ namespace OpenRA.Mods.Cnc.Graphics
 					var patternCount = LoadField("Count", 1, tilesetNode.Value);
 
 					return Enumerable.Range(patternStart, patternCount).Select(i =>
-						new ReservationInfo(string.Format(tilesetNode.Value.Value, i), FirstFrame, FirstFrame, tilesetNode.Location));
+						new ReservationInfo(string.Format(CultureInfo.InvariantCulture, tilesetNode.Value.Value, i), FirstFrame, FirstFrame, tilesetNode.Location));
 				}
 			}
 
-			var remasteredTilesetFilenamesNode = data.Nodes.FirstOrDefault(n => n.Key == RemasteredTilesetFilenames.Key) ?? defaults.Nodes.FirstOrDefault(n => n.Key == RemasteredTilesetFilenames.Key);
+			var remasteredTilesetFilenamesNode = data.Nodes.FirstOrDefault(n => n.Key == RemasteredTilesetFilenames.Key)
+				?? defaults.Nodes.FirstOrDefault(n => n.Key == RemasteredTilesetFilenames.Key);
+
 			if (!string.IsNullOrEmpty(remasteredTilesetFilenamesNode?.Value.Value))
 			{
 				var tilesetNode = remasteredTilesetFilenamesNode.Value.Nodes.FirstOrDefault(n => n.Key == tileset);
@@ -138,14 +144,16 @@ namespace OpenRA.Mods.Cnc.Graphics
 			}
 			else
 			{
-				var remasteredFilenamePatternNode = data.Nodes.FirstOrDefault(n => n.Key == RemasteredFilenamePattern.Key) ?? defaults.Nodes.FirstOrDefault(n => n.Key == RemasteredFilenamePattern.Key);
+				var remasteredFilenamePatternNode = data.Nodes.FirstOrDefault(n => n.Key == RemasteredFilenamePattern.Key)
+					?? defaults.Nodes.FirstOrDefault(n => n.Key == RemasteredFilenamePattern.Key);
+
 				if (!string.IsNullOrEmpty(remasteredFilenamePatternNode?.Value.Value))
 				{
 					var patternStart = LoadField("Start", 0, remasteredFilenamePatternNode.Value);
 					var patternCount = LoadField("Count", 1, remasteredFilenamePatternNode.Value);
 
 					return Enumerable.Range(patternStart, patternCount).Select(i =>
-						new ReservationInfo(string.Format(remasteredFilenamePatternNode.Value.Value, i),
+						new ReservationInfo(string.Format(CultureInfo.InvariantCulture, remasteredFilenamePatternNode.Value.Value, i),
 						FirstFrame, FirstFrame, remasteredFilenamePatternNode.Location));
 				}
 			}
