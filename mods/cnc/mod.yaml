@@ -8,7 +8,7 @@ Metadata:
 PackageFormats: Mix, MegV3, ZipFile
 
 FileSystem: RemasterFileSystem
-	Packages:
+	SystemPackages:
 		^EngineDir
 		$cnc: cnc
 		^EngineDir|mods/cnc: base

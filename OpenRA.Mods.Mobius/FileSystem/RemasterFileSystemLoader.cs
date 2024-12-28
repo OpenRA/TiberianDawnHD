@@ -23,7 +23,7 @@ namespace OpenRA.Mods.Mobius.FileSystem
 		[FieldLoader.Require]
 		public readonly string RemasterDataMount = null;
 		public readonly string InstallPromptMod = "remaster-content";
-		public readonly Dictionary<string, string> Packages = null;
+		public readonly Dictionary<string, string> SystemPackages = null;
 		public readonly Dictionary<string, string> RemasterPackages = null;
 
 		[FieldLoader.LoadUsing(nameof(LoadSources))]
@@ -39,12 +39,12 @@ namespace OpenRA.Mods.Mobius.FileSystem
 			return ret;
 		}
 
-		bool contentAvailable = true;
+		bool contentAvailable;
 
 		public void Mount(OpenRA.FileSystem.FileSystem fileSystem, ObjectCreator objectCreator)
 		{
-			if (Packages != null)
-				foreach (var kv in Packages)
+			if (SystemPackages != null)
+				foreach (var kv in SystemPackages)
 					fileSystem.Mount(kv.Key, kv.Value);
 
 			if (RemasterPackages == null)
@@ -58,11 +58,9 @@ namespace OpenRA.Mods.Mobius.FileSystem
 				{
 					var dataPath = Path.Combine(path, "Data");
 					if (!Directory.Exists(dataPath))
-					{
-						contentAvailable = false;
 						continue;
-					}
 
+					contentAvailable = true;
 					fileSystem.Mount(dataPath, RemasterDataMount);
 					foreach (var p in RemasterPackages)
 					{
