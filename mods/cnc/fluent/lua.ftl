@@ -105,7 +105,7 @@ destroy-gdi-supporter-houses = Destroy the houses of the GDI supporters
     in the village.
 
 ## nod06c
-infiltrate-barracks-factory-conyard = Infiltrate the barracks, weapons factory and
+capture-barracks-factory-conyard = Capture the barracks, weapons factory and
     construction yard.
 
 ## nod07a

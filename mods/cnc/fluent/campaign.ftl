@@ -1,7 +1,7 @@
 ## world
 dropdown-difficulty =
     .label = Difficulty
-    .description = The difficulty of the mission.
+    .description = The difficulty of the mission
 
 options-difficulty =
     .easy = Easy
@@ -10,7 +10,7 @@ options-difficulty =
 
 ## player
 bot-campaign-ai =
-   .name = Campaign Player AI
+    .name = Campaign Player AI
 
 ## campaign-maprules.yaml
 actor-moneycrate-name = Money Crate
