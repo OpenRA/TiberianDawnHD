@@ -377,11 +377,6 @@ shroud:
 	Defaults:
 		RemasteredFilenamePattern: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\SHROUD\SHADOW-{0:D2}.DDS
 			Count: 12
-	-typea:
-	-typeb:
-	-typec:
-	-typed:
-	-full:
 	shroud-typea: shadow
 	shroud-typeb: shadow
 		RemasteredStart: 0
