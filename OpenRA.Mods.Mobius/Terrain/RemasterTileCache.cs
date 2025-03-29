@@ -30,7 +30,7 @@ namespace OpenRA.Mods.Mobius.Terrain
 			SpriteCache = new SpriteCache(Game.ModData.DefaultFileSystem, Game.ModData.SpriteLoaders, terrainInfo.BgraSheetSize, terrainInfo.IndexedSheetSize, 0);
 
 			var blankToken = SpriteCache.ReserveSprites(terrainInfo.BlankTile, FirstFrame, default);
-			var classicUpscaleFactor = terrainInfo.RemasteredTileSize.Width * 1f / terrainInfo.TileSize.Width;
+			var classicUpscaleFactor = terrainInfo.UseRemasteredTerrain ? terrainInfo.RemasteredTileSize.Width * 1f / terrainInfo.TileSize.Width : 1;
 
 			var remasteredSpriteReservations = new Dictionary<ushort, Dictionary<int, int[]>>();
 			foreach (var t in terrainInfo.Templates)
@@ -38,7 +38,7 @@ namespace OpenRA.Mods.Mobius.Terrain
 				var templateInfo = (RemasterTerrainTemplateInfo)t.Value;
 				var templateTokens = new Dictionary<int, int[]>();
 
-				if ((templateInfo.RemasteredFilenames?.Count ?? 0) > 0)
+				if (terrainInfo.UseRemasteredTerrain && (templateInfo.RemasteredFilenames?.Count ?? 0) > 0)
 				{
 					foreach (var kv in templateInfo.RemasteredFilenames)
 						templateTokens[kv.Key] = kv.Value

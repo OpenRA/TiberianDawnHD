@@ -20,6 +20,8 @@ namespace OpenRA.Mods.Mobius.FileSystem
 {
 	public class RemasterFileSystemLoader : IFileSystemLoader, IFileSystemExternalContent
 	{
+		public readonly bool UseRemasteredArtwork = true;
+
 		[FieldLoader.Require]
 		public readonly string RemasterDataMount = null;
 		public readonly string InstallPromptMod = "remaster-content";
