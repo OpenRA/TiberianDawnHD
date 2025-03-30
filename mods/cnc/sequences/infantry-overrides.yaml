@@ -3,28 +3,28 @@ vice:
 		RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\UNITS\VICE.ZIP
 	muzzle:
 		Combine:
-			chem-n:
+			0:
 				RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\VFX\CHEM-N.ZIP
 				RemasteredOffset: 5, 11
-			chem-nw:
+			1:
 				RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\VFX\CHEM-NW.ZIP
 				RemasteredOffset: 43, 11
-			chem-w:
+			2:
 				RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\VFX\CHEM-W.ZIP
 				RemasteredOffset: 43, -16
-			chem-sw:
+			3:
 				RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\VFX\CHEM-SW.ZIP
 				RemasteredOffset: 37, -32
-			chem-s:
+			4:
 				RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\VFX\CHEM-S.ZIP
 				RemasteredOffset: 27, -32
-			chem-se:
+			5:
 				RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\VFX\CHEM-SE.ZIP
 				RemasteredOffset: -27, -32
-			chem-e:
+			6:
 				RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\VFX\CHEM-E.ZIP
 				RemasteredOffset: -37, -16
-			chem-ne:
+			7:
 				RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\VFX\CHEM-NE.ZIP
 				RemasteredOffset: -16, 11
 	die:
@@ -67,28 +67,28 @@ e4:
 		RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\UNITS\E4.ZIP
 	muzzle:
 		Combine:
-			flame-n:
+			0:
 				RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\VFX\FLAME-N.ZIP
 				RemasteredOffset: 16, 32
-			flame-nw:
+			1:
 				RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\VFX\FLAME-NW.ZIP
 				RemasteredOffset: 43, 37
-			flame-w:
+			2:
 				RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\VFX\FLAME-W.ZIP
 				RemasteredOffset: 43, 11
-			flame-sw:
+			3:
 				RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\VFX\FLAME-SW.ZIP
 				RemasteredOffset: 37, -11
-			flame-s:
+			4:
 				RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\VFX\FLAME-S.ZIP
 				RemasteredOffset: 16, -11
-			flame-se:
+			5:
 				RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\VFX\FLAME-SE.ZIP
 				RemasteredOffset: -27, -11
-			flame-e:
+			6:
 				RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\VFX\FLAME-E.ZIP
 				RemasteredOffset: -37, 11
-			flame-ne:
+			7:
 				RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\VFX\FLAME-NE.ZIP
 				RemasteredOffset: -37, 43
 	die-crushed:
@@ -103,28 +103,28 @@ e5:
 		RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\UNITS\E5.ZIP
 	muzzle:
 		Combine:
-			chem-n:
+			0:
 				RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\VFX\CHEM-N.ZIP
 				RemasteredOffset: 5, 11
-			chem-nw:
+			1:
 				RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\VFX\CHEM-NW.ZIP
 				RemasteredOffset: 43, 11
-			chem-w:
+			2:
 				RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\VFX\CHEM-W.ZIP
 				RemasteredOffset: 43, -16
-			chem-sw:
+			3:
 				RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\VFX\CHEM-SW.ZIP
 				RemasteredOffset: 37, -32
-			chem-s:
+			4:
 				RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\VFX\CHEM-S.ZIP
 				RemasteredOffset: 27, -32
-			chem-se:
+			5:
 				RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\VFX\CHEM-SE.ZIP
 				RemasteredOffset: -27, -32
-			chem-e:
+			6:
 				RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\VFX\CHEM-E.ZIP
 				RemasteredOffset: -37, -16
-			chem-ne:
+			7:
 				RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\VFX\CHEM-NE.ZIP
 				RemasteredOffset: -16, 11
 	die-crushed:

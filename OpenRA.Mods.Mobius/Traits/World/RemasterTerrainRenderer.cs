@@ -139,7 +139,7 @@ namespace OpenRA.Mods.Mobius.Traits
 		Rectangle ITiledTerrainRenderer.TemplateBounds(TerrainTemplateInfo template)
 		{
 			Rectangle? templateRect = null;
-			var tileSize = map.Grid.TileSize;
+			var tileSize = map.Rules.TerrainInfo.TileSize;
 
 			var i = 0;
 			for (var y = 0; y < template.Size.Y; y++)
@@ -177,7 +177,7 @@ namespace OpenRA.Mods.Mobius.Traits
 			if (t is not RemasterTerrainTemplateInfo template)
 				yield break;
 
-			var ts = map.Grid.TileSize;
+			var ts = map.Rules.TerrainInfo.TileSize;
 			var gridType = map.Grid.Type;
 			var palette = wr.Palette(template.Palette ?? terrainInfo.Palette);
 
