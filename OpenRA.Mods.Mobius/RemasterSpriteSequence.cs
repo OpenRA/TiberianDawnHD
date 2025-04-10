@@ -67,7 +67,7 @@ namespace OpenRA.Mods.Cnc.Graphics
 		public override ISpriteSequence CreateSequence(ModData modData, string tileset, SpriteCache cache,
 			string image, string sequence, MiniYaml data, MiniYaml defaults)
 		{
-			return new RemasterSpriteSequence(cache, this, image, sequence, data, defaults);
+			return new RemasterSpriteSequence(cache, this, tileset, image, sequence, data, defaults);
 		}
 	}
 
@@ -104,6 +104,9 @@ namespace OpenRA.Mods.Cnc.Graphics
 
 		[Desc("Adjusts the rendered size of the sprite")]
 		protected static readonly SpriteSequenceField<float?> RemasteredScale = new(nameof(RemasteredScale), null);
+
+		[Desc("Dictionary of <tileset name>: scale to override the RemasteredScale key.")]
+		static readonly SpriteSequenceField<Dictionary<string, float>> RemasteredTilesetScales = new(nameof(RemasteredTilesetScales), null);
 
 		[Desc("Sprite data is already pre-multiplied by alpha channel.")]
 		protected static readonly SpriteSequenceField<bool> RemasteredPremultiplied = new(nameof(RemasteredPremultiplied), true);
@@ -207,12 +210,21 @@ namespace OpenRA.Mods.Cnc.Graphics
 			}
 		}
 
-		public RemasterSpriteSequence(SpriteCache cache, ISpriteSequenceLoader loader, string image, string sequence, MiniYaml data, MiniYaml defaults)
+		public RemasterSpriteSequence(SpriteCache cache, ISpriteSequenceLoader loader, string tileset, string image, string sequence,
+			MiniYaml data, MiniYaml defaults)
 			: base(cache, loader, image, sequence, data, defaults)
 		{
 			start = LoadField(RemasteredStart, data, defaults) ?? start;
 			tick = LoadField(RemasteredTick, data, defaults) ?? tick;
-			scale = LoadField(RemasteredScale, data, defaults) ?? scale;
+
+			var node = data.Nodes.FirstOrDefault(n => n.Key == RemasteredTilesetScales.Key)
+				?? defaults.Nodes.FirstOrDefault(n => n.Key == RemasteredTilesetScales.Key);
+
+			var tilesetNode = node?.Value.Nodes.FirstOrDefault(n => n.Key == tileset);
+			if (tilesetNode != null)
+				scale = FieldLoader.GetValue<float>(tileset, tilesetNode.Value.Value);
+			else
+				scale = LoadField(RemasteredScale, data, defaults) ?? scale;
 
 			if (LoadField<string>(RemasteredLength.Key, null, data, defaults) != "*")
 				length = LoadField(RemasteredLength, data, defaults) ?? length;
