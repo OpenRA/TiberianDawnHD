@@ -105,28 +105,28 @@ ftnk:
 		RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\UNITS\FTNK.ZIP
 	muzzle:
 		Combine:
-			flame-n:
+			0:
 				RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\VFX\FLAME-N.ZIP
 				RemasteredOffset: 16, 32
-			flame-nw:
+			1:
 				RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\VFX\FLAME-NW.ZIP
 				RemasteredOffset: 43, 37
-			flame-w:
+			2:
 				RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\VFX\FLAME-W.ZIP
 				RemasteredOffset: 43, 11
-			flame-sw:
+			3:
 				RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\VFX\FLAME-SW.ZIP
 				RemasteredOffset: 37, -11
-			flame-s:
+			4:
 				RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\VFX\FLAME-S.ZIP
 				RemasteredOffset: 16, -11
-			flame-se:
+			5:
 				RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\VFX\FLAME-SE.ZIP
 				RemasteredOffset: -27, -11
-			flame-e:
+			6:
 				RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\VFX\FLAME-E.ZIP
 				RemasteredOffset: -37, 11
-			flame-ne:
+			7:
  				RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\VFX\FLAME-NE.ZIP
 				RemasteredOffset: -37, 43
 	icon:
