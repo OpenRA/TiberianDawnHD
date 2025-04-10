@@ -34,6 +34,7 @@ namespace OpenRA.Mods.Mobius.Terrain
 	{
 		public readonly string Filename;
 		public readonly Dictionary<int, string[]> RemasteredFilenames;
+		public readonly Dictionary<int, string[]> RemasteredCompositeFilenames;
 		public readonly string Palette;
 
 		public RemasterTerrainTemplateInfo(ITerrainInfo terrainInfo, MiniYaml my)
