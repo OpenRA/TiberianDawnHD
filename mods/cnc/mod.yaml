@@ -34,6 +34,7 @@ FileSystem: RemasterFileSystem
 		data|CNCDATA/TIBERIAN_DAWN/CD1/DESERT.MIX
 		data|CNCDATA/TIBERIAN_DAWN/CD1/MOVIES.MIX
 		data|CNCDATA/TIBERIAN_DAWN/CD2/MOVIES.MIX
+		data|TEXTURES_RA_SRGB.MEG
 		data|TEXTURES_TD_SRGB.MEG
 		data|TEXTURES_COMMON_SRGB.MEG
 		data|SFX2D_EN-US.MEG
@@ -47,6 +48,7 @@ FileSystem: RemasterFileSystem
 		base|scripts
 		base|uibits
 		cnc|bits
+		cnc|bits/tilesets
 		common|scripts
 		cnc|bits/harvlost.zip
 
