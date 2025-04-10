@@ -4201,6 +4201,9 @@ Templates:
 				Inner: Cliff
 				Points: 1,1, 0,1
 				Start: Cliff.L
+		RemasteredCompositeFilenames:
+			0: CLIFFSL1.DES/CLIFFSL1.DES-0000.png
+			1: CLIFFSL1.DES/CLIFFSL1.DES-0001.png
 	Template@223:
 		Id: 223
 		Filename: cliffsl2.des
@@ -4215,6 +4218,9 @@ Templates:
 				Inner: Cliff
 				Points: 0,1, 1,1
 				Start: Cliff.R
+		RemasteredCompositeFilenames:
+			0: CLIFFSL2.DES/CLIFFSL2.DES-0000.png
+			1: CLIFFSL2.DES/CLIFFSL2.DES-0001.png
 	Template@224:
 		Id: 224
 		Filename: cliffsl3.des
@@ -4229,6 +4235,10 @@ Templates:
 				Inner: Cliff
 				Points: 1,0, 1,1
 				Start: Cliff.D
+		RemasteredFilenames:
+			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S25.DES\S25.DES-0001.DDS
+		RemasteredCompositeFilenames:
+			0: CLIFFSL3.DES/CLIFFSL3.DES-0000.png
 	Template@225:
 		Id: 225
 		Filename: cliffsl4.des
@@ -4243,6 +4253,9 @@ Templates:
 				Inner: Cliff
 				Points: 1,1, 1,0
 				Start: Cliff.U
+		RemasteredCompositeFilenames:
+			0: CLIFFSL4.DES/CLIFFSL4.DES-0000.png
+			1: CLIFFSL4.DES/CLIFFSL4.DES-0001.png
 
 MultiBrushCollections:
 	Trees:

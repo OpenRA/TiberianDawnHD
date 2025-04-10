@@ -49,6 +49,10 @@ FileSystem: RemasterFileSystem
 		cnchd|bits
 		common|scripts
 		cnchd|bits/harvlost.zip
+		cnchd|bits/desert
+		cnchd|bits/snow
+		cnchd|bits/temperat
+		cnchd|bits/winter
 
 MapFolders:
 	cnc|maps: System

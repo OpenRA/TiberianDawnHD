@@ -3438,6 +3438,9 @@ Templates:
 				Inner: Cliff
 				Points: 1,1, 0,1
 				Start: Cliff.L
+		RemasteredCompositeFilenames:
+			0: CLIFFSL1.WIN/CLIFFSL1.WIN-0000.png
+			1: CLIFFSL1.WIN/CLIFFSL1.WIN-0001.png
 	Template@190:
 		Id: 190
 		Filename: cliffsl2.win
@@ -3452,6 +3455,9 @@ Templates:
 				Inner: Cliff
 				Points: 0,1, 1,1
 				Start: Cliff.R
+		RemasteredCompositeFilenames:
+			0: CLIFFSL2.WIN/CLIFFSL2.WIN-0000.png
+			1: CLIFFSL2.WIN/CLIFFSL2.WIN-0001.png
 	Template@191:
 		Id: 191
 		Filename: cliffsl3.win
@@ -3466,6 +3472,9 @@ Templates:
 				Inner: Cliff
 				Points: 1,1, 1,0
 				Start: Cliff.U
+		RemasteredCompositeFilenames:
+			0: CLIFFSL3.WIN/CLIFFSL3.WIN-0000.png
+			1: CLIFFSL3.WIN/CLIFFSL3.WIN-0001.png
 	Template@192:
 		Id: 192
 		Filename: cliffsl4.win
@@ -3480,6 +3489,9 @@ Templates:
 				Inner: Cliff
 				Points: 1,0, 1,1
 				Start: Cliff.D
+		RemasteredCompositeFilenames:
+			0: CLIFFSL4.WIN/CLIFFSL4.WIN-0000.png
+			1: CLIFFSL4.WIN/CLIFFSL4.WIN-0001.png
 
 MultiBrushCollections:
 	Trees:
