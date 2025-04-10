@@ -16,6 +16,7 @@ using System.Linq;
 using OpenRA.FileSystem;
 using OpenRA.Mods.Common.MapGenerator;
 using OpenRA.Mods.Common.Terrain;
+using OpenRA.Mods.Mobius.FileSystem;
 using OpenRA.Primitives;
 using OpenRA.Support;
 
@@ -23,12 +24,16 @@ namespace OpenRA.Mods.Mobius.Terrain
 {
 	public class RemasterTerrainLoader : ITerrainLoader
 	{
-		[System.Diagnostics.CodeAnalysis.SuppressMessage("Usage", "IDE0060:Remove unused parameter", Justification = "Load game API")]
-		public RemasterTerrainLoader(ModData modData) { }
+		readonly ModData modData;
+
+		public RemasterTerrainLoader(ModData modData)
+		{
+			this.modData = modData;
+		}
 
 		public ITerrainInfo ParseTerrain(IReadOnlyFileSystem fileSystem, string path)
 		{
-			return new RemasterTerrain(fileSystem, path);
+			return new RemasterTerrain(modData, fileSystem, path);
 		}
 	}
 
@@ -49,6 +54,7 @@ namespace OpenRA.Mods.Mobius.Terrain
 		public readonly string Id;
 		public readonly Size TileSize = new(24, 24);
 		public readonly Size RemasteredTileSize = new(128, 128);
+		public readonly float DefaultScale = 1.0f;
 		public readonly float RemasteredDefaultScale = 0.1875f;
 		public readonly int BgraSheetSize = 4096;
 		public readonly int IndexedSheetSize = 512;
@@ -63,12 +69,16 @@ namespace OpenRA.Mods.Mobius.Terrain
 		public readonly IReadOnlyDictionary<string, IEnumerable<MultiBrushInfo>> MultiBrushCollections;
 
 		[FieldLoader.Ignore]
+		public readonly bool UseRemasteredTerrain;
+
+		[FieldLoader.Ignore]
 		public readonly TerrainTypeInfo[] TerrainInfo;
 		readonly Dictionary<string, byte> terrainIndexByType = new();
 		readonly byte defaultWalkableTerrainIndex;
 
-		public RemasterTerrain(IReadOnlyFileSystem fileSystem, string filepath)
+		public RemasterTerrain(ModData modData, IReadOnlyFileSystem fileSystem, string filepath)
 		{
+			UseRemasteredTerrain = ((RemasterFileSystemLoader)modData.FileSystemLoader).UseRemasteredArtwork;
 			var yaml = MiniYaml.FromStream(fileSystem.Open(filepath), filepath)
 				.ToDictionary(x => x.Key, x => x.Value);
 
@@ -153,8 +163,8 @@ namespace OpenRA.Mods.Mobius.Terrain
 		}
 
 		string ITerrainInfo.Id => Id;
-		Size ITerrainInfo.TileSize => RemasteredTileSize;
-		float ITerrainInfo.DefaultScale => RemasteredDefaultScale;
+		Size ITerrainInfo.TileSize => UseRemasteredTerrain ? RemasteredTileSize : TileSize;
+		float ITerrainInfo.DefaultScale => UseRemasteredTerrain ? RemasteredDefaultScale : DefaultScale;
 		TerrainTypeInfo[] ITerrainInfo.TerrainTypes => TerrainInfo;
 		TerrainTileInfo ITerrainInfo.GetTerrainInfo(TerrainTile r) { return GetTileInfo(r); }
 		bool ITerrainInfo.TryGetTerrainInfo(TerrainTile r, out TerrainTileInfo info) { return TryGetTileInfo(r, out info); }
