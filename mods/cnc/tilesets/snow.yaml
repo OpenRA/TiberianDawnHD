@@ -2752,6 +2752,9 @@ Templates:
 		Tiles:
 			0: Rock
 			1: Rock
+		RemasteredCompositeFilenames:
+			0: CLIFFSL1.SNO/CLIFFSL1.SNO-0000.png
+			1: CLIFFSL1.SNO/CLIFFSL1.SNO-0001.png
 	Template@190:
 		Id: 190
 		Filename: cliffsl2.sno
@@ -2760,6 +2763,9 @@ Templates:
 		Tiles:
 			0: Rock
 			1: Rock
+		RemasteredCompositeFilenames:
+			0: CLIFFSL2.SNO/CLIFFSL2.SNO-0000.png
+			1: CLIFFSL2.SNO/CLIFFSL2.SNO-0001.png
 	Template@191:
 		Id: 191
 		Filename: cliffsl3.sno
@@ -2768,6 +2774,9 @@ Templates:
 		Tiles:
 			0: Rock
 			1: Rock
+		RemasteredCompositeFilenames:
+			0: CLIFFSL3.SNO/CLIFFSL3.SNO-0000.png
+			1: CLIFFSL3.SNO/CLIFFSL3.SNO-0001.png
 	Template@192:
 		Id: 192
 		Filename: cliffsl4.sno
@@ -2776,3 +2785,6 @@ Templates:
 		Tiles:
 			0: Rock
 			1: Rock
+		RemasteredCompositeFilenames:
+			0: CLIFFSL4.SNO/CLIFFSL4.SNO-0000.png
+			1: CLIFFSL4.SNO/CLIFFSL4.SNO-0001.png
