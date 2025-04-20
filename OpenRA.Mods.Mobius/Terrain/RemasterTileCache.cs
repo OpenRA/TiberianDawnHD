@@ -15,6 +15,7 @@ using System.IO;
 using System.Linq;
 using OpenRA.Graphics;
 using OpenRA.Mods.Common.SpriteLoaders;
+using OpenRA.Primitives;
 
 namespace OpenRA.Mods.Mobius.Terrain
 {
@@ -39,48 +40,122 @@ namespace OpenRA.Mods.Mobius.Terrain
 			if (frame.Type != SpriteFrameType.Indexed8 || metadata == null)
 				throw new InvalidDataException($"{path} is not a valid composite tile template.");
 
-			var data = new byte[frame.Size.Width * frame.Size.Height * 4];
+			// Preload source assets to avoid duplicated loading
+			var sourceFrames = new Dictionary<string, ISpriteFrame[]>();
 			for (var i = 0; i < frames.Length; i++)
 			{
 				if (!metadata.Metadata.TryGetValue($"SourceFilename[{i}]", out var sf))
 					throw new InvalidDataException($"{path}: SourceFilename[{i}] not defined.");
 
-				ISpriteFrame overlay;
 				try
 				{
-					overlay = FrameLoader.GetFrames(Game.ModData.DefaultFileSystem, sf, Game.ModData.SpriteLoaders, out _)[0];
+					if (!sourceFrames.ContainsKey(sf))
+						sourceFrames.Add(sf, FrameLoader.GetFrames(Game.ModData.DefaultFileSystem, sf, Game.ModData.SpriteLoaders, out _));
 				}
 				catch (FileNotFoundException)
 				{
 					throw new InvalidDataException($"{path}: SourceFilename[{i}]={sf} does not exist.");
 				}
+			}
 
-				if (overlay.Type != SpriteFrameType.Bgra32 && overlay.Type != SpriteFrameType.Rgba32)
+			var data = new byte[frame.Size.Width * frame.Size.Height * 4];
+			for (var i = 0; i < frames.Length; i++)
+			{
+				var f = 0;
+				if (metadata.Metadata.TryGetValue($"SourceFrame[{i}]", out var sfr))
+					f = FieldLoader.GetValue<int>($"SourceFrame[{i}]", sfr);
+
+				var source = sourceFrames[metadata.Metadata[$"SourceFilename[{i}]"]][f];
+				if (source.Type != SpriteFrameType.Bgra32 && source.Type != SpriteFrameType.Rgba32)
 					throw new InvalidDataException($"{path}: SourceFilename[{i}] is not a 32 bit sprite.");
 
-				var channels = overlay.Type == SpriteFrameType.Bgra32 ? ChannelsBGRA : ChannelsRGBA;
-				for (var y = 0; y < frame.Size.Height; y++)
+				var channels = source.Type == SpriteFrameType.Bgra32 ? ChannelsBGRA : ChannelsRGBA;
+				var sWidth = source.Size.Width;
+				var dWidth = frames[i].Size.Width;
+				var sRect = new Rectangle(int2.Zero, source.Size);
+				var dRect = new Rectangle(int2.Zero, frames[i].Size);
+
+				if (metadata.Metadata.TryGetValue($"SourceOffset[{i}]", out var so))
 				{
-					var o = 4 * y * frame.Size.Width;
-					for (var x = 0; x < frame.Size.Width; x++)
+					var offset = FieldLoader.GetValue<int2>($"SourceOffset[{i}]", so);
+
+					// Constrain source and dest rectangles to their offset union
+					var sl = sRect.Left.Clamp(dRect.Left - offset.X, dRect.Right - offset.X);
+					var sr = sRect.Right.Clamp(dRect.Left - offset.X, dRect.Right - offset.X);
+					var st = sRect.Top.Clamp(dRect.Top - offset.Y, dRect.Bottom - offset.Y);
+					var sb = sRect.Bottom.Clamp(dRect.Top - offset.Y, dRect.Bottom - offset.Y);
+					sRect = Rectangle.FromLTRB(sl, st, sr, sb);
+					dRect = new Rectangle(sRect.Location + offset, sRect.Size);
+				}
+
+				List<float[]> colorShifts = null;
+				if (metadata.Metadata.ContainsKey($"ColorShift[{i}][0]"))
+				{
+					colorShifts = new List<float[]>();
+					while (metadata.Metadata.TryGetValue($"ColorShift[{i}][{colorShifts.Count}]", out var cs))
 					{
-						var maskAlpha = frames[i].Data[y * frame.Size.Width + x];
-						for (var j = 0; j < 4; j++)
+						var shift = FieldLoader.GetValue<float[]>($"ColorShift[{i}][{colorShifts.Count}]", cs);
+						if (shift.Length != 5)
+							throw new InvalidDataException($"{path}: ColorShift[{i}][{colorShifts.Count}] must define 5 entries.");
+
+						colorShifts.Add(shift);
+					}
+				}
+
+				for (var y = 0; y < dRect.Size.Height; y++)
+				{
+					var sy = y + sRect.Y;
+					var dy = y + dRect.Y;
+					for (var x = 0; x < dRect.Size.Width; x++)
+					{
+						var si = 4 * (sy * sWidth + x + sRect.X);
+						var di = 4 * (dy * dWidth + x + dRect.X);
+
+						// The mask is defined in the destination coordinate space
+						var maskAlpha = frames[i].Data[dy * frames[i].Size.Width + x + dRect.X];
+
+						// We want to pre-multiply the colour channels by the alpha channel,
+						// but not the alpha channel itself. The simplest way to do this is to
+						// always include the overlay alpha in the alpha component, and
+						// special-case the alpha's channel value instead.
+						var b = source.Data[si + channels[0]];
+						var g = source.Data[si + channels[1]];
+						var r = source.Data[si + channels[2]];
+						var overlayAlpha = source.Data[si + 3] * maskAlpha;
+
+						if (colorShifts != null)
 						{
-							// Note: we want to pre-multiply the colour channels by the alpha channel,
-							// but not the alpha channel itself. The simplest way to do this is to
-							// always include the overlay alpha in the alpha component, and
-							// special-case the alpha's channel value instead.
-							var overlayAlpha = overlay.Data[o + 4 * x + 3] * maskAlpha;
-							var overlayChannel = j < 3 ? overlay.Data[o + 4 * x + channels[j]] : 255;
+							var (lr, lg, lb) = Color.FromArgb(255, r, g, b).ToLinear();
+							var (h, s, v) = Color.RgbToHsv(lr, lg, lb);
 
-							// Base channels have already been pre-multiplied by alpha
-							var baseAlpha = 65205 - overlayAlpha;
-							var baseChannel = data[o + 4 * x + j];
+							var updated = false;
+							foreach (var cs in colorShifts)
+							{
+								if (h <= cs[3] || h > cs[4])
+									continue;
 
-							// Apply mask and pre-multiply alpha
-							data[o + 4 * x + j] = (byte)((overlayChannel * overlayAlpha + baseChannel * baseAlpha) / 65205);
+								h = (h + cs[0]) % 1.0f;
+								s = (s + cs[1]).Clamp(0, 1);
+								v *= cs[2].Clamp(0, 1);
+								updated = true;
+							}
+
+							if (updated)
+							{
+								(lr, lg, lb) = Color.HsvToRgb(h, s, v);
+								var c = Color.FromLinear(255, lr, lg, lb);
+								r = c.R;
+								g = c.G;
+								b = c.B;
+							}
 						}
+
+						// Base channels have already been pre-multiplied by alpha
+						var baseAlpha = 65205 - overlayAlpha;
+						data[di] = (byte)((b * overlayAlpha + data[di++] * baseAlpha) / 65205);
+						data[di] = (byte)((g * overlayAlpha + data[di++] * baseAlpha) / 65205);
+						data[di] = (byte)((r * overlayAlpha + data[di++] * baseAlpha) / 65205);
+						data[di] = (byte)((255 * overlayAlpha + data[di] * baseAlpha) / 65205);
 					}
 				}
 			}
