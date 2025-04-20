@@ -891,6 +891,14 @@ Templates:
 			3: Rock
 			4: Tree
 			5: Rock
+		RemasteredFilenames:
+			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\BR1.DES\BR1.DES-0000.DDS
+		RemasteredCompositeFilenames:
+			1: BR5.DES/BR5.DES-0001.png
+			2: BR5.DES/BR5.DES-0002.png
+			3: BR5.DES/BR5.DES-0003.png
+			4: BR5.DES/BR5.DES-0004.png
+			5: BR5.DES/BR5.DES-0005.png
 	Template@62:
 		Id: 62
 		Filename: br6.des
@@ -969,6 +977,12 @@ Templates:
 			1: Tree
 			2: Tree
 			3: Tree
+		RemasteredFilenames:
+			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\BR6.DES\BR6.DES-0000.DDS
+			2: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\BR6.DES\BR6.DES-0002.DDS
+		RemasteredCompositeFilenames:
+			1: BR10.DES/BR10.DES-0001.png
+			3: BR10.DES/BR10.DES-0003.png
 	Template@67:
 		Id: 67
 		Filename: p01.des
@@ -3329,6 +3343,8 @@ Templates:
 		Categories: Debris
 		Tiles:
 			0: Rock
+		RemasteredCompositeFilenames:
+			0: B06.DES/B06.DES-0000.png
 	Template@219:
 		Id: 219
 		Filename: p08.des
@@ -3337,6 +3353,9 @@ Templates:
 		Tiles:
 			0: Rough
 			1: Rough
+		RemasteredCompositeFilenames:
+			0: P08.DES/P08.DES-0000.png
+			1: P08.DES/P08.DES-0001.png
 	Template@220:
 		Id: 220
 		Filename: p09.des
@@ -3345,6 +3364,9 @@ Templates:
 		Tiles:
 			0: Rock
 			1: Rock
+		RemasteredCompositeFilenames:
+			0: P09.DES/P09.DES-0000.png
+			1: P09.DES/P09.DES-0001.png
 	Template@221:
 		Id: 221
 		Filename: p10.des
@@ -3357,6 +3379,14 @@ Templates:
 			3: Clear
 			4: Clear
 			5: Clear
+		RemasteredFilenames:
+			3: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\P06.DES\P06.DES-0007.DDS
+		RemasteredCompositeFilenames:
+			0: P10.DES/P10.DES-0000.png
+			1: P10.DES/P10.DES-0001.png
+			2: P10.DES/P10.DES-0002.png
+			4: P10.DES/P10.DES-0004.png
+			5: P10.DES/P10.DES-0005.png
 	Template@222:
 		Id: 222
 		Filename: cliffsl1.des
