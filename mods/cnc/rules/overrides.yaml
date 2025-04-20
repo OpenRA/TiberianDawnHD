@@ -50,3 +50,11 @@ V19.Husk:
 		MaxHue: 0.15
 		ReferenceHue: 0.1
 		ReferenceSaturation: 0.75
+
+STNK:
+	Cloak:
+		CloakStyle: Alpha
+
+C17:
+	Cloak:
+		CloakStyle: Alpha
