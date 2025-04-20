@@ -2729,6 +2729,15 @@ Templates:
 			5: Tree
 			6: Tree
 			7: Tree
+		RemasteredFilenames:
+			3: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\TEMPERATE\P07\P07.TEM-0003.DDS
+		RemasteredCompositeFilenames:
+			1: A10CR.TEM/A10CR.TEM-0001.png
+			2: A10CR.TEM/A10CR.TEM-0002.png
+			4: A10CR.TEM/A10CR.TEM-0004.png
+			5: A10CR.TEM/A10CR.TEM-0005.png
+			6: A10CR.TEM/A10CR.TEM-0006.png
+			7: A10CR.TEM/A10CR.TEM-0007.png
 	Template@189:
 		Id: 189
 		Filename: cliffsl1.tem
