@@ -413,6 +413,7 @@ shroud:
 	Defaults:
 		RemasteredFilenamePattern: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\SHROUD\SHADOW-{0:D2}.DDS
 			Count: 12
+		RemasteredPremultiplied: false
 	-typea:
 	-typeb:
 	-typec:
@@ -449,38 +450,37 @@ shroud:
 # Note: The order of smudges and craters determines
 # the index that is mapped to them in maps
 scorches:
+	Defaults:
+		RemasteredScale: 0.5
+		RemasteredPremultiplied: false
 	sc1:
 		RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\TEMPERATE\SC1\SC1.TEM-0000.DDS
 		RemasteredTilesetFilenamesPattern:
 			DESERT: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SC1.DES\SC1.DES-0000.DDS
-		RemasteredScale: 0.5
 	sc2:
 		RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\TEMPERATE\SC2\SC2.TEM-0000.DDS
 		RemasteredTilesetFilenamesPattern:
 			DESERT: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SC2.DES\SC2.DES-0000.DDS
-		RemasteredScale: 0.5
 	sc3:
 		RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\TEMPERATE\SC3\SC3.TEM-0000.DDS
 		RemasteredTilesetFilenamesPattern:
 			DESERT: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SC3.DES\SC3.DES-0000.DDS
-		RemasteredScale: 0.5
 	sc4:
 		RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\TEMPERATE\SC4\SC4.TEM-0000.DDS
 		RemasteredTilesetFilenamesPattern:
 			DESERT: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SC4.DES\SC4.DES-0000.DDS
-		RemasteredScale: 0.5
 	sc5:
 		RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\TEMPERATE\SC5\SC5.TEM-0000.DDS
 		RemasteredTilesetFilenamesPattern:
 			DESERT: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SC5.DES\SC5.DES-0000.DDS
-		RemasteredScale: 0.5
 	sc6:
 		RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\TEMPERATE\SC6\SC6.TEM-0000.DDS
 		RemasteredTilesetFilenamesPattern:
 			DESERT: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SC6.DES\SC6.DES-0000.DDS
-		RemasteredScale: 0.5
 
 craters:
+	Defaults:
+		RemasteredPremultiplied: false
 	cr1:
 		RemasteredFilenamePattern: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\TEMPERATE\CR1\CR1.TEM-{0:D4}.DDS
 			Count: 5
