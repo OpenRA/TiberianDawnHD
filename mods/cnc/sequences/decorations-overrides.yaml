@@ -330,6 +330,8 @@ t08:
 			DESERT: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\T08.DES\T08.DES-{0:D4}.DDS
 				Count: 3
 		RemasteredScale: 0.5
+		RemasteredTilesetScales:
+			DESERT: 1.0
 
 t08.husk:
 	Defaults:
@@ -343,6 +345,8 @@ t08.husk:
 			DESERT: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\T08.DES\T08.DES-{0:D4}.DDS
 				Count: 3
 		RemasteredScale: 0.5
+		RemasteredTilesetScales:
+			DESERT: 1.0
 
 t07:
 	Defaults:
