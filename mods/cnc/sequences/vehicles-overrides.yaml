@@ -188,9 +188,9 @@ apc:
 	Defaults:
 		RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\UNITS\APC.ZIP
 	turret:
-		RemasteredFilename:
+		RemasteredFilename: apctur.png
 	turret-air:
-		RemasteredFilename:
+		RemasteredFilename: apctur.png
 	muzzle:
 		RemasteredFilename: DATA\ART\TEXTURES\SRGB\COMMON\VFX\MINIGUN.ZIP
 	muzzle-air:
