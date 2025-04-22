@@ -522,3 +522,15 @@ craters:
 smokland:
 	Defaults:
 		RemasteredFilename: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\VFX\SMOKLAND.ZIP
+
+mpspawn:
+	idle:
+		RemasteredFilename: mpspawn.png
+
+waypoint:
+	idle:
+		RemasteredFilename: waypoint.png
+
+camera:
+	idle:
+		RemasteredFilename: camera.png
