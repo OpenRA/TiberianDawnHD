@@ -111,6 +111,9 @@ namespace OpenRA.Mods.Cnc.Graphics
 		[Desc("Sprite data is already pre-multiplied by alpha channel.")]
 		protected static readonly SpriteSequenceField<bool> RemasteredPremultiplied = new(nameof(RemasteredPremultiplied), true);
 
+		[Desc("Sets transparency - use one value to set for all frames or provide a value for each frame.")]
+		protected static readonly SpriteSequenceField<float[]> RemasteredAlpha = new(nameof(RemasteredAlpha), null);
+
 		bool hasRemasteredSprite = true;
 
 		IEnumerable<ReservationInfo> ParseRemasterFilenames(ModData modData, string tileset, int[] frames, MiniYaml data, MiniYaml defaults)
@@ -225,6 +228,8 @@ namespace OpenRA.Mods.Cnc.Graphics
 				scale = FieldLoader.GetValue<float>(tileset, tilesetNode.Value.Value);
 			else
 				scale = LoadField(RemasteredScale, data, defaults) ?? scale;
+
+			alpha = LoadField(RemasteredAlpha, data, defaults);
 
 			if (LoadField<string>(RemasteredLength.Key, null, data, defaults) != "*")
 				length = LoadField(RemasteredLength, data, defaults) ?? length;
