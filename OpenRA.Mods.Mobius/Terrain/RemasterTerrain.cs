@@ -49,6 +49,7 @@ namespace OpenRA.Mods.Mobius.Terrain
 		public readonly string Id;
 		public readonly Size TileSize = new(24, 24);
 		public readonly Size RemasteredTileSize = new(128, 128);
+		public readonly float RemasteredDefaultScale = 0.1875f;
 		public readonly int BgraSheetSize = 4096;
 		public readonly int IndexedSheetSize = 512;
 		public readonly Color[] HeightDebugColors = { Color.Red };
@@ -58,8 +59,6 @@ namespace OpenRA.Mods.Mobius.Terrain
 
 		[FieldLoader.Ignore]
 		public readonly IReadOnlyDictionary<ushort, TerrainTemplateInfo> Templates;
-		[FieldLoader.Ignore]
-		public readonly IReadOnlyDictionary<TemplateSegment, TerrainTemplateInfo> SegmentsToTemplates;
 		[FieldLoader.Ignore]
 		public readonly IReadOnlyDictionary<string, IEnumerable<MultiBrushInfo>> MultiBrushCollections;
 
@@ -100,11 +99,6 @@ namespace OpenRA.Mods.Mobius.Terrain
 			// Templates
 			Templates = yaml["Templates"].ToDictionary().Values
 				.Select(y => (TerrainTemplateInfo)new RemasterTerrainTemplateInfo(this, y)).ToDictionary(t => t.Id);
-
-			SegmentsToTemplates = ImmutableDictionary.CreateRange(
-				Templates.Values.SelectMany(
-					template => template.Segments.Select(
-						segment => new KeyValuePair<TemplateSegment, TerrainTemplateInfo>(segment, template))));
 
 			MultiBrushCollections =
 				yaml.TryGetValue("MultiBrushCollections", out var collectionDefinitions)
@@ -160,6 +154,7 @@ namespace OpenRA.Mods.Mobius.Terrain
 
 		string ITerrainInfo.Id => Id;
 		Size ITerrainInfo.TileSize => RemasteredTileSize;
+		float ITerrainInfo.DefaultScale => RemasteredDefaultScale;
 		TerrainTypeInfo[] ITerrainInfo.TerrainTypes => TerrainInfo;
 		TerrainTileInfo ITerrainInfo.GetTerrainInfo(TerrainTile r) { return GetTileInfo(r); }
 		bool ITerrainInfo.TryGetTerrainInfo(TerrainTile r, out TerrainTileInfo info) { return TryGetTileInfo(r, out info); }
@@ -171,7 +166,6 @@ namespace OpenRA.Mods.Mobius.Terrain
 
 		string[] ITemplatedTerrainInfo.EditorTemplateOrder => EditorTemplateOrder;
 		IReadOnlyDictionary<ushort, TerrainTemplateInfo> ITemplatedTerrainInfo.Templates => Templates;
-		IReadOnlyDictionary<TemplateSegment, TerrainTemplateInfo> ITemplatedTerrainInfo.SegmentsToTemplates => SegmentsToTemplates;
 		IReadOnlyDictionary<string, IEnumerable<MultiBrushInfo>> ITemplatedTerrainInfo.MultiBrushCollections => MultiBrushCollections;
 
 		void ITerrainInfoNotifyMapCreated.MapCreated(Map map)

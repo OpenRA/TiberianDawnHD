@@ -35,7 +35,8 @@ namespace OpenRA.Mods.Mobius.UtilityCommands
 			Game.ModData = utility.ModData;
 
 			var tilesetBuilder = MiniYaml.FromFile(args[1], discardCommentsAndWhitespace: false)
-				.ConvertAll(n => new MiniYamlNodeBuilder(n));
+				.Select(n => new MiniYamlNodeBuilder(n))
+				.ToList();
 			var templates = tilesetBuilder.First(n => n.Key == "Templates").Value;
 
 			var mapping = new XmlDocument();
