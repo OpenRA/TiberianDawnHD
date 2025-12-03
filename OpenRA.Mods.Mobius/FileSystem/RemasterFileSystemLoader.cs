@@ -12,6 +12,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using OpenRA.Mods.Common;
 using OpenRA.Mods.Common.FileSystem;
 using OpenRA.Mods.Common.Installer;
@@ -20,21 +21,48 @@ namespace OpenRA.Mods.Mobius.FileSystem
 {
 	public class RemasterFileSystemLoader : IFileSystemLoader, IFileSystemExternalContent
 	{
-		[FieldLoader.Require]
-		public readonly string RemasterDataMount = null;
-		public readonly string InstallPromptMod = "remaster-content";
-		public readonly Dictionary<string, string> SystemPackages = null;
-		public readonly Dictionary<string, string> RemasterPackages = null;
-
-		[FieldLoader.LoadUsing(nameof(LoadSources))]
-		readonly Dictionary<string, ModContent.ModSource> sources = null;
-
-		static object LoadSources(MiniYaml yaml)
+		public sealed class ContentSource
 		{
-			var ret = new Dictionary<string, ModContent.ModSource>();
-			var sourcesNode = yaml.Nodes.Single(n => n.Key == "Sources");
+			public readonly string SourceMount = null;
+			public readonly bool IsRemasteredContent = false;
+			public readonly Dictionary<string, string> ContentPackages = null;
+
+			[FieldLoader.LoadUsing(nameof(LoadSources))]
+			public readonly Dictionary<string, ModContent.ModSource> Sources = null;
+
+			static object LoadSources(MiniYaml yaml)
+			{
+				var ret = new Dictionary<string, ModContent.ModSource>();
+				var sourcesNode = yaml.Nodes.Single(n => n.Key == "Sources");
+				foreach (var s in sourcesNode.Value.Nodes)
+					ret.Add(s.Key, new ModContent.ModSource(s.Value));
+
+				return ret;
+			}
+
+			public ContentSource(MiniYaml yaml)
+			{
+				FieldLoader.Load(this, yaml);
+			}
+		}
+
+		[Desc("Mod to use for content installation.")]
+		public readonly string ContentInstallerMod = "remaster-content";
+
+		[Desc("A list of mod-provided packages. Anything required to display the initial load screen must be listed here.")]
+		public readonly Dictionary<string, string> SystemPackages = null;
+
+		public bool UseRemasteredContent { get; private set; }
+
+		[FieldLoader.LoadUsing(nameof(LoadContentSources))]
+		readonly Dictionary<string, ContentSource> contentSources = null;
+
+		static object LoadContentSources(MiniYaml yaml)
+		{
+			var ret = new Dictionary<string, ContentSource>();
+			var sourcesNode = yaml.Nodes.Single(n => n.Key == "ContentSources");
 			foreach (var s in sourcesNode.Value.Nodes)
-				ret.Add(s.Key, new ModContent.ModSource(s.Value));
+				ret.Add(s.Key, new ContentSource(s.Value));
 
 			return ret;
 		}
@@ -43,26 +71,31 @@ namespace OpenRA.Mods.Mobius.FileSystem
 
 		public void Mount(OpenRA.FileSystem.FileSystem fileSystem, ObjectCreator objectCreator)
 		{
-			if (SystemPackages != null)
-				foreach (var kv in SystemPackages)
-					fileSystem.Mount(kv.Key, kv.Value);
+			foreach (var kv in SystemPackages)
+				fileSystem.Mount(kv.Key, kv.Value);
 
-			if (RemasterPackages == null)
+			// Hack to get the mod id
+			// This will go away as support is merged upstream
+			var modID = fileSystem.GetType().GetField("modID", BindingFlags.NonPublic | BindingFlags.Instance)?.GetValue(fileSystem);
+			var settingsPath = Path.Combine(Platform.SupportDir, $"settings.{modID}.yaml");
+
+			var modSettings = new RemasterModSettings(settingsPath);
+			if (modSettings.ContentSource == null || !contentSources.TryGetValue(modSettings.ContentSource, out var source))
 				return;
 
-			foreach (var kv in sources)
+			foreach (var kv in source.Sources)
 			{
 				var sourceResolver = objectCreator.CreateObject<ISourceResolver>($"{kv.Value.Type.Value}SourceResolver");
 				var path = sourceResolver.FindSourcePath(kv.Value);
 				if (path != null)
 				{
-					var dataPath = Path.Combine(path, "Data");
-					if (!Directory.Exists(dataPath))
+					if (!Directory.Exists(path))
 						continue;
 
 					contentAvailable = true;
-					fileSystem.Mount(dataPath, RemasterDataMount);
-					foreach (var p in RemasterPackages)
+					UseRemasteredContent = source.IsRemasteredContent;
+					fileSystem.Mount(path, source.SourceMount);
+					foreach (var p in source.ContentPackages)
 					{
 						var package = fileSystem.OpenPackage(p.Key);
 						if (package == null)
@@ -80,9 +113,35 @@ namespace OpenRA.Mods.Mobius.FileSystem
 		bool IFileSystemExternalContent.InstallContentIfRequired(ModData modData)
 		{
 			if (!contentAvailable)
-				Game.InitializeMod(InstallPromptMod, new Arguments());
+				Game.InitializeMod(ContentInstallerMod, new Arguments());
+
+			// Hack the mod manifest to restore non-remastered values
+			// This will go away as support is merged upstream
+			if (!UseRemasteredContent)
+			{
+				var manifest = Game.ModData.Manifest;
+				foreach (var key in (string[])["Voices", "Notifications", "Music"])
+				{
+					var field = manifest.GetType().GetField(key);
+					if (field == null)
+						continue;
+
+					var files = (string[])field.GetValue(manifest);
+					field.SetValue(manifest, files?.Select(f => f.Replace("cnchd|", "cnc|")).ToArray());
+				}
+
+				var wvs = manifest.Get<WorldViewportSizes>();
+				wvs.GetType().GetField("DefaultScale")?.SetValue(wvs, 1.0f);
+			}
 
 			return !contentAvailable;
+		}
+
+		void IFileSystemExternalContent.ManageContent(ModData modData)
+		{
+			// Switching mods changes the world state (by disposing it),
+			// so we can't do this inside the input handler.
+			Game.RunAfterTick(() => Game.InitializeMod(ContentInstallerMod, new Arguments()));
 		}
 	}
 }
