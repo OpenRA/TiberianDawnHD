@@ -40,6 +40,16 @@ namespace OpenRA.Mods.Mobius.Widgets.Logic
 		[FieldLoader.Require]
 		public readonly string Mod;
 
+		[FieldLoader.LoadUsing(nameof(LoadQuickInstallDownload))]
+		public readonly MiniYaml QuickInstallDownload;
+
+		public readonly string QuickInstallContentSource;
+
+		static object LoadQuickInstallDownload(MiniYaml yaml)
+		{
+			return yaml.Nodes.SingleOrDefault(n => n.Key == "QuickInstallDownload")?.Value;
+		}
+
 		[IncludeFluentReferences(LintDictionaryReference.Values)]
 		[FieldLoader.LoadUsing(nameof(LoadContentSources))]
 		public readonly Dictionary<string, ContentSource> ContentSources = null;
@@ -77,45 +87,63 @@ namespace OpenRA.Mods.Mobius.Widgets.Logic
 						break;
 					}
 				}
+
+				if (cs.Value.Sources.Count == 0)
+					sources[cs.Key] = FluentProvider.GetMessage(cs.Value.Title);
 			}
 
 			var sourceDropdown = widget.Get<DropDownButtonWidget>("SOURCE_DROPDOWN");
 			var continueButton = widget.Get<ButtonWidget>("CONTINUE_BUTTON");
-			var quitButton = widget.Get<ButtonWidget>("QUIT_BUTTON");
-			if (sources.Count > 0)
+			if (modSettings.ContentSource == null || !sources.ContainsKey(modSettings.ContentSource))
 			{
-				if (modSettings.ContentSource == null || !sources.ContainsKey(modSettings.ContentSource))
-				{
-					modSettings.ContentSource = sources.Keys.First();
-					modSettings.Save();
-				}
-
-				ScrollItemWidget SetupItem(KeyValuePair<string, string> option, ScrollItemWidget template)
-				{
-					var item = ScrollItemWidget.Setup(template,
-						() => modSettings.ContentSource == option.Key,
-						() =>
-						{
-							modSettings.ContentSource = option.Key;
-							modSettings.Save();
-						});
-
-					item.Get<LabelWidget>("LABEL").GetText = () => option.Value;
-					return item;
-				}
-
-				var sourceLabel = new CachedTransform<string, string>(s => sources[s]);
-				sourceDropdown.GetText = () => sourceLabel.Update(modSettings.ContentSource);
-				sourceDropdown.OnClick = () => sourceDropdown.ShowDropDown("LABEL_DROPDOWN_TEMPLATE", 210, sources, SetupItem);
-				continueButton.OnClick = () => Game.RunAfterTick(() => Game.InitializeMod(content.Mod, new Arguments()));
+				modSettings.ContentSource = sources.Keys.First();
+				modSettings.Save();
 			}
-			else
+
+			ScrollItemWidget SetupItem(KeyValuePair<string, string> option, ScrollItemWidget template)
 			{
-				sourceDropdown.Disabled = true;
-				continueButton.Visible = false;
-				quitButton.Visible = true;
-				quitButton.OnClick = Game.Exit;
+				var item = ScrollItemWidget.Setup(template,
+					() => modSettings.ContentSource == option.Key,
+					() =>
+					{
+						modSettings.ContentSource = option.Key;
+						modSettings.Save();
+					});
+
+				item.Get<LabelWidget>("LABEL").GetText = () => option.Value;
+				return item;
 			}
+
+			var sourceLabel = new CachedTransform<string, string>(s => sources[s]);
+			sourceDropdown.GetText = () => sourceLabel.Update(modSettings.ContentSource);
+			sourceDropdown.OnClick = () => sourceDropdown.ShowDropDown("LABEL_DROPDOWN_TEMPLATE", 210, sources, SetupItem);
+			continueButton.OnClick = () => Game.RunAfterTick(() => Game.InitializeMod(content.Mod, new Arguments()));
+
+			var quickButton = widget.Get<ButtonWidget>("QUICK_BUTTON");
+			var quickDownload = new ModContent.ModDownload(content.QuickInstallDownload);
+			var quickDownloadExists = Path.Exists(Platform.ResolvePath(quickDownload.Path));
+			quickButton.IsVisible = () => modSettings.ContentSource == content.QuickInstallContentSource && !quickDownloadExists;
+			continueButton.IsVisible = () => !quickButton.IsVisible();
+
+			var widgetArgs = new WidgetArgs
+			{
+				{ "download", quickDownload },
+				{ "onSuccess", continueButton.OnClick }
+			};
+
+			quickButton.OnClick = () => Ui.OpenWindow("PACKAGE_DOWNLOAD_PANEL", widgetArgs);
+
+			var contentButton = widget.Get<ButtonWidget>("CONTENT_BUTTON");
+			contentButton.IsVisible = () => modSettings.ContentSource == content.QuickInstallContentSource;
+			contentButton.OnClick = () =>
+			{
+				try
+				{
+					//SDL.SDL_OpenURL(Path.Combine(Platform.SupportDir, "Logs"));
+				}
+				catch { }
+			};
+
 		}
 	}
 }

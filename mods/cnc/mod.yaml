@@ -13,6 +13,7 @@ FileSystem: RemasterFileSystem
 		$cnc: cnchd
 		^EngineDir|mods/cnc: cnc
 		^EngineDir|mods/common: common
+		~^SupportDir|Content/cnc: content
 		cnc|scripts
 		common|scripts	
 	ContentSources:
@@ -112,6 +113,26 @@ FileSystem: RemasterFileSystem
 				data|TRANSIT.MIX
 				data|GENERAL.MIX
 				data|MOVIES.MIX
+				cnc|bits/snow.mix
+				cnc|bits
+				cnchd|bits
+				cnc|bits/desert
+				cnc|bits/ss
+				cnc|scripts
+				cnc|uibits
+				common|scripts
+		quickinstall:
+			ContentPackages:
+				~content|cnc-packages.zip: data
+				CONQUER.MIX
+				SOUNDS.MIX
+				SPEECH.MIX
+				TEMPICNH.MIX
+				TEMPERAT.MIX
+				WINTER.MIX
+				DESERT.MIX
+				TRANSIT.MIX
+				GENERAL.MIX
 				cnc|bits/snow.mix
 				cnc|bits
 				cnchd|bits

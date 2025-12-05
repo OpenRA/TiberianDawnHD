@@ -9,6 +9,7 @@
  */
 #endregion
 
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -33,9 +34,10 @@ namespace OpenRA.Mods.Mobius.FileSystem
 			static object LoadSources(MiniYaml yaml)
 			{
 				var ret = new Dictionary<string, ModContent.ModSource>();
-				var sourcesNode = yaml.Nodes.Single(n => n.Key == "Sources");
-				foreach (var s in sourcesNode.Value.Nodes)
-					ret.Add(s.Key, new ModContent.ModSource(s.Value));
+				var sourcesNode = yaml.Nodes.SingleOrDefault(n => n.Key == "Sources");
+				if (sourcesNode != null)
+					foreach (var s in sourcesNode.Value.Nodes)
+						ret.Add(s.Key, new ModContent.ModSource(s.Value));
 
 				return ret;
 			}
@@ -89,23 +91,25 @@ namespace OpenRA.Mods.Mobius.FileSystem
 				var path = sourceResolver.FindSourcePath(kv.Value);
 				if (path != null)
 				{
-					if (!Directory.Exists(path))
-						continue;
-
-					contentAvailable = true;
-					UseRemasteredContent = source.IsRemasteredContent;
-					fileSystem.Mount(path, source.SourceMount);
-					foreach (var p in source.ContentPackages)
+					if (Directory.Exists(path))
 					{
-						var package = fileSystem.OpenPackage(p.Key);
-						if (package == null)
-						{
-							contentAvailable = false;
-							continue;
-						}
-
-						fileSystem.Mount(package, p.Value);
+						fileSystem.Mount(path, source.SourceMount);
+						break;
 					}
+				}
+			}
+
+			contentAvailable = true;
+			UseRemasteredContent = source.IsRemasteredContent;
+			foreach (var p in source.ContentPackages)
+			{
+				try
+				{
+					fileSystem.Mount(p.Key, p.Value);
+				}
+				catch
+				{
+					contentAvailable = false;
 				}
 			}
 		}

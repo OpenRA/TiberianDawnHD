@@ -37,8 +37,8 @@ Background@MODCONTENT_BACKGROUND:
 		Container@CONTENT_PROMPT_PANEL:
 			X: (WINDOW_WIDTH - WIDTH) / 2
 			Y: (WINDOW_HEIGHT - HEIGHT) / 2
-			Width: 550
-			Height: 180
+			Width: 515
+			Height: 205
 			Children:
 				Label@PROMPT_TITLE:
 					Width: PARENT_WIDTH
@@ -63,7 +63,7 @@ Background@MODCONTENT_BACKGROUND:
 							VAlign: Top
 						Container@SOURCE_CONTAINER:
 							X: 15
-							Y: 115
+							Y: 140
 							Width: PARENT_WIDTH - 30
 							Children:
 								Label@SOURCE_LABEL:
@@ -84,6 +84,22 @@ Background@MODCONTENT_BACKGROUND:
 					Text: button-continue
 					Font: Bold
 					Key: return
+				Button@QUICK_BUTTON:
+					X: PARENT_WIDTH - WIDTH
+					Y: PARENT_HEIGHT - 1
+					Width: 140
+					Height: 35
+					Text: Download
+					Font: Bold
+					Key: return
+				Button@CONTENT_BUTTON:
+					X: PARENT_WIDTH - 2 * WIDTH - 15
+					Y: PARENT_HEIGHT - 1
+					Width: 140
+					Height: 35
+					Text: ISO Directory
+					Font: Bold
+					Visible: false
 				Button@QUIT_BUTTON:
 					X: 0
 					Y: PARENT_HEIGHT - 1
@@ -93,6 +109,69 @@ Background@MODCONTENT_BACKGROUND:
 					Font: Bold
 					Key: escape
 					Visible: false
+
+Container@PACKAGE_DOWNLOAD_PANEL:
+	Logic: DownloadPackageLogic
+	X: (WINDOW_WIDTH - WIDTH) / 2
+	Y: (WINDOW_HEIGHT - HEIGHT) / 2
+	Width: 500
+	Height: 177
+	Children:
+		Label@TITLE:
+			Width: PARENT_WIDTH
+			Height: 25
+			Y: 0 - 37
+			Font: BigBold
+			Contrast: true
+			Align: Center
+		Background@bg:
+			Width: PARENT_WIDTH
+			Height: PARENT_HEIGHT
+			Background: panel-black
+		Background@RULE:
+			X: 30
+			Y: 50
+			Width: 440
+			Height: 150
+			Background: panel-rule
+		Label@TITLE:
+			X: 0
+			Y: 12
+			Width: PARENT_WIDTH
+			Height: 25
+			Align: Center
+			Font: MediumBold
+		ProgressBar@PROGRESS_BAR:
+			X: 30
+			Y: 64
+			Width: PARENT_WIDTH - 60
+			Height: 16
+			BarMargin: 0, 0
+		Label@STATUS_LABEL:
+			X: 30
+			Y: 85
+			Width: PARENT_WIDTH - 60
+			Height: 25
+			Align: Left
+		Button@RETRY_BUTTON:
+			X: 30
+			Y: PARENT_HEIGHT - 52
+			Background: button-highlighted
+			Width: 120
+			Height: 32
+			Visible: false
+			Text: button-retry
+			Font: Bold
+			Key: return
+		Button@CANCEL_BUTTON:
+			X: PARENT_WIDTH - 30 - WIDTH
+			Y: PARENT_HEIGHT - 52
+			Background: button-highlighted
+			Width: 110
+			Height: 32
+			Text: button-cancel
+			Font: Bold
+			Key: escape
 
 ScrollPanel@LABEL_DROPDOWN_TEMPLATE:
 	Width: DROPDOWN_WIDTH
