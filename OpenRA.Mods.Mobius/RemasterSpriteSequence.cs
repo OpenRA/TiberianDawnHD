@@ -10,14 +10,17 @@
 #endregion
 
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Globalization;
 using System.IO;
 using System.Linq;
 using OpenRA.Graphics;
+using OpenRA.Mods.Cnc.Graphics;
 using OpenRA.Mods.Common.Graphics;
+using OpenRA.Mods.Mobius.Terrain;
 using OpenRA.Primitives;
 
-namespace OpenRA.Mods.Cnc.Graphics
+namespace OpenRA.Mods.Mobius.Graphics
 {
 	sealed class MaskedFrame : ISpriteFrame
 	{
@@ -59,15 +62,15 @@ namespace OpenRA.Mods.Cnc.Graphics
 
 	public class RemasterSpriteSequenceLoader : ClassicTilesetSpecificSpriteSequenceLoader
 	{
-		public readonly float ClassicUpscaleFactor = 5.333333f;
-
 		public RemasterSpriteSequenceLoader(ModData modData)
 			: base(modData) { }
 
-		public override ISpriteSequence CreateSequence(ModData modData, string tileset, SpriteCache cache,
+		public override ClassicTilesetSpecificSpriteSequence CreateSequence(ModData modData, string tileset, SpriteCache cache,
 			string image, string sequence, MiniYaml data, MiniYaml defaults)
 		{
-			return new RemasterSpriteSequence(cache, this, tileset, image, sequence, data, defaults);
+			var terrainInfo = (RemasterTerrain)modData.DefaultTerrainInfo[tileset];
+			var classicUpscaleFactor = terrainInfo.RemasteredTileSize.Width * 1f / terrainInfo.TileSize.Width;
+			return new RemasterSpriteSequence(cache, this, tileset, image, sequence, data, defaults, classicUpscaleFactor);
 		}
 	}
 
@@ -112,11 +115,12 @@ namespace OpenRA.Mods.Cnc.Graphics
 		protected static readonly SpriteSequenceField<bool> RemasteredPremultiplied = new(nameof(RemasteredPremultiplied), true);
 
 		[Desc("Sets transparency - use one value to set for all frames or provide a value for each frame.")]
-		protected static readonly SpriteSequenceField<float[]> RemasteredAlpha = new(nameof(RemasteredAlpha), null);
+		protected static readonly SpriteSequenceField<ImmutableArray<float>> RemasteredAlpha = new(nameof(RemasteredAlpha), default);
 
 		bool hasRemasteredSprite = true;
+		readonly float classicUpscaleFactor;
 
-		IEnumerable<ReservationInfo> ParseRemasterFilenames(ModData modData, string tileset, int[] frames, MiniYaml data, MiniYaml defaults)
+		IEnumerable<ReservationInfo> ParseRemasterFilenames(ModData modData, string tileset, ImmutableArray<int> frames, MiniYaml data, MiniYaml defaults)
 		{
 			string filename = null;
 			MiniYamlNode.SourceLocation location = default;
@@ -178,7 +182,7 @@ namespace OpenRA.Mods.Cnc.Graphics
 			}
 		}
 
-		IEnumerable<ReservationInfo> ParseRemasterCombineFilenames(ModData modData, string tileset, int[] frames, MiniYaml data)
+		IEnumerable<ReservationInfo> ParseRemasterCombineFilenames(ModData modData, string tileset, ImmutableArray<int> frames, MiniYaml data)
 		{
 			string filename = null;
 			MiniYamlNode.SourceLocation location = default;
@@ -199,7 +203,7 @@ namespace OpenRA.Mods.Cnc.Graphics
 			{
 				var subStart = LoadField("Start", 0, data);
 				var subLength = LoadField("Length", 1, data);
-				frames = Exts.MakeArray(subLength, i => subStart + i);
+				frames = Exts.MakeArray(subLength, i => subStart + i).ToImmutableArray();
 			}
 
 			if (filename != null)
@@ -214,9 +218,10 @@ namespace OpenRA.Mods.Cnc.Graphics
 		}
 
 		public RemasterSpriteSequence(SpriteCache cache, ISpriteSequenceLoader loader, string tileset, string image, string sequence,
-			MiniYaml data, MiniYaml defaults)
+			MiniYaml data, MiniYaml defaults, float classicUpscaleFactor)
 			: base(cache, loader, image, sequence, data, defaults)
 		{
+			this.classicUpscaleFactor = classicUpscaleFactor;
 			start = LoadField(RemasteredStart, data, defaults) ?? start;
 			tick = LoadField(RemasteredTick, data, defaults) ?? tick;
 
@@ -229,7 +234,9 @@ namespace OpenRA.Mods.Cnc.Graphics
 			else
 				scale = LoadField(RemasteredScale, data, defaults) ?? scale;
 
-			alpha = LoadField(RemasteredAlpha, data, defaults) ?? alpha;
+			var remasteredAlpha = LoadField(RemasteredAlpha, data, defaults);
+			if (remasteredAlpha != default)
+				alpha = remasteredAlpha;
 
 			if (LoadField<string>(RemasteredLength.Key, null, data, defaults) != "*")
 				length = LoadField(RemasteredLength, data, defaults) ?? length;
@@ -328,7 +335,7 @@ namespace OpenRA.Mods.Cnc.Graphics
 		protected override float GetScale()
 		{
 			if (!hasRemasteredSprite)
-				return ((RemasterSpriteSequenceLoader)Loader).ClassicUpscaleFactor * scale;
+				return classicUpscaleFactor * scale;
 
 			return scale;
 		}
