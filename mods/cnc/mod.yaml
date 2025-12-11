@@ -14,42 +14,112 @@ FileSystem: RemasterFileSystem
 		^EngineDir|mods/cnc: cnc
 		^EngineDir|mods/common: common
 		cnc|scripts
-		common|scripts
-	RemasterDataMount: data
-	Sources:
-		steam:
-			Type: Steam
-				AppId: 1213210
-		origin:
-			Type: RegistryDirectory
-			RegistryPrefixes: HKEY_LOCAL_MACHINE\Software\, HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\
-			RegistryKey: Petroglyph\CnCRemastered
-			RegistryValue: Install Dir
-	RemasterPackages:
-		data|CNCDATA/TIBERIAN_DAWN/CD1/CONQUER.MIX
-		data|CNCDATA/TIBERIAN_DAWN/CD1/SOUNDS.MIX
-		data|CNCDATA/TIBERIAN_DAWN/CD1/TEMPICNH.MIX
-		data|CNCDATA/TIBERIAN_DAWN/CD1/TEMPERAT.MIX
-		data|CNCDATA/TIBERIAN_DAWN/CD1/WINTER.MIX
-		data|CNCDATA/TIBERIAN_DAWN/CD1/DESERT.MIX
-		data|CNCDATA/TIBERIAN_DAWN/CD1/MOVIES.MIX
-		data|CNCDATA/TIBERIAN_DAWN/CD2/MOVIES.MIX
-		data|TEXTURES_RA_SRGB.MEG
-		data|TEXTURES_TD_SRGB.MEG
-		data|TEXTURES_COMMON_SRGB.MEG
-		data|SFX2D_EN-US.MEG
-		data|SFX3D.MEG
-		data|MUSIC.MEG
-		cnc|bits/snow.mix
-		cnc|bits
-		cnc|bits/desert
-		cnc|bits/ss
-		cnc|scripts
-		cnc|uibits
-		cnchd|bits
-		cnchd|bits/tilesets
-		common|scripts
-		cnchd|bits/harvlost.zip
+		common|scripts	
+	ContentSources:
+		remaster-remastered:
+			Sources:
+				steam:
+					Type: Steam
+						AppId: 1213210
+				origin:
+					Type: RegistryDirectory
+					RegistryPrefixes: HKEY_LOCAL_MACHINE\Software\, HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\
+					RegistryKey: Petroglyph\CnCRemastered
+					RegistryValue: Install Dir
+			IsRemasteredContent: true
+			SourceMount: data
+			ContentPackages:
+				data|Data/CNCDATA/TIBERIAN_DAWN/CD1/CONQUER.MIX
+				data|Data/CNCDATA/TIBERIAN_DAWN/CD1/SOUNDS.MIX
+				data|Data/CNCDATA/TIBERIAN_DAWN/CD1/SPEECH.MIX
+				data|Data/CNCDATA/TIBERIAN_DAWN/CD1/TEMPICNH.MIX
+				data|Data/CNCDATA/TIBERIAN_DAWN/CD1/TEMPERAT.MIX
+				data|Data/CNCDATA/TIBERIAN_DAWN/CD1/WINTER.MIX
+				data|Data/CNCDATA/TIBERIAN_DAWN/CD1/DESERT.MIX
+				data|Data/CNCDATA/TIBERIAN_DAWN/CD1/SCORES.MIX
+				data|Data/CNCDATA/TIBERIAN_DAWN/CD1/TRANSIT.MIX
+				data|Data/CNCDATA/TIBERIAN_DAWN/CD1/GENERAL.MIX
+				data|Data/CNCDATA/TIBERIAN_DAWN/CD1/MOVIES.MIX
+				data|Data/CNCDATA/TIBERIAN_DAWN/CD2/MOVIES.MIX
+				data|Data/TEXTURES_RA_SRGB.MEG
+				data|Data/TEXTURES_TD_SRGB.MEG
+				data|Data/TEXTURES_COMMON_SRGB.MEG
+				data|Data/SFX2D_EN-US.MEG
+				data|Data/SFX3D.MEG
+				data|Data/MUSIC.MEG
+				cnc|bits/snow.mix
+				cnc|bits
+				cnc|bits/desert
+				cnc|bits/ss
+				cnc|scripts
+				cnc|uibits
+				cnchd|bits
+				cnchd|bits/tilesets
+				common|scripts
+				cnchd|bits/harvlost.zip
+		remaster-classic:
+			Sources:
+				steam:
+					Type: Steam
+						AppId: 1213210
+				origin:
+					Type: RegistryDirectory
+					RegistryPrefixes: HKEY_LOCAL_MACHINE\Software\, HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\
+					RegistryKey: Petroglyph\CnCRemastered
+					RegistryValue: Install Dir
+			SourceMount: data
+			ContentPackages:
+				data|Data/CNCDATA/TIBERIAN_DAWN/CD1/CONQUER.MIX
+				data|Data/CNCDATA/TIBERIAN_DAWN/CD1/SOUNDS.MIX
+				data|Data/CNCDATA/TIBERIAN_DAWN/CD1/SPEECH.MIX
+				data|Data/CNCDATA/TIBERIAN_DAWN/CD1/TEMPICNH.MIX
+				data|Data/CNCDATA/TIBERIAN_DAWN/CD1/TEMPERAT.MIX
+				data|Data/CNCDATA/TIBERIAN_DAWN/CD1/WINTER.MIX
+				data|Data/CNCDATA/TIBERIAN_DAWN/CD1/DESERT.MIX
+				data|Data/CNCDATA/TIBERIAN_DAWN/CD1/SCORES.MIX
+				data|Data/CNCDATA/TIBERIAN_DAWN/CD1/TRANSIT.MIX
+				data|Data/CNCDATA/TIBERIAN_DAWN/CD1/GENERAL.MIX
+				data|Data/CNCDATA/TIBERIAN_DAWN/CD1/MOVIES.MIX
+				data|Data/CNCDATA/TIBERIAN_DAWN/CD2/MOVIES.MIX
+				cnc|bits/snow.mix
+				cnc|bits
+				cnchd|bits
+				cnc|bits/desert
+				cnc|bits/ss
+				cnc|scripts
+				cnc|uibits
+				common|scripts
+		tuc:
+			Sources:
+				steam:
+					Type: Steam
+						AppId: 2229830
+				origin:
+					Type: RegistryDirectory
+					RegistryPrefixes: HKEY_LOCAL_MACHINE\Software\, HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\
+					RegistryKey: EA Games\CNC and The Covert Operations
+					RegistryValue: Install Dir
+			SourceMount: data
+			ContentPackages:
+				data|CONQUER.MIX
+				data|SOUNDS.MIX
+				data|SPEECH.MIX
+				data|TEMPICNH.MIX
+				data|TEMPERAT.MIX
+				data|WINTER.MIX
+				data|DESERT.MIX
+				data|SCORES.MIX
+				data|TRANSIT.MIX
+				data|GENERAL.MIX
+				data|MOVIES.MIX
+				cnc|bits/snow.mix
+				cnc|bits
+				cnchd|bits
+				cnc|bits/desert
+				cnc|bits/ss
+				cnc|scripts
+				cnc|uibits
+				common|scripts
 
 MapFolders:
 	cnc|maps: System

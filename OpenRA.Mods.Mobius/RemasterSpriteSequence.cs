@@ -17,6 +17,7 @@ using System.Linq;
 using OpenRA.Graphics;
 using OpenRA.Mods.Cnc.Graphics;
 using OpenRA.Mods.Common.Graphics;
+using OpenRA.Mods.Mobius.FileSystem;
 using OpenRA.Mods.Mobius.Terrain;
 using OpenRA.Primitives;
 
@@ -68,6 +69,10 @@ namespace OpenRA.Mods.Mobius.Graphics
 		public override ClassicTilesetSpecificSpriteSequence CreateSequence(ModData modData, string tileset, SpriteCache cache,
 			string image, string sequence, MiniYaml data, MiniYaml defaults)
 		{
+			var fileSystemLoader = (RemasterFileSystemLoader)modData.FileSystemLoader;
+			if (!fileSystemLoader.UseRemasteredContent)
+				return new ClassicTilesetSpecificSpriteSequence(cache, this, image, sequence, data, defaults);
+
 			var terrainInfo = (RemasterTerrain)modData.DefaultTerrainInfo[tileset];
 			var classicUpscaleFactor = terrainInfo.RemasteredTileSize.Width * 1f / terrainInfo.TileSize.Width;
 			return new RemasterSpriteSequence(cache, this, tileset, image, sequence, data, defaults, classicUpscaleFactor);

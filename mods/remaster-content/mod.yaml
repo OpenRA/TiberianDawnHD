@@ -1,5 +1,5 @@
 Metadata:
-	Title: Remaster Install Prompt
+	Title: mod-title
 	Version: {DEV_VERSION}
 	Hidden: true
 
@@ -8,8 +8,40 @@ FileSystem: DefaultFileSystem
 		^EngineDir
 		^EngineDir|mods/common-content: content
 		^EngineDir|mods/common: common
+		^EngineDir|mods/cnc: cnc
 		$remaster-content: cnccontent
+		cnc|uibits
 
+RemasterModContent:
+	Mod: cnc
+	ContentSources:
+		remaster-remastered: modcontent-source-remaster-remastered
+			steam:
+				Type: Steam
+					AppId: 1213210
+			origin:
+				Type: RegistryDirectory
+				RegistryPrefixes: HKEY_LOCAL_MACHINE\Software\, HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\
+				RegistryKey: Petroglyph\CnCRemastered
+				RegistryValue: Install Dir
+		remaster-classic: modcontent-source-remaster-classic
+			steam:
+				Type: Steam
+					AppId: 1213210
+			origin:
+				Type: RegistryDirectory
+				RegistryPrefixes: HKEY_LOCAL_MACHINE\Software\, HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\
+				RegistryKey: Petroglyph\CnCRemastered
+				RegistryValue: Install Dir
+		tuc: modcontent-source-tuc
+			steam:
+				Type: Steam
+					AppId: 2229830
+			origin:
+				Type: RegistryDirectory
+				RegistryPrefixes: HKEY_LOCAL_MACHINE\Software\, HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\
+				RegistryKey: EA Games\CNC and The Covert Operations
+				RegistryValue: Install Dir
 
 Rules:
 
@@ -17,7 +49,7 @@ Cursors:
 	content|cursors.yaml
 
 Chrome:
-	content|chrome.yaml
+	cnc|chrome.yaml
 
 Assemblies: OpenRA.Mods.Common.dll, OpenRA.Mods.Cnc.dll, OpenRA.Mods.Mobius.dll
 
@@ -27,10 +59,10 @@ ChromeLayout:
 Notifications:
 	content|notifications.yaml
 
-LoadScreen: ModContentLoadScreen
-	Image: ^EngineDir|mods/common-content/chrome.png
-	Image2x: ^EngineDir|mods/common-content/chrome-2x.png
-	Image3x: ^EngineDir|mods/common-content/chrome-3x.png
+LoadScreen: RemasterContentLoadScreen
+	Image: cnc|uibits/chrome.png
+	Image2x: cnc|uibits/chrome-2x.png
+	Image3x: cnc|uibits/chrome-3x.png
 
 ChromeMetrics:
 	common|metrics.yaml

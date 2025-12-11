@@ -1,44 +1,123 @@
 Background@MODCONTENT_BACKGROUND:
-	Logic: RemasterContentPromptLogic
+	Logic: RemasterContentSelectorLogic
 	Background: background
 	Width: WINDOW_WIDTH
 	Height: WINDOW_HEIGHT
 	Children:
-		Background@CONTENT_PROMPT_PANEL:
+		Container@SHELLMAP_DECORATIONS:
+			Children:
+				Image@NOD:
+					X: WINDOW_WIDTH / 2 - 384
+					Y: (WINDOW_HEIGHT - 256) / 2
+					ImageCollection: logos
+					ImageName: nod-load
+				Image@GDI:
+					X: WINDOW_WIDTH / 2 + 128
+					Y: (WINDOW_HEIGHT - 256) / 2
+					ImageCollection: logos
+					ImageName: gdi-load
+		Image@EVA:
+			X: WINDOW_WIDTH - 128 - 43
+			Y: 43
+			Width: 128
+			Height: 64
+			ImageCollection: logos
+			ImageName: eva
+		Label@VERSION_LABEL:
+			Logic: VersionLabelLogic
+			X: WINDOW_WIDTH - 128 - 43
+			Y: 116
+			Width: 128
+			Align: Center
+			Shadow: true
+		Background@BORDER:
+			Width: WINDOW_WIDTH
+			Height: WINDOW_HEIGHT
+			Background: shellmapborder
+		Container@CONTENT_PROMPT_PANEL:
 			X: (WINDOW_WIDTH - WIDTH) / 2
 			Y: (WINDOW_HEIGHT - HEIGHT) / 2
-			Width: 600
-			Height: 160
-			Background: panel-bg
+			Width: 550
+			Height: 180
 			Children:
-				Label@TITLE:
-					X: 0
-					Y: 12
+				Label@PROMPT_TITLE:
 					Width: PARENT_WIDTH
 					Height: 25
-					Text: label-content-prompt-panel-title
+					Y: 0 - 37
+					Font: BigBold
+					Contrast: true
 					Align: Center
-					Font: MediumBold
-				Background@RULE:
-					X: 30
-					Y: 50
-					Width: 540
-					Height: 150
-					Background: panel-rule
-				Label@HEADER_LABEL:
-					X: 30
-					Y: 65
-					Width: PARENT_WIDTH - 60
-					Height: 16
-					Text: modcontent-installprompt
-					Align: Center
-					WordWrap: true
+					Text: modcontent-title
+				Background@bg:
+					Width: PARENT_WIDTH
+					Height: PARENT_HEIGHT
+					Background: panel-black
+					Children:
+						Label@DESC_A:
+							X: 15
+							Y: 15
+							Width: PARENT_WIDTH - 30
+							Height: 100
+							Font: Regular
+							Text: modcontent-header
+							VAlign: Top
+						Container@SOURCE_CONTAINER:
+							X: 15
+							Y: 115
+							Width: PARENT_WIDTH - 30
+							Children:
+								Label@SOURCE_LABEL:
+									Width: PARENT_WIDTH
+									Height: 20
+									Text: modcontent-label-source
+								DropDownButton@SOURCE_DROPDOWN:
+									Y: 25
+									Width: PARENT_WIDTH
+									Height: 25
+									Font: Bold
+									Text: modcontent-no-sources
+				Button@CONTINUE_BUTTON:
+					X: PARENT_WIDTH - WIDTH
+					Y: PARENT_HEIGHT - 1
+					Width: 140
+					Height: 35
+					Text: button-continue
+					Font: Bold
+					Key: return
 				Button@QUIT_BUTTON:
-					X: PARENT_WIDTH - WIDTH - 30
-					Y: PARENT_HEIGHT - 52
-					Background: button-highlighted
-					Width: 110
-					Height: 32
+					X: 0
+					Y: PARENT_HEIGHT - 1
+					Width: 140
+					Height: 35
 					Text: button-quit
 					Font: Bold
 					Key: escape
+					Visible: false
+
+ScrollPanel@LABEL_DROPDOWN_TEMPLATE:
+	Width: DROPDOWN_WIDTH
+	Children:
+		ScrollItem@HEADER:
+			Background: scrollheader
+			Width: PARENT_WIDTH - 27
+			Height: 13
+			X: 2
+			Y: 0
+			Visible: false
+			Children:
+				Label@LABEL:
+					Font: TinyBold
+					Width: PARENT_WIDTH
+					Height: 13
+					Align: Center
+		ScrollItem@TEMPLATE:
+			Width: PARENT_WIDTH - 27
+			Height: 25
+			X: 2
+			Y: 0
+			Visible: false
+			Children:
+				Label@LABEL:
+					X: 10
+					Width: PARENT_WIDTH - 20
+					Height: 25
