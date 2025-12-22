@@ -34,8 +34,10 @@ namespace OpenRA.Mods.Mobius.UtilityCommands
 			// HACK: The engine code assumes that Game.modData is set.
 			Game.ModData = utility.ModData;
 
-			var tileset = MiniYaml.FromFile(args[1], discardCommentsAndWhitespace: false);
-			var templates = new MiniYamlBuilder(tileset.First(n => n.Key == "Templates").Value);
+			var tilesetBuilder = MiniYaml.FromFile(args[1], discardCommentsAndWhitespace: false)
+				.Select(n => new MiniYamlNodeBuilder(n))
+				.ToList();
+			var templates = tilesetBuilder.First(n => n.Key == "Templates").Value;
 
 			var mapping = new XmlDocument();
 			using (var ffs = new FileStream(args[2], FileMode.Open))
@@ -81,7 +83,7 @@ namespace OpenRA.Mods.Mobius.UtilityCommands
 					template.AddNode(imageNode);
 			}
 
-			tileset.WriteToFile(args[1]);
+			tilesetBuilder.WriteToFile(args[1]);
 		}
 	}
 }

@@ -139,7 +139,7 @@ namespace OpenRA.Mods.Mobius.Traits
 		Rectangle ITiledTerrainRenderer.TemplateBounds(TerrainTemplateInfo template)
 		{
 			Rectangle? templateRect = null;
-			var tileSize = map.Grid.TileSize;
+			var tileSize = map.Rules.TerrainInfo.TileSize;
 
 			var i = 0;
 			for (var y = 0; y < template.Size.Y; y++)
@@ -177,7 +177,7 @@ namespace OpenRA.Mods.Mobius.Traits
 			if (t is not RemasterTerrainTemplateInfo template)
 				yield break;
 
-			var ts = map.Grid.TileSize;
+			var ts = map.Rules.TerrainInfo.TileSize;
 			var gridType = map.Grid.Type;
 			var palette = wr.Palette(template.Palette ?? terrainInfo.Palette);
 
@@ -229,6 +229,21 @@ namespace OpenRA.Mods.Mobius.Traits
 					yield return new SpriteRenderable(sprite, origin, offset, 0, palette, scale, 1f, float3.Ones, TintModifiers.None, false);
 				}
 			}
+		}
+
+		IEnumerable<IRenderable> ITiledTerrainRenderer.RenderPreview(WorldRenderer wr, TerrainTile tile, WPos origin)
+		{
+			if (!terrainInfo.Templates.TryGetValue(tile.Type, out var template) || !template.Contains(tile.Index))
+				yield break;
+
+			var sprite = tileCache.TileSprite(tile, 0);
+			if (sprite == null)
+				yield break;
+
+			var offset = map.Offset(new CVec(0, 0), template[tile.Index].Height);
+			var scale = tileCache.TileScale(tile);
+			var palette = wr.Palette((template as RemasterTerrainTemplateInfo)?.Palette ?? terrainInfo.Palette);
+			yield return new SpriteRenderable(sprite, origin, offset, 0, palette, scale, 1f, float3.Ones, TintModifiers.None, false);
 		}
 	}
 }

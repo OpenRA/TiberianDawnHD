@@ -1,5 +1,5 @@
 General:
-	Name: Snow
+	Name: tileset-snow
 	Id: SNOW
 	EditorTemplateOrder: Terrain, Debris, Road, Cliffs, Beach, River, Bridge
 	HeightDebugColors: 880000
@@ -462,6 +462,12 @@ Templates:
 			1: Rock
 			2: Clear
 			3: Rock
+		Segments:
+			Segment:
+				Start: Cliff.L
+				Inner: Cliff
+				End: Clear.L
+				Points: 2,1, 1,1, 0,1
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\S01.SNO\S01.SNO-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\S01.SNO\S01.SNO-0001.DDS
@@ -479,6 +485,12 @@ Templates:
 			3: Rock
 			4: Rock
 			5: Rock
+		Segments:
+			Segment:
+				Start: Cliff.L
+				Inner: Cliff
+				End: Cliff.L
+				Points: 2,2, 1,2, 1,1, 0,1
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\S02.SNO\S02.SNO-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\S02.SNO\S02.SNO-0001.DDS
@@ -496,6 +508,12 @@ Templates:
 			1: Rock
 			2: Rock
 			3: Rock
+		Segments:
+			Segment:
+				Start: Cliff.L
+				Inner: Cliff
+				End: Cliff.L
+				Points: 2,1, 1,1, 0,1
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\S03.SNO\S03.SNO-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\S03.SNO\S03.SNO-0001.DDS
@@ -511,6 +529,12 @@ Templates:
 			1: Rock
 			2: Rock
 			3: Rock
+		Segments:
+			Segment:
+				Start: Cliff.L
+				Inner: Cliff
+				End: Cliff.L
+				Points: 2,1, 1,1, 0,1
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\S04.SNO\S04.SNO-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\S04.SNO\S04.SNO-0001.DDS
@@ -526,6 +550,12 @@ Templates:
 			1: Rock
 			2: Rock
 			3: Rock
+		Segments:
+			Segment:
+				Start: Cliff.L
+				Inner: Cliff
+				End: Cliff.L
+				Points: 2,1, 1,1, 0,1
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\S05.SNO\S05.SNO-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\S05.SNO\S05.SNO-0001.DDS
@@ -542,6 +572,12 @@ Templates:
 			2: Rock
 			3: Rock
 			4: Rock
+		Segments:
+			Segment:
+				Start: Cliff.L
+				Inner: Cliff
+				End: Cliff.L
+				Points: 2,1, 1,1, 0,2
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\S06.SNO\S06.SNO-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\S06.SNO\S06.SNO-0001.DDS
@@ -558,6 +594,12 @@ Templates:
 			1: Rock
 			2: Rock
 			3: Rock
+		Segments:
+			Segment:
+				Start: Clear.L
+				Inner: Cliff
+				End: Cliff.L
+				Points: 2,1, 1,1, 0,1
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\S07.SNO\S07.SNO-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\S07.SNO\S07.SNO-0001.DDS
@@ -573,6 +615,12 @@ Templates:
 			1: Clear
 			2: Rock
 			3: Rock
+		Segments:
+			Segment:
+				Start: Cliff.U
+				Inner: Cliff
+				End: Clear.U
+				Points: 1,2, 1,1, 1,0
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\S08.SNO\S08.SNO-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\S08.SNO\S08.SNO-0001.DDS
@@ -590,6 +638,12 @@ Templates:
 			3: Clear
 			4: Rock
 			5: Rock
+		Segments:
+			Segment:
+				Start: Cliff.U
+				Inner: Cliff
+				End: Cliff.U
+				Points: 2,2, 2,1, 1,1, 1,0
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\S09.SNO\S09.SNO-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\S09.SNO\S09.SNO-0001.DDS
@@ -607,6 +661,12 @@ Templates:
 			1: Rock
 			2: Rock
 			3: Rock
+		Segments:
+			Segment:
+				Start: Cliff.U
+				Inner: Cliff
+				End: Cliff.U
+				Points: 1,2, 1,1, 1,0
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\S10.SNO\S10.SNO-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\S10.SNO\S10.SNO-0001.DDS
@@ -622,6 +682,12 @@ Templates:
 			1: Rock
 			2: Rock
 			3: Rock
+		Segments:
+			Segment:
+				Start: Cliff.U
+				Inner: Cliff
+				End: Cliff.U
+				Points: 1,2, 1,1, 1,0
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\S11.SNO\S11.SNO-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\S11.SNO\S11.SNO-0001.DDS
@@ -637,6 +703,12 @@ Templates:
 			1: Rock
 			2: Rock
 			3: Rock
+		Segments:
+			Segment:
+				Start: Cliff.U
+				Inner: Cliff
+				End: Cliff.U
+				Points: 1,2, 1,1, 1,0
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\S12.SNO\S12.SNO-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\S12.SNO\S12.SNO-0001.DDS
@@ -654,6 +726,12 @@ Templates:
 			3: Rock
 			4: Rock
 			5: Clear
+		Segments:
+			Segment:
+				Start: Cliff.U
+				Inner: Cliff
+				End: Cliff.U
+				Points: 1,2, 1,1, 2,1, 2,0
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\S13.SNO\S13.SNO-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\S13.SNO\S13.SNO-0001.DDS
@@ -670,6 +748,12 @@ Templates:
 			0: Rock
 			1: Clear
 			2: Clear
+		Segments:
+			Segment:
+				Start: Clear.U
+				Inner: Cliff
+				End: Cliff.U
+				Points: 1,2, 1,1, 1,0
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\S14.SNO\S14.SNO-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\S14.SNO\S14.SNO-0001.DDS
@@ -684,6 +768,12 @@ Templates:
 			1: Clear
 			2: Rock
 			3: Rock
+		Segments:
+			Segment:
+				Start: Clear.R
+				Inner: Cliff
+				End: Cliff.R
+				Points: 0,1, 1,1, 2,1
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\S15.SNO\S15.SNO-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\S15.SNO\S15.SNO-0001.DDS
@@ -699,6 +789,12 @@ Templates:
 			2: Rock
 			3: Rock
 			5: Rock
+		Segments:
+			Segment:
+				Start: Cliff.R
+				Inner: Cliff
+				End: Cliff.R
+				Points: 0,1, 1,1, 1,2, 2,2
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\S16.SNO\S16.SNO-0000.DDS
 			2: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\S16.SNO\S16.SNO-0002.DDS
@@ -714,6 +810,12 @@ Templates:
 			1: Rock
 			2: Rock
 			3: Rock
+		Segments:
+			Segment:
+				Start: Cliff.R
+				Inner: Cliff
+				End: Cliff.R
+				Points: 0,1, 1,1, 2,1
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\S17.SNO\S17.SNO-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\S17.SNO\S17.SNO-0001.DDS
@@ -729,6 +831,12 @@ Templates:
 			1: Rock
 			2: Rock
 			3: Rock
+		Segments:
+			Segment:
+				Start: Cliff.R
+				Inner: Cliff
+				End: Cliff.R
+				Points: 0,1, 1,1, 2,1
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\S18.SNO\S18.SNO-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\S18.SNO\S18.SNO-0001.DDS
@@ -744,6 +852,12 @@ Templates:
 			1: Rock
 			2: Rock
 			3: Rock
+		Segments:
+			Segment:
+				Start: Cliff.R
+				Inner: Cliff
+				End: Cliff.R
+				Points: 0,1, 1,1, 2,1
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\S19.SNO\S19.SNO-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\S19.SNO\S19.SNO-0001.DDS
@@ -760,6 +874,12 @@ Templates:
 			3: Rock
 			4: Rock
 			5: Clear
+		Segments:
+			Segment:
+				Start: Cliff.R
+				Inner: Cliff
+				End: Cliff.R
+				Points: 0,2, 1,2, 1,1, 2,1
 		RemasteredFilenames:
 			1: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\S20.SNO\S20.SNO-0001.DDS
 			2: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\S20.SNO\S20.SNO-0002.DDS
@@ -774,6 +894,12 @@ Templates:
 		Tiles:
 			0: Rock
 			1: Rock
+		Segments:
+			Segment:
+				Start: Cliff.R
+				Inner: Cliff
+				End: Clear.R
+				Points: 0,1, 1,1
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\S21.SNO\S21.SNO-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\S21.SNO\S21.SNO-0001.DDS
@@ -785,6 +911,12 @@ Templates:
 		Tiles:
 			0: Rock
 			1: Rock
+		Segments:
+			Segment:
+				Start: Clear.D
+				Inner: Cliff
+				End: Cliff.D
+				Points: 1,0, 1,1
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\S22.SNO\S22.SNO-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\S22.SNO\S22.SNO-0001.DDS
@@ -800,6 +932,12 @@ Templates:
 			3: Rock
 			4: Rock
 			5: Clear
+		Segments:
+			Segment:
+				Start: Cliff.D
+				Inner: Cliff
+				End: Cliff.D
+				Points: 2,0, 2,1, 1,1, 1,2
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\S23.SNO\S23.SNO-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\S23.SNO\S23.SNO-0001.DDS
@@ -817,6 +955,12 @@ Templates:
 			1: Rock
 			2: Rock
 			3: Rock
+		Segments:
+			Segment:
+				Start: Cliff.D
+				Inner: Cliff
+				End: Cliff.D
+				Points: 1,0, 1,1, 1,2
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\S24.SNO\S24.SNO-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\S24.SNO\S24.SNO-0001.DDS
@@ -832,6 +976,12 @@ Templates:
 			1: Rock
 			2: Rock
 			3: Rock
+		Segments:
+			Segment:
+				Start: Cliff.D
+				Inner: Cliff
+				End: Cliff.D
+				Points: 1,0, 1,1, 1,2
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\S25.SNO\S25.SNO-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\S25.SNO\S25.SNO-0001.DDS
@@ -847,6 +997,12 @@ Templates:
 			1: Rock
 			2: Rock
 			3: Rock
+		Segments:
+			Segment:
+				Start: Cliff.D
+				Inner: Cliff
+				End: Cliff.D
+				Points: 1,0, 1,1, 1,2
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\S26.SNO\S26.SNO-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\S26.SNO\S26.SNO-0001.DDS
@@ -864,6 +1020,12 @@ Templates:
 			3: Clear
 			4: Rock
 			5: Rock
+		Segments:
+			Segment:
+				Start: Cliff.D
+				Inner: Cliff
+				End: Cliff.D
+				Points: 1,0, 1,1, 2,1, 2,2
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\S27.SNO\S27.SNO-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\S27.SNO\S27.SNO-0001.DDS
@@ -880,6 +1042,12 @@ Templates:
 			0: Rock
 			1: Rock
 			3: Rock
+		Segments:
+			Segment:
+				Start: Cliff.D
+				Inner: Cliff
+				End: Clear.D
+				Points: 1,0, 1,1, 1,2
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\S28.SNO\S28.SNO-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\S28.SNO\S28.SNO-0001.DDS
@@ -894,6 +1062,12 @@ Templates:
 			1: Rock
 			2: Rock
 			3: Rock
+		Segments:
+			Segment:
+				Start: Cliff.L
+				Inner: Cliff
+				End: Cliff.U
+				Points: 2,1, 1,1, 1,0
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\S29.SNO\S29.SNO-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\S29.SNO\S29.SNO-0001.DDS
@@ -909,6 +1083,12 @@ Templates:
 			1: Clear
 			2: Rock
 			3: Rock
+		Segments:
+			Segment:
+				Start: Cliff.U
+				Inner: Cliff
+				End: Cliff.R
+				Points: 1,2, 1,1, 2,1
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\S30.SNO\S30.SNO-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\S30.SNO\S30.SNO-0001.DDS
@@ -924,6 +1104,12 @@ Templates:
 			1: Clear
 			2: Rock
 			3: Rock
+		Segments:
+			Segment:
+				Start: Cliff.R
+				Inner: Cliff
+				End: Cliff.D
+				Points: 0,1, 1,1, 1,2
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\S31.SNO\S31.SNO-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\S31.SNO\S31.SNO-0001.DDS
@@ -938,6 +1124,12 @@ Templates:
 			0: Rock
 			1: Rock
 			2: Rock
+		Segments:
+			Segment:
+				Start: Cliff.D
+				Inner: Cliff
+				End: Cliff.L
+				Points: 1,0, 1,1, 0,1
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\S32.SNO\S32.SNO-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\S32.SNO\S32.SNO-0001.DDS
@@ -952,6 +1144,12 @@ Templates:
 			1: Rock
 			2: Rock
 			3: Rock
+		Segments:
+			Segment:
+				Start: Cliff.D
+				Inner: Cliff
+				End: Cliff.R
+				Points: 1,0, 1,1, 2,1
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\S33.SNO\S33.SNO-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\S33.SNO\S33.SNO-0001.DDS
@@ -967,6 +1165,12 @@ Templates:
 			1: Rock
 			2: Rock
 			3: Rock
+		Segments:
+			Segment:
+				Start: Cliff.L
+				Inner: Cliff
+				End: Cliff.D
+				Points: 2,1, 1,1, 1,2
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\S34.SNO\S34.SNO-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\S34.SNO\S34.SNO-0001.DDS
@@ -982,6 +1186,12 @@ Templates:
 			1: Rock
 			2: Rock
 			3: Rock
+		Segments:
+			Segment:
+				Start: Cliff.U
+				Inner: Cliff
+				End: Cliff.L
+				Points: 1,2, 1,1, 0,1
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\S35.SNO\S35.SNO-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\S35.SNO\S35.SNO-0001.DDS
@@ -997,6 +1207,12 @@ Templates:
 			1: Rock
 			2: Rock
 			3: Rock
+		Segments:
+			Segment:
+				Start: Cliff.R
+				Inner: Cliff
+				End: Cliff.U
+				Points: 0,1, 1,1, 1,0
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\S36.SNO\S36.SNO-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\S36.SNO\S36.SNO-0001.DDS
@@ -1386,6 +1602,27 @@ Templates:
 			1: Road
 			2: Clear
 			3: Clear
+		Segments:
+			Segment@1:
+				End: Clear.D
+				Inner: Road
+				Points: 1,0, 1,1
+				Start: Road.D
+			Segment@2:
+				End: Road.U
+				Inner: Road
+				Points: 2,1, 2,0
+				Start: Clear.U
+			Segment@1extended:
+				End: Clear.D
+				Inner: Road
+				Points: 1,0, 1,1, 1,2
+				Start: Road.D
+			Segment@2extended:
+				End: Road.U
+				Inner: Road
+				Points: 2,2, 2,1, 2,0
+				Start: Clear.U
 		RemasteredFilenames:
 			1: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\D01.SNO\D01.SNO-0001.DDS
 			2: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\D01.SNO\D01.SNO-0002.DDS
@@ -1400,6 +1637,27 @@ Templates:
 			1: Road
 			2: Clear
 			3: Clear
+		Segments:
+			Segment@1:
+				End: Clear.L
+				Inner: Road
+				Points: 2,0, 1,0
+				Start: Road.L
+			Segment@2:
+				End: Road.R
+				Inner: Road
+				Points: 1,1, 2,1
+				Start: Clear.R
+			Segment@1extended:
+				End: Clear.L
+				Inner: Road
+				Points: 2,0, 1,0, 0,0
+				Start: Road.L
+			Segment@2extended:
+				End: Road.R
+				Inner: Road
+				Points: 0,1, 1,1, 2,1
+				Start: Clear.R
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\D02.SNO\D02.SNO-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\D02.SNO\D02.SNO-0001.DDS
@@ -1413,6 +1671,27 @@ Templates:
 		Tiles:
 			0: Clear
 			1: Clear
+		Segments:
+			Segment@1:
+				End: Clear.U
+				Inner: Road
+				Points: 1,2, 1,1
+				Start: Road.U
+			Segment@2:
+				End: Road.D
+				Inner: Road
+				Points: 0,1, 0,2
+				Start: Clear.D
+			Segment@1extended:
+				End: Clear.U
+				Inner: Road
+				Points: 1,2, 1,1, 1,0
+				Start: Road.U
+			Segment@2extended:
+				End: Road.D
+				Inner: Road
+				Points: 0,0, 0,1, 0,2
+				Start: Clear.D
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\D03.SNO\D03.SNO-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\D03.SNO\D03.SNO-0001.DDS
@@ -1425,6 +1704,27 @@ Templates:
 			1: Clear
 			2: Road
 			3: Clear
+		Segments:
+			Segment@1:
+				End: Clear.R
+				Inner: Road
+				Points: 0,2, 1,2
+				Start: Road.R
+			Segment@2:
+				End: Road.L
+				Inner: Road
+				Points: 1,1, 0,1
+				Start: Clear.L
+			Segment@1extended:
+				End: Clear.R
+				Inner: Road
+				Points: 0,2, 1,2, 2,2
+				Start: Road.R
+			Segment@2extended:
+				End: Road.L
+				Inner: Road
+				Points: 2,1, 1,1, 0,1
+				Start: Clear.L
 		RemasteredFilenames:
 			1: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\D04.SNO\D04.SNO-0001.DDS
 			2: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\D04.SNO\D04.SNO-0002.DDS
@@ -1443,6 +1743,17 @@ Templates:
 			7: Road
 			9: Clear
 			10: Road
+		Segments:
+			Segment@1:
+				End: Road.D
+				Inner: Road
+				Points: 1,0, 1,1, 0,1, 0,2, 0,3, 0,4, 1,4
+				Start: Road.D
+			Segment@2:
+				End: Road.U
+				Inner: Road
+				Points: 2,4, 2,3, 1,3, 1,2, 2,2, 2,1, 2,0
+				Start: Road.U
 		RemasteredFilenames:
 			1: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\D05.SNO\D05.SNO-0001.DDS
 			2: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\D05.SNO\D05.SNO-0002.DDS
@@ -1463,6 +1774,17 @@ Templates:
 			3: Road
 			4: Road
 			5: Clear
+		Segments:
+			Segment@1:
+				End: Road.D
+				Inner: Road
+				Points: 0,0, 0,1, 0,2, 0,3
+				Start: Road.D
+			Segment@2:
+				End: Road.U
+				Inner: Road
+				Points: 1,3, 1,2, 1,1, 1,0
+				Start: Road.U
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\D06.SNO\D06.SNO-0000.DDS
 			2: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\D06.SNO\D06.SNO-0002.DDS
@@ -1480,6 +1802,17 @@ Templates:
 			2: Clear
 			4: Road
 			5: Clear
+		Segments:
+			Segment@1:
+				End: Road.D
+				Inner: Road
+				Points: 1,0, 1,1, 1,2
+				Start: Road.D
+			Segment@2:
+				End: Road.U
+				Inner: Road
+				Points: 2,2, 2,1, 2,0
+				Start: Road.U
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\D07.SNO\D07.SNO-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\D07.SNO\D07.SNO-0001.DDS
@@ -1496,6 +1829,17 @@ Templates:
 			3: Clear
 			4: Road
 			5: Clear
+		Segments:
+			Segment@1:
+				End: Road.D
+				Inner: Road
+				Points: 1,0, 1,1, 1,2
+				Start: Road.D
+			Segment@2:
+				End: Road.U
+				Inner: Road
+				Points: 2,2, 2,1, 2,0
+				Start: Road.U
 		RemasteredFilenames:
 			1: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\D08.SNO\D08.SNO-0001.DDS
 			3: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\D08.SNO\D08.SNO-0003.DDS
@@ -1517,6 +1861,17 @@ Templates:
 			7: Road
 			10: Clear
 			11: Clear
+		Segments:
+			Segment@1:
+				End: Road.R
+				Inner: Road
+				Points: 0,2, 1,2, 2,2, 3,2, 4,2
+				Start: Road.R
+			Segment@2:
+				End: Road.L
+				Inner: Road
+				Points: 4,1, 3,1, 2,1, 1,1, 0,1
+				Start: Road.L
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\D09.SNO\D09.SNO-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\D09.SNO\D09.SNO-0001.DDS
@@ -1540,6 +1895,17 @@ Templates:
 			5: Road
 			6: Road
 			7: Road
+		Segments:
+			Segment@1:
+				End: Road.R
+				Inner: Road
+				Points: 0,2, 1,2, 2,2, 3,2, 4,2
+				Start: Road.R
+			Segment@2:
+				End: Road.L
+				Inner: Road
+				Points: 4,1, 3,1, 2,1, 1,1, 0,1
+				Start: Road.L
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\D10.SNO\D10.SNO-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\D10.SNO\D10.SNO-0001.DDS
@@ -1557,6 +1923,17 @@ Templates:
 			2: Road
 			3: Road
 			4: Clear
+		Segments:
+			Segment@1:
+				End: Road.R
+				Inner: Road
+				Points: 0,2, 1,2, 2,2
+				Start: Road.R
+			Segment@2:
+				End: Road.L
+				Inner: Road
+				Points: 2,1, 1,1, 0,1
+				Start: Road.L
 		RemasteredFilenames:
 			1: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\D11.SNO\D11.SNO-0001.DDS
 			2: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\D11.SNO\D11.SNO-0002.DDS
@@ -1571,6 +1948,17 @@ Templates:
 			0: Clear
 			2: Road
 			3: Road
+		Segments:
+			Segment@1:
+				End: Road.R
+				Inner: Road
+				Points: 0,2, 1,2, 2,2
+				Start: Road.R
+			Segment@2:
+				End: Road.L
+				Inner: Road
+				Points: 2,1, 1,1, 0,1
+				Start: Road.L
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\D12.SNO\D12.SNO-0000.DDS
 			2: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\D12.SNO\D12.SNO-0002.DDS
@@ -1590,6 +1978,17 @@ Templates:
 			7: Clear
 			10: Wall
 			11: Road
+		Segments:
+			Segment@1:
+				End: Road.R
+				Inner: Road
+				Points: 0,1, 1,1, 1,2, 2,2, 2,3, 3,3, 4,3
+				Start: Road.R
+			Segment@2:
+				End: Road.L
+				Inner: Road
+				Points: 4,2, 3,2, 3,1, 2,1, 2,0, 1,0, 0,0
+				Start: Road.L
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\D13.SNO\D13.SNO-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\D13.SNO\D13.SNO-0001.DDS
@@ -1754,6 +2153,17 @@ Templates:
 			6: Clear
 			7: Road
 			8: Road
+		Segments:
+			Segment@1:
+				End: Road.R
+				Inner: Road
+				Points: 0,0, 0,1, 0,2, 1,2, 1,3, 2,3, 3,3
+				Start: Road.D
+			Segment@2:
+				End: Road.U
+				Inner: Road
+				Points: 3,2, 2,2, 2,1, 1,1, 1,0
+				Start: Road.L
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\D20.SNO\D20.SNO-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\D20.SNO\D20.SNO-0001.DDS
@@ -1775,6 +2185,17 @@ Templates:
 			3: Clear
 			4: Road
 			5: Clear
+		Segments:
+			Segment@1:
+				End: Road.R
+				Inner: Road
+				Points: 2,2, 2,1, 3,1
+				Start: Road.U
+			Segment@2:
+				End: Road.D
+				Inner: Road
+				Points: 3,0, 2,0, 1,0, 1,1, 1,2
+				Start: Road.L
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\D21.SNO\D21.SNO-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\D21.SNO\D21.SNO-0001.DDS
@@ -1795,6 +2216,17 @@ Templates:
 			6: Clear
 			7: Road
 			8: Clear
+		Segments:
+			Segment@1:
+				End: Road.D
+				Inner: Road
+				Points: 0,2, 1,2, 1,3
+				Start: Road.R
+			Segment@2:
+				End: Road.L
+				Inner: Road
+				Points: 2,3, 2,2, 2,1, 1,1, 0,1
+				Start: Road.U
 		RemasteredFilenames:
 			1: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\D22.SNO\D22.SNO-0001.DDS
 			3: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\D22.SNO\D22.SNO-0003.DDS
@@ -1816,6 +2248,17 @@ Templates:
 			5: Clear
 			6: Road
 			7: Clear
+		Segments:
+			Segment@1:
+				End: Road.U
+				Inner: Road
+				Points: 0,3, 1,3, 2,3, 2,2, 2,1, 2,0
+				Start: Road.R
+			Segment@2:
+				End: Road.L
+				Inner: Road
+				Points: 1,0, 1,1, 1,2, 0,2
+				Start: Road.D
 		RemasteredFilenames:
 			1: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\D23.SNO\D23.SNO-0001.DDS
 			2: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\D23.SNO\D23.SNO-0002.DDS
@@ -1837,6 +2280,17 @@ Templates:
 			5: Clear
 			7: Clear
 			8: Road
+		Segments:
+			Segment@1:
+				End: RoadOut.RD
+				Inner: Road
+				Points: 0,1, 0,2, 1,2, 1,3, 2,3
+				Start: RoadIn.RD
+			Segment@2:
+				End: RoadOut.LU
+				Inner: Road
+				Points: 3,2, 3,1, 2,1, 2,0, 1,0
+				Start: RoadIn.LU
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\D24.SNO\D24.SNO-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\D24.SNO\D24.SNO-0001.DDS
@@ -1858,6 +2312,17 @@ Templates:
 			5: Clear
 			7: Clear
 			8: Road
+		Segments:
+			Segment@1:
+				End: RoadOut.RD
+				Inner: Road
+				Points: 0,1, 0,2, 1,2, 1,3, 2,3
+				Start: RoadIn.RD
+			Segment@2:
+				End: RoadOut.LU
+				Inner: Road
+				Points: 3,2, 3,1, 2,1, 2,0, 1,0
+				Start: RoadIn.LU
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\D25.SNO\D25.SNO-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\D25.SNO\D25.SNO-0001.DDS
@@ -1874,6 +2339,17 @@ Templates:
 		Tiles:
 			1: Clear
 			2: Clear
+		Segments:
+			Segment@1:
+				End: RoadIn.RD
+				Inner: Road
+				Points: 0,1, 0,2, 1,2
+				Start: RoadOut.RD
+			Segment@2:
+				End: RoadIn.LU
+				Inner: Road
+				Points: 2,1, 2,0, 1,0
+				Start: RoadOut.LU
 		RemasteredFilenames:
 			1: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\D26.SNO\D26.SNO-0001.DDS
 			2: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\D26.SNO\D26.SNO-0002.DDS
@@ -1885,6 +2361,17 @@ Templates:
 		Tiles:
 			1: Clear
 			2: Clear
+		Segments:
+			Segment@1:
+				End: RoadIn.RD
+				Inner: Road
+				Points: 0,1, 0,2, 1,2
+				Start: RoadOut.RD
+			Segment@2:
+				End: RoadIn.LU
+				Inner: Road
+				Points: 2,1, 2,0, 1,0
+				Start: RoadOut.LU
 		RemasteredFilenames:
 			1: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\D27.SNO\D27.SNO-0001.DDS
 			2: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\D27.SNO\D27.SNO-0002.DDS
@@ -1897,6 +2384,17 @@ Templates:
 			0: Road
 			1: Clear
 			2: Clear
+		Segments:
+			Segment@1:
+				End: RoadIn.RD
+				Inner: Road
+				Points: 0,1, 1,1, 1,2
+				Start: Road.R
+			Segment@2:
+				End: Road.L
+				Inner: Road
+				Points: 2,1, 2,0, 1,0, 0,0
+				Start: RoadOut.LU
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\D28.SNO\D28.SNO-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\D28.SNO\D28.SNO-0001.DDS
@@ -1910,6 +2408,17 @@ Templates:
 			0: Road
 			1: Clear
 			2: Clear
+		Segments:
+			Segment@1:
+				End: RoadIn.RD
+				Inner: Road
+				Points: 0,0, 0,1, 0,2, 1,2
+				Start: Road.D
+			Segment@2:
+				End: Road.U
+				Inner: Road
+				Points: 2,1, 1,1, 1,0
+				Start: RoadOut.LU
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\D29.SNO\D29.SNO-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\D29.SNO\D29.SNO-0001.DDS
@@ -1936,6 +2445,17 @@ Templates:
 			1: Clear
 			2: Clear
 			3: Road
+		Segments:
+			Segment@1:
+				End: Road.R
+				Inner: Road
+				Points: 0,1, 0,2, 1,2, 2,2
+				Start: RoadOut.RD
+			Segment@2:
+				End: RoadIn.LU
+				Inner: Road
+				Points: 2,1, 1,1, 1,0
+				Start: Road.L
 		RemasteredFilenames:
 			1: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\D31.SNO\D31.SNO-0001.DDS
 			2: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\D31.SNO\D31.SNO-0002.DDS
@@ -1949,6 +2469,17 @@ Templates:
 			1: Clear
 			2: Road
 			3: Clear
+		Segments:
+			Segment@1:
+				End: Road.D
+				Inner: Road
+				Points: 0,1, 0,2
+				Start: RoadOut.RD
+			Segment@2:
+				End: RoadIn.LU
+				Inner: Road
+				Points: 1,2, 1,1, 1,0
+				Start: Road.U
 		RemasteredFilenames:
 			1: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\D32.SNO\D32.SNO-0001.DDS
 			2: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\D32.SNO\D32.SNO-0002.DDS
@@ -1979,6 +2510,17 @@ Templates:
 			5: Road
 			6: Road
 			7: Road
+		Segments:
+			Segment@1:
+				End: RoadOut.RU
+				Inner: Road
+				Points: 1,3, 2,3, 2,2, 3,2, 3,1
+				Start: RoadIn.RU
+			Segment@2:
+				End: RoadOut.LD
+				Inner: Road
+				Points: 2,0, 1,0, 1,1, 0,1, 0,2
+				Start: RoadIn.LD
 		RemasteredFilenames:
 			1: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\D34.SNO\D34.SNO-0001.DDS
 			2: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\D34.SNO\D34.SNO-0002.DDS
@@ -2000,6 +2542,17 @@ Templates:
 			5: Clear
 			6: Road
 			7: Clear
+		Segments:
+			Segment@1:
+				End: RoadOut.RU
+				Inner: Road
+				Points: 1,3, 2,3, 2,2, 3,2, 3,1
+				Start: RoadIn.RU
+			Segment@2:
+				End: RoadOut.LD
+				Inner: Road
+				Points: 2,0, 1,0, 1,1, 0,1, 0,2
+				Start: RoadIn.LD
 		RemasteredFilenames:
 			1: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\D35.SNO\D35.SNO-0001.DDS
 			2: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\D35.SNO\D35.SNO-0002.DDS
@@ -2016,6 +2569,17 @@ Templates:
 		Tiles:
 			0: Clear
 			3: Clear
+		Segments:
+			Segment@1:
+				End: RoadIn.RU
+				Inner: Road
+				Points: 1,2, 2,2, 2,1
+				Start: RoadOut.RU
+			Segment@2:
+				End: RoadIn.LD
+				Inner: Road
+				Points: 1,0, 0,0, 0,1
+				Start: RoadOut.LD
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\D36.SNO\D36.SNO-0000.DDS
 			3: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\D36.SNO\D36.SNO-0003.DDS
@@ -2027,6 +2591,17 @@ Templates:
 		Tiles:
 			0: Clear
 			3: Clear
+		Segments:
+			Segment@1:
+				End: RoadIn.RU
+				Inner: Road
+				Points: 1,2, 2,2, 2,1
+				Start: RoadOut.RU
+			Segment@2:
+				End: RoadIn.LD
+				Inner: Road
+				Points: 1,0, 0,0, 0,1
+				Start: RoadOut.LD
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\D37.SNO\D37.SNO-0000.DDS
 			3: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\D37.SNO\D37.SNO-0003.DDS
@@ -2039,6 +2614,17 @@ Templates:
 			0: Clear
 			1: Road
 			3: Clear
+		Segments:
+			Segment@1:
+				End: Road.R
+				Inner: Road
+				Points: 1,2, 1,1, 2,1
+				Start: RoadOut.RU
+			Segment@2:
+				End: RoadIn.LD
+				Inner: Road
+				Points: 2,0, 1,0, 0,0, 0,1
+				Start: Road.L
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\D38.SNO\D38.SNO-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\D38.SNO\D38.SNO-0001.DDS
@@ -2052,6 +2638,17 @@ Templates:
 			0: Clear
 			1: Road
 			3: Clear
+		Segments:
+			Segment@1:
+				End: Road.U
+				Inner: Road
+				Points: 1,2, 2,2, 2,1, 2,0
+				Start: RoadOut.RU
+			Segment@2:
+				End: RoadIn.LD
+				Inner: Road
+				Points: 1,0, 1,1, 0,1
+				Start: Road.D
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\D39.SNO\D39.SNO-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\D39.SNO\D39.SNO-0001.DDS
@@ -2078,6 +2675,17 @@ Templates:
 			0: Wall
 			2: Road
 			3: Clear
+		Segments:
+			Segment@1:
+				End: RoadIn.RU
+				Inner: Road
+				Points: 0,2, 1,2, 2,2, 2,1
+				Start: Road.R
+			Segment@2:
+				End: Road.L
+				Inner: Road
+				Points: 1,0, 1,1, 0,1
+				Start: RoadOut.LD
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\D41.SNO\D41.SNO-0000.DDS
 			2: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\D41.SNO\D41.SNO-0002.DDS
@@ -2091,6 +2699,17 @@ Templates:
 			0: Clear
 			2: Road
 			3: Clear
+		Segments:
+			Segment@1:
+				End: RoadIn.RU
+				Inner: Road
+				Points: 1,2, 1,1, 2,1
+				Start: Road.U
+			Segment@2:
+				End: Road.D
+				Inner: Road
+				Points: 1,0, 0,0, 0,1, 0,2
+				Start: RoadOut.LD
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\D42.SNO\D42.SNO-0000.DDS
 			2: DATA\ART\TEXTURES\SRGB\RED_ALERT\TERRAIN\SNOW\D42.SNO\D42.SNO-0002.DDS
@@ -2753,6 +3372,12 @@ Templates:
 		Tiles:
 			0: Rock
 			1: Rock
+		Segments:
+			Segment:
+				End: Cliff.L
+				Inner: Cliff
+				Points: 1,1, 0,1
+				Start: Cliff.L
 		RemasteredCompositeFilenames:
 			0: CLIFFSL1.SNO/CLIFFSL1.SNO-0000.png
 			1: CLIFFSL1.SNO/CLIFFSL1.SNO-0001.png
@@ -2764,6 +3389,12 @@ Templates:
 		Tiles:
 			0: Rock
 			1: Rock
+		Segments:
+			Segment:
+				End: Cliff.R
+				Inner: Cliff
+				Points: 0,1, 1,1
+				Start: Cliff.R
 		RemasteredCompositeFilenames:
 			0: CLIFFSL2.SNO/CLIFFSL2.SNO-0000.png
 			1: CLIFFSL2.SNO/CLIFFSL2.SNO-0001.png
@@ -2775,6 +3406,12 @@ Templates:
 		Tiles:
 			0: Rock
 			1: Rock
+		Segments:
+			Segment:
+				End: Cliff.D
+				Inner: Cliff
+				Points: 1,0, 1,1
+				Start: Cliff.D
 		RemasteredCompositeFilenames:
 			0: CLIFFSL3.SNO/CLIFFSL3.SNO-0000.png
 			1: CLIFFSL3.SNO/CLIFFSL3.SNO-0001.png
@@ -2786,6 +3423,241 @@ Templates:
 		Tiles:
 			0: Rock
 			1: Rock
+		Segments:
+			Segment:
+				End: Cliff.U
+				Inner: Cliff
+				Points: 1,1, 1,0
+				Start: Cliff.U
 		RemasteredCompositeFilenames:
 			0: CLIFFSL4.SNO/CLIFFSL4.SNO-0000.png
 			1: CLIFFSL4.SNO/CLIFFSL4.SNO-0001.png
+
+MultiBrushCollections:
+	Trees:
+		MultiBrush@t01:
+			Actor: t01
+		MultiBrush@t02:
+			Actor: t02
+		MultiBrush@t03:
+			Actor: t03
+		MultiBrush@t05:
+			Actor: t05
+		MultiBrush@t06:
+			Actor: t06
+		MultiBrush@t07:
+			Actor: t07
+		MultiBrush@t08:
+			Actor: t08
+		MultiBrush@t10:
+			Actor: t10
+		MultiBrush@t11:
+			Actor: t11
+		MultiBrush@t12:
+			Actor: t12
+		MultiBrush@t13:
+			Actor: t13
+		MultiBrush@t14:
+			Actor: t14
+		MultiBrush@t15:
+			Actor: t15
+		MultiBrush@t16:
+			Actor: t16
+		MultiBrush@t17:
+			Actor: t17
+		MultiBrush@tc01:
+			Actor: tc01
+		MultiBrush@tc02:
+			Actor: tc02
+		MultiBrush@tc03:
+			Actor: tc03
+		MultiBrush@tc04:
+			Actor: tc04
+		MultiBrush@tc05:
+			Actor: tc05
+		MultiBrush@t01.husk:
+			Actor: t01.husk
+			Weight: 100
+		MultiBrush@t02.husk:
+			Actor: t02.husk
+			Weight: 100
+		MultiBrush@t03.husk:
+			Actor: t03.husk
+			Weight: 100
+		MultiBrush@t05.husk:
+			Actor: t05.husk
+			Weight: 100
+		MultiBrush@t06.husk:
+			Actor: t06.husk
+			Weight: 100
+		MultiBrush@t07.husk:
+			Actor: t07.husk
+			Weight: 100
+		MultiBrush@t08.husk:
+			Actor: t08.husk
+			Weight: 100
+		MultiBrush@t10.husk:
+			Actor: t10.husk
+			Weight: 100
+		MultiBrush@t11.husk:
+			Actor: t11.husk
+			Weight: 100
+		MultiBrush@t12.husk:
+			Actor: t12.husk
+			Weight: 100
+		MultiBrush@t13.husk:
+			Actor: t13.husk
+			Weight: 100
+		MultiBrush@t14.husk:
+			Actor: t14.husk
+			Weight: 100
+		MultiBrush@t15.husk:
+			Actor: t15.husk
+			Weight: 100
+		MultiBrush@t16.husk:
+			Actor: t16.husk
+			Weight: 100
+		MultiBrush@t17.husk:
+			Actor: t17.husk
+			Weight: 100
+		MultiBrush@tc01.husk:
+			Actor: tc01.husk
+			Weight: 100
+		MultiBrush@tc02.husk:
+			Actor: tc02.husk
+			Weight: 100
+		MultiBrush@tc03.husk:
+			Actor: tc03.husk
+			Weight: 100
+		MultiBrush@tc04.husk:
+			Actor: tc04.husk
+			Weight: 100
+		MultiBrush@tc05.husk:
+			Actor: tc05.husk
+			Weight: 100
+	Obstructions:
+		MultiBrush@67:
+			Template: 67
+		MultiBrush@68:
+			Template: 68
+		MultiBrush@69:
+			Template: 69
+			Weight: 20
+		MultiBrush@70:
+			Template: 70
+			Weight: 10
+		MultiBrush@79:
+			Template: 79
+		MultiBrush@80:
+			Template: 80
+		MultiBrush@82:
+			Template: 82
+		MultiBrush@83:
+			Template: 83
+		MultiBrush@84:
+			Template: 84
+		MultiBrush@t01:
+			Actor: t01
+			BackingTile: 255,0
+			Weight: 200
+		MultiBrush@t02:
+			Actor: t02
+			BackingTile: 255,0
+			Weight: 200
+		MultiBrush@t03:
+			Actor: t03
+			BackingTile: 255,0
+			Weight: 200
+		MultiBrush@t05:
+			Actor: t05
+			BackingTile: 255,0
+			Weight: 200
+		MultiBrush@t06:
+			Actor: t06
+			BackingTile: 255,0
+			Weight: 200
+		MultiBrush@t07:
+			Actor: t07
+			BackingTile: 255,0
+			Weight: 200
+		MultiBrush@t08:
+			Actor: t08
+			BackingTile: 255,0
+			Weight: 200
+		MultiBrush@t10:
+			Actor: t10
+			BackingTile: 255,0
+			Weight: 200
+		MultiBrush@t11:
+			Actor: t11
+			BackingTile: 255,0
+			Weight: 200
+		MultiBrush@t12:
+			Actor: t12
+			BackingTile: 255,0
+			Weight: 200
+		MultiBrush@t13:
+			Actor: t13
+			BackingTile: 255,0
+			Weight: 200
+		MultiBrush@t14:
+			Actor: t14
+			BackingTile: 255,0
+			Weight: 200
+		MultiBrush@t15:
+			Actor: t15
+			BackingTile: 255,0
+			Weight: 200
+		MultiBrush@t16:
+			Actor: t16
+			BackingTile: 255,0
+			Weight: 200
+		MultiBrush@t17:
+			Actor: t17
+			BackingTile: 255,0
+			Weight: 200
+	Water:
+		MultiBrush@1:
+			Template: 1
+			Weight: 100
+		MultiBrush@2:
+			Template: 2
+		MultiBrush@5:
+			Template: 5
+			Weight: 500
+		MultiBrush@6:
+			Template: 6
+			Weight: 500
+		MultiBrush@76:
+			Template: 76
+		MultiBrush@77:
+			Template: 77
+	CivilianBuildings:
+		MultiBrush@v01:
+			Actor: v01
+		MultiBrush@v02:
+			Actor: v02
+		MultiBrush@v03:
+			Actor: v03
+		MultiBrush@v04:
+			Actor: v04
+		MultiBrush@v05:
+			Actor: v05
+		MultiBrush@v06:
+			Actor: v06
+		MultiBrush@v07:
+			Actor: v07
+		MultiBrush@v08:
+			Actor: v08
+		MultiBrush@v09:
+			Actor: v09
+		MultiBrush@v10:
+			Actor: v10
+		MultiBrush@v11:
+			Actor: v11
+		MultiBrush@v12:
+			Actor: v12
+			Weight: 500
+		MultiBrush@v13:
+			Actor: v13
+			Weight: 500
