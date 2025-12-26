@@ -1,5 +1,5 @@
 Metadata:
-	Title: Remaster Install Prompt
+	Title: mod-title
 	Version: {DEV_VERSION}
 	Hidden: true
 
@@ -8,8 +8,166 @@ FileSystem: DefaultFileSystem
 		^EngineDir
 		^EngineDir|mods/common-content: content
 		^EngineDir|mods/common: common
+		^EngineDir|mods/cnc: cnc
 		$remaster-content: cnccontent
+		cnc|uibits
 
+ContentSourcesModContent:
+	Mod: cnc
+	FaqUrl: https://github.com/OpenRA/TiberianDawnHD
+	Attributes:
+		AudioLanguage:
+			en: modcontent-content-language-en
+			de: modcontent-content-language-de
+			fr: modcontent-content-language-fr
+			jp: modcontent-content-language-jp
+		VideoLanguage:
+			en: modcontent-content-language-en
+			de: modcontent-content-language-de
+			fr: modcontent-content-language-fr
+			jp: modcontent-content-language-jp
+		ArtworkStyle:
+			remastered: modcontent-content-artwork-style-remastered
+			classic: modcontent-content-artwork-style-classic
+		AudioStyle:
+			remastered: modcontent-content-audio-style-remastered
+			classic: modcontent-content-audio-style-classic
+		MusicStyle:
+			remastered: modcontent-content-music-style-remastered
+			classic: modcontent-content-music-style-classic
+	ContentSources:
+		remaster: modcontent-source-remaster
+			Origins:
+				steam: Steam
+					AppId: 1213210
+					Attributes:
+						AudioLanguage: en, de, fr
+						VideoLanguage: en
+						ArtworkStyle: remastered, classic
+						AudioStyle: remastered, classic
+						MusicStyle: remastered, classic
+				ea-app: RegistryDirectory
+					RegistryKey: Petroglyph\CnCRemastered
+					RegistryValue: Install Dir
+					Attributes:
+						AudioLanguage: en, de, fr
+						VideoLanguage: en
+						ArtworkStyle: remastered, classic
+						AudioStyle: remastered, classic
+						MusicStyle: remastered, classic
+		tuc: modcontent-source-tuc
+			Origins:
+				steam-en: Steam
+					AppId: 2229830
+					IDFiles:
+						DISK_GDI.WAV: 8bef9a6687c0fe0afd57c6561df58fa6e64f145d
+					Attributes:
+						AudioLanguage: en
+						VideoLanguage: en
+						ArtworkStyle: classic
+						AudioStyle: classic
+						MusicStyle: classic
+				ea-app-en: RegistryDirectory
+					RegistryKey: EA Games\CNC and The Covert Operations
+					RegistryValue: Install Dir
+					IDFiles:
+						DISK_GDI.WAV: 8bef9a6687c0fe0afd57c6561df58fa6e64f145d
+					Attributes:
+						AudioLanguage: en
+						VideoLanguage: en
+						ArtworkStyle: classic
+						AudioStyle: classic
+						MusicStyle: classic
+				steam-de: Steam
+					AppId: 2229830
+					IDFiles:
+						DISK_GDI.WAV: b0adb72378a591c921c57879c084a3e3437568b3
+					Attributes:
+						AudioLanguage: de
+						VideoLanguage: de
+						ArtworkStyle: classic
+						AudioStyle: classic
+						MusicStyle: classic
+				ea-app-de: RegistryDirectory
+					RegistryKey: EA Games\CNC and The Covert Operations
+					RegistryValue: Install Dir
+					IDFiles:
+						DISK_GDI.WAV: b0adb72378a591c921c57879c084a3e3437568b3
+					Attributes:
+						AudioLanguage: de
+						VideoLanguage: de
+						ArtworkStyle: classic
+						AudioStyle: classic
+						MusicStyle: classic
+				steam-fr: Steam
+					AppId: 2229830
+					IDFiles:
+						DISK_GDI.WAV: 4b1b2affac49472a1099d1dc731a1db7f8174c52
+					Attributes:
+						AudioLanguage: fr
+						VideoLanguage: fr
+						ArtworkStyle: classic
+						AudioStyle: classic
+						MusicStyle: classic
+				ea-app-fr: RegistryDirectory
+					RegistryKey: EA Games\CNC and The Covert Operations
+					RegistryValue: Install Dir
+					IDFiles:
+						DISK_GDI.WAV: 4b1b2affac49472a1099d1dc731a1db7f8174c52
+					Attributes:
+						AudioLanguage: fr
+						VideoLanguage: fr
+						ArtworkStyle: classic
+						AudioStyle: classic
+						MusicStyle: classic
+				steam-jp: Steam
+					AppId: 2229830
+					IDFiles:
+						DISK_GDI.WAV: a82579e530bbd3dfab4ef994255bf823a985514c
+					Attributes:
+						AudioLanguage: jp
+						VideoLanguage: jp
+						ArtworkStyle: classic
+						AudioStyle: classic
+						MusicStyle: classic
+				ea-app-jp: RegistryDirectory
+					RegistryPrefixes: 
+					RegistryKey: EA Games\CNC and The Covert Operations
+					RegistryValue: Install Dir
+					IDFiles:
+						DISK_GDI.WAV: a82579e530bbd3dfab4ef994255bf823a985514c
+					Attributes:
+						AudioLanguage: jp
+						VideoLanguage: jp
+						ArtworkStyle: classic
+						AudioStyle: classic
+						MusicStyle: classic
+		freeware: modcontent-source-freeware
+			Origins:
+				freeware: CncFreeware
+					PackageRequired: false
+					ISODirectory: ^SupportDir|Content/cnc
+					ISOVolumes:
+						GDI95:
+							Attributes:
+								ISOVolumes: GDI95
+						NOD95:
+							Attributes:
+								ISOVolumes: NOD95
+						COVERT:
+							Attributes:
+								ISOVolumes: COVERT
+					Attributes:
+						AudioLanguage: en
+						VideoLanguage: en
+						ArtworkStyle: classic
+						AudioStyle: classic
+						MusicStyle: classic
+			RequiresQuickInstall: true
+	QuickInstall: modcontent-download-quickinstall
+		Path: ^SupportDir|Content/cnc/cnc-packages.zip
+		MirrorList: https://www.openra.net/packages/cnc-mirrors.txt
+		SHA1: 72f337464963fa37d3688eb03e80eefd33669a3d
 
 Rules:
 
@@ -17,7 +175,7 @@ Cursors:
 	content|cursors.yaml
 
 Chrome:
-	content|chrome.yaml
+	cnc|chrome.yaml
 
 Assemblies: OpenRA.Mods.Common.dll, OpenRA.Mods.Cnc.dll, OpenRA.Mods.Mobius.dll
 
@@ -27,10 +185,10 @@ ChromeLayout:
 Notifications:
 	content|notifications.yaml
 
-LoadScreen: ModContentLoadScreen
-	Image: ^EngineDir|mods/common-content/chrome.png
-	Image2x: ^EngineDir|mods/common-content/chrome-2x.png
-	Image3x: ^EngineDir|mods/common-content/chrome-3x.png
+LoadScreen: RemasterContentLoadScreen
+	Image: cnc|uibits/chrome.png
+	Image2x: cnc|uibits/chrome-2x.png
+	Image3x: cnc|uibits/chrome-3x.png
 
 ChromeMetrics:
 	common|metrics.yaml

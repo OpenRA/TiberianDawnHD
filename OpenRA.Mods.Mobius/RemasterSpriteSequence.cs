@@ -65,6 +65,9 @@ namespace OpenRA.Mods.Mobius.Graphics
 		public override ClassicTilesetSpecificSpriteSequence CreateSequence(ModData modData, string tileset, SpriteCache cache,
 			string image, string sequence, MiniYaml data, MiniYaml defaults)
 		{
+			if (!((RemasterTerrain)modData.DefaultTerrainInfo[tileset]).UseRemasteredTerrain)
+				return new ClassicTilesetSpecificSpriteSequence(cache, this, image, sequence, data, defaults);
+
 			var terrainInfo = (RemasterTerrain)modData.DefaultTerrainInfo[tileset];
 			var classicUpscaleFactor = terrainInfo.RemasteredTileSize.Width * 1f / terrainInfo.TileSize.Width;
 			return new RemasterSpriteSequence(cache, this, tileset, image, sequence, data, defaults, classicUpscaleFactor);
