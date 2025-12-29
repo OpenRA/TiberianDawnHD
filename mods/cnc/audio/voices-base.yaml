@@ -1,11 +1,5 @@
 GenericVoice:
 	DefaultVariant: .WAV
-	Variants:
-		nod: .V01_EN-US.WAV, .V03_EN-US.WAV
-		gdi: .V01_EN-US.WAV, .V03_EN-US.WAV
-	Prefixes:
-		nod: EN-US\TDR_SFX_UNT_
-		gdi: EN-US\TDR_SFX_UNT_
 	Voices:
 		Select: ACKNO, AWAIT1, READY, REPORT1, YESSIR1
 		Action: AFFIRM1, RITAWAY, UGOTIT, ROGER, MOVOUT1
@@ -18,12 +12,6 @@ GenericVoice:
 	DisablePrefixes: Die, Burned, Zapped, Poisoned
 
 VehicleVoice:
-	Variants:
-		nod: .V00_EN-US.WAV, .V02_EN-US.WAV
-		gdi: .V00_EN-US.WAV, .V02_EN-US.WAV
-	Prefixes:
-		nod: EN-US\TDR_SFX_UNT_
-		gdi: EN-US\TDR_SFX_UNT_
 	Voices:
 		Select: VEHIC1, YESSIR1, AWAIT1, UNIT1, REPORT1
 		Action: ACKNO, AFFIRM1, MOVOUT1
@@ -31,12 +19,6 @@ VehicleVoice:
 		Unload: MOVOUT1, AFFIRM1
 
 CivilianMaleVoice:
-	Variants:
-		nod: _EN-US.WAV
-		gdi: _EN-US.WAV
-	Prefixes:
-		nod: EN-US\TDR_SFX_UNT_
-		gdi: EN-US\TDR_SFX_UNT_
 	Voices:
 		Select: GUYYEAH1
 		Action: GUYOKAY1
@@ -46,12 +28,6 @@ CivilianMaleVoice:
 		Poisoned: NUYELL12
 
 CivilianFemaleVoice:
-	Variants:
-		nod: _EN-US.WAV
-		gdi: _EN-US.WAV
-	Prefixes:
-		nod: EN-US\TDR_SFX_UNT_
-		gdi: EN-US\TDR_SFX_UNT_
 	Voices:
 		Select: GIRLYEAH
 		Action: GIRLOKAY
@@ -61,12 +37,6 @@ CivilianFemaleVoice:
 		Poisoned: NUYELL12
 
 MoebiusVoice:
-	Variants:
-		nod: _EN-US.WAV
-		gdi: _EN-US.WAV
-	Prefixes:
-		nod: EN-US\TDR_SFX_UNT_
-		gdi: EN-US\TDR_SFX_UNT_
 	Voices:
 		Select: MCOMND1, MHELLO1, MYES1, MHMMM1
 		Action: MYESYES1, MCOURSE1, MTHANKS1, MTIBER1, MPLAN3
@@ -76,12 +46,6 @@ MoebiusVoice:
 		Poisoned: NUYELL12
 
 CommandoVoice:
-	Variants:
-		nod: _EN-US.WAV
-		gdi: _EN-US.WAV
-	Prefixes:
-		nod: EN-US\TDR_SFX_CMD_
-		gdi: EN-US\TDR_SFX_CMD_
 	Voices:
 		Select: YEAH1, YES1, YO1
 		Action: ONIT1, GOTIT1, NOPRBLM1

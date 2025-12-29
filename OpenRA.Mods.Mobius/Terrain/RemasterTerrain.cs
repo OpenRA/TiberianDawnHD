@@ -17,6 +17,7 @@ using System.Linq;
 using OpenRA.FileSystem;
 using OpenRA.Mods.Common.MapGenerator;
 using OpenRA.Mods.Common.Terrain;
+using OpenRA.Mods.Mobius.FileSystem;
 using OpenRA.Primitives;
 using OpenRA.Support;
 
@@ -24,12 +25,16 @@ namespace OpenRA.Mods.Mobius.Terrain
 {
 	public class RemasterTerrainLoader : ITerrainLoader
 	{
-		[System.Diagnostics.CodeAnalysis.SuppressMessage("Usage", "IDE0060:Remove unused parameter", Justification = "Load game API")]
-		public RemasterTerrainLoader(ModData modData) { }
+		readonly ModData modData;
+
+		public RemasterTerrainLoader(ModData modData)
+		{
+			this.modData = modData;
+		}
 
 		public ITerrainInfo ParseTerrain(IReadOnlyFileSystem fileSystem, string path)
 		{
-			return new RemasterTerrain(fileSystem, path);
+			return new RemasterTerrain(modData, fileSystem, path);
 		}
 	}
 
@@ -67,16 +72,22 @@ namespace OpenRA.Mods.Mobius.Terrain
 
 		[FieldLoader.Ignore]
 		public readonly ImmutableArray<TerrainTypeInfo> TerrainInfo;
+
+		public readonly bool UseRemasteredTerrain;
+
 		readonly Dictionary<string, byte> terrainIndexByType = new();
 		readonly byte defaultWalkableTerrainIndex;
 
-		public RemasterTerrain(IReadOnlyFileSystem fileSystem, string filepath)
+		public RemasterTerrain(ModData modData, IReadOnlyFileSystem fileSystem, string filepath)
 		{
 			var yaml = MiniYaml.FromStream(fileSystem.Open(filepath), filepath)
 				.ToDictionary(x => x.Key, x => x.Value);
 
 			// General info
 			FieldLoader.Load(this, yaml["General"]);
+
+			var settings = modData.GetSettings<ContentSourcesFileSystem.ContentSourceSettings>();
+			UseRemasteredTerrain = settings.TryGetValue("ArtworkStyle", out var value) && value == "remastered";
 
 			// TerrainTypes
 			TerrainInfo = yaml["Terrain"].ToDictionary().Values
@@ -160,7 +171,7 @@ namespace OpenRA.Mods.Mobius.Terrain
 
 		string ITerrainInfo.Id => Id;
 		string ITerrainInfo.Name => Name;
-		Size ITerrainInfo.TileSize => RemasteredTileSize;
+		Size ITerrainInfo.TileSize => UseRemasteredTerrain ? RemasteredTileSize : TileSize;
 		ImmutableArray<TerrainTypeInfo> ITerrainInfo.TerrainTypes => TerrainInfo;
 		TerrainTileInfo ITerrainInfo.GetTerrainInfo(TerrainTile r) { return GetTileInfo(r); }
 		bool ITerrainInfo.TryGetTerrainInfo(TerrainTile r, out TerrainTileInfo info) { return TryGetTileInfo(r, out info); }
