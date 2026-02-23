@@ -372,53 +372,12 @@ resources:
 	ti12:
 		RemasteredFilenamePattern: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\TEMPERATE\TI12\TI12.TEM-{0:D4}.DDS
 			Count: 12
-	bti1:
-		RemasteredFilenamePattern: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\TEMPERATE\TI1\TI1.TEM-{0:D4}.DDS
-			Count: 12
-	bti2:
-		RemasteredFilenamePattern: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\TEMPERATE\TI2\TI2.TEM-{0:D4}.DDS
-			Count: 12
-	bti3:
-		RemasteredFilenamePattern: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\TEMPERATE\TI3\TI3.TEM-{0:D4}.DDS
-			Count: 12
-	bti4:
-		RemasteredFilenamePattern: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\TEMPERATE\TI4\TI4.TEM-{0:D4}.DDS
-			Count: 12
-	bti5:
-		RemasteredFilenamePattern: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\TEMPERATE\TI5\TI5.TEM-{0:D4}.DDS
-			Count: 12
-	bti6:
-		RemasteredFilenamePattern: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\TEMPERATE\TI6\TI6.TEM-{0:D4}.DDS
-			Count: 12
-	bti7:
-		RemasteredFilenamePattern: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\TEMPERATE\TI7\TI7.TEM-{0:D4}.DDS
-			Count: 12
-	bti8:
-		RemasteredFilenamePattern: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\TEMPERATE\TI8\TI8-{0:D4}.DDS
-			Count: 12
-	bti9:
-		RemasteredFilenamePattern: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\TEMPERATE\TI9\TI9.TEM-{0:D4}.DDS
-			Count: 12
-	bti10:
-		RemasteredFilenamePattern: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\TEMPERATE\TI10\TI10.TEM-{0:D4}.DDS
-			Count: 12
-	bti11:
-		RemasteredFilenamePattern: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\TEMPERATE\TI11\TI11.TEM-{0:D4}.DDS
-			Count: 12
-	bti12:
-		RemasteredFilenamePattern: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\TEMPERATE\TI12\TI12.TEM-{0:D4}.DDS
-			Count: 12
 
 shroud:
 	Defaults:
 		RemasteredFilenamePattern: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\SHROUD\SHADOW-{0:D2}.DDS
 			Count: 12
 		RemasteredPremultiplied: false
-	-typea:
-	-typeb:
-	-typec:
-	-typed:
-	-full:
 	shroud-typea: shadow
 	shroud-typeb: shadow
 		RemasteredStart: 0

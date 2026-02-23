@@ -12,7 +12,6 @@ FileSystem: DefaultFileSystem
 
 
 Rules:
-	content|rules.yaml
 
 Cursors:
 	content|cursors.yaml

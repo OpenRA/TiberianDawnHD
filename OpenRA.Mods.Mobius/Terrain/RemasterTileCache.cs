@@ -11,6 +11,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.IO;
 using System.Linq;
 using OpenRA.Graphics;
@@ -23,7 +24,7 @@ namespace OpenRA.Mods.Mobius.Terrain
 	{
 		static readonly int[] ChannelsBGRA = { 0, 1, 2, 3 };
 		static readonly int[] ChannelsRGBA = { 2, 1, 0, 3 };
-		static readonly int[] FirstFrame = { 0 };
+		static readonly ImmutableArray<int> FirstFrame = [0];
 
 		readonly Dictionary<ushort, Dictionary<int, Sprite[]>> sprites = new();
 		readonly Dictionary<ushort, float> scale = new();
@@ -170,6 +171,7 @@ namespace OpenRA.Mods.Mobius.Terrain
 			SpriteCache = new SpriteCache(Game.ModData.DefaultFileSystem, Game.ModData.SpriteLoaders, terrainInfo.BgraSheetSize, terrainInfo.IndexedSheetSize, 0);
 
 			var blankToken = SpriteCache.ReserveSprites(terrainInfo.BlankTile, FirstFrame, default);
+			var classicUpscaleFactor = terrainInfo.RemasteredTileSize.Width * 1f / terrainInfo.TileSize.Width;
 
 			var remasteredSpriteReservations = new Dictionary<ushort, Dictionary<int, int[]>>();
 			foreach (var t in terrainInfo.Templates)
@@ -200,10 +202,10 @@ namespace OpenRA.Mods.Mobius.Terrain
 						if (t.Value[i] == null)
 							continue;
 
-						templateTokens[i] = new[] { SpriteCache.ReserveSprites(templateInfo.Filename, new[] { i }, default) };
+						templateTokens[i] = new[] { SpriteCache.ReserveSprites(templateInfo.Filename, [i], default) };
 					}
 
-					scale[t.Key] = terrainInfo.ClassicUpscaleFactor;
+					scale[t.Key] = classicUpscaleFactor;
 				}
 
 				remasteredSpriteReservations[t.Key] = templateTokens;

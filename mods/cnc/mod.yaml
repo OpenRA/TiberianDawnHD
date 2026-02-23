@@ -10,10 +10,10 @@ PackageFormats: Mix, MegV3, ZipFile
 FileSystem: RemasterFileSystem
 	SystemPackages:
 		^EngineDir
-		$cnc: cnc
-		^EngineDir|mods/cnc: base
+		$cnc: cnchd
+		^EngineDir|mods/cnc: cnc
 		^EngineDir|mods/common: common
-		base|scripts
+		cnc|scripts
 		common|scripts
 	RemasterDataMount: data
 	Sources:
@@ -40,154 +40,154 @@ FileSystem: RemasterFileSystem
 		data|SFX2D_EN-US.MEG
 		data|SFX3D.MEG
 		data|MUSIC.MEG
-		base|bits/snow.mix
-		base|bits
-		base|bits/jungle
-		base|bits/desert
-		base|bits/ss
-		base|scripts
-		base|uibits
+		cnc|bits/snow.mix
 		cnc|bits
-		cnc|bits/tilesets
+		cnc|bits/desert
+		cnc|bits/ss
+		cnc|scripts
+		cnc|uibits
+		cnchd|bits
+		cnchd|bits/tilesets
 		common|scripts
-		cnc|bits/harvlost.zip
+		cnchd|bits/harvlost.zip
 
 MapFolders:
-	base|maps: System
+	cnc|maps: System
 	~^SupportDir|maps/cnc/{DEV_VERSION}: User
 
 Rules:
-	base|rules/misc.yaml
-	base|rules/ai.yaml
-	base|rules/player.yaml
-	base|rules/world.yaml
-	base|rules/palettes.yaml
-	base|rules/defaults.yaml
-	base|rules/structures.yaml
-	base|rules/infantry.yaml
-	base|rules/vehicles.yaml
-	base|rules/trees.yaml
-	base|rules/civilian.yaml
-	base|rules/civilian-desert.yaml
-	base|rules/tech.yaml
-	base|rules/ships.yaml
-	base|rules/aircraft.yaml
-	base|rules/husks.yaml
-	cnc|rules/overrides.yaml
+	cnc|rules/misc.yaml
+	cnc|rules/ai.yaml
+	cnc|rules/player.yaml
+	cnc|rules/world.yaml
+	cnc|rules/palettes.yaml
+	cnc|rules/defaults.yaml
+	cnc|rules/structures.yaml
+	cnc|rules/infantry.yaml
+	cnc|rules/vehicles.yaml
+	cnc|rules/trees.yaml
+	cnc|rules/civilian.yaml
+	cnc|rules/civilian-desert.yaml
+	cnc|rules/tech.yaml
+	cnc|rules/ships.yaml
+	cnc|rules/aircraft.yaml
+	cnc|rules/husks.yaml
+	cnc|rules/map-generators.yaml
+	cnchd|rules/overrides.yaml
 
 Sequences:
-	base|sequences/structures.yaml
-	cnc|sequences/structures-overrides.yaml
-	base|sequences/vehicles.yaml
-	cnc|sequences/vehicles-overrides.yaml
-	base|sequences/infantry.yaml
-	cnc|sequences/infantry-overrides.yaml
-	base|sequences/aircraft.yaml
-	cnc|sequences/aircraft-overrides.yaml
-	base|sequences/decorations.yaml
-	cnc|sequences/decorations-overrides.yaml
-	base|sequences/misc.yaml
-	cnc|sequences/misc-overrides.yaml
-	base|sequences/funpark.yaml
-	cnc|sequences/funpark-overrides.yaml
-	base|sequences/civilian.yaml
-	cnc|sequences/civilian-overrides.yaml
-	base|sequences/campaign.yaml
-	cnc|sequences/campaign-overrides.yaml
+	cnc|sequences/structures.yaml
+	cnchd|sequences/structures-overrides.yaml
+	cnc|sequences/vehicles.yaml
+	cnchd|sequences/vehicles-overrides.yaml
+	cnc|sequences/infantry.yaml
+	cnchd|sequences/infantry-overrides.yaml
+	cnc|sequences/aircraft.yaml
+	cnchd|sequences/aircraft-overrides.yaml
+	cnc|sequences/decorations.yaml
+	cnchd|sequences/decorations-overrides.yaml
+	cnc|sequences/misc.yaml
+	cnchd|sequences/misc-overrides.yaml
+	cnc|sequences/funpark.yaml
+	cnchd|sequences/funpark-overrides.yaml
+	cnc|sequences/civilian.yaml
+	cnchd|sequences/civilian-overrides.yaml
+	cnc|sequences/campaign.yaml
+	cnchd|sequences/campaign-overrides.yaml
 
 TileSets:
-	cnc|tilesets/desert.yaml
-	cnc|tilesets/winter.yaml
-	cnc|tilesets/snow.yaml
-	cnc|tilesets/temperat.yaml
-	cnc|tilesets/jungle.yaml
+	cnchd|tilesets/desert.yaml
+	cnchd|tilesets/winter.yaml
+	cnchd|tilesets/snow.yaml
+	cnchd|tilesets/temperat.yaml
 
 Weapons:
-	base|weapons/explosions.yaml
-	base|weapons/ballistics.yaml
-	base|weapons/missiles.yaml
-	base|weapons/other.yaml
-	base|weapons/smallcaliber.yaml
-	base|weapons/superweapons.yaml
+	cnc|weapons/explosions.yaml
+	cnc|weapons/ballistics.yaml
+	cnc|weapons/missiles.yaml
+	cnc|weapons/other.yaml
+	cnc|weapons/smallcaliber.yaml
+	cnc|weapons/superweapons.yaml
 
 Cursors:
-	base|cursors.yaml
+	cnc|cursors.yaml
 
 Chrome:
-	base|chrome.yaml
+	cnc|chrome.yaml
 
 Assemblies: OpenRA.Mods.Common.dll, OpenRA.Mods.Cnc.dll, OpenRA.Mods.Mobius.dll
 
 ChromeLayout:
-	base|chrome/mainmenu.yaml
-	base|chrome/mainmenu-prompts.yaml
-	base|chrome/playerprofile.yaml
-	base|chrome/encyclopedia.yaml
-	base|chrome/multiplayer-browser.yaml
-	base|chrome/multiplayer-browserpanels.yaml
-	base|chrome/multiplayer-createserver.yaml
-	base|chrome/multiplayer-directconnect.yaml
-	base|chrome/lobby.yaml
-	base|chrome/lobby-mappreview.yaml
-	base|chrome/lobby-players.yaml
-	base|chrome/lobby-options.yaml
-	base|chrome/lobby-music.yaml
-	base|chrome/lobby-servers.yaml
-	base|chrome/lobby-kickdialogs.yaml
-	base|chrome/connection.yaml
-	base|chrome/color-picker.yaml
-	base|chrome/mapchooser.yaml
-	base|chrome/replaybrowser.yaml
-	base|chrome/gamesave-browser.yaml
-	base|chrome/gamesave-loading.yaml
-	base|chrome/ingame.yaml
-	base|chrome/ingame-chat.yaml
+	cnc|chrome/mainmenu.yaml
+	cnc|chrome/mainmenu-prompts.yaml
+	cnc|chrome/playerprofile.yaml
+	cnc|chrome/encyclopedia.yaml
+	cnc|chrome/multiplayer-browser.yaml
+	cnc|chrome/multiplayer-browserpanels.yaml
+	cnc|chrome/multiplayer-createserver.yaml
+	cnc|chrome/multiplayer-directconnect.yaml
+	cnc|chrome/lobby.yaml
+	cnc|chrome/lobby-mappreview.yaml
+	cnc|chrome/lobby-players.yaml
+	cnc|chrome/lobby-options.yaml
+	cnc|chrome/lobby-music.yaml
+	cnc|chrome/lobby-servers.yaml
+	cnc|chrome/lobby-kickdialogs.yaml
+	cnc|chrome/connection.yaml
+	cnc|chrome/color-picker.yaml
+	cnc|chrome/mapchooser.yaml
+	cnc|chrome/replaybrowser.yaml
+	cnc|chrome/gamesave-browser.yaml
+	cnc|chrome/gamesave-loading.yaml
+	cnc|chrome/ingame.yaml
+	cnc|chrome/ingame-chat.yaml
 	common|chrome/ingame-transients.yaml
-	base|chrome/ingame-menu.yaml
-	base|chrome/ingame-debug.yaml
+	cnc|chrome/ingame-menu.yaml
+	cnc|chrome/ingame-debug.yaml
 	common|chrome/ingame-debug-hpf.yaml
-	base|chrome/ingame-infochat.yaml
-	base|chrome/ingame-info.yaml
-	base|chrome/ingame-infobriefing.yaml
+	cnc|chrome/ingame-infochat.yaml
+	cnc|chrome/ingame-info.yaml
+	cnc|chrome/ingame-infobriefing.yaml
 	common|chrome/ingame-infoscripterror.yaml
-	base|chrome/ingame-infoobjectives.yaml
-	base|chrome/ingame-infostats.yaml
-	base|chrome/ingame-info-lobby-options.yaml
-	base|chrome/ingame-debuginfo.yaml
-	base|chrome/music.yaml
-	base|chrome/settings.yaml
-	base|chrome/settings-display.yaml
-	base|chrome/settings-audio.yaml
-	base|chrome/settings-input.yaml
-	base|chrome/settings-hotkeys.yaml
-	base|chrome/settings-advanced.yaml
-	base|chrome/credits.yaml
-	base|chrome/dialogs.yaml
-	base|chrome/tooltips.yaml
-	base|chrome/assetbrowser.yaml
-	base|chrome/missionbrowser.yaml
-	base|chrome/editor.yaml
+	cnc|chrome/ingame-infoobjectives.yaml
+	cnc|chrome/ingame-infostats.yaml
+	cnc|chrome/ingame-info-lobby-options.yaml
+	cnc|chrome/ingame-debuginfo.yaml
+	cnc|chrome/music.yaml
+	cnc|chrome/settings.yaml
+	cnc|chrome/settings-display.yaml
+	cnc|chrome/settings-gameplay.yaml
+	cnc|chrome/settings-audio.yaml
+	cnc|chrome/settings-input.yaml
+	cnc|chrome/settings-hotkeys.yaml
+	cnc|chrome/settings-advanced.yaml
+	cnc|chrome/credits.yaml
+	cnc|chrome/dialogs.yaml
+	cnc|chrome/tooltips.yaml
+	cnc|chrome/assetbrowser.yaml
+	cnc|chrome/missionbrowser.yaml
+	cnc|chrome/editor.yaml
 	common|chrome/text-notifications.yaml
 
 FluentMessages:
 	common|fluent/common.ftl
 	common|fluent/hotkeys.ftl
 	common|fluent/rules.ftl
-	base|fluent/cnc.ftl
-	base|fluent/chrome.ftl
-	base|fluent/hotkeys.ftl
-	base|fluent/rules.ftl
+	cnc|fluent/cnc.ftl
+	cnc|fluent/chrome.ftl
+	cnc|fluent/hotkeys.ftl
+	cnc|fluent/rules.ftl
 
 AllowUnusedFluentMessagesInExternalPackages: false
 
 Voices:
-	cnc|audio/voices.yaml
+	cnchd|audio/voices.yaml
 
 Notifications:
-	cnc|audio/notifications.yaml
+	cnchd|audio/notifications.yaml
 
 Music:
-	cnc|audio/music.yaml
+	cnchd|audio/music.yaml
 
 Hotkeys:
 	common|hotkeys/game.yaml
@@ -198,23 +198,22 @@ Hotkeys:
 	common|hotkeys/chat.yaml
 	common|hotkeys/editor.yaml
 	common|hotkeys/control-groups.yaml
-	base|hotkeys.yaml
+	cnc|hotkeys.yaml
 
 LoadScreen: CncLoadScreen
-	Image: base|uibits/chrome.png
-	Image2x: base|uibits/chrome-2x.png
-	Image3x: base|uibits/chrome-3x.png
+	Image: cnc|uibits/chrome.png
+	Image2x: cnc|uibits/chrome-2x.png
+	Image3x: cnc|uibits/chrome-3x.png
 
 ServerTraits:
 	LobbyCommands
 	SkirmishLogic
 	PlayerPinger
 	MasterServerPinger
-	LobbySettingsNotification
 
 ChromeMetrics:
 	common|metrics.yaml
-	base|metrics.yaml
+	cnc|metrics.yaml
 
 Fonts:
 	Tiny:
@@ -251,7 +250,7 @@ Fonts:
 		Ascender: 24
 
 Missions:
-	base|missions.yaml
+	cnc|missions.yaml
 
 MapGrid:
 	TileSize: 128,128

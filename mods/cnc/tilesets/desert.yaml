@@ -1,8 +1,9 @@
 General:
-	Name: Desert
+	Name: tileset-desert
 	Id: DESERT
 	EditorTemplateOrder: Terrain, Debris, Road, Cliffs, Beach, River, Bridge
 	HeightDebugColors: 880000
+	IndexedSheetSize: 1024
 
 Terrain:
 	TerrainType@Beach:
@@ -204,6 +205,12 @@ Templates:
 			1: Rock
 			2: Clear
 			3: Rock
+		Segments:
+			Segment:
+				Start: Cliff.L
+				Inner: Cliff
+				End: Clear.L
+				Points: 2,1, 1,1, 0,1
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S01.DES\S01.DES-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S01.DES\S01.DES-0001.DDS
@@ -221,6 +228,12 @@ Templates:
 			3: Rock
 			4: Rock
 			5: Rock
+		Segments:
+			Segment:
+				Start: Cliff.L
+				Inner: Cliff
+				End: Cliff.L
+				Points: 2,2, 1,2, 1,1, 0,1
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S02.DES\S02.DES-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S02.DES\S02.DES-0001.DDS
@@ -238,6 +251,12 @@ Templates:
 			1: Rock
 			2: Rock
 			3: Rock
+		Segments:
+			Segment:
+				Start: Cliff.L
+				Inner: Cliff
+				End: Cliff.L
+				Points: 2,1, 1,1, 0,1
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S03.DES\S03.DES-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S03.DES\S03.DES-0001.DDS
@@ -253,6 +272,12 @@ Templates:
 			1: Rock
 			2: Rock
 			3: Rock
+		Segments:
+			Segment:
+				Start: Cliff.L
+				Inner: Cliff
+				End: Cliff.L
+				Points: 2,1, 1,1, 0,1
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S04.DES\S04.DES-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S04.DES\S04.DES-0001.DDS
@@ -268,6 +293,12 @@ Templates:
 			1: Rock
 			2: Rock
 			3: Rock
+		Segments:
+			Segment:
+				Start: Cliff.L
+				Inner: Cliff
+				End: Cliff.L
+				Points: 2,1, 1,1, 0,1
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S05.DES\S05.DES-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S05.DES\S05.DES-0001.DDS
@@ -284,6 +315,12 @@ Templates:
 			2: Rock
 			3: Rock
 			4: Rock
+		Segments:
+			Segment:
+				Start: Cliff.L
+				Inner: Cliff
+				End: Cliff.L
+				Points: 2,1, 1,1, 0,2
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S06.DES\S06.DES-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S06.DES\S06.DES-0001.DDS
@@ -301,6 +338,12 @@ Templates:
 			1: Rock
 			2: Rock
 			3: Rock
+		Segments:
+			Segment:
+				Start: Clear.L
+				Inner: Cliff
+				End: Cliff.L
+				Points: 2,1, 1,1, 0,1
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S07.DES\S07.DES-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S07.DES\S07.DES-0001.DDS
@@ -316,6 +359,12 @@ Templates:
 			1: Clear
 			2: Rock
 			3: Rock
+		Segments:
+			Segment:
+				Start: Cliff.U
+				Inner: Cliff
+				End: Clear.U
+				Points: 1,2, 1,1, 1,0
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S08.DES\S08.DES-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S08.DES\S08.DES-0001.DDS
@@ -333,6 +382,12 @@ Templates:
 			3: Clear
 			4: Rock
 			5: Rock
+		Segments:
+			Segment:
+				Start: Cliff.U
+				Inner: Cliff
+				End: Cliff.U
+				Points: 2,2, 2,1, 1,1, 1,0
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S09.DES\S09.DES-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S09.DES\S09.DES-0001.DDS
@@ -350,6 +405,12 @@ Templates:
 			1: Rock
 			2: Rock
 			3: Rock
+		Segments:
+			Segment:
+				Start: Cliff.U
+				Inner: Cliff
+				End: Cliff.U
+				Points: 1,2, 1,1, 1,0
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S10.DES\S10.DES-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S10.DES\S10.DES-0001.DDS
@@ -365,6 +426,12 @@ Templates:
 			1: Rock
 			2: Rock
 			3: Rock
+		Segments:
+			Segment:
+				Start: Cliff.U
+				Inner: Cliff
+				End: Cliff.U
+				Points: 1,2, 1,1, 1,0
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S11.DES\S11.DES-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S11.DES\S11.DES-0001.DDS
@@ -380,6 +447,12 @@ Templates:
 			1: Rock
 			2: Rock
 			3: Rock
+		Segments:
+			Segment:
+				Start: Cliff.U
+				Inner: Cliff
+				End: Cliff.U
+				Points: 1,2, 1,1, 1,0
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S12.DES\S12.DES-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S12.DES\S12.DES-0001.DDS
@@ -397,6 +470,12 @@ Templates:
 			3: Rock
 			4: Rock
 			5: Clear
+		Segments:
+			Segment:
+				Start: Cliff.U
+				Inner: Cliff
+				End: Cliff.U
+				Points: 1,2, 1,1, 2,1, 2,0
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S13.DES\S13.DES-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S13.DES\S13.DES-0001.DDS
@@ -413,6 +492,12 @@ Templates:
 			0: Rock
 			1: Clear
 			2: Clear
+		Segments:
+			Segment:
+				Start: Clear.U
+				Inner: Cliff
+				End: Cliff.U
+				Points: 1,2, 1,1, 1,0
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S14.DES\S14.DES-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S14.DES\S14.DES-0001.DDS
@@ -427,6 +512,12 @@ Templates:
 			1: Rock
 			2: Rock
 			3: Rock
+		Segments:
+			Segment:
+				Start: Clear.R
+				Inner: Cliff
+				End: Cliff.R
+				Points: 0,1, 1,1, 2,1
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S15.DES\S15.DES-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S15.DES\S15.DES-0001.DDS
@@ -442,6 +533,12 @@ Templates:
 			2: Rock
 			3: Rock
 			5: Rock
+		Segments:
+			Segment:
+				Start: Cliff.R
+				Inner: Cliff
+				End: Cliff.R
+				Points: 0,1, 1,1, 1,2, 2,2
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S16.DES\S16.DES-0000.DDS
 			2: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S16.DES\S16.DES-0002.DDS
@@ -457,6 +554,12 @@ Templates:
 			1: Rock
 			2: Rock
 			3: Rock
+		Segments:
+			Segment:
+				Start: Cliff.R
+				Inner: Cliff
+				End: Cliff.R
+				Points: 0,1, 1,1, 2,1
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S17.DES\S17.DES-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S17.DES\S17.DES-0001.DDS
@@ -472,6 +575,12 @@ Templates:
 			1: Rock
 			2: Rock
 			3: Rock
+		Segments:
+			Segment:
+				Start: Cliff.R
+				Inner: Cliff
+				End: Cliff.R
+				Points: 0,1, 1,1, 2,1
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S18.DES\S18.DES-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S18.DES\S18.DES-0001.DDS
@@ -487,6 +596,12 @@ Templates:
 			1: Rock
 			2: Rock
 			3: Rock
+		Segments:
+			Segment:
+				Start: Cliff.R
+				Inner: Cliff
+				End: Cliff.R
+				Points: 0,1, 1,1, 2,1
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S19.DES\S19.DES-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S19.DES\S19.DES-0001.DDS
@@ -503,6 +618,12 @@ Templates:
 			3: Rock
 			4: Rock
 			5: Clear
+		Segments:
+			Segment:
+				Start: Cliff.R
+				Inner: Cliff
+				End: Cliff.R
+				Points: 0,2, 1,2, 1,1, 2,1
 		RemasteredFilenames:
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S20.DES\S20.DES-0001.DDS
 			2: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S20.DES\S20.DES-0002.DDS
@@ -517,6 +638,12 @@ Templates:
 		Tiles:
 			0: Rock
 			1: Rock
+		Segments:
+			Segment:
+				Start: Cliff.R
+				Inner: Cliff
+				End: Clear.R
+				Points: 0,1, 1,1
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S21.DES\S21.DES-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S21.DES\S21.DES-0001.DDS
@@ -528,6 +655,12 @@ Templates:
 		Tiles:
 			0: Rock
 			1: Rock
+		Segments:
+			Segment:
+				Start: Clear.D
+				Inner: Cliff
+				End: Cliff.D
+				Points: 1,0, 1,1
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S22.DES\S22.DES-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S22.DES\S22.DES-0001.DDS
@@ -543,6 +676,12 @@ Templates:
 			3: Rock
 			4: Rock
 			5: Clear
+		Segments:
+			Segment:
+				Start: Cliff.D
+				Inner: Cliff
+				End: Cliff.D
+				Points: 2,0, 2,1, 1,1, 1,2
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S23.DES\S23.DES-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S23.DES\S23.DES-0001.DDS
@@ -560,6 +699,12 @@ Templates:
 			1: Rock
 			2: Rock
 			3: Rock
+		Segments:
+			Segment:
+				Start: Cliff.D
+				Inner: Cliff
+				End: Cliff.D
+				Points: 1,0, 1,1, 1,2
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S24.DES\S24.DES-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S24.DES\S24.DES-0001.DDS
@@ -575,6 +720,12 @@ Templates:
 			1: Rock
 			2: Rock
 			3: Rock
+		Segments:
+			Segment:
+				Start: Cliff.D
+				Inner: Cliff
+				End: Cliff.D
+				Points: 1,0, 1,1, 1,2
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S25.DES\S25.DES-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S25.DES\S25.DES-0001.DDS
@@ -590,6 +741,12 @@ Templates:
 			1: Rock
 			2: Rock
 			3: Rock
+		Segments:
+			Segment:
+				Start: Cliff.D
+				Inner: Cliff
+				End: Cliff.D
+				Points: 1,0, 1,1, 1,2
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S26.DES\S26.DES-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S26.DES\S26.DES-0001.DDS
@@ -607,6 +764,12 @@ Templates:
 			3: Clear
 			4: Rock
 			5: Rock
+		Segments:
+			Segment:
+				Start: Cliff.D
+				Inner: Cliff
+				End: Cliff.D
+				Points: 1,0, 1,1, 2,1, 2,2
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S27.DES\S27.DES-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S27.DES\S27.DES-0001.DDS
@@ -623,6 +786,12 @@ Templates:
 			0: Rock
 			1: Rock
 			3: Rock
+		Segments:
+			Segment:
+				Start: Cliff.D
+				Inner: Cliff
+				End: Clear.D
+				Points: 1,0, 1,1, 1,2
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S28.DES\S28.DES-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S28.DES\S28.DES-0001.DDS
@@ -637,6 +806,12 @@ Templates:
 			1: Rock
 			2: Rock
 			3: Rock
+		Segments:
+			Segment:
+				Start: Cliff.L
+				Inner: Cliff
+				End: Cliff.U
+				Points: 2,1, 1,1, 1,0
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S29.DES\S29.DES-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S29.DES\S29.DES-0001.DDS
@@ -652,6 +827,12 @@ Templates:
 			1: Clear
 			2: Rock
 			3: Rock
+		Segments:
+			Segment:
+				Start: Cliff.U
+				Inner: Cliff
+				End: Cliff.R
+				Points: 1,2, 1,1, 2,1
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S30.DES\S30.DES-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S30.DES\S30.DES-0001.DDS
@@ -667,6 +848,12 @@ Templates:
 			1: Rock
 			2: Rock
 			3: Rock
+		Segments:
+			Segment:
+				Start: Cliff.R
+				Inner: Cliff
+				End: Cliff.D
+				Points: 0,1, 1,1, 1,2
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S31.DES\S31.DES-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S31.DES\S31.DES-0001.DDS
@@ -681,6 +868,12 @@ Templates:
 			0: Rock
 			1: Rock
 			2: Rock
+		Segments:
+			Segment:
+				Start: Cliff.D
+				Inner: Cliff
+				End: Cliff.L
+				Points: 1,0, 1,1, 0,1
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S32.DES\S32.DES-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S32.DES\S32.DES-0001.DDS
@@ -695,6 +888,12 @@ Templates:
 			1: Rock
 			2: Rock
 			3: Rock
+		Segments:
+			Segment:
+				Start: Cliff.D
+				Inner: Cliff
+				End: Cliff.R
+				Points: 1,0, 1,1, 2,1
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S33.DES\S33.DES-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S33.DES\S33.DES-0001.DDS
@@ -710,6 +909,12 @@ Templates:
 			1: Rock
 			2: Rock
 			3: Rock
+		Segments:
+			Segment:
+				Start: Cliff.L
+				Inner: Cliff
+				End: Cliff.D
+				Points: 2,1, 1,1, 1,2
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S34.DES\S34.DES-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S34.DES\S34.DES-0001.DDS
@@ -725,6 +930,12 @@ Templates:
 			1: Rock
 			2: Rock
 			3: Rock
+		Segments:
+			Segment:
+				Start: Cliff.U
+				Inner: Cliff
+				End: Cliff.L
+				Points: 1,2, 1,1, 0,1
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S35.DES\S35.DES-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S35.DES\S35.DES-0001.DDS
@@ -740,6 +951,12 @@ Templates:
 			1: Rock
 			2: Rock
 			3: Rock
+		Segments:
+			Segment:
+				Start: Cliff.R
+				Inner: Cliff
+				End: Cliff.U
+				Points: 0,1, 1,1, 1,0
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S36.DES\S36.DES-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S36.DES\S36.DES-0001.DDS
@@ -785,6 +1002,12 @@ Templates:
 			1: Rock
 			2: Rock
 			3: River
+		Segments:
+			Segment:
+				Start: Beach.L
+				Inner: Beach
+				End: Beach.L
+				Points: 4,0, 3,0, 2,0, 1,0, 0,0
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH20.DES\SH20.DES-0000-0000.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH20.DES\SH20.DES-0000-0001.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH20.DES\SH20.DES-0000-0002.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH20.DES\SH20.DES-0000-0003.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH20.DES\SH20.DES-0000-0004.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH20.DES\SH20.DES-0000-0005.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH20.DES\SH20.DES-0000-0006.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH20.DES\SH20.DES-0000-0007.DDS
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH20.DES\SH20.DES-0001-0000.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH20.DES\SH20.DES-0001-0001.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH20.DES\SH20.DES-0001-0002.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH20.DES\SH20.DES-0001-0003.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH20.DES\SH20.DES-0001-0004.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH20.DES\SH20.DES-0001-0005.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH20.DES\SH20.DES-0001-0006.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH20.DES\SH20.DES-0001-0007.DDS
@@ -799,6 +1022,12 @@ Templates:
 			0: Rock
 			1: Clear
 			2: River
+		Segments:
+			Segment:
+				Start: Beach.L
+				Inner: Beach
+				End: Beach.L
+				Points: 3,0, 2,0, 1,0, 0,0
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH21.DES\SH21.DES-0000-0000.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH21.DES\SH21.DES-0000-0001.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH21.DES\SH21.DES-0000-0002.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH21.DES\SH21.DES-0000-0003.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH21.DES\SH21.DES-0000-0004.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH21.DES\SH21.DES-0000-0005.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH21.DES\SH21.DES-0000-0006.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH21.DES\SH21.DES-0000-0007.DDS
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH21.DES\SH21.DES-0001-0000.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH21.DES\SH21.DES-0001-0001.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH21.DES\SH21.DES-0001-0002.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH21.DES\SH21.DES-0001-0003.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH21.DES\SH21.DES-0001-0004.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH21.DES\SH21.DES-0001-0005.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH21.DES\SH21.DES-0001-0006.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH21.DES\SH21.DES-0001-0007.DDS
@@ -818,6 +1047,12 @@ Templates:
 			9: Rock
 			10: River
 			11: River
+		Segments:
+			Segment:
+				Start: Beach.L
+				Inner: Beach
+				End: Beach.L
+				Points: 6,1, 5,1, 4,1, 3,1, 2,1, 1,1, 0,1
 		RemasteredFilenames:
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH22.DES\SH22.DES-0001.DDS
 			2: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH22.DES\SH22.DES-0002.DDS
@@ -838,6 +1073,12 @@ Templates:
 			1: Clear
 			2: River
 			3: River
+		Segments:
+			Segment:
+				Start: Beach.L
+				Inner: Beach
+				End: Beach.L
+				Points: 2,1, 1,1, 0,1
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH23.DES\SH23.DES-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH23.DES\SH23.DES-0001.DDS
@@ -1142,6 +1383,12 @@ Templates:
 			3: River
 			4: Rock
 			5: River
+		Segments:
+			Segment:
+				Start: Beach.L
+				Inner: Beach
+				End: Beach.L
+				Points: 3,1, 2,1, 1,1, 0,1
 		RemasteredFilenames:
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH19.DES\SH19.DES-0001.DDS
 			2: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH19.DES\SH19.DES-0002.DDS
@@ -1204,6 +1451,27 @@ Templates:
 			1: Road
 			2: Clear
 			3: Clear
+		Segments:
+			Segment@1:
+				End: Clear.D
+				Inner: Road
+				Points: 1,0, 1,1
+				Start: Road.D
+			Segment@2:
+				End: Road.U
+				Inner: Road
+				Points: 2,1, 2,0
+				Start: Clear.U
+			Segment@1extended:
+				End: Clear.D
+				Inner: Road
+				Points: 1,0, 1,1, 1,2
+				Start: Road.D
+			Segment@2extended:
+				End: Road.U
+				Inner: Road
+				Points: 2,2, 2,1, 2,0
+				Start: Clear.U
 		RemasteredFilenames:
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\D01.DES\D01.DES-0001.DDS
 			2: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\D01.DES\D01.DES-0002.DDS
@@ -1218,6 +1486,27 @@ Templates:
 			1: Road
 			2: Clear
 			3: Clear
+		Segments:
+			Segment@1:
+				End: Clear.L
+				Inner: Road
+				Points: 2,0, 1,0
+				Start: Road.L
+			Segment@2:
+				End: Road.R
+				Inner: Road
+				Points: 1,1, 2,1
+				Start: Clear.R
+			Segment@1extended:
+				End: Clear.L
+				Inner: Road
+				Points: 2,0, 1,0, 0,0
+				Start: Road.L
+			Segment@2extended:
+				End: Road.R
+				Inner: Road
+				Points: 0,1, 1,1, 2,1
+				Start: Clear.R
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\D02.DES\D02.DES-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\D02.DES\D02.DES-0001.DDS
@@ -1231,6 +1520,27 @@ Templates:
 		Tiles:
 			0: Clear
 			1: Clear
+		Segments:
+			Segment@1:
+				End: Clear.U
+				Inner: Road
+				Points: 1,2, 1,1
+				Start: Road.U
+			Segment@2:
+				End: Road.D
+				Inner: Road
+				Points: 0,1, 0,2
+				Start: Clear.D
+			Segment@1extended:
+				End: Clear.U
+				Inner: Road
+				Points: 1,2, 1,1, 1,0
+				Start: Road.U
+			Segment@2extended:
+				End: Road.D
+				Inner: Road
+				Points: 0,0, 0,1, 0,2
+				Start: Clear.D
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\D03.DES\D03.DES-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\D03.DES\D03.DES-0001.DDS
@@ -1243,6 +1553,27 @@ Templates:
 			1: Clear
 			2: Road
 			3: Clear
+		Segments:
+			Segment@1:
+				End: Clear.R
+				Inner: Road
+				Points: 0,2, 1,2
+				Start: Road.R
+			Segment@2:
+				End: Road.L
+				Inner: Road
+				Points: 1,1, 0,1
+				Start: Clear.L
+			Segment@1extended:
+				End: Clear.R
+				Inner: Road
+				Points: 0,2, 1,2, 2,2
+				Start: Road.R
+			Segment@2extended:
+				End: Road.L
+				Inner: Road
+				Points: 2,1, 1,1, 0,1
+				Start: Clear.L
 		RemasteredFilenames:
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\D04.DES\D04.DES-0001.DDS
 			2: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\D04.DES\D04.DES-0002.DDS
@@ -1261,6 +1592,17 @@ Templates:
 			7: Road
 			9: Clear
 			10: Road
+		Segments:
+			Segment@1:
+				End: Road.D
+				Inner: Road
+				Points: 1,0, 1,1, 0,1, 0,2, 0,3, 0,4, 1,4
+				Start: Road.D
+			Segment@2:
+				End: Road.U
+				Inner: Road
+				Points: 2,4, 2,3, 1,3, 1,2, 2,2, 2,1, 2,0
+				Start: Road.U
 		RemasteredFilenames:
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\D05.DES\D05.DES-0001.DDS
 			2: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\D05.DES\D05.DES-0002.DDS
@@ -1281,6 +1623,17 @@ Templates:
 			3: Road
 			4: Road
 			5: Clear
+		Segments:
+			Segment@1:
+				End: Road.D
+				Inner: Road
+				Points: 0,0, 0,1, 0,2, 0,3
+				Start: Road.D
+			Segment@2:
+				End: Road.U
+				Inner: Road
+				Points: 1,3, 1,2, 1,1, 1,0
+				Start: Road.U
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\D06.DES\D06.DES-0000.DDS
 			2: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\D06.DES\D06.DES-0002.DDS
@@ -1298,6 +1651,17 @@ Templates:
 			2: Clear
 			4: Road
 			5: Clear
+		Segments:
+			Segment@1:
+				End: Road.D
+				Inner: Road
+				Points: 1,0, 1,1, 1,2
+				Start: Road.D
+			Segment@2:
+				End: Road.U
+				Inner: Road
+				Points: 2,2, 2,1, 2,0
+				Start: Road.U
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\D07.DES\D07.DES-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\D07.DES\D07.DES-0001.DDS
@@ -1314,6 +1678,17 @@ Templates:
 			3: Clear
 			4: Road
 			5: Clear
+		Segments:
+			Segment@1:
+				End: Road.D
+				Inner: Road
+				Points: 1,0, 1,1, 1,2
+				Start: Road.D
+			Segment@2:
+				End: Road.U
+				Inner: Road
+				Points: 2,2, 2,1, 2,0
+				Start: Road.U
 		RemasteredFilenames:
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\D08.DES\D08.DES-0001.DDS
 			3: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\D08.DES\D08.DES-0003.DDS
@@ -1335,6 +1710,17 @@ Templates:
 			7: Road
 			10: Clear
 			11: Clear
+		Segments:
+			Segment@1:
+				End: Road.R
+				Inner: Road
+				Points: 0,2, 1,2, 2,2, 3,2, 4,2
+				Start: Road.R
+			Segment@2:
+				End: Road.L
+				Inner: Road
+				Points: 4,1, 3,1, 2,1, 1,1, 0,1
+				Start: Road.L
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\D09.DES\D09.DES-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\D09.DES\D09.DES-0001.DDS
@@ -1358,6 +1744,17 @@ Templates:
 			5: Road
 			6: Road
 			7: Road
+		Segments:
+			Segment@1:
+				End: Road.R
+				Inner: Road
+				Points: 0,2, 1,2, 2,2, 3,2, 4,2
+				Start: Road.R
+			Segment@2:
+				End: Road.L
+				Inner: Road
+				Points: 4,1, 3,1, 2,1, 1,1, 0,1
+				Start: Road.L
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\D10.DES\D10.DES-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\D10.DES\D10.DES-0001.DDS
@@ -1375,6 +1772,17 @@ Templates:
 			2: Road
 			3: Road
 			4: Clear
+		Segments:
+			Segment@1:
+				End: Road.R
+				Inner: Road
+				Points: 0,2, 1,2, 2,2
+				Start: Road.R
+			Segment@2:
+				End: Road.L
+				Inner: Road
+				Points: 2,1, 1,1, 0,1
+				Start: Road.L
 		RemasteredFilenames:
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\D11.DES\D11.DES-0001.DDS
 			2: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\D11.DES\D11.DES-0002.DDS
@@ -1389,6 +1797,17 @@ Templates:
 			0: Clear
 			2: Road
 			3: Road
+		Segments:
+			Segment@1:
+				End: Road.R
+				Inner: Road
+				Points: 0,2, 1,2, 2,2
+				Start: Road.R
+			Segment@2:
+				End: Road.L
+				Inner: Road
+				Points: 2,1, 1,1, 0,1
+				Start: Road.L
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\D12.DES\D12.DES-0000.DDS
 			2: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\D12.DES\D12.DES-0002.DDS
@@ -1408,6 +1827,17 @@ Templates:
 			7: Clear
 			10: Wall
 			11: Road
+		Segments:
+			Segment@1:
+				End: Road.R
+				Inner: Road
+				Points: 0,1, 1,1, 1,2, 2,2, 2,3, 3,3, 4,3
+				Start: Road.R
+			Segment@2:
+				End: Road.L
+				Inner: Road
+				Points: 4,2, 3,2, 3,1, 2,1, 2,0, 1,0, 0,0
+				Start: Road.L
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\D13.DES\D13.DES-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\D13.DES\D13.DES-0001.DDS
@@ -1572,6 +2002,17 @@ Templates:
 			6: Clear
 			7: Road
 			8: Road
+		Segments:
+			Segment@1:
+				End: Road.R
+				Inner: Road
+				Points: 0,0, 0,1, 0,2, 1,2, 1,3, 2,3, 3,3
+				Start: Road.D
+			Segment@2:
+				End: Road.U
+				Inner: Road
+				Points: 3,2, 2,2, 2,1, 1,1, 1,0
+				Start: Road.L
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\D20.DES\D20.DES-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\D20.DES\D20.DES-0001.DDS
@@ -1593,6 +2034,17 @@ Templates:
 			3: Clear
 			4: Road
 			5: Clear
+		Segments:
+			Segment@1:
+				End: Road.R
+				Inner: Road
+				Points: 2,2, 2,1, 3,1
+				Start: Road.U
+			Segment@2:
+				End: Road.D
+				Inner: Road
+				Points: 3,0, 2,0, 1,0, 1,1, 1,2
+				Start: Road.L
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\D21.DES\D21.DES-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\D21.DES\D21.DES-0001.DDS
@@ -1613,6 +2065,17 @@ Templates:
 			6: Clear
 			7: Road
 			8: Clear
+		Segments:
+			Segment@1:
+				End: Road.D
+				Inner: Road
+				Points: 0,2, 1,2, 1,3
+				Start: Road.R
+			Segment@2:
+				End: Road.L
+				Inner: Road
+				Points: 2,3, 2,2, 2,1, 1,1, 0,1
+				Start: Road.U
 		RemasteredFilenames:
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\D22.DES\D22.DES-0001.DDS
 			3: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\D22.DES\D22.DES-0003.DDS
@@ -1634,6 +2097,17 @@ Templates:
 			5: Clear
 			6: Road
 			7: Clear
+		Segments:
+			Segment@1:
+				End: Road.U
+				Inner: Road
+				Points: 0,3, 1,3, 2,3, 2,2, 2,1, 2,0
+				Start: Road.R
+			Segment@2:
+				End: Road.L
+				Inner: Road
+				Points: 1,0, 1,1, 1,2, 0,2
+				Start: Road.D
 		RemasteredFilenames:
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\D23.DES\D23.DES-0001.DDS
 			2: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\D23.DES\D23.DES-0002.DDS
@@ -1655,6 +2129,17 @@ Templates:
 			5: Clear
 			7: Clear
 			8: Road
+		Segments:
+			Segment@1:
+				End: RoadOut.RD
+				Inner: Road
+				Points: 0,1, 0,2, 1,2, 1,3, 2,3
+				Start: RoadIn.RD
+			Segment@2:
+				End: RoadOut.LU
+				Inner: Road
+				Points: 3,2, 3,1, 2,1, 2,0, 1,0
+				Start: RoadIn.LU
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\D24.DES\D24.DES-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\D24.DES\D24.DES-0001.DDS
@@ -1676,6 +2161,17 @@ Templates:
 			5: Clear
 			7: Clear
 			8: Road
+		Segments:
+			Segment@1:
+				End: RoadOut.RD
+				Inner: Road
+				Points: 0,1, 0,2, 1,2, 1,3, 2,3
+				Start: RoadIn.RD
+			Segment@2:
+				End: RoadOut.LU
+				Inner: Road
+				Points: 3,2, 3,1, 2,1, 2,0, 1,0
+				Start: RoadIn.LU
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\D25.DES\D25.DES-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\D25.DES\D25.DES-0001.DDS
@@ -1692,6 +2188,17 @@ Templates:
 		Tiles:
 			1: Clear
 			2: Clear
+		Segments:
+			Segment@1:
+				End: RoadIn.RD
+				Inner: Road
+				Points: 0,1, 0,2, 1,2
+				Start: RoadOut.RD
+			Segment@2:
+				End: RoadIn.LU
+				Inner: Road
+				Points: 2,1, 2,0, 1,0
+				Start: RoadOut.LU
 		RemasteredFilenames:
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\D26.DES\D26.DES-0001.DDS
 			2: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\D26.DES\D26.DES-0002.DDS
@@ -1703,6 +2210,17 @@ Templates:
 		Tiles:
 			1: Clear
 			2: Clear
+		Segments:
+			Segment@1:
+				End: RoadIn.RD
+				Inner: Road
+				Points: 0,1, 0,2, 1,2
+				Start: RoadOut.RD
+			Segment@2:
+				End: RoadIn.LU
+				Inner: Road
+				Points: 2,1, 2,0, 1,0
+				Start: RoadOut.LU
 		RemasteredFilenames:
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\D27.DES\D27.DES-0001.DDS
 			2: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\D27.DES\D27.DES-0002.DDS
@@ -1715,6 +2233,17 @@ Templates:
 			0: Road
 			1: Clear
 			2: Clear
+		Segments:
+			Segment@1:
+				End: RoadIn.RD
+				Inner: Road
+				Points: 0,1, 1,1, 1,2
+				Start: Road.R
+			Segment@2:
+				End: Road.L
+				Inner: Road
+				Points: 2,1, 2,0, 1,0, 0,0
+				Start: RoadOut.LU
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\D28.DES\D28.DES-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\D28.DES\D28.DES-0001.DDS
@@ -1728,6 +2257,17 @@ Templates:
 			0: Road
 			1: Clear
 			2: Clear
+		Segments:
+			Segment@1:
+				End: RoadIn.RD
+				Inner: Road
+				Points: 0,0, 0,1, 0,2, 1,2
+				Start: Road.D
+			Segment@2:
+				End: Road.U
+				Inner: Road
+				Points: 2,1, 1,1, 1,0
+				Start: RoadOut.LU
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\D29.DES\D29.DES-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\D29.DES\D29.DES-0001.DDS
@@ -1754,6 +2294,17 @@ Templates:
 			1: Clear
 			2: Clear
 			3: Road
+		Segments:
+			Segment@1:
+				End: Road.R
+				Inner: Road
+				Points: 0,1, 0,2, 1,2, 2,2
+				Start: RoadOut.RD
+			Segment@2:
+				End: RoadIn.LU
+				Inner: Road
+				Points: 2,1, 1,1, 1,0
+				Start: Road.L
 		RemasteredFilenames:
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\D31.DES\D31.DES-0001.DDS
 			2: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\D31.DES\D31.DES-0002.DDS
@@ -1767,6 +2318,17 @@ Templates:
 			1: Clear
 			2: Road
 			3: Clear
+		Segments:
+			Segment@1:
+				End: Road.D
+				Inner: Road
+				Points: 0,1, 0,2
+				Start: RoadOut.RD
+			Segment@2:
+				End: RoadIn.LU
+				Inner: Road
+				Points: 1,2, 1,1, 1,0
+				Start: Road.U
 		RemasteredFilenames:
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\D32.DES\D32.DES-0001.DDS
 			2: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\D32.DES\D32.DES-0002.DDS
@@ -1797,6 +2359,17 @@ Templates:
 			5: Road
 			6: Road
 			7: Road
+		Segments:
+			Segment@1:
+				End: RoadOut.RU
+				Inner: Road
+				Points: 1,3, 2,3, 2,2, 3,2, 3,1
+				Start: RoadIn.RU
+			Segment@2:
+				End: RoadOut.LD
+				Inner: Road
+				Points: 2,0, 1,0, 1,1, 0,1, 0,2
+				Start: RoadIn.LD
 		RemasteredFilenames:
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\D34.DES\D34.DES-0001.DDS
 			2: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\D34.DES\D34.DES-0002.DDS
@@ -1818,6 +2391,17 @@ Templates:
 			5: Clear
 			6: Road
 			7: Clear
+		Segments:
+			Segment@1:
+				End: RoadOut.RU
+				Inner: Road
+				Points: 1,3, 2,3, 2,2, 3,2, 3,1
+				Start: RoadIn.RU
+			Segment@2:
+				End: RoadOut.LD
+				Inner: Road
+				Points: 2,0, 1,0, 1,1, 0,1, 0,2
+				Start: RoadIn.LD
 		RemasteredFilenames:
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\D35.DES\D35.DES-0001.DDS
 			2: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\D35.DES\D35.DES-0002.DDS
@@ -1834,6 +2418,17 @@ Templates:
 		Tiles:
 			0: Clear
 			3: Clear
+		Segments:
+			Segment@1:
+				End: RoadIn.RU
+				Inner: Road
+				Points: 1,2, 2,2, 2,1
+				Start: RoadOut.RU
+			Segment@2:
+				End: RoadIn.LD
+				Inner: Road
+				Points: 1,0, 0,0, 0,1
+				Start: RoadOut.LD
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\D36.DES\D36.DES-0000.DDS
 			3: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\D36.DES\D36.DES-0003.DDS
@@ -1845,6 +2440,17 @@ Templates:
 		Tiles:
 			0: Clear
 			3: Clear
+		Segments:
+			Segment@1:
+				End: RoadIn.RU
+				Inner: Road
+				Points: 1,2, 2,2, 2,1
+				Start: RoadOut.RU
+			Segment@2:
+				End: RoadIn.LD
+				Inner: Road
+				Points: 1,0, 0,0, 0,1
+				Start: RoadOut.LD
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\D37.DES\D37.DES-0000.DDS
 			3: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\D37.DES\D37.DES-0003.DDS
@@ -1857,6 +2463,17 @@ Templates:
 			0: Clear
 			1: Road
 			3: Clear
+		Segments:
+			Segment@1:
+				End: Road.R
+				Inner: Road
+				Points: 1,2, 1,1, 2,1
+				Start: RoadOut.RU
+			Segment@2:
+				End: RoadIn.LD
+				Inner: Road
+				Points: 2,0, 1,0, 0,0, 0,1
+				Start: Road.L
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\D38.DES\D38.DES-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\D38.DES\D38.DES-0001.DDS
@@ -1870,6 +2487,17 @@ Templates:
 			0: Clear
 			1: Road
 			3: Clear
+		Segments:
+			Segment@1:
+				End: Road.U
+				Inner: Road
+				Points: 1,2, 2,2, 2,1, 2,0
+				Start: RoadOut.RU
+			Segment@2:
+				End: RoadIn.LD
+				Inner: Road
+				Points: 1,0, 1,1, 0,1
+				Start: Road.D
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\D39.DES\D39.DES-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\D39.DES\D39.DES-0001.DDS
@@ -1896,6 +2524,17 @@ Templates:
 			0: Wall
 			2: Road
 			3: Clear
+		Segments:
+			Segment@1:
+				End: RoadIn.RU
+				Inner: Road
+				Points: 0,2, 1,2, 2,2, 2,1
+				Start: Road.R
+			Segment@2:
+				End: Road.L
+				Inner: Road
+				Points: 1,0, 1,1, 0,1
+				Start: RoadOut.LD
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\D41.DES\D41.DES-0000.DDS
 			2: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\D41.DES\D41.DES-0002.DDS
@@ -1909,6 +2548,17 @@ Templates:
 			0: Clear
 			2: Road
 			3: Clear
+		Segments:
+			Segment@1:
+				End: RoadIn.RU
+				Inner: Road
+				Points: 1,2, 1,1, 2,1
+				Start: Road.U
+			Segment@2:
+				End: Road.D
+				Inner: Road
+				Points: 1,0, 0,0, 0,1, 0,2
+				Start: RoadOut.LD
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\D42.DES\D42.DES-0000.DDS
 			2: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\D42.DES\D42.DES-0002.DDS
@@ -2723,6 +3373,12 @@ Templates:
 			3: Clear
 			4: Clear
 			5: Rock
+		Segments:
+			Segment:
+				Start: Beach.R
+				Inner: Beach
+				End: Beach.R
+				Points: 0,1, 1,1, 2,1, 3,1
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH25.DES\SH25.DES-0000-0000.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH25.DES\SH25.DES-0000-0001.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH25.DES\SH25.DES-0000-0002.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH25.DES\SH25.DES-0000-0003.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH25.DES\SH25.DES-0000-0004.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH25.DES\SH25.DES-0000-0005.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH25.DES\SH25.DES-0000-0006.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH25.DES\SH25.DES-0000-0007.DDS
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH25.DES\SH25.DES-0001-0000.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH25.DES\SH25.DES-0001-0001.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH25.DES\SH25.DES-0001-0002.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH25.DES\SH25.DES-0001-0003.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH25.DES\SH25.DES-0001-0004.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH25.DES\SH25.DES-0001-0005.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH25.DES\SH25.DES-0001-0006.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH25.DES\SH25.DES-0001-0007.DDS
@@ -2741,6 +3397,12 @@ Templates:
 			2: River
 			4: Rock
 			5: Clear
+		Segments:
+			Segment:
+				Start: Beach.R
+				Inner: Beach
+				End: Beach.R
+				Points: 0,1, 1,1, 2,1, 3,1
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH26.DES\SH26.DES-0000-0000.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH26.DES\SH26.DES-0000-0001.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH26.DES\SH26.DES-0000-0002.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH26.DES\SH26.DES-0000-0003.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH26.DES\SH26.DES-0000-0004.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH26.DES\SH26.DES-0000-0005.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH26.DES\SH26.DES-0000-0006.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH26.DES\SH26.DES-0000-0007.DDS
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH26.DES\SH26.DES-0001-0000.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH26.DES\SH26.DES-0001-0001.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH26.DES\SH26.DES-0001-0002.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH26.DES\SH26.DES-0001-0003.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH26.DES\SH26.DES-0001-0004.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH26.DES\SH26.DES-0001-0005.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH26.DES\SH26.DES-0001-0006.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH26.DES\SH26.DES-0001-0007.DDS
@@ -2757,6 +3419,12 @@ Templates:
 			1: River
 			2: River
 			3: Rock
+		Segments:
+			Segment:
+				Start: Beach.R
+				Inner: Beach
+				End: Beach.R
+				Points: 0,1, 1,1, 2,1, 3,1, 4,1
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH27.DES\SH27.DES-0000-0000.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH27.DES\SH27.DES-0000-0001.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH27.DES\SH27.DES-0000-0002.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH27.DES\SH27.DES-0000-0003.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH27.DES\SH27.DES-0000-0004.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH27.DES\SH27.DES-0000-0005.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH27.DES\SH27.DES-0000-0006.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH27.DES\SH27.DES-0000-0007.DDS
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH27.DES\SH27.DES-0001-0000.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH27.DES\SH27.DES-0001-0001.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH27.DES\SH27.DES-0001-0002.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH27.DES\SH27.DES-0001-0003.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH27.DES\SH27.DES-0001-0004.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH27.DES\SH27.DES-0001-0005.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH27.DES\SH27.DES-0001-0006.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH27.DES\SH27.DES-0001-0007.DDS
@@ -2771,6 +3439,12 @@ Templates:
 			0: River
 			1: River
 			2: River
+		Segments:
+			Segment:
+				Start: Beach.R
+				Inner: Beach
+				End: Beach.R
+				Points: 0,1, 1,1, 2,1, 3,1
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH28.DES\SH28.DES-0000-0000.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH28.DES\SH28.DES-0000-0001.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH28.DES\SH28.DES-0000-0002.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH28.DES\SH28.DES-0000-0003.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH28.DES\SH28.DES-0000-0004.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH28.DES\SH28.DES-0000-0005.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH28.DES\SH28.DES-0000-0006.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH28.DES\SH28.DES-0000-0007.DDS
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH28.DES\SH28.DES-0001-0000.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH28.DES\SH28.DES-0001-0001.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH28.DES\SH28.DES-0001-0002.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH28.DES\SH28.DES-0001-0003.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH28.DES\SH28.DES-0001-0004.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH28.DES\SH28.DES-0001-0005.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH28.DES\SH28.DES-0001-0006.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH28.DES\SH28.DES-0001-0007.DDS
@@ -2790,6 +3464,12 @@ Templates:
 			7: Clear
 			8: Clear
 			9: Clear
+		Segments:
+			Segment:
+				Start: Beach.R
+				Inner: Beach
+				End: Beach.R
+				Points: 0,1, 1,1, 2,1, 3,1, 4,1, 5,1, 6,1
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH29.DES\SH29.DES-0000-0000.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH29.DES\SH29.DES-0000-0001.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH29.DES\SH29.DES-0000-0002.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH29.DES\SH29.DES-0000-0003.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH29.DES\SH29.DES-0000-0004.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH29.DES\SH29.DES-0000-0005.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH29.DES\SH29.DES-0000-0006.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH29.DES\SH29.DES-0000-0007.DDS
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH29.DES\SH29.DES-0001-0000.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH29.DES\SH29.DES-0001-0001.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH29.DES\SH29.DES-0001-0002.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH29.DES\SH29.DES-0001-0003.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH29.DES\SH29.DES-0001-0004.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH29.DES\SH29.DES-0001-0005.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH29.DES\SH29.DES-0001-0006.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH29.DES\SH29.DES-0001-0007.DDS
@@ -2809,6 +3489,12 @@ Templates:
 			0: River
 			1: River
 			2: Rock
+		Segments:
+			Segment:
+				Start: Beach.R
+				Inner: Beach
+				End: Beach.R
+				Points: 0,1, 1,1, 2,1
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH30.DES\SH30.DES-0000-0000.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH30.DES\SH30.DES-0000-0001.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH30.DES\SH30.DES-0000-0002.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH30.DES\SH30.DES-0000-0003.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH30.DES\SH30.DES-0000-0004.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH30.DES\SH30.DES-0000-0005.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH30.DES\SH30.DES-0000-0006.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH30.DES\SH30.DES-0000-0007.DDS
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH30.DES\SH30.DES-0001-0000.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH30.DES\SH30.DES-0001-0001.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH30.DES\SH30.DES-0001-0002.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH30.DES\SH30.DES-0001-0003.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH30.DES\SH30.DES-0001-0004.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH30.DES\SH30.DES-0001-0005.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH30.DES\SH30.DES-0001-0006.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH30.DES\SH30.DES-0001-0007.DDS
@@ -2845,6 +3531,12 @@ Templates:
 		Categories: Beach
 		Tiles:
 			0: Clear
+		Segments:
+			Segment:
+				Start: Beach.L
+				Inner: Beach
+				End: Beach.D
+				Points: 1,0, 0,0, 0,1
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH36.DES\SH36.DES-0000-0000.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH36.DES\SH36.DES-0000-0001.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH36.DES\SH36.DES-0000-0002.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH36.DES\SH36.DES-0000-0003.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH36.DES\SH36.DES-0000-0004.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH36.DES\SH36.DES-0000-0005.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH36.DES\SH36.DES-0000-0006.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH36.DES\SH36.DES-0000-0007.DDS
 	Template@189:
@@ -2854,6 +3546,12 @@ Templates:
 		Categories: Beach
 		Tiles:
 			0: Clear
+		Segments:
+			Segment:
+				Start: Beach.U
+				Inner: Beach
+				End: Beach.L
+				Points: 1,1, 1,0, 0,0
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH37.DES\SH37.DES-0000-0000.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH37.DES\SH37.DES-0000-0001.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH37.DES\SH37.DES-0000-0002.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH37.DES\SH37.DES-0000-0003.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH37.DES\SH37.DES-0000-0004.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH37.DES\SH37.DES-0000-0005.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH37.DES\SH37.DES-0000-0006.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH37.DES\SH37.DES-0000-0007.DDS
 	Template@190:
@@ -2863,6 +3561,12 @@ Templates:
 		Categories: Beach
 		Tiles:
 			0: Clear
+		Segments:
+			Segment:
+				Start: Beach.D
+				Inner: Beach
+				End: Beach.R
+				Points: 0,0, 0,1, 1,1
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH38.DES\SH38.DES-0000-0000.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH38.DES\SH38.DES-0000-0001.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH38.DES\SH38.DES-0000-0002.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH38.DES\SH38.DES-0000-0003.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH38.DES\SH38.DES-0000-0004.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH38.DES\SH38.DES-0000-0005.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH38.DES\SH38.DES-0000-0006.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH38.DES\SH38.DES-0000-0007.DDS
 	Template@191:
@@ -2872,6 +3576,12 @@ Templates:
 		Categories: Beach
 		Tiles:
 			0: Clear
+		Segments:
+			Segment:
+				Start: Beach.R
+				Inner: Beach
+				End: Beach.U
+				Points: 0,1, 1,1, 1,0
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH39.DES\SH39.DES-0000-0000.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH39.DES\SH39.DES-0000-0001.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH39.DES\SH39.DES-0000-0002.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH39.DES\SH39.DES-0000-0003.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH39.DES\SH39.DES-0000-0004.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH39.DES\SH39.DES-0000-0005.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH39.DES\SH39.DES-0000-0006.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH39.DES\SH39.DES-0000-0007.DDS
 	Template@192:
@@ -2889,6 +3599,12 @@ Templates:
 			6: River
 			7: Water
 			8: Water
+		Segments:
+			Segment:
+				Start: Beach.L
+				Inner: Beach
+				End: Beach.D
+				Points: 3,0, 2,0, 1,0, 1,1, 0,1, 0,2, 0,3
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH40.DES\SH40.DES-0000-0000.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH40.DES\SH40.DES-0000-0001.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH40.DES\SH40.DES-0000-0002.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH40.DES\SH40.DES-0000-0003.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH40.DES\SH40.DES-0000-0004.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH40.DES\SH40.DES-0000-0005.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH40.DES\SH40.DES-0000-0006.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH40.DES\SH40.DES-0000-0007.DDS
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH40.DES\SH40.DES-0001-0000.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH40.DES\SH40.DES-0001-0001.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH40.DES\SH40.DES-0001-0002.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH40.DES\SH40.DES-0001-0003.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH40.DES\SH40.DES-0001-0004.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH40.DES\SH40.DES-0001-0005.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH40.DES\SH40.DES-0001-0006.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH40.DES\SH40.DES-0001-0007.DDS
@@ -2914,6 +3630,12 @@ Templates:
 			6: River
 			7: Rock
 			8: Clear
+		Segments:
+			Segment:
+				Start: Beach.R
+				Inner: Beach
+				End: Beach.U
+				Points: 0,3, 1,3, 1,2, 2,2, 2,1, 3,1, 3,0
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH41.DES\SH41.DES-0000-0000.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH41.DES\SH41.DES-0000-0001.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH41.DES\SH41.DES-0000-0002.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH41.DES\SH41.DES-0000-0003.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH41.DES\SH41.DES-0000-0004.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH41.DES\SH41.DES-0000-0005.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH41.DES\SH41.DES-0000-0006.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH41.DES\SH41.DES-0000-0007.DDS
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH41.DES\SH41.DES-0001-0000.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH41.DES\SH41.DES-0001-0001.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH41.DES\SH41.DES-0001-0002.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH41.DES\SH41.DES-0001-0003.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH41.DES\SH41.DES-0001-0004.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH41.DES\SH41.DES-0001-0005.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH41.DES\SH41.DES-0001-0006.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH41.DES\SH41.DES-0001-0007.DDS
@@ -2932,6 +3654,12 @@ Templates:
 		Tiles:
 			0: River
 			1: River
+		Segments:
+			Segment:
+				Start: Beach.U
+				Inner: Beach
+				End: Beach.U
+				Points: 1,2, 1,1, 1,0
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH42.DES\SH42.DES-0000-0000.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH42.DES\SH42.DES-0000-0001.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH42.DES\SH42.DES-0000-0002.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH42.DES\SH42.DES-0000-0003.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH42.DES\SH42.DES-0000-0004.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH42.DES\SH42.DES-0000-0005.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH42.DES\SH42.DES-0000-0006.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH42.DES\SH42.DES-0000-0007.DDS
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH42.DES\SH42.DES-0001-0000.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH42.DES\SH42.DES-0001-0001.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH42.DES\SH42.DES-0001-0002.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH42.DES\SH42.DES-0001-0003.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH42.DES\SH42.DES-0001-0004.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH42.DES\SH42.DES-0001-0005.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH42.DES\SH42.DES-0001-0006.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH42.DES\SH42.DES-0001-0007.DDS
@@ -2944,6 +3672,12 @@ Templates:
 			0: River
 			1: Clear
 			2: River
+		Segments:
+			Segment:
+				Start: Beach.U
+				Inner: Beach
+				End: Beach.U
+				Points: 1,3, 1,2, 1,1, 1,0
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH43.DES\SH43.DES-0000-0000.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH43.DES\SH43.DES-0000-0001.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH43.DES\SH43.DES-0000-0002.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH43.DES\SH43.DES-0000-0003.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH43.DES\SH43.DES-0000-0004.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH43.DES\SH43.DES-0000-0005.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH43.DES\SH43.DES-0000-0006.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH43.DES\SH43.DES-0000-0007.DDS
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH43.DES\SH43.DES-0001-0000.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH43.DES\SH43.DES-0001-0001.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH43.DES\SH43.DES-0001-0002.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH43.DES\SH43.DES-0001-0003.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH43.DES\SH43.DES-0001-0004.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH43.DES\SH43.DES-0001-0005.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH43.DES\SH43.DES-0001-0006.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH43.DES\SH43.DES-0001-0007.DDS
@@ -2957,6 +3691,12 @@ Templates:
 			0: River
 			1: Clear
 			2: River
+		Segments:
+			Segment:
+				Start: Beach.D
+				Inner: Beach
+				End: Beach.D
+				Points: 0,0, 0,1, 0,2, 0,3
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH44.DES\SH44.DES-0000-0000.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH44.DES\SH44.DES-0000-0001.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH44.DES\SH44.DES-0000-0002.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH44.DES\SH44.DES-0000-0003.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH44.DES\SH44.DES-0000-0004.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH44.DES\SH44.DES-0000-0005.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH44.DES\SH44.DES-0000-0006.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH44.DES\SH44.DES-0000-0007.DDS
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH44.DES\SH44.DES-0001-0000.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH44.DES\SH44.DES-0001-0001.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH44.DES\SH44.DES-0001-0002.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH44.DES\SH44.DES-0001-0003.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH44.DES\SH44.DES-0001-0004.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH44.DES\SH44.DES-0001-0005.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH44.DES\SH44.DES-0001-0006.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH44.DES\SH44.DES-0001-0007.DDS
@@ -2969,6 +3709,12 @@ Templates:
 		Tiles:
 			0: River
 			1: River
+		Segments:
+			Segment:
+				Start: Beach.D
+				Inner: Beach
+				End: Beach.D
+				Points: 0,0, 0,1, 0,2
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH45.DES\SH45.DES-0000-0000.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH45.DES\SH45.DES-0000-0001.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH45.DES\SH45.DES-0000-0002.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH45.DES\SH45.DES-0000-0003.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH45.DES\SH45.DES-0000-0004.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH45.DES\SH45.DES-0000-0005.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH45.DES\SH45.DES-0000-0006.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH45.DES\SH45.DES-0000-0007.DDS
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH45.DES\SH45.DES-0001-0000.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH45.DES\SH45.DES-0001-0001.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH45.DES\SH45.DES-0001-0002.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH45.DES\SH45.DES-0001-0003.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH45.DES\SH45.DES-0001-0004.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH45.DES\SH45.DES-0001-0005.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH45.DES\SH45.DES-0001-0006.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH45.DES\SH45.DES-0001-0007.DDS
@@ -2987,6 +3733,12 @@ Templates:
 			6: River
 			7: River
 			8: Water
+		Segments:
+			Segment:
+				Start: Beach.L
+				Inner: Beach
+				End: Beach.D
+				Points: 3,0, 2,0, 1,0, 1,1, 1,2, 0,2, 0,3
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH46.DES\SH46.DES-0000-0000.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH46.DES\SH46.DES-0000-0001.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH46.DES\SH46.DES-0000-0002.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH46.DES\SH46.DES-0000-0003.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH46.DES\SH46.DES-0000-0004.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH46.DES\SH46.DES-0000-0005.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH46.DES\SH46.DES-0000-0006.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH46.DES\SH46.DES-0000-0007.DDS
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH46.DES\SH46.DES-0001-0000.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH46.DES\SH46.DES-0001-0001.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH46.DES\SH46.DES-0001-0002.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH46.DES\SH46.DES-0001-0003.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH46.DES\SH46.DES-0001-0004.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH46.DES\SH46.DES-0001-0005.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH46.DES\SH46.DES-0001-0006.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH46.DES\SH46.DES-0001-0007.DDS
@@ -3010,6 +3762,12 @@ Templates:
 			6: Water
 			7: River
 			8: River
+		Segments:
+			Segment:
+				Start: Beach.U
+				Inner: Beach
+				End: Beach.L
+				Points: 3,3, 3,2, 2,2, 1,2, 1,1, 1,0, 0,0
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH47.DES\SH47.DES-0000-0000.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH47.DES\SH47.DES-0000-0001.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH47.DES\SH47.DES-0000-0002.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH47.DES\SH47.DES-0000-0003.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH47.DES\SH47.DES-0000-0004.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH47.DES\SH47.DES-0000-0005.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH47.DES\SH47.DES-0000-0006.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH47.DES\SH47.DES-0000-0007.DDS
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH47.DES\SH47.DES-0001.DDS
@@ -3029,6 +3787,12 @@ Templates:
 			6: River
 			7: River
 			8: River
+		Segments:
+			Segment:
+				Start: Beach.D
+				Inner: Beach
+				End: Beach.R
+				Points: 0,0, 0,1, 0,2, 0,3, 1,3, 2,3, 3,3
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH48.DES\SH48.DES-0000-0000.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH48.DES\SH48.DES-0000-0001.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH48.DES\SH48.DES-0000-0002.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH48.DES\SH48.DES-0000-0003.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH48.DES\SH48.DES-0000-0004.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH48.DES\SH48.DES-0000-0005.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH48.DES\SH48.DES-0000-0006.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH48.DES\SH48.DES-0000-0007.DDS
 			3: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH48.DES\SH48.DES-0003-0000.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH48.DES\SH48.DES-0003-0001.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH48.DES\SH48.DES-0003-0002.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH48.DES\SH48.DES-0003-0003.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH48.DES\SH48.DES-0003-0004.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH48.DES\SH48.DES-0003-0005.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH48.DES\SH48.DES-0003-0006.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH48.DES\SH48.DES-0003-0007.DDS
@@ -3049,6 +3813,12 @@ Templates:
 			6: Clear
 			7: Rock
 			8: Rock
+		Segments:
+			Segment:
+				Start: Beach.R
+				Inner: Beach
+				End: Beach.U
+				Points: 0,3, 1,3, 1,2, 2,2, 2,1, 3,1, 3,0
 		RemasteredFilenames:
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH49.DES\SH49.DES-0001-0000.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH49.DES\SH49.DES-0001-0001.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH49.DES\SH49.DES-0001-0002.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH49.DES\SH49.DES-0001-0003.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH49.DES\SH49.DES-0001-0004.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH49.DES\SH49.DES-0001-0005.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH49.DES\SH49.DES-0001-0006.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH49.DES\SH49.DES-0001-0007.DDS
 			2: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH49.DES\SH49.DES-0002-0000.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH49.DES\SH49.DES-0002-0001.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH49.DES\SH49.DES-0002-0002.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH49.DES\SH49.DES-0002-0003.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH49.DES\SH49.DES-0002-0004.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH49.DES\SH49.DES-0002-0005.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH49.DES\SH49.DES-0002-0006.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH49.DES\SH49.DES-0002-0007.DDS
@@ -3072,6 +3842,12 @@ Templates:
 			6: Rock
 			8: River
 			9: Clear
+		Segments:
+			Segment:
+				Start: Beach.U
+				Inner: Beach
+				End: Beach.R
+				Points: 1,3, 1,2, 2,2, 2,1, 3,1, 4,1
 		RemasteredFilenames:
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH50.DES\SH50.DES-0001-0000.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH50.DES\SH50.DES-0001-0001.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH50.DES\SH50.DES-0001-0002.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH50.DES\SH50.DES-0001-0003.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH50.DES\SH50.DES-0001-0004.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH50.DES\SH50.DES-0001-0005.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH50.DES\SH50.DES-0001-0006.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH50.DES\SH50.DES-0001-0007.DDS
 			2: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH50.DES\SH50.DES-0002-0000.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH50.DES\SH50.DES-0002-0001.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH50.DES\SH50.DES-0002-0002.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH50.DES\SH50.DES-0002-0003.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH50.DES\SH50.DES-0002-0004.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH50.DES\SH50.DES-0002-0005.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH50.DES\SH50.DES-0002-0006.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH50.DES\SH50.DES-0002-0007.DDS
@@ -3096,6 +3872,12 @@ Templates:
 			9: Rock
 			10: River
 			11: River
+		Segments:
+			Segment:
+				Start: Beach.R
+				Inner: Beach
+				End: Beach.D
+				Points: 0,1, 1,1, 1,2, 1,3, 2,3, 3,3
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH51.DES\SH51.DES-0000-0000.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH51.DES\SH51.DES-0000-0001.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH51.DES\SH51.DES-0000-0002.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH51.DES\SH51.DES-0000-0003.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH51.DES\SH51.DES-0000-0004.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH51.DES\SH51.DES-0000-0005.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH51.DES\SH51.DES-0000-0006.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH51.DES\SH51.DES-0000-0007.DDS
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH51.DES\SH51.DES-0001-0000.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH51.DES\SH51.DES-0001-0001.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH51.DES\SH51.DES-0001-0002.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH51.DES\SH51.DES-0001-0003.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH51.DES\SH51.DES-0001-0004.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH51.DES\SH51.DES-0001-0005.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH51.DES\SH51.DES-0001-0006.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH51.DES\SH51.DES-0001-0007.DDS
@@ -3120,6 +3902,12 @@ Templates:
 			7: Rock
 			10: River
 			11: River
+		Segments:
+			Segment:
+				Start: Beach.L
+				Inner: Beach
+				End: Beach.U
+				Points: 4,2, 3,2, 3,1, 4,1, 4,0, 3,0, 2,0, 1,0
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH52.DES\SH52.DES-0000-0000.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH52.DES\SH52.DES-0000-0001.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH52.DES\SH52.DES-0000-0002.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH52.DES\SH52.DES-0000-0003.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH52.DES\SH52.DES-0000-0004.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH52.DES\SH52.DES-0000-0005.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH52.DES\SH52.DES-0000-0006.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH52.DES\SH52.DES-0000-0007.DDS
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH52.DES\SH52.DES-0001-0000.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH52.DES\SH52.DES-0001-0001.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH52.DES\SH52.DES-0001-0002.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH52.DES\SH52.DES-0001-0003.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH52.DES\SH52.DES-0001-0004.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH52.DES\SH52.DES-0001-0005.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH52.DES\SH52.DES-0001-0006.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH52.DES\SH52.DES-0001-0007.DDS
@@ -3147,6 +3935,12 @@ Templates:
 			9: Water
 			10: River
 			11: River
+		Segments:
+			Segment:
+				Start: Beach.D
+				Inner: Beach
+				End: Beach.L
+				Points: 3,0, 3,1, 2,1, 1,1, 1,2, 0,2
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH53.DES\SH53.DES-0000-0000.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH53.DES\SH53.DES-0000-0001.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH53.DES\SH53.DES-0000-0002.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH53.DES\SH53.DES-0000-0003.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH53.DES\SH53.DES-0000-0004.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH53.DES\SH53.DES-0000-0005.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH53.DES\SH53.DES-0000-0006.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH53.DES\SH53.DES-0000-0007.DDS
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH53.DES\SH53.DES-0001-0000.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH53.DES\SH53.DES-0001-0001.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH53.DES\SH53.DES-0001-0002.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH53.DES\SH53.DES-0001-0003.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH53.DES\SH53.DES-0001-0004.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH53.DES\SH53.DES-0001-0005.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH53.DES\SH53.DES-0001-0006.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH53.DES\SH53.DES-0001-0007.DDS
@@ -3209,6 +4003,12 @@ Templates:
 			3: River
 			4: Rock
 			5: Rock
+		Segments:
+			Segment:
+				Start: Beach.R
+				Inner: Beach
+				End: Beach.R
+				Points: 0,2, 1,2, 2,2, 2,1, 3,1
 		RemasteredFilenames:
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH56.DES\SH56.DES-0001-0000.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH56.DES\SH56.DES-0001-0001.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH56.DES\SH56.DES-0001-0002.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH56.DES\SH56.DES-0001-0003.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH56.DES\SH56.DES-0001-0004.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH56.DES\SH56.DES-0001-0005.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH56.DES\SH56.DES-0001-0006.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH56.DES\SH56.DES-0001-0007.DDS
 			2: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH56.DES\SH56.DES-0002-0000.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH56.DES\SH56.DES-0002-0001.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH56.DES\SH56.DES-0002-0002.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH56.DES\SH56.DES-0002-0003.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH56.DES\SH56.DES-0002-0004.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH56.DES\SH56.DES-0002-0005.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH56.DES\SH56.DES-0002-0006.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH56.DES\SH56.DES-0002-0007.DDS
@@ -3225,6 +4025,12 @@ Templates:
 			3: River
 			4: River
 			5: River
+		Segments:
+			Segment:
+				Start: Beach.R
+				Inner: Beach
+				End: Beach.R
+				Points: 0,1, 0,2, 1,2, 2,2, 3,2
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH57.DES\SH57.DES-0000-0000.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH57.DES\SH57.DES-0000-0001.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH57.DES\SH57.DES-0000-0002.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH57.DES\SH57.DES-0000-0003.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH57.DES\SH57.DES-0000-0004.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH57.DES\SH57.DES-0000-0005.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH57.DES\SH57.DES-0000-0006.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH57.DES\SH57.DES-0000-0007.DDS
 			3: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH57.DES\SH57.DES-0003-0000.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH57.DES\SH57.DES-0003-0001.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH57.DES\SH57.DES-0003-0002.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH57.DES\SH57.DES-0003-0003.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH57.DES\SH57.DES-0003-0004.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH57.DES\SH57.DES-0003-0005.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH57.DES\SH57.DES-0003-0006.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH57.DES\SH57.DES-0003-0007.DDS
@@ -3241,6 +4047,12 @@ Templates:
 			3: Water
 			4: Clear
 			5: River
+		Segments:
+			Segment:
+				Start: Beach.D
+				Inner: Beach
+				End: Beach.D
+				Points: 0,0, 0,1, 0,2, 0,3, 1,3
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH58.DES\SH58.DES-0000-0000.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH58.DES\SH58.DES-0000-0001.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH58.DES\SH58.DES-0000-0002.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH58.DES\SH58.DES-0000-0003.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH58.DES\SH58.DES-0000-0004.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH58.DES\SH58.DES-0000-0005.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH58.DES\SH58.DES-0000-0006.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH58.DES\SH58.DES-0000-0007.DDS
 			2: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH58.DES\SH58.DES-0002-0000.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH58.DES\SH58.DES-0002-0001.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH58.DES\SH58.DES-0002-0002.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH58.DES\SH58.DES-0002-0003.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH58.DES\SH58.DES-0002-0004.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH58.DES\SH58.DES-0002-0005.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH58.DES\SH58.DES-0002-0006.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH58.DES\SH58.DES-0002-0007.DDS
@@ -3259,6 +4071,12 @@ Templates:
 			3: River
 			4: River
 			5: River
+		Segments:
+			Segment:
+				Start: Beach.D
+				Inner: Beach
+				End: Beach.D
+				Points: 1,0, 1,1, 0,1, 0,2, 0,3
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH59.DES\SH59.DES-0000.DDS
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH59.DES\SH59.DES-0001-0000.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH59.DES\SH59.DES-0001-0001.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH59.DES\SH59.DES-0001-0002.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH59.DES\SH59.DES-0001-0003.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH59.DES\SH59.DES-0001-0004.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH59.DES\SH59.DES-0001-0005.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH59.DES\SH59.DES-0001-0006.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH59.DES\SH59.DES-0001-0007.DDS
@@ -3278,6 +4096,12 @@ Templates:
 			3: Clear
 			4: River
 			5: Clear
+		Segments:
+			Segment:
+				Start: Beach.U
+				Inner: Beach
+				End: Beach.U
+				Points: 1,3, 1,2, 1,1, 2,1, 2,0
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH60.DES\SH60.DES-0000-0000.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH60.DES\SH60.DES-0000-0001.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH60.DES\SH60.DES-0000-0002.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH60.DES\SH60.DES-0000-0003.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH60.DES\SH60.DES-0000-0004.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH60.DES\SH60.DES-0000-0005.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH60.DES\SH60.DES-0000-0006.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH60.DES\SH60.DES-0000-0007.DDS
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH60.DES\SH60.DES-0001-0000.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH60.DES\SH60.DES-0001-0001.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH60.DES\SH60.DES-0001-0002.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH60.DES\SH60.DES-0001-0003.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH60.DES\SH60.DES-0001-0004.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH60.DES\SH60.DES-0001-0005.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH60.DES\SH60.DES-0001-0006.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH60.DES\SH60.DES-0001-0007.DDS
@@ -3296,6 +4120,12 @@ Templates:
 			2: Water
 			3: River
 			5: River
+		Segments:
+			Segment:
+				Start: Beach.U
+				Inner: Beach
+				End: Beach.U
+				Points: 2,3, 2,2, 2,1, 1,1, 1,0
 		RemasteredFilenames:
 			0: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH61.DES\SH61.DES-0000-0000.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH61.DES\SH61.DES-0000-0001.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH61.DES\SH61.DES-0000-0002.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH61.DES\SH61.DES-0000-0003.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH61.DES\SH61.DES-0000-0004.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH61.DES\SH61.DES-0000-0005.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH61.DES\SH61.DES-0000-0006.DDS, DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH61.DES\SH61.DES-0000-0007.DDS
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\SH61.DES\SH61.DES-0001.DDS
@@ -3395,6 +4225,12 @@ Templates:
 		Tiles:
 			0: Rock
 			1: Rock
+		Segments:
+			Segment:
+				End: Cliff.L
+				Inner: Cliff
+				Points: 1,1, 0,1
+				Start: Cliff.L
 		RemasteredCompositeFilenames:
 			0: CLIFFSL1.DES/CLIFFSL1.DES-0000.png
 			1: CLIFFSL1.DES/CLIFFSL1.DES-0001.png
@@ -3406,6 +4242,12 @@ Templates:
 		Tiles:
 			0: Rock
 			1: Rock
+		Segments:
+			Segment:
+				End: Cliff.R
+				Inner: Cliff
+				Points: 0,1, 1,1
+				Start: Cliff.R
 		RemasteredCompositeFilenames:
 			0: CLIFFSL2.DES/CLIFFSL2.DES-0000.png
 			1: CLIFFSL2.DES/CLIFFSL2.DES-0001.png
@@ -3417,6 +4259,12 @@ Templates:
 		Tiles:
 			0: Rock
 			1: Rock
+		Segments:
+			Segment:
+				End: Cliff.D
+				Inner: Cliff
+				Points: 1,0, 1,1
+				Start: Cliff.D
 		RemasteredFilenames:
 			1: DATA\ART\TEXTURES\SRGB\TIBERIAN_DAWN\TERRAIN\DESERT\S25.DES\S25.DES-0001.DDS
 		RemasteredCompositeFilenames:
@@ -3429,6 +4277,198 @@ Templates:
 		Tiles:
 			0: Rock
 			1: Rock
+		Segments:
+			Segment:
+				End: Cliff.U
+				Inner: Cliff
+				Points: 1,1, 1,0
+				Start: Cliff.U
 		RemasteredCompositeFilenames:
 			0: CLIFFSL4.DES/CLIFFSL4.DES-0000.png
 			1: CLIFFSL4.DES/CLIFFSL4.DES-0001.png
+
+MultiBrushCollections:
+	Trees:
+		MultiBrush@57:
+			Template: 57
+		MultiBrush@58:
+			Template: 58
+		MultiBrush@59:
+			Template: 59
+		MultiBrush@60:
+			Template: 60
+		MultiBrush@61:
+			Template: 61
+		MultiBrush@62:
+			Template: 62
+		MultiBrush@63:
+			Template: 63
+		MultiBrush@64:
+			Template: 64
+		MultiBrush@65:
+			Template: 65
+		MultiBrush@66:
+			Template: 66
+		MultiBrush@t04:
+			Actor: t04
+		MultiBrush@t08:
+			Actor: t08
+		MultiBrush@t09:
+			Actor: t09
+		MultiBrush@t18:
+			Actor: t18
+		MultiBrush@t04.husk:
+			Actor: t04.husk
+			Weight: 100
+		MultiBrush@t08.husk:
+			Actor: t08.husk
+			Weight: 100
+		MultiBrush@t09.husk:
+			Actor: t09.husk
+			Weight: 100
+		MultiBrush@t18.husk:
+			Actor: t18.husk
+			Weight: 100
+	Obstructions:
+		MultiBrush@82:
+			Template: 82
+		MultiBrush@83:
+			Template: 83
+		MultiBrush@85:
+			Template: 85
+		MultiBrush@86:
+			Template: 86
+		MultiBrush@87:
+			Template: 87
+		MultiBrush@217:
+			Template: 217
+		MultiBrush@57:
+			Template: 57
+			Weight: 500
+		MultiBrush@58:
+			Template: 58
+			Weight: 500
+		MultiBrush@59:
+			Template: 59
+			Weight: 500
+		MultiBrush@60:
+			Template: 60
+			Weight: 500
+		MultiBrush@61:
+			Template: 61
+			Weight: 500
+		MultiBrush@62:
+			Template: 62
+			Weight: 500
+		MultiBrush@63:
+			Template: 63
+			Weight: 500
+		MultiBrush@64:
+			Template: 64
+			Weight: 500
+		MultiBrush@65:
+			Template: 65
+			Weight: 500
+		MultiBrush@66:
+			Template: 66
+			Weight: 500
+		MultiBrush@67:
+			Template: 67
+		MultiBrush@68:
+			Template: 68
+		MultiBrush@69:
+			Template: 69
+		MultiBrush@70:
+			Template: 70
+		MultiBrush@220:
+			Template: 220
+		MultiBrush@t04:
+			Actor: t04
+			BackingTile: 255,0
+			Weight: 100
+		MultiBrush@t08:
+			Actor: t08
+			BackingTile: 255,0
+			Weight: 100
+		MultiBrush@t09:
+			Actor: t09
+			BackingTile: 255,0
+			Weight: 100
+		MultiBrush@t18:
+			Actor: t18
+			BackingTile: 255,0
+			Weight: 100
+		MultiBrush@t04.husk:
+			Actor: t04.husk
+			BackingTile: 255,0
+			Weight: 100
+		MultiBrush@t08.husk:
+			Actor: t08.husk
+			BackingTile: 255,0
+			Weight: 100
+		MultiBrush@t09.husk:
+			Actor: t09.husk
+			BackingTile: 255,0
+			Weight: 100
+		MultiBrush@t18.husk:
+			Actor: t18.husk
+			BackingTile: 255,0
+			Weight: 100
+		MultiBrush@rock1:
+			Actor: rock1
+		MultiBrush@rock2:
+			Actor: rock2
+		MultiBrush@rock3:
+			Actor: rock3
+			Weight: 100
+		MultiBrush@rock4:
+			Actor: rock4
+		MultiBrush@rock5:
+			Actor: rock5
+		MultiBrush@rock6:
+			Actor: rock6
+		MultiBrush@rock7:
+			Actor: rock7
+	Water:
+		MultiBrush@1:
+			Template: 1
+			Weight: 100
+		MultiBrush@76:
+			Template: 76
+		MultiBrush@77:
+			Template: 77
+	CivilianBuildings:
+		MultiBrush@v20:
+			Actor: v20
+		MultiBrush@v21:
+			Actor: v21
+		MultiBrush@v22:
+			Actor: v22
+		MultiBrush@v23:
+			Actor: v23
+		MultiBrush@v24:
+			Actor: v24
+		MultiBrush@v25:
+			Actor: v25
+		MultiBrush@v26:
+			Actor: v26
+		MultiBrush@v27:
+			Actor: v27
+		MultiBrush@v28:
+			Actor: v28
+		MultiBrush@v29:
+			Actor: v29
+		MultiBrush@v30:
+			Actor: v30
+		MultiBrush@v31:
+			Actor: v31
+		MultiBrush@v32:
+			Actor: v32
+		MultiBrush@v33:
+			Actor: v33
+		MultiBrush@v34:
+			Actor: v34
+		MultiBrush@v35:
+			Actor: v35
+		MultiBrush@v36:
+			Actor: v36

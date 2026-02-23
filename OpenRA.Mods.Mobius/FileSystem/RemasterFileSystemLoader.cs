@@ -41,7 +41,7 @@ namespace OpenRA.Mods.Mobius.FileSystem
 
 		bool contentAvailable;
 
-		public void Mount(OpenRA.FileSystem.FileSystem fileSystem, ObjectCreator objectCreator)
+		public void Mount(Manifest manifest, OpenRA.FileSystem.FileSystem fileSystem, ObjectCreator objectCreator)
 		{
 			if (SystemPackages != null)
 				foreach (var kv in SystemPackages)
@@ -79,10 +79,18 @@ namespace OpenRA.Mods.Mobius.FileSystem
 
 		bool IFileSystemExternalContent.InstallContentIfRequired(ModData modData)
 		{
-			if (!contentAvailable)
-				Game.InitializeMod(InstallPromptMod, new Arguments());
+			if (!contentAvailable && Game.Mods.TryGetValue(InstallPromptMod, out var mod))
+				Game.InitializeMod(mod, new Arguments());
 
 			return !contentAvailable;
+		}
+
+		void IFileSystemExternalContent.ManageContent(ModData modData)
+		{
+			// Switching mods changes the world state (by disposing it),
+			// so we can't do this inside the input handler.
+			if (Game.Mods.TryGetValue(InstallPromptMod, out var mod))
+				Game.RunAfterTick(() => Game.InitializeMod(mod, new Arguments()));
 		}
 	}
 }

@@ -6,20 +6,35 @@ on:
     - '*'
 
 permissions:
-  contents: write  #  for release creation (svenstaro/upload-release-action)
+  contents: write  #  for release creation
 
 jobs:
-  linux:
-    name: Linux AppImages
+  create:
+    name: Create Release
     runs-on: ubuntu-22.04
     steps:
       - name: Clone Repository
         uses: actions/checkout@v4
 
-      - name: Install .NET 6.0
+      - name: Create Release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        shell: bash
+        run: |
+          gh release create ${{ github.ref_name }} -t ${{ github.ref_name }}
+
+  linux:
+    name: Linux AppImages
+    runs-on: ubuntu-22.04
+    needs: create
+    steps:
+      - name: Clone Repository
+        uses: actions/checkout@v4
+
+      - name: Install .NET 8.0
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '6.0.x'
+          dotnet-version: '8.0.x'
 
       - name: Prepare Environment
         run: echo "GIT_TAG=${GITHUB_REF#refs/tags/}" >> ${GITHUB_ENV}
@@ -32,25 +47,24 @@ jobs:
           ./packaging/linux/buildpackage.sh "${GIT_TAG}" "${PWD}/build/linux"
 
       - name: Upload Packages
-        uses: svenstaro/upload-release-action@v2
-        with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          tag: ${{ github.ref }}
-          overwrite: true
-          file_glob: true
-          file: build/linux/*
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        shell: bash
+        run: |
+          gh release upload ${{ github.ref_name }} build/linux/*
 
   macos:
     name: macOS Disk Image
-    runs-on: macos-13
+    runs-on: macos-14
+    needs: create
     steps:
       - name: Clone Repository
         uses: actions/checkout@v4
 
-      - name: Install .NET 6.0
+      - name: Install .NET 8.0
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '6.0.x'
+          dotnet-version: '8.0.x'
 
       - name: Prepare Environment
         run: echo "GIT_TAG=${GITHUB_REF#refs/tags/}" >> ${GITHUB_ENV}
@@ -68,25 +82,24 @@ jobs:
           ./packaging/macos/buildpackage.sh "${GIT_TAG}" "${PWD}/build/macos"
 
       - name: Upload Package
-        uses: svenstaro/upload-release-action@v2
-        with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          tag: ${{ github.ref }}
-          overwrite: true
-          file_glob: true
-          file: build/macos/*
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        shell: bash
+        run: |
+          gh release upload ${{ github.ref_name }} build/macos/*
 
   windows:
     name: Windows Installers
     runs-on: ubuntu-22.04
+    needs: create
     steps:
       - name: Clone Repository
         uses: actions/checkout@v4
 
-      - name: Install .NET 6.0
+      - name: Install .NET 8.0
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '6.0.x'
+          dotnet-version: '8.0.x'
 
       - name: Prepare Environment
         run: |
@@ -101,10 +114,8 @@ jobs:
           ./packaging/windows/buildpackage.sh "${GIT_TAG}" "${PWD}/build/windows"
 
       - name: Upload Packages
-        uses: svenstaro/upload-release-action@v2
-        with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          tag: ${{ github.ref }}
-          overwrite: true
-          file_glob: true
-          file: build/windows/*
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        shell: bash
+        run: |
+          gh release upload ${{ github.ref_name }} build/windows/*
