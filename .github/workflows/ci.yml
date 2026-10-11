@@ -9,7 +9,7 @@ permissions:
 
 jobs:
   linux:
-    name: Linux (.NET 8.0)
+    name: Linux (.NET 10.0)
     runs-on: ubuntu-22.04
 
     steps:
@@ -17,12 +17,12 @@ jobs:
         run: sudo apt-get remove -y dotnet*
 
       - name: Clone Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
-      - name: Install .NET 8.0
-        uses: actions/setup-dotnet@v4
+      - name: Install .NET 10.0
+        uses: actions/setup-dotnet@v6
         with:
-          dotnet-version: '8.0.x'
+          dotnet-version: '10.0.x'
 
       - name: Prepare Environment
         run: |
@@ -41,17 +41,17 @@ jobs:
           make TREAT_WARNINGS_AS_ERRORS=true test
 
   windows:
-    name: Windows (.NET 8.0)
-    runs-on: windows-2019
+    name: Windows (.NET 10.0)
+    runs-on: windows-2022
 
     steps:
       - name: Clone Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
-      - name: Install .NET 8.0
-        uses: actions/setup-dotnet@v4
+      - name: Install .NET 10.0
+        uses: actions/setup-dotnet@v6
         with:
-          dotnet-version: '8.0.x'
+          dotnet-version: '10.0.x'
 
       - name: Check Code
         shell: powershell

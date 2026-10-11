@@ -14,6 +14,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.IO;
 using System.Linq;
+using System.Numerics;
 using OpenRA.Graphics;
 using OpenRA.Mods.Common.SpriteLoaders;
 using OpenRA.Primitives;
@@ -161,7 +162,7 @@ namespace OpenRA.Mods.Mobius.Terrain
 				}
 			}
 
-			var sc = SpriteCache.SheetBuilders[SheetType.BGRA].Allocate(frame.Size, 1f, frame.Offset);
+			var sc = SpriteCache.SheetBuilders[SheetType.BGRA].Allocate(frame.Size, 1f, frame.Offset.AsVector3());
 			Util.FastCopyIntoChannel(sc, data, SpriteFrameType.Bgra32);
 			return sc;
 		}

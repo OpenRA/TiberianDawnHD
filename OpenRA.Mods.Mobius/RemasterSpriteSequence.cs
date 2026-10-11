@@ -14,6 +14,7 @@ using System.Collections.Immutable;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Numerics;
 using OpenRA.Graphics;
 using OpenRA.Mods.Cnc.Graphics;
 using OpenRA.Mods.Common.Graphics;
@@ -37,7 +38,7 @@ namespace OpenRA.Mods.Mobius.Graphics
 		public SpriteFrameType Type => inner.Type;
 		public Size Size => inner.Size;
 		public Size FrameSize => inner.FrameSize;
-		public float2 Offset => inner.Offset;
+		public Vector2 Offset => inner.Offset;
 		public bool DisableExportPadding => inner.DisableExportPadding;
 
 		public byte[] Data
@@ -94,7 +95,7 @@ namespace OpenRA.Mods.Mobius.Graphics
 		static readonly SpriteSequenceField<string> RemasteredMaskFilename = new(nameof(RemasteredMaskFilename), null);
 
 		[Desc("Change the position in-game on X, Y, Z.")]
-		protected static readonly SpriteSequenceField<float3> RemasteredOffset = new(nameof(RemasteredOffset), float3.Zero);
+		protected static readonly SpriteSequenceField<Vector3> RemasteredOffset = new(nameof(RemasteredOffset), Vector3.Zero);
 
 		[Desc("Frame index to start from.")]
 		protected static readonly SpriteSequenceField<int?> RemasteredStart = new(nameof(RemasteredStart), null);

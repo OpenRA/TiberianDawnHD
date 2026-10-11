@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="engine/OpenRA.Game/OpenRA.Game.csproj" />
+  <Project Path="engine/OpenRA.Mods.Cnc/OpenRA.Mods.Cnc.csproj" />
+  <Project Path="engine/OpenRA.Mods.Common/OpenRA.Mods.Common.csproj" />
+  <Project Path="OpenRA.Mods.Mobius/OpenRA.Mods.Mobius.csproj" />
+</Solution>

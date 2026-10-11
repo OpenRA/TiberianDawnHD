@@ -3,11 +3,8 @@
 # to compile, run:
 #   make
 #
-# to compile using Mono (version 6.12 or greater) instead of .NET 6, run:
-#   make RUNTIME=mono
-#
 # to compile using system libraries for native dependencies, run:
-#   make [RUNTIME=net6] TARGETPLATFORM=unix-generic
+#   make DEPENDENCIES=system
 #
 # to remove the files created by compiling, run:
 #   make clean
@@ -19,10 +16,10 @@
 #   make check-scripts
 #
 # to check the engine and your mod dlls for StyleCop violations, run:
-#   make [RUNTIME=net6] check
+#   make check
 #
 # to check your mod yaml for errors, run:
-#   make [RUNTIME=net6] [TREAT_WARNINGS_AS_ERRORS=false] test
+#   make [TREAT_WARNINGS_AS_ERRORS=false] test
 #
 # the following are internal sdk helpers that are not intended to be run directly:
 #   make check-variables
@@ -48,16 +45,19 @@ MOD_SEARCH_PATHS = "$(shell $(PYTHON) -c "import os; print(os.path.realpath('.')
 MANIFEST_PATH = "mods/$(MOD_ID)/mod.yaml"
 HAS_LUAC = $(shell command -v luac 2> /dev/null)
 LUA_FILES = $(shell find mods/*/maps/* -iname '*.lua' 2> /dev/null)
-MOD_SOLUTION_FILES = $(shell find . -maxdepth 1 -iname '*.sln' 2> /dev/null)
+MOD_SOLUTION_FILES = $(shell find . -maxdepth 1 -iname '*.slnx' 2> /dev/null)
 
 MSBUILD = msbuild -verbosity:m -nologo
 DOTNET = dotnet
 
-RUNTIME ?= net6
 CONFIGURATION ?= Release
 DOTNET_RID = $(shell ${DOTNET} --info | grep RID: | cut -w -f3)
 ARCH_X64 = $(shell echo ${DOTNET_RID} | grep x64)
 
+# Or use system dependencies on Unix:
+DEPENDENCIES ?= bundled
+
+# Detect target platform if not given by the user
 ifndef TARGETPLATFORM
 UNAME_S := $(shell uname -s)
 UNAME_M := $(shell uname -m)
@@ -73,8 +73,6 @@ TARGETPLATFORM = linux-x64
 else
 ifeq ($(UNAME_M),aarch64)
 TARGETPLATFORM = linux-arm64
-else
-TARGETPLATFORM = unix-generic
 endif
 endif
 endif
@@ -141,25 +139,14 @@ check-variables:
 
 engine: check-variables check-sdk-scripts
 	@./fetch-engine.sh || (printf "Unable to continue without engine files\n"; exit 1)
-	@cd $(ENGINE_DIRECTORY) && make RUNTIME=$(RUNTIME) TARGETPLATFORM=$(TARGETPLATFORM) all
+	@cd $(ENGINE_DIRECTORY) && make DEPENDENCIES=$(DEPENDENCIES) TARGETPLATFORM=$(TARGETPLATFORM) all
 
 all: engine
-ifeq ($(RUNTIME), mono)
-	@command -v $(MSBUILD) >/dev/null || (echo "OpenRA requires the '$(MSBUILD)' tool provided by Mono >= 6.12."; exit 1)
-ifneq ("$(MOD_SOLUTION_FILES)","")
-	@find . -maxdepth 1 -name '*.sln' -exec $(MSBUILD) -t:Build -restore -p:Configuration=${CONFIGURATION} -p:TargetPlatform=$(TARGETPLATFORM) -p:Mono=true \;
-endif
-else
-	@find . -maxdepth 1 -name '*.sln' -exec $(DOTNET) build -c ${CONFIGURATION} -p:TargetPlatform=$(TARGETPLATFORM) \;
-endif
+	@find . -maxdepth 1 -name '*.slnx' -exec $(DOTNET) build -c ${CONFIGURATION} -nologo -p:TargetPlatform=$(TARGETPLATFORM) \;
 
 clean: engine
 ifneq ("$(MOD_SOLUTION_FILES)","")
-ifeq ($(RUNTIME), mono)
-	@find . -maxdepth 1 -name '*.sln' -exec $(MSBUILD) -t:clean \;
-else
-	@find . -maxdepth 1 -name '*.sln' -exec $(DOTNET) clean \;
-endif
+	@find . -maxdepth 1 -name '*.slnx' -exec $(DOTNET) clean \;
 endif
 	@cd $(ENGINE_DIRECTORY) && make clean
 
@@ -180,12 +167,8 @@ endif
 check: engine
 ifneq ("$(MOD_SOLUTION_FILES)","")
 	@echo "Compiling in Debug mode..."
-ifeq ($(RUNTIME), mono)
-	@$(MSBUILD) -t:clean\;build -restore -p:Configuration=Debug -warnaserror -p:TargetPlatform=$(TARGETPLATFORM)
-else
 	@$(DOTNET) clean -c Debug --nologo --verbosity minimal
 	@$(DOTNET) build -c Debug -nologo -warnaserror -p:TargetPlatform=$(TARGETPLATFORM)
-endif
 endif
 	@echo "Checking for explicit interface violations..."
 	@./utility.sh --check-explicit-interfaces

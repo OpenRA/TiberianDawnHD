@@ -9,6 +9,7 @@
  */
 #endregion
 
+using System.Numerics;
 using OpenRA.FileSystem;
 using OpenRA.Graphics;
 using OpenRA.Mods.Common.LoadScreens;
@@ -22,7 +23,7 @@ namespace OpenRA.Mods.Mobius.LoadScreens
 	{
 		Sprite nodLogo, gdiLogo, evaLogo;
 		Sprite[] border;
-		float2 nodPos, gdiPos, evaPos;
+		Vector3 nodPos, gdiPos, evaPos;
 		Rectangle bounds;
 		string versionText;
 
@@ -67,9 +68,9 @@ namespace OpenRA.Mods.Mobius.LoadScreens
 				lastResolution = r.Resolution;
 
 				bounds = new Rectangle(0, 0, lastResolution.Width, lastResolution.Height);
-				nodPos = new float2(bounds.Width / 2 - 384, bounds.Height / 2 - 128);
-				gdiPos = new float2(bounds.Width / 2 + 128, bounds.Height / 2 - 128);
-				evaPos = new float2(bounds.Width - 43 - 128, 43);
+				nodPos = new Vector3(bounds.Width / 2 - 384, bounds.Height / 2 - 128, 0);
+				gdiPos = new Vector3(bounds.Width / 2 + 128, bounds.Height / 2 - 128, 0);
+				evaPos = new Vector3(bounds.Width - 43 - 128, 43, 0);
 			}
 
 			r.RgbaSpriteRenderer.DrawSprite(gdiLogo, gdiPos);
@@ -82,7 +83,7 @@ namespace OpenRA.Mods.Mobius.LoadScreens
 			{
 				var versionFont = r.Fonts["Regular"];
 				var versionSize = versionFont.Measure(versionText);
-				var versionPos = new float2(bounds.Width - 107 - versionSize.X / 2, 115 - versionSize.Y / 2);
+				var versionPos = new Vector2(bounds.Width - 107 - versionSize.X / 2, 115 - versionSize.Y / 2);
 				versionFont.DrawTextWithContrast(versionText, versionPos, Color.White, Color.Black, 2);
 			}
 		}

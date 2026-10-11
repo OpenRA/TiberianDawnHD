@@ -12,6 +12,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Numerics;
 using OpenRA.Graphics;
 using OpenRA.Mods.Common.Terrain;
 using OpenRA.Mods.Common.Traits;
@@ -158,7 +159,7 @@ namespace OpenRA.Mods.Mobius.Traits
 					var u = map.Grid.Type == MapGridType.Rectangular ? x : (x - y) / 2f;
 					var v = map.Grid.Type == MapGridType.Rectangular ? y : (x + y) / 2f;
 
-					var tl = new float2(u * tileSize.Width, (v - 0.5f * tileInfo.Height) * tileSize.Height) - 0.5f * scale * sprite.Size;
+					var tl = new Vector3(u * tileSize.Width, (v - 0.5f * tileInfo.Height) * tileSize.Height, 0) - 0.5f * scale * sprite.Size;
 					var rect = new Rectangle(
 						(int)(tl.X + scale * sprite.Offset.X),
 						(int)(tl.Y + scale * sprite.Offset.Y),
@@ -197,9 +198,9 @@ namespace OpenRA.Mods.Mobius.Traits
 					var tileScale = tileCache.TileScale(tile);
 					var u = gridType == MapGridType.Rectangular ? x : (x - y) / 2f;
 					var v = gridType == MapGridType.Rectangular ? y : (x + y) / 2f;
-					var offset = (scale * new float2(u * ts.Width, (v - 0.5f * tileInfo.Height) * ts.Height) - 0.5f * scale * tileScale * sprite.Size.XY).ToInt2();
+					var offset = scale * new Vector2(u * ts.Width, (v - 0.5f * tileInfo.Height) * ts.Height) - 0.5f * scale * tileScale * sprite.Size.AsVector2();
 
-					yield return new UISpriteRenderable(sprite, WPos.Zero, origin + offset, 0, palette, scale * tileScale);
+					yield return new UISpriteRenderable(sprite, WPos.Zero, origin.ToVector2() + offset, 0, palette, scale * tileScale);
 				}
 			}
 		}
@@ -226,7 +227,7 @@ namespace OpenRA.Mods.Mobius.Traits
 					var offset = map.Offset(new CVec(x, y), tileInfo.Height);
 					var scale = tileCache.TileScale(tile);
 
-					yield return new SpriteRenderable(sprite, origin, offset, 0, palette, scale, 1f, float3.Ones, TintModifiers.None, false);
+					yield return new SpriteRenderable(sprite, origin, offset, 0, palette, scale, 1f, Vector3.One, TintModifiers.None, false);
 				}
 			}
 		}
@@ -243,7 +244,7 @@ namespace OpenRA.Mods.Mobius.Traits
 			var offset = map.Offset(new CVec(0, 0), template[tile.Index].Height);
 			var scale = tileCache.TileScale(tile);
 			var palette = wr.Palette((template as RemasterTerrainTemplateInfo)?.Palette ?? terrainInfo.Palette);
-			yield return new SpriteRenderable(sprite, origin, offset, 0, palette, scale, 1f, float3.Ones, TintModifiers.None, false);
+			yield return new SpriteRenderable(sprite, origin, offset, 0, palette, scale, 1f, Vector3.One, TintModifiers.None, false);
 		}
 	}
 }

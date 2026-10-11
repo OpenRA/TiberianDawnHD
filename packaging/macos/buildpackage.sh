@@ -71,6 +71,10 @@ if [ -n "${MACOS_DEVELOPER_CERTIFICATE_BASE64}" ] && [ -n "${MACOS_DEVELOPER_CER
 	echo "Importing signing certificate"
 	echo "${MACOS_DEVELOPER_CERTIFICATE_BASE64}" | base64 --decode > build.p12
 	security create-keychain -p build build.keychain
+
+	# Ensure keychain is deleted upon script exit, even on failure
+	trap 'security delete-keychain build.keychain 2>/dev/null || true' EXIT
+
 	security default-keychain -s build.keychain
 	security unlock-keychain -p build build.keychain
 	security import build.p12 -k build.keychain -P "${MACOS_DEVELOPER_CERTIFICATE_PASSWORD}" -T /usr/bin/codesign >/dev/null 2>&1
@@ -126,12 +130,9 @@ else
 fi
 
 # Compile universal (x86_64 + arm64) Launcher and arch-specific apphosts
+clang "${TEMPLATE_ROOT}/${ENGINE_DIRECTORY}/packaging/macos/launcher.m" -o "${LAUNCHER_ASSEMBLY_DIR}/Launcher" -framework AppKit -arch x86_64 -arch arm64 -mmacosx-version-min=10.15
 clang "${TEMPLATE_ROOT}/${ENGINE_DIRECTORY}/packaging/macos/apphost.c" -o "${LAUNCHER_ASSEMBLY_DIR}/apphost-x86_64" -framework AppKit -target x86_64-apple-macos10.15
 clang "${TEMPLATE_ROOT}/${ENGINE_DIRECTORY}/packaging/macos/apphost.c" -o "${LAUNCHER_ASSEMBLY_DIR}/apphost-arm64" -framework AppKit -target arm64-apple-macos10.15
-clang "${TEMPLATE_ROOT}/${ENGINE_DIRECTORY}/packaging/macos/launcher.m" -o "${LAUNCHER_ASSEMBLY_DIR}/Launcher-x86_64" -framework AppKit -target x86_64-apple-macos10.15
-clang "${TEMPLATE_ROOT}/${ENGINE_DIRECTORY}/packaging/macos/launcher.m" -o "${LAUNCHER_ASSEMBLY_DIR}/Launcher-arm64" -framework AppKit -target arm64-apple-macos10.15
-lipo -create -output "${LAUNCHER_ASSEMBLY_DIR}/Launcher" "${LAUNCHER_ASSEMBLY_DIR}/Launcher-x86_64" "${LAUNCHER_ASSEMBLY_DIR}/Launcher-arm64"
-rm "${LAUNCHER_ASSEMBLY_DIR}/Launcher-x86_64" "${LAUNCHER_ASSEMBLY_DIR}/Launcher-arm64"
 
 install_assemblies "${TEMPLATE_ROOT}/${ENGINE_DIRECTORY}" "${LAUNCHER_ASSEMBLY_DIR}/x86_64" "osx-x64" "True" "${PACKAGING_COPY_CNC_DLL}" "${PACKAGING_COPY_D2K_DLL}"
 install_assemblies "${TEMPLATE_ROOT}/${ENGINE_DIRECTORY}" "${LAUNCHER_ASSEMBLY_DIR}/arm64" "osx-arm64" "True" "${PACKAGING_COPY_CNC_DLL}" "${PACKAGING_COPY_D2K_DLL}"
@@ -159,7 +160,7 @@ fi
 # Assemble multi-resolution icon
 mkdir "${BUILTDIR}/mod.iconset"
 cp "${ARTWORK_DIR}/icon_16x16.png" "${BUILTDIR}/mod.iconset/icon_16x16.png"
-cp "${ARTWORK_DIR}/icon_32x32.png" "${BUILTDIR}/mod.iconset/icon_16x16@2.png"
+cp "${ARTWORK_DIR}/icon_32x32.png" "${BUILTDIR}/mod.iconset/icon_16x16@2x.png"
 cp "${ARTWORK_DIR}/icon_32x32.png" "${BUILTDIR}/mod.iconset/icon_32x32.png"
 cp "${ARTWORK_DIR}/icon_64x64.png" "${BUILTDIR}/mod.iconset/icon_32x32@2x.png"
 cp "${ARTWORK_DIR}/icon_128x128.png" "${BUILTDIR}/mod.iconset/icon_128x128.png"
@@ -222,34 +223,18 @@ sync
 hdiutil detach "${DMG_DEVICE}"
 rm -rf "${BUILTDIR}"
 
-if [ -n "${MACOS_DEVELOPER_CERTIFICATE_BASE64}" ] && [ -n "${MACOS_DEVELOPER_CERTIFICATE_PASSWORD}" ] && [ -n "${MACOS_DEVELOPER_IDENTITY}" ]; then
-	security delete-keychain build.keychain
-fi
+DMG_PATH="${OUTPUTDIR}/${PACKAGING_INSTALLER_NAME}-${TAG}.dmg"
+hdiutil convert "build.dmg" -format ULFO -ov -o "${DMG_PATH}"
 
 if [ -n "${MACOS_DEVELOPER_USERNAME}" ] && [ -n "${MACOS_DEVELOPER_PASSWORD}" ] && [ -n "${MACOS_DEVELOPER_IDENTITY}" ]; then
 	echo "Submitting build for notarization"
 
-	# Reset xcode search path to fix xcrun not finding altool
+	# Reset xcode search path to fix xcrun not finding altool/notarytool
 	sudo xcode-select -r
 
-	# Create a temporary read-only dmg for submission (notarization service rejects read/write images)
-	hdiutil convert "build.dmg" -format ULFO -ov -o "build-notarization.dmg"
-
-	xcrun notarytool submit "build-notarization.dmg" --wait --apple-id "${MACOS_DEVELOPER_USERNAME}" --password "${MACOS_DEVELOPER_PASSWORD}" --team-id "${MACOS_DEVELOPER_IDENTITY}"
-
-	rm "build-notarization.dmg"
+	# Submit the final DMG directly to notarytool
+	xcrun notarytool submit "${DMG_PATH}" --wait --apple-id "${MACOS_DEVELOPER_USERNAME}" --password "${MACOS_DEVELOPER_PASSWORD}" --team-id "${MACOS_DEVELOPER_IDENTITY}"
 
 	echo "Stapling tickets"
-	DMG_DEVICE=$(hdiutil attach -readwrite -noverify -noautoopen "build.dmg" | egrep '^/dev/' | sed 1q | awk '{print $1}')
-	sleep 2
-
-	xcrun stapler staple "/Volumes/${PACKAGING_DISPLAY_NAME}/${PACKAGING_OSX_APP_NAME}"
-
-	sync
-	sync
-
-	hdiutil detach "${DMG_DEVICE}"
+	xcrun stapler staple "${DMG_PATH}"
 fi
-
-hdiutil convert "build.dmg" -format ULFO -ov -o "${OUTPUTDIR}/${PACKAGING_INSTALLER_NAME}-${TAG}.dmg"
-rm "build.dmg"

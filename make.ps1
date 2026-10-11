@@ -5,7 +5,7 @@
 ###############################################################
 function All-Command
 {
-	If (!(Test-Path "*.sln"))
+	If (!(Test-Path "*.slnx"))
 	{
 		Write-Host "No custom solution file found. Aborting." -ForegroundColor Red
 		return
@@ -16,8 +16,10 @@ function All-Command
 		return
 	}
 
-	Write-Host "Building $modID in" $configuration "configuration..." -ForegroundColor Cyan
-	dotnet build -c $configuration --nologo -p:TargetPlatform=win-x64
+	$arch = $env:PROCESSOR_ARCHITECTURE
+	Write-Host "Building in" $configuration "configuration for" $arch "..." -ForegroundColor Cyan
+	$rid = if ($arch -eq "ARM64") { "win-arm64" } else { "win-x64" }
+	dotnet build -c $configuration --nologo -p:TargetPlatform=$rid
 
 	if ($lastexitcode -ne 0)
 	{
@@ -31,7 +33,7 @@ function All-Command
 
 function Clean-Command
 {
-	If (!(Test-Path "*.sln"))
+	If (!(Test-Path "*.slnx"))
 	{
 		Write-Host "No custom solution file found - nothing to clean. Aborting." -ForegroundColor Red
 		return
@@ -110,7 +112,7 @@ function Test-Command
 
 function Check-Command
 {
-	If (!(Test-Path "*.sln"))
+	If (!(Test-Path "*.slnx"))
 	{
 		Write-Host "No custom solution file found. Skipping static code checks." -ForegroundColor Cyan
 		return
@@ -119,7 +121,8 @@ function Check-Command
 	Write-Host "Compiling $modID in Debug configuration..." -ForegroundColor Cyan
 
 	dotnet clean -c Debug --nologo --verbosity minimal
-	dotnet build -c Debug --nologo -warnaserror -p:TargetPlatform=win-x64
+	$rid = if ($env:PROCESSOR_ARCHITECTURE -eq "ARM64") { "win-arm64" } else { "win-x64" }
+	dotnet build -c Debug --nologo -warnaserror -p:TargetPlatform=$rid
 
 	if ($lastexitcode -ne 0)
 	{
@@ -168,7 +171,7 @@ function CheckForDotnet
 {
 	if ((Get-Command "dotnet" -ErrorAction SilentlyContinue) -eq $null)
 	{
-		Write-Host "The 'dotnet' tool is required to compile OpenRA. Please install the .NET 6.0 SDK and try again. https://dotnet.microsoft.com/download/dotnet/6.0" -ForegroundColor Red
+		Write-Host "The 'dotnet' tool is required to compile OpenRA. Please install the .NET 10.0 SDK and try again. https://dotnet.microsoft.com/download/dotnet/6.0" -ForegroundColor Red
 		return 1
 	}
 

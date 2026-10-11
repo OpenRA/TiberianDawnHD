@@ -304,6 +304,7 @@ ChromeLayout:
 	cnc|chrome/mapchooser.yaml
 	cnc|chrome/replaybrowser.yaml
 	cnc|chrome/gamesave-browser.yaml
+	cnc|chrome/load-game-browser.yaml
 	cnc|chrome/gamesave-loading.yaml
 	cnc|chrome/ingame.yaml
 	cnc|chrome/ingame-chat.yaml
@@ -337,6 +338,7 @@ ChromeLayout:
 
 FluentMessages:
 	common|fluent/common.ftl
+    common|fluent/ingame-debug.ftl
 	common|fluent/hotkeys.ftl
 	common|fluent/rules.ftl
 	cnc|fluent/cnc.ftl

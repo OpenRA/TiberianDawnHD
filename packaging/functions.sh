@@ -10,7 +10,7 @@
 # Arguments:
 #   SRC_PATH: Path to the root SDK directory
 #   DEST_PATH: Path to the root of the install destination (will be created if necessary)
-#   TARGETPLATFORM: Platform type (win-x86, win-x64, osx-x64, osx-arm64, linux-x64, linux-arm64, unix-generic)
+#   TARGETPLATFORM: Platform type (win-arm64, win-x64, osx-x64, osx-arm64, linux-x64, linux-arm64)
 #   ENGINE_PATH: Path to the engine root directory
 install_mod_assemblies() {
 	SRC_PATH="${1}"
@@ -21,6 +21,6 @@ install_mod_assemblies() {
 	ORIG_PWD=$(pwd)
 	cd "${SRC_PATH}" || exit 1
 
-	find . -maxdepth 1 -name '*.sln' -exec dotnet publish -c Release -p:TargetPlatform="${TARGETPLATFORM}" -r "${TARGETPLATFORM}" -p:PublishDir="${DEST_PATH}" --self-contained true \;
+	find . -maxdepth 1 -name '*.slnx' -exec dotnet publish -c Release -p:TargetPlatform="${TARGETPLATFORM}" -r "${TARGETPLATFORM}" -p:PublishDir="${DEST_PATH}" --self-contained true \;
 	cd "${ORIG_PWD}" || exit 1
 }
