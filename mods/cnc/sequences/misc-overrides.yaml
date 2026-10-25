@@ -29,12 +29,9 @@ burn-s:
 smoke_m:
 	Defaults:
 		RemasteredFilename: DATA\ART\TEXTURES\SRGB\COMMON\VFX\SMOKE_M.ZIP
+		RemasteredOffset: 11, -27
 	idle:
-		RemasteredOffset: 11, -27
-	loop:
-		RemasteredOffset: 11, -27
-	end:
-		RemasteredOffset: 11, -27
+		Length: 90 # Ignore additional frames in SMOKE_M.ZIP
 
 scorch_flames:
 	large_flame:
