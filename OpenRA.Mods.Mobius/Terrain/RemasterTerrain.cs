@@ -56,6 +56,8 @@ namespace OpenRA.Mods.Mobius.Terrain
 		public readonly string Id;
 		public readonly Size TileSize = new(24, 24);
 		public readonly Size RemasteredTileSize = new(128, 128);
+		public readonly string RemasteredSettingKey = "ArtworkStyle";
+		public readonly string RemasteredSettingValue = "remastered";
 		public readonly int BgraSheetSize = 4096;
 		public readonly int IndexedSheetSize = 512;
 		public readonly ImmutableArray<Color> HeightDebugColors = [Color.Red];
@@ -87,7 +89,13 @@ namespace OpenRA.Mods.Mobius.Terrain
 			FieldLoader.Load(this, yaml["General"]);
 
 			var settings = modData.GetSettings<ContentSourcesFileSystem.ContentSourceSettings>();
-			UseRemasteredTerrain = settings.TryGetValue("ArtworkStyle", out var value) && value == "remastered";
+			UseRemasteredTerrain = settings.TryGetValue(RemasteredSettingKey, out var value) && value == RemasteredSettingValue;
+			if (UseRemasteredTerrain)
+			{
+				var wvs = modData.GetOrCreate<WorldViewportSizes>();
+				wvs.GetType().GetField(nameof(WorldViewportSizes.DefaultScale))?
+					.SetValue(wvs, TileSize.Width * 1f / RemasteredTileSize.Width);
+			}
 
 			// TerrainTypes
 			TerrainInfo = yaml["Terrain"].ToDictionary().Values

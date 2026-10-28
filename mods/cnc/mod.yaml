@@ -216,6 +216,17 @@ FileSystem: RemasterFileSystem
 				~gdi95|MOVIES.MIX
 				~nod95|MOVIES.MIX
 				~covert|SCORES.MIX
+	OverrideVoices:
+		remaster:
+			cnchd|audio/voices-base.yaml
+			cnchd|audio/voices-{AudioLanguage}-{AudioStyle}.yaml
+	OverrideNotifications:
+		remaster:
+			cnchd|audio/notifications-base.yaml
+			cnchd|audio/notifications-{AudioLanguage}-{AudioStyle}.yaml
+	OverrideMusic:
+		remaster:
+			cnchd|audio/music-{MusicStyle}.yaml
 
 MapFolders:
 	cnc|maps: System
@@ -424,9 +435,6 @@ MapGrid:
 	TileSize: 128,128
 	Type: Rectangular
 	EnableFrameBufferDownscale: true
-
-WorldViewportSizes:
-	DefaultScale: 0.1875
 
 DefaultOrderGenerator: UnitOrderGenerator
 

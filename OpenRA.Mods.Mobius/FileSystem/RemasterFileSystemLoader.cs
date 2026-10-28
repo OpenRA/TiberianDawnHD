@@ -9,41 +9,78 @@
  */
 #endregion
 
+using System.Collections.Frozen;
+using System.Collections.Generic;
 using System.Collections.Immutable;
+using System.Linq;
 
 namespace OpenRA.Mods.Mobius.FileSystem
 {
 	public class RemasterFileSystemLoader : ContentSourcesFileSystem
 	{
+		[FieldLoader.LoadUsing(nameof(LoadOverrideVoices))]
+		[Desc("A list of paths for each content source to replace the manifest Voices definition. " +
+			"Items enclosed in braces will be replaced by the named ContentSourceSettings key.")]
+		public readonly FrozenDictionary<string, ImmutableArray<string>> OverrideVoices = null;
+
+		[FieldLoader.LoadUsing(nameof(LoadOverrideNotifications))]
+		[Desc("A list of paths for each content source to replace the manifest Voices definition. " +
+			"Items enclosed in braces will be replaced by the named ContentSourceSettings key.")]
+		public readonly FrozenDictionary<string, ImmutableArray<string>> OverrideNotifications = null;
+
+		[FieldLoader.LoadUsing(nameof(LoadOverrideMusic))]
+		[Desc("A list of paths for each content source to replace the manifest Voices definition. " +
+			"Items enclosed in braces will be replaced by the named ContentSourceSettings key.")]
+		public readonly FrozenDictionary<string, ImmutableArray<string>> OverrideMusic = null;
+
+		public static FrozenDictionary<string, ImmutableArray<string>> LoadOverrideVoices(MiniYaml yaml)
+			=> LoadOverride("OverrideVoices", yaml);
+
+		public static FrozenDictionary<string, ImmutableArray<string>> LoadOverrideNotifications(MiniYaml yaml)
+			=> LoadOverride("OverrideNotifications", yaml);
+
+		public static FrozenDictionary<string, ImmutableArray<string>> LoadOverrideMusic(MiniYaml yaml)
+			=> LoadOverride("OverrideMusic", yaml);
+
+		public static FrozenDictionary<string, ImmutableArray<string>> LoadOverride(string key, MiniYaml yaml)
+		{
+			var ret = new Dictionary<string, ImmutableArray<string>>();
+			var sourcesNode = yaml.Nodes.SingleOrDefault(n => n.Key == key);
+			if (sourcesNode != null)
+				foreach (var s in sourcesNode.Value.Nodes)
+					ret.Add(s.Key, s.Value.Nodes.Select(n => n.Key).ToImmutableArray());
+
+			return ret.ToFrozenDictionary();
+		}
+
+		void OverrideManifestPaths(Manifest manifest, string key, ImmutableArray<string> overridePaths)
+		{
+			var paths = new List<string>();
+			foreach (var p in overridePaths)
+			{
+				var path = p;
+				foreach (var setting in sourceSettings.Yaml.Nodes)
+					path = path.Replace("{" + setting.Key + "}", sourceSettings[setting.Key]);
+
+				paths.Add(path);
+			}
+
+			manifest.GetType().GetField(key)?.SetValue(manifest, paths.ToImmutableArray());
+		}
+
 		protected override bool InstallContentIfRequired(ModData modData)
 		{
 			if (base.InstallContentIfRequired(modData))
 				return true;
 
-			// Hack the mod manifest to set the requested variant
-			static void BodgeManifestPaths(Manifest manifest, string field, ImmutableArray<string> paths) =>
-				manifest.GetType().GetField(field)?.SetValue(manifest, paths);
+			if (OverrideVoices != null && OverrideVoices.TryGetValue(sourceSettings.ContentSource, out var paths))
+				OverrideManifestPaths(modData.Manifest, "Voices", paths);
 
-			if (sourceSettings.ContentSource == "remaster")
-			{
-				BodgeManifestPaths(modData.Manifest, "Voices", [
-					"cnchd|audio/voices-base.yaml",
-					$"cnchd|audio/voices-{sourceSettings["AudioLanguage"]}-{sourceSettings["AudioStyle"]}.yaml",
-				]);
+			if (OverrideNotifications != null && OverrideNotifications.TryGetValue(sourceSettings.ContentSource, out paths))
+				OverrideManifestPaths(modData.Manifest, "Notifications", paths);
 
-				BodgeManifestPaths(modData.Manifest, "Notifications", [
-					"cnchd|audio/notifications-base.yaml",
-					$"cnchd|audio/notifications-{sourceSettings["AudioLanguage"]}-{sourceSettings["AudioStyle"]}.yaml",
-				]);
-
-				BodgeManifestPaths(modData.Manifest, "Music", [$"cnchd|audio/music-{sourceSettings["MusicStyle"]}.yaml"]);
-			}
-
-			if (sourceSettings["ArtworkStyle"] != "remastered")
-			{
-				var wvs = modData.GetOrCreate<WorldViewportSizes>();
-				wvs.GetType().GetField("DefaultScale")?.SetValue(wvs, 1.0f);
-			}
+			if (OverrideMusic != null && OverrideMusic.TryGetValue(sourceSettings.ContentSource, out paths))
+				OverrideManifestPaths(modData.Manifest, "Music", paths);
 
 			return false;
 		}
